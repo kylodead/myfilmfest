@@ -62,7 +62,7 @@ def _score_and_reason(imdb_id, taste_profile, favorite_actors, watchlist_ids):
 
 def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids):
     """
-    billboard: { cinema_name: [ {title, showtimes, sensacine_url, imdb_id}, ... ] }
+    billboard: { cinema_name: [ {title, showtimes, listing_url, imdb_id}, ... ] }
     Devuelve lista de recomendaciones para lunes-jueves, agrupadas por
     película (una peli puede estar en varios cines -> se agrupan showtimes).
     """
@@ -85,7 +85,7 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
                 {
                     "name": cinema_name,
                     "showtimes": f.get("showtimes", []),
-                    "sensacine_url": f.get("sensacine_url"),
+                    "listing_url": f.get("listing_url"),
                 }
             )
 
