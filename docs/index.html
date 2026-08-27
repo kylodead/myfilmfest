@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>MyFilmFest</title>
+<meta name="description" content="Tu recomendador semanal de cine: estrenos en plataformas y cartelera de Madrid cruzados con tus gustos de IMDb." />
+
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0f1115" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="MyFilmFest" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">🎬</span>
+    <span class="brand-name">MyFilmFest</span>
+  </div>
+  <div class="week-label" id="week-label">—</div>
+</header>
+
+<main id="app">
+  <section class="loading" id="loading">Cargando tu propuesta de la semana…</section>
+
+  <section class="section" id="weekend-section" hidden>
+    <h2>Este finde, en tus plataformas <span class="range" id="weekend-range"></span></h2>
+    <div class="cards-grid" id="weekend-grid"></div>
+    <p class="empty-note" id="weekend-empty" hidden>No hay novedades claras esta semana en tus plataformas. Vuelve el viernes que viene 🍿</p>
+  </section>
+
+  <section class="section" id="cinema-section" hidden>
+    <h2>De lunes a jueves, en cines de Madrid <span class="range" id="cinema-range"></span></h2>
+    <div class="cards-grid" id="cinema-grid"></div>
+    <p class="empty-note" id="cinema-empty" hidden>No hay nada que encaje con tus gustos esta semana en tus cines. A veces toca semana tranquila.</p>
+  </section>
+
+  <section class="errors" id="errors" hidden></section>
+
+  <footer class="footer">
+    <span id="generated-at"></span>
+  </footer>
+</main>
+
+<div class="modal-backdrop" id="modal-backdrop" hidden>
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
