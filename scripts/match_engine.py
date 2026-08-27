@@ -2,21 +2,68 @@
 Cruza cartelera de Madrid + novedades de streaming con tus listas (pendientes,
 actores favoritos) y tu perfil de gustos real (géneros donde tu nota media
 supera claramente tu media general, directores que puntúas alto más de una
-vez) — no con "géneros que ves mucho", que no significa que te gusten más
-que la media.
+vez, sagas de las que ya has visto y puntuado bien alguna entrega) — no con
+"géneros que ves mucho", que no significa que te gusten más que la media.
 
 Jerarquía de motivos (de más a menos fiable):
   1. Está en tu lista de pendientes           -> score 100
   2. Sale un actor/actriz de tu lista de favoritos -> score 85
   3. La dirige alguien a quien sueles puntuar alto (>=8, más de una vez) -> score 65
-  4. Coincide con AL MENOS 2 de tus géneros de verdadera preferencia,
+  4. Es de una saga de la que ya viste y puntuaste bien otra entrega     -> score 55
+  5. Coincide con AL MENOS 2 de tus géneros de verdadera preferencia,
      Y ninguno de esos géneros es genérico-ómnibus por sí solo           -> score 45
 Un match "solo por género" nunca se ofrece en solitario si solo coincide 1
 género — eso es ruido, no una recomendación.
 """
+import re
+import unicodedata
+
 from utils import get_title_metadata
 
 MIN_GENRE_MATCHES = 2
+
+# Palabras que TMDB añade al nombre de una colección y que no forman parte
+# del nombre real de la saga (viene en español por el language=es-ES de la
+# petición, pero cubrimos también el inglés por si acaso) — se quitan antes
+# de comparar, para quedarnos solo con "insidious", no "insidious colección".
+_COLLECTION_SUFFIX_RE = re.compile(
+    r"\b(colecci[oó]n|collection|saga)\b", re.IGNORECASE
+)
+
+
+def _normalize_for_saga(text: str) -> str:
+    t = (text or "").lower().strip()
+    t = "".join(c for c in unicodedata.normalize("NFKD", t) if not unicodedata.combining(c))
+    t = _COLLECTION_SUFFIX_RE.sub(" ", t)
+    t = re.sub(r"[^a-z0-9 ]", " ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    return t
+
+
+def _liked_saga_match(collection_name, liked_titles_normalized):
+    """
+    ¿Alguno de tus títulos puntuados >=7 empieza por el nombre base de esta
+    saga? (p.ej. colección "Insidious Collection" -> base "insidious" ->
+    ¿tienes puntuada alguna "Insidious..."?). Solo miramos el PREFIJO del
+    título, no una coincidencia en cualquier parte, para no confundir sagas
+    con palabras sueltas comunes.
+    """
+    base = _normalize_for_saga(collection_name)
+    if not base or len(base) < 3:
+        return False
+    return any(t.startswith(base) for t in liked_titles_normalized)
+
+
+def _get_liked_titles_normalized(taste_profile):
+    """Normaliza tus títulos puntuados >=7 UNA sola vez por ejecución (no una
+    vez por candidato) y lo guarda en el propio taste_profile."""
+    cached = taste_profile.get("_liked_titles_normalized")
+    if cached is not None:
+        return cached
+    normalized = {_normalize_for_saga(t) for t in taste_profile.get("liked_titles", [])}
+    normalized.discard("")
+    taste_profile["_liked_titles_normalized"] = normalized
+    return normalized
 
 
 def _score_and_reason(imdb_id, taste_profile, favorite_actors, watchlist_ids, tmdb_id=None):
@@ -47,6 +94,10 @@ def _score_and_reason(imdb_id, taste_profile, favorite_actors, watchlist_ids, tm
         who = ", ".join(sorted(matched_directors)[:1])
         n = taste_profile.get("director_counts", {}).get(list(matched_directors)[0], 0)
         return True, f"Dirigida por {who}, a quien sueles puntuar alto ({n} pelis con nota ≥8)", 65, info
+
+    collection_name = info.get("collection_name")
+    if collection_name and _liked_saga_match(collection_name, _get_liked_titles_normalized(taste_profile)):
+        return True, f"Es de la saga de {collection_name}, de la que ya viste y puntuaste bien otra entrega", 55, info
 
     genre_affinity = taste_profile.get("genre_affinity", {})
     matched_genres = genres & taste_profile.get("top_genres", set())
