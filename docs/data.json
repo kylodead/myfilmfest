@@ -1,20 +1,32 @@
 {
-  "generated_at": "2026-08-27T10:06",
+  "generated_at": "2026-08-27T10:31",
   "week_label": "28/08 – 03/09",
   "weekend": {
     "range": "29/08 – 30/08",
     "picks": [
       {
-        "imdb_id": "tt27165187",
-        "title": "El final de Oak Street",
-        "poster": "https://images.justwatch.com/poster/347475607/s718/flowervale-street.jpg",
+        "imdb_id": "tt39390497",
+        "title": "La captura",
+        "poster": "https://images.justwatch.com/poster/348171183/s718/la-captura-2026.jpg",
         "rating": null,
-        "imdb_url": "https://www.imdb.com/title/tt27165187/",
+        "imdb_url": "https://www.imdb.com/title/tt39390497/",
         "platform": "Netflix",
-        "release_date": "2026-08-12",
+        "release_date": "2026-08-21",
         "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
         "score": 10,
         "day": "viernes"
+      },
+      {
+        "imdb_id": "tt36590417",
+        "title": "No se desea buena suerte",
+        "poster": "https://images.justwatch.com/poster/347522019/s718/dont-say-good-luck.jpg",
+        "rating": null,
+        "imdb_url": "https://www.imdb.com/title/tt36590417/",
+        "platform": "Netflix",
+        "release_date": "2026-08-13",
+        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
+        "score": 10,
+        "day": "sábado"
       },
       {
         "imdb_id": "tt32268156",
@@ -24,18 +36,6 @@
         "imdb_url": "https://www.imdb.com/title/tt32268156/",
         "platform": "Netflix",
         "release_date": "2026-08-06",
-        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
-        "score": 10,
-        "day": "sábado"
-      },
-      {
-        "imdb_id": "tt22084616",
-        "title": "Spider-Man: Un nuevo día",
-        "poster": "https://images.justwatch.com/poster/347907242/s718/spider-man-un-nuevo-dia.jpg",
-        "rating": null,
-        "imdb_url": "https://www.imdb.com/title/tt22084616/",
-        "platform": "Netflix",
-        "release_date": "2026-07-29",
         "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
         "score": 10,
         "day": "domingo"
