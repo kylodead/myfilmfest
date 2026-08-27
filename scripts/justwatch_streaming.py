@@ -50,7 +50,10 @@ def _resolve_provider_technical_names():
         return {}
 
     try:
-        all_providers = providers(country=COUNTRY, language=LANGUAGE)
+        # providers() SOLO acepta `country` (comprobado contra el código fuente
+        # real de la librería en GitHub) — pasarle `language` provocaba un
+        # TypeError y abortaba toda la resolución de streaming.
+        all_providers = providers(country=COUNTRY)
     except Exception as e:
         print(f"    ERROR al llamar providers(): {e!r}")
         return {}
