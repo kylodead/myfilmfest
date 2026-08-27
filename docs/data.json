@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T09:15",
+  "generated_at": "2026-08-27T09:43",
   "week_label": "28/08 – 03/09",
   "weekend": {
     "range": "29/08 – 30/08",
@@ -7,7 +7,50 @@
   },
   "cinema_week": {
     "range": "31/08 – 03/09",
-    "picks": []
+    "picks": [
+      {
+        "imdb_id": "tt33071426",
+        "title": null,
+        "poster": null,
+        "rating": null,
+        "imdb_url": "https://www.imdb.com/title/tt33071426/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "cinemas": [
+          {
+            "name": "Cines Renoir (Plaza de España)",
+            "showtimes": [],
+            "listing_url": "https://www.filmaffinity.com/es/film879542.html"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [],
+            "listing_url": "https://www.filmaffinity.com/es/film879542.html"
+          },
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://www.filmaffinity.com/es/film879542.html"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt0087363",
+        "title": null,
+        "poster": null,
+        "rating": null,
+        "imdb_url": "https://www.imdb.com/title/tt0087363/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "cinemas": [
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [],
+            "listing_url": "https://www.filmaffinity.com/es/film455839.html"
+          }
+        ]
+      }
+    ]
   },
   "errors": []
 }
