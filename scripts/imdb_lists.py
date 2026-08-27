@@ -81,6 +81,7 @@ def build_taste_profile():
     rows = load_ratings()
     rated_ids = set()
     liked_ids = set()
+    liked_titles = []  # títulos (con nota >= TASTE_RATING_THRESHOLD) -> para detectar sagas que te gustan
 
     all_ratings = []
     genre_ratings = {}  # genre -> list[float]
@@ -111,6 +112,9 @@ def build_taste_profile():
 
         if rating >= TASTE_RATING_THRESHOLD and const:
             liked_ids.add(const)
+            title = (r.get("Title") or "").strip()
+            if title:
+                liked_titles.append(title)
 
     overall_avg = sum(all_ratings) / len(all_ratings) if all_ratings else 0
 
@@ -135,6 +139,7 @@ def build_taste_profile():
     return {
         "rated_ids": rated_ids,  # todo lo que ya has visto/votado -> excluir de recomendaciones
         "liked_ids": liked_ids,
+        "liked_titles": liked_titles,  # títulos que puntuaste bien -> detectar sagas (ver match_engine)
         "overall_avg": round(overall_avg, 2),
         "top_genres": top_genres,
         "genre_affinity": genre_affinity,
