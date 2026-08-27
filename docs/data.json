@@ -1,17 +1,54 @@
 {
-  "generated_at": "2026-08-27T09:43",
+  "generated_at": "2026-08-27T10:06",
   "week_label": "28/08 – 03/09",
   "weekend": {
     "range": "29/08 – 30/08",
-    "picks": []
+    "picks": [
+      {
+        "imdb_id": "tt27165187",
+        "title": "El final de Oak Street",
+        "poster": "https://images.justwatch.com/poster/347475607/s718/flowervale-street.jpg",
+        "rating": null,
+        "imdb_url": "https://www.imdb.com/title/tt27165187/",
+        "platform": "Netflix",
+        "release_date": "2026-08-12",
+        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
+        "score": 10,
+        "day": "viernes"
+      },
+      {
+        "imdb_id": "tt32268156",
+        "title": "La última casa",
+        "poster": "https://images.justwatch.com/poster/346670196/s718/the-last-house-2026.jpg",
+        "rating": null,
+        "imdb_url": "https://www.imdb.com/title/tt32268156/",
+        "platform": "Netflix",
+        "release_date": "2026-08-06",
+        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
+        "score": 10,
+        "day": "sábado"
+      },
+      {
+        "imdb_id": "tt22084616",
+        "title": "Spider-Man: Un nuevo día",
+        "poster": "https://images.justwatch.com/poster/347907242/s718/spider-man-un-nuevo-dia.jpg",
+        "rating": null,
+        "imdb_url": "https://www.imdb.com/title/tt22084616/",
+        "platform": "Netflix",
+        "release_date": "2026-07-29",
+        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
+        "score": 10,
+        "day": "domingo"
+      }
+    ]
   },
   "cinema_week": {
     "range": "31/08 – 03/09",
     "picks": [
       {
         "imdb_id": "tt33071426",
-        "title": null,
-        "poster": null,
+        "title": "The Drama",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTcwOGZhYmItYTg3ZS00NjUwLWJiMmQtMjU5YjEwYWY0NmNkXkEyXkFqcGc@._V1_.jpg",
         "rating": null,
         "imdb_url": "https://www.imdb.com/title/tt33071426/",
         "reason": "Está en tu lista de pendientes",
@@ -19,34 +56,17 @@
         "cinemas": [
           {
             "name": "Cines Renoir (Plaza de España)",
-            "showtimes": [],
-            "listing_url": "https://www.filmaffinity.com/es/film879542.html"
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [],
-            "listing_url": "https://www.filmaffinity.com/es/film879542.html"
+            "showtimes": [
+              "16:00",
+              "20:10",
+              "22:35"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/el-drama/"
           },
           {
             "name": "Sala Equis",
             "showtimes": [],
             "listing_url": "https://www.filmaffinity.com/es/film879542.html"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt0087363",
-        "title": null,
-        "poster": null,
-        "rating": null,
-        "imdb_url": "https://www.imdb.com/title/tt0087363/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "cinemas": [
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [],
-            "listing_url": "https://www.filmaffinity.com/es/film455839.html"
           }
         ]
       }
