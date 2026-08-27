@@ -14,23 +14,25 @@ Jerarquía de motivos (de más a menos fiable):
 Un match "solo por género" nunca se ofrece en solitario si solo coincide 1
 género — eso es ruido, no una recomendación.
 """
-from utils import imdb_title_info
+from utils import get_title_metadata
 
 MIN_GENRE_MATCHES = 2
 
 
-def _score_and_reason(imdb_id, taste_profile, favorite_actors, watchlist_ids):
-    """Devuelve (incluir: bool, motivo: str, score: int) para un imdb_id."""
+def _score_and_reason(imdb_id, taste_profile, favorite_actors, watchlist_ids, tmdb_id=None):
+    """Devuelve (incluir: bool, motivo: str, score: int, info: dict) para un imdb_id.
+    Se devuelve también `info` (la ficha ya pedida) para no tener que volver a
+    pedirla justo después solo para sacar título/póster/nota."""
     if not imdb_id:
-        return False, None, 0
+        return False, None, 0, {}
 
     if imdb_id in taste_profile.get("rated_ids", set()):
-        return False, None, 0  # ya la has visto/votado
+        return False, None, 0, {}  # ya la has visto/votado
 
     if imdb_id in watchlist_ids:
-        return True, "Está en tu lista de pendientes", 100
+        return True, "Está en tu lista de pendientes", 100, {}
 
-    info = imdb_title_info(imdb_id) or {}
+    info = get_title_metadata(imdb_id=imdb_id, tmdb_id=tmdb_id)
     actors = set(info.get("actors") or [])
     directors = set(info.get("directors") or [])
     genres = set(info.get("genres") or [])
@@ -38,13 +40,13 @@ def _score_and_reason(imdb_id, taste_profile, favorite_actors, watchlist_ids):
     matched_actors = actors & favorite_actors
     if matched_actors:
         who = " y ".join(sorted(matched_actors)[:2])
-        return True, f"Sale {who}, de tus actores favoritos", 85
+        return True, f"Sale {who}, de tus actores favoritos", 85, info
 
     matched_directors = directors & taste_profile.get("top_directors", set())
     if matched_directors:
         who = ", ".join(sorted(matched_directors)[:1])
         n = taste_profile.get("director_counts", {}).get(list(matched_directors)[0], 0)
-        return True, f"Dirigida por {who}, a quien sueles puntuar alto ({n} pelis con nota ≥8)", 65
+        return True, f"Dirigida por {who}, a quien sueles puntuar alto ({n} pelis con nota ≥8)", 65, info
 
     genre_affinity = taste_profile.get("genre_affinity", {})
     matched_genres = genres & taste_profile.get("top_genres", set())
@@ -55,9 +57,10 @@ def _score_and_reason(imdb_id, taste_profile, favorite_actors, watchlist_ids):
             True,
             f"Combina {' y '.join(ordered[:3])}, géneros en los que sueles puntuar por encima de tu media",
             45,
+            info,
         )
 
-    return False, None, 0
+    return False, None, 0, info
 
 
 def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids):
@@ -72,7 +75,7 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
             imdb_id = f.get("imdb_id")
             if not imdb_id:
                 continue
-            include, reason, score = _score_and_reason(
+            include, reason, score, info = _score_and_reason(
                 imdb_id, taste_profile, favorite_actors, watchlist_ids
             )
             if not include:
@@ -83,12 +86,13 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
                     "imdb_id": imdb_id,
                     "reason": reason,
                     "score": score,
+                    "info": info,
                     "cinemas": [],
-                    # Respaldo de título/póster por si la ficha completa de
-                    # IMDb (imdb_title_info) falla al cargar (rate limit,
-                    # bloqueo puntual...): usamos lo que ya nos dio la
-                    # búsqueda rápida de IMDb Suggestion al resolver el
-                    # imdb_id, en vez de dejar la tarjeta en blanco.
+                    # Respaldo de título/póster por si la ficha completa
+                    # (TMDB o, en su defecto, IMDb) falla al cargar: usamos
+                    # lo que ya nos dio la búsqueda rápida de IMDb Suggestion
+                    # al resolver el imdb_id, en vez de dejar la tarjeta en
+                    # blanco.
                     "fallback_title": f.get("imdb_hint_title") or f.get("title"),
                     "fallback_poster": f.get("imdb_hint_poster"),
                 },
@@ -103,7 +107,10 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
 
     results = []
     for imdb_id, entry in by_imdb.items():
-        info = imdb_title_info(imdb_id) or {}
+        # "Está en tu lista de pendientes" no pide ficha completa en
+        # _score_and_reason (no hace falta para decidir), así que aquí la
+        # pedimos solo si todavía no la tenemos — para watchlist principalmente.
+        info = entry["info"] or get_title_metadata(imdb_id=imdb_id)
         entry["cinemas"].sort(key=lambda c: c["name"])
         results.append(
             {
@@ -144,13 +151,14 @@ def select_streaming_picks(streaming_items, taste_profile, favorite_actors, watc
         imdb_id = item.get("imdb_id")
         if not imdb_id or imdb_id in seen_ids:
             continue
-        include, reason, score = _score_and_reason(
-            imdb_id, taste_profile, favorite_actors, watchlist_ids
+        include, reason, score, info = _score_and_reason(
+            imdb_id, taste_profile, favorite_actors, watchlist_ids, tmdb_id=item.get("tmdb_id")
         )
         if not include:
             continue
         seen_ids.add(imdb_id)
-        info = imdb_title_info(imdb_id) or {}
+        if not info:
+            info = get_title_metadata(imdb_id=imdb_id, tmdb_id=item.get("tmdb_id"))
         strict.append(
             {
                 "imdb_id": imdb_id,
@@ -181,7 +189,7 @@ def select_streaming_picks(streaming_items, taste_profile, favorite_actors, watc
             if imdb_id in taste_profile.get("rated_ids", set()):
                 continue
             seen_ids.add(imdb_id)
-            info = imdb_title_info(imdb_id) or {}
+            info = get_title_metadata(imdb_id=imdb_id, tmdb_id=item.get("tmdb_id"))
             rating = info.get("rating")
             platform = item.get("platform") or "tu plataforma"
             reason = f"Estreno reciente en {platform}"
