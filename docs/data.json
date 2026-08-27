@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T13:05",
+  "generated_at": "2026-08-27T13:42",
   "week_label": "28/08 – 03/09",
   "weekend": {
     "range": "29/08 – 30/08",
@@ -46,6 +46,63 @@
     "range": "31/08 – 03/09",
     "picks": [
       {
+        "imdb_id": "tt33451014",
+        "title": "El ser querido",
+        "poster": "https://image.tmdb.org/t/p/w500/bFYCaNsYmj4bOoHGIoqEthRxfRv.jpg",
+        "rating": 6.826,
+        "imdb_url": "https://www.imdb.com/title/tt33451014/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          },
+          {
+            "name": "Cines Golem",
+            "showtimes": [
+              "16:15",
+              "17:30",
+              "19:00",
+              "20:15",
+              "21:45"
+            ],
+            "listing_url": "https://www.golem.es/golem/pelicula/El-ser-querido"
+          },
+          {
+            "name": "Cines Renoir (Plaza de España)",
+            "showtimes": [
+              "17:00",
+              "18:10",
+              "20:00",
+              "20:45"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/el-ser-querido/"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "17:15",
+              "20:00",
+              "21:35",
+              "22:30"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/105455_1_W_0/el-ser-querido"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
         "imdb_id": "tt33071426",
         "title": "El drama",
         "poster": "https://image.tmdb.org/t/p/w500/zgfBYGYCNcOZ51JDbr6tm45H8y0.jpg",
@@ -66,7 +123,7 @@
           {
             "name": "Sala Equis",
             "showtimes": [],
-            "listing_url": "https://www.filmaffinity.com/es/film879542.html"
+            "listing_url": null
           }
         ]
       },
@@ -82,7 +139,62 @@
           {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
-            "listing_url": "https://www.filmaffinity.com/es/film268103.html"
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt37853455",
+        "title": "Una noche al año",
+        "poster": "https://image.tmdb.org/t/p/w500/6zWaYWrPXG7JBX3Tb3OI9ITWGad.jpg",
+        "rating": 6.845,
+        "imdb_url": "https://www.imdb.com/title/tt37853455/",
+        "reason": "Sale Julia Fox y Maya Hawke, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt21285562",
+        "title": "La constelación del perro",
+        "poster": "https://image.tmdb.org/t/p/w500/vbCb1yHXtXym4V1c420MSasbyyP.jpg",
+        "rating": 7.482,
+        "imdb_url": "https://www.imdb.com/title/tt21285562/",
+        "reason": "Sale Margaret Qualley, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "16:40",
+              "19:05"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/106927_1_W_0/la-constelacion-del-perro"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
@@ -98,30 +210,118 @@
           {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
-            "listing_url": "https://www.filmaffinity.com/es/film299953.html"
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
-            "listing_url": "https://www.filmaffinity.com/es/film299953.html"
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
       {
-        "imdb_id": "tt1964859",
-        "title": "La conspiración",
-        "poster": "https://image.tmdb.org/t/p/w500/tclEtFvda1FCLHY78UCfYVBqXiU.jpg",
-        "rating": 6.0,
-        "imdb_url": "https://www.imdb.com/title/tt1964859/",
-        "reason": "Sale Silvia Marsó, de tus actores favoritos",
+        "imdb_id": "tt33764258",
+        "title": "La Odisea",
+        "poster": "https://image.tmdb.org/t/p/w500/9aeb5U0saB7Tuu0QITaoENZBxFF.jpg",
+        "rating": 7.986,
+        "imdb_url": "https://www.imdb.com/title/tt33764258/",
+        "reason": "Sale Anne Hathaway y Mia Goth, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Cines Golem",
+            "showtimes": [
+              "16:10"
+            ],
+            "listing_url": "https://www.golem.es/golem/pelicula/La-Odisea-(V.O.S.E.)"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "17:00"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea-70-mm"
+          },
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": null
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt0119314",
+        "title": "El hombre que susurraba a los caballos",
+        "poster": "https://image.tmdb.org/t/p/w500/1YKoikePFH63vdV9blLcyoZzfAd.jpg",
+        "rating": 6.898,
+        "imdb_url": "https://www.imdb.com/title/tt0119314/",
+        "reason": "Sale Scarlett Johansson, de tus actores favoritos",
         "score": 85,
         "cinemas": [
           {
             "name": "Filmoteca - Cine Doré",
             "showtimes": [
-              "28/08 21:00"
+              "29/08 18:00"
             ],
-            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/la-conspiracion-28-agosto/2026-08-28\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
+            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/el-hombre-que-susurraba-a-los-caballos-1/2026-08-29\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt37601810",
+        "title": "Mala bestia",
+        "poster": "https://image.tmdb.org/t/p/w500/4NjHPW0ZttQTkrJZrmFRISq2d5V.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt37601810/",
+        "reason": "Sale Iria del Río, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": null
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt15047880",
+        "title": "El día de la revelación",
+        "poster": "https://image.tmdb.org/t/p/w500/dPTa7jSIeaDhie2d9JSZr7qI0Tf.jpg",
+        "rating": 7.48,
+        "imdb_url": "https://www.imdb.com/title/tt15047880/",
+        "reason": "Sale Emily Blunt, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": null
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt1485796",
+        "title": "El gran showman",
+        "poster": "https://image.tmdb.org/t/p/w500/5HjkqEeLPubkMPM9TgV6kB3Iyn0.jpg",
+        "rating": 7.854,
+        "imdb_url": "https://www.imdb.com/title/tt1485796/",
+        "reason": "Sale Rebecca Ferguson y Zendaya, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           }
         ]
       },
