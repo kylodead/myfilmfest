@@ -102,11 +102,30 @@ def imdb_title_info(imdb_id: str):
     url = f"https://www.imdb.com/title/{imdb_id}/"
 
     def _fetch():
+        r = None
+        # IMDb devuelve a veces HTTP 202 (no 200) desde IPs de datacenter
+        # como las de GitHub Actions — parece un reto/limitación puntual, no
+        # un bloqueo total, así que reintentamos un par de veces con espera
+        # antes de rendirnos, en vez de descartar la película a la primera.
+        for attempt in range(3):
+            try:
+                r = requests.get(url, headers=HEADERS, timeout=10)
+            except Exception as e:
+                print(f"      [imdb_title_info] {imdb_id}: ERROR intento {attempt + 1}/3: {e!r}")
+                time.sleep(REQUEST_DELAY)
+                continue
+            if r.status_code == 200:
+                break
+            print(
+                f"      [imdb_title_info] {imdb_id}: intento {attempt + 1}/3 -> "
+                f"HTTP {r.status_code} al pedir {url}"
+            )
+            time.sleep(REQUEST_DELAY * (attempt + 2))  # espera creciente: 1.2s, 1.8s
+        else:
+            return {}
+        time.sleep(REQUEST_DELAY)
         try:
-            r = requests.get(url, headers=HEADERS, timeout=10)
-            time.sleep(REQUEST_DELAY)
             if r.status_code != 200:
-                print(f"      [imdb_title_info] {imdb_id}: HTTP {r.status_code} al pedir {url}")
                 return {}
             m = re.search(
                 r'<script type="application/ld\+json">(.*?)</script>',
@@ -156,22 +175,37 @@ def _title_similarity(a: str, b: str) -> float:
 
 def best_guess_imdb(title: str, year: str = None, min_similarity: float = 0.82):
     """
-    Busca en IMDb Suggestion y devuelve el candidato más plausible, pero solo
-    si el título coincide de verdad (similitud >= min_similarity). Esto evita
-    falsos positivos con títulos genéricos cortos (p.ej. "Obsession" podría
-    devolver una peli de 1954 en vez del estreno actual) — preferimos no
-    recomendar nada antes que recomendar la película equivocada.
+    Busca en IMDb Suggestion y devuelve el candidato más plausible.
+
+    Con VARIOS candidatos, exige que el título coincida de verdad (similitud
+    >= min_similarity) — evita falsos positivos con títulos genéricos cortos
+    (p.ej. "Obsession" podría devolver una peli de 1954 en vez del estreno
+    actual); preferimos no recomendar nada antes que recomendar la película
+    equivocada.
+
+    Con UN ÚNICO candidato nos fiamos de él aunque el texto no se parezca en
+    absoluto al nuestro: el motor de sugerencias de IMDb ya indexa por
+    título original/AKA (no solo por el que ves en pantalla), así que si de
+    verdad no hubiera relación no habría devuelto nada. Esto es justo lo que
+    hacía falta para películas extranjeras con título distinto en la
+    cartelera española que en IMDb — p.ej. "Anoche conquisté Tebas" en el
+    cine es "Last Night I Conquered the City of Thebes" en IMDb: se
+    descartaba antes por "no parecerse", aunque IMDb ya nos había dado la
+    respuesta correcta y sin ambigüedad.
     """
     candidates = imdb_suggestion_search(title)
     if not candidates:
         return None
 
-    candidates = [c for c in candidates if _title_similarity(title, c.get("title") or "") >= min_similarity]
-    if not candidates:
+    if len(candidates) == 1:
+        return candidates[0]
+
+    filtered = [c for c in candidates if _title_similarity(title, c.get("title") or "") >= min_similarity]
+    if not filtered:
         return None
 
     if year:
-        for c in candidates:
+        for c in filtered:
             if str(c.get("year")) == str(year):
                 return c
-    return candidates[0]
+    return filtered[0]
