@@ -33,15 +33,17 @@ CINEMAS = {
 }
 
 
-def _fetch_cinema_page(code: str) -> str:
+def _fetch_cinema_page(code: str, cinema_name: str = "") -> str:
     url = f"https://www.sensacine.com/cines/cine/{code}/"
     try:
         r = requests.get(url, headers=HEADERS, timeout=15)
         time.sleep(REQUEST_DELAY)
+        print(f"    [{cinema_name or code}] GET {url} -> HTTP {r.status_code}, {len(r.text)} bytes")
         if r.status_code != 200:
             return ""
         return r.text
-    except Exception:
+    except Exception as e:
+        print(f"    [{cinema_name or code}] ERROR al pedir {url}: {e!r}")
         return ""
 
 
@@ -87,13 +89,20 @@ def get_madrid_billboard():
     """
     billboard = {}
     for cinema_name, code in CINEMAS.items():
-        html = _fetch_cinema_page(code)
+        html = _fetch_cinema_page(code, cinema_name)
         films = parse_cinema_page(html)
+        print(f"    [{cinema_name}] {len(films)} películas encontradas en la página")
         enriched = []
+        resolved = 0
         for f in films:
             guess = best_guess_imdb(f["title"])
             f["imdb_id"] = guess["imdb_id"] if guess else None
+            if f["imdb_id"]:
+                resolved += 1
+            else:
+                print(f"      sin imdb_id para: {f['title']!r}")
             enriched.append(f)
+        print(f"    [{cinema_name}] {resolved}/{len(films)} resueltas a un imdb_id")
         billboard[cinema_name] = enriched
     return billboard
 
