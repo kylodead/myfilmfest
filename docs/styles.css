@@ -31,6 +31,40 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Cartela de inicio: logo + nombre a pantalla completa durante los primeros
+   3 segundos (ver app.js), para que la app "abra" con algo de identidad en
+   vez de saltar directa al texto de "Cargando…". Se queda encima de todo
+   (z-index más alto que la modal) y se desvanece sola, no bloquea nada
+   después. */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--bg);
+  transition: opacity 0.4s ease;
+}
+.splash-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+.splash-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.splash.splash-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .topbar {
   position: sticky;
   top: 0;
