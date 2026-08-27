@@ -192,6 +192,20 @@
     }
   }
 
+  // Cartela de inicio: 3 segundos fijos, en paralelo a la carga de datos
+  // (no la retrasa ni depende de ella) — arranca el contador nada más
+  // ejecutarse el script, no dentro de main(), para que los 3s sean
+  // siempre los mismos independientemente de lo que tarde el fetch.
+  const SPLASH_DURATION_MS = 3000;
+  window.setTimeout(() => {
+    const splash = document.getElementById("splash");
+    if (!splash) return;
+    splash.classList.add("splash-hide");
+    window.setTimeout(() => {
+      splash.hidden = true;
+    }, 450); // deja terminar la transición de opacidad del CSS antes de quitarla del todo
+  }, SPLASH_DURATION_MS);
+
   main();
 
   if ("serviceWorker" in navigator) {
