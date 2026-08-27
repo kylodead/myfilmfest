@@ -45,13 +45,20 @@ def _resolve_provider_technical_names():
     """
     try:
         from simplejustwatchapi.justwatch import providers  # type: ignore
-    except ImportError:
+    except ImportError as e:
+        print(f"    ERROR: no se pudo importar simplejustwatchapi ({e!r}) — ¿está en requirements.txt?")
         return {}
 
     try:
         all_providers = providers(country=COUNTRY, language=LANGUAGE)
-    except Exception:
+    except Exception as e:
+        print(f"    ERROR al llamar providers(): {e!r}")
         return {}
+
+    print(f"    providers() devolvió {len(all_providers)} proveedores para {COUNTRY}")
+    if all_providers:
+        sample = all_providers[0]
+        print(f"    ejemplo de proveedor (para depurar campos): {sample!r}")
 
     wanted_norm = {_norm(name): name for name in MY_PROVIDER_NAMES}
     resolved = {}
@@ -65,6 +72,7 @@ def _resolve_provider_technical_names():
         for wanted_key, label in wanted_norm.items():
             if wanted_key in key or key in wanted_key:
                 resolved[technical_name] = label
+    print(f"    proveedores tuyos resueltos: {resolved}")
     return resolved
 
 
@@ -87,11 +95,13 @@ def get_weekly_streaming_releases():
     """
     try:
         from simplejustwatchapi.justwatch import search  # type: ignore
-    except ImportError:
+    except ImportError as e:
+        print(f"    ERROR: no se pudo importar simplejustwatchapi.search ({e!r})")
         return []
 
     provider_map = _resolve_provider_technical_names()  # technical_name -> label bonito
     if not provider_map:
+        print("    no se resolvió ningún proveedor tuyo, no hay nada que buscar")
         return []
 
     cutoff = date.today() - timedelta(days=RECENCY_WINDOW_DAYS)
@@ -112,10 +122,13 @@ def get_weekly_streaming_releases():
                 min_release_year=this_year - 1,
                 object_types=["MOVIE"],
             )
-        except Exception:
+        except Exception as e:
+            print(f"    ERROR en search() para {label} ({technical_name}): {e!r}")
             entries = []
         time.sleep(0.3)
+        print(f"    [{label}] search() devolvió {len(entries)} resultados")
 
+        kept = 0
         for e in entries:
             rd = _parse_date(getattr(e, "release_date", None))
             if not rd or rd < cutoff:
@@ -123,6 +136,7 @@ def get_weekly_streaming_releases():
             imdb_id = getattr(e, "imdb_id", None)
             if not imdb_id:
                 continue
+            kept += 1
             key = (imdb_id, technical_name)
             if key in seen:
                 continue
@@ -137,6 +151,7 @@ def get_weekly_streaming_releases():
                     "release_year": getattr(e, "release_year", None),
                 }
             )
+        print(f"    [{label}] {kept} dentro de los últimos {RECENCY_WINDOW_DAYS} días")
 
     all_items.sort(key=lambda i: i["release_date"], reverse=True)
     return all_items
