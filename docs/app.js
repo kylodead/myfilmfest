@@ -48,7 +48,8 @@
     const card = el("div", "card");
     card.appendChild(posterImg(item.poster, item.title));
     const body = el("div", "card-body");
-    body.appendChild(el("span", "card-badge", item.platform || ""));
+    const dayLabel = item.day ? item.day.charAt(0).toUpperCase() + item.day.slice(1) : "";
+    body.appendChild(el("span", "card-badge", [dayLabel, item.platform].filter(Boolean).join(" · ")));
     body.appendChild(el("p", "card-title", item.title || ""));
     body.appendChild(el("p", "card-reason", item.reason || ""));
     card.appendChild(body);
@@ -119,8 +120,13 @@
   function openStreamingModal(item) {
     const wrap = el("div");
     wrap.appendChild(el("h3", "", item.title || ""));
+    const dayLabel = item.day ? item.day.charAt(0).toUpperCase() + item.day.slice(1) + " · " : "";
     wrap.appendChild(
-      el("p", "modal-meta", `Disponible en ${item.platform || "—"}${item.rating ? " · IMDb " + item.rating : ""}`)
+      el(
+        "p",
+        "modal-meta",
+        `${dayLabel}Disponible en ${item.platform || "—"}${item.rating ? " · IMDb " + item.rating : ""}`
+      )
     );
     if (item.reason) wrap.appendChild(el("p", "", item.reason));
     const a = el("a", "imdb-link", "Ver ficha en IMDb");
