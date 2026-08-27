@@ -1,207 +1,242 @@
 """
 Novedades de streaming de la semana en tus plataformas (Disney+, Filmin,
-Movistar Plus+, Netflix, Prime Video) para España, usando
-"simple-justwatch-python-api" (wrapper no oficial pero mantenido de la API
-GraphQL que usa justwatch.com internamente: https://github.com/Electronic-Mango/simple-justwatch-python-api).
+Movistar Plus+, Netflix, Prime Video) para España.
 
-A diferencia de la cartelera (donde tenemos que ADIVINAR el imdb_id por
-título), JustWatch nos da el imdb_id, el póster y la fecha de estreno
-directamente en cada resultado — así que aquí no hay adivinanzas.
+HISTORIAL DE ESTE FICHERO — importante para entender por qué está así:
+La primera versión usaba la librería "simple-justwatch-python-api" (la API
+GraphQL que usa justwatch.com internamente) para buscar "estrenos recientes"
+por AÑO DE ESTRENO EN CINE (`release_date`/`min_release_year`). El problema,
+confirmado en la práctica: eso NO es lo mismo que "recién añadido a tu
+plataforma". La mayoría de lo que Netflix/Prime/etc. añaden cada semana es
+catálogo (películas de hace años que se licencian esta semana), no estrenos
+de cine recientes — así que casi todo quedaba fuera del filtro, y lo poco
+que pasaba muchas veces ni siquiera era relevante.
 
-Los nombres de proveedor (`technical_name`) se resuelven en tiempo real
-contra `providers()` en vez de hardcodear códigos, porque JustWatch los
-cambia de vez en cuando entre países.
+La solución: JustWatch tiene, en su propia web (no en la librería/API
+pública), una página por plataforma que SÍ muestra la fecha real en que
+cada título se añadió — "https://www.justwatch.com/es/proveedor/{slug}/nuevo/peliculas"
+(comprobado a mano, título por título, con fechas como "Ayer", "25 de
+agosto de 2026"...). Así que ahora leemos esas páginas directamente, como ya
+hacíamos con la cartelera de cines — mismo estilo de scraper.
+
+Aviso de fragilidad honesto: los "slugs" (el trozo de la URL que identifica
+cada plataforma) de Netflix/Disney+/Amazon/Filmin son estables, pero el de
+Movistar Plus+ incluye el PRECIO de la suscripción en la propia URL
+("movistar-plus-eu9-99") — si Movistar sube la tarifa, esa URL cambiará y
+ese proveedor concreto empezará a devolver 0 resultados hasta que se
+actualice el slug aquí. Está diseñado para fallar solo en ESE proveedor
+(con un aviso claro en el log), no en toda la ejecución.
 """
 import re
+import time
 import unicodedata
 from datetime import date, datetime, timedelta
 
-MY_PROVIDER_NAMES = [
-    "Netflix",
-    "Disney Plus",
-    "Amazon Prime Video",
-    "Filmin",
-    "Movistar Plus+",
+import requests
+from bs4 import BeautifulSoup
+
+from utils import HEADERS, REQUEST_DELAY, best_guess_imdb
+
+# slug de la URL -> nombre bonito que ya usa el resto de la app. Varias
+# entradas pueden compartir nombre (p.ej. Filmin normal y Filmin Plus): si
+# tienes cualquiera de los dos, cuenta como "Filmin".
+NEW_RELEASES_PROVIDERS = [
+    ("netflix", "Netflix"),
+    ("disney-plus", "Disney Plus"),
+    ("amazon-prime-video", "Amazon Prime Video"),
+    ("filmin", "Filmin"),
+    ("filmin-plus", "Filmin"),
+    # Frágil a propósito (ver aviso arriba): incluye el precio actual de la
+    # suscripción en la URL.
+    ("movistar-plus-eu9-99", "Movistar Plus+"),
 ]
 
-COUNTRY = "ES"
-LANGUAGE = "es"
-
-# Cuánto de "reciente" cuenta como estreno reciente para el finde: los
-# últimos 7 días, incluido el propio día de la consulta (viernes) — así lo
-# pediste. Antes eran 45 días, una ventana demasiado ancha que dejaba entrar
-# estrenos de mes y medio atrás como si fueran "de esta semana".
+# Cuánto de "reciente" cuenta como "nuevo en tu plataforma" para el finde:
+# los últimos 7 días, incluido el propio día de la consulta (viernes) — así
+# lo pediste. Ahora que la fecha es de verdad "cuándo se añadió", 7 días
+# tiene sentido (antes, con fecha de estreno en cine, una ventana así de
+# corta dejaba casi todo fuera).
 RECENCY_WINDOW_DAYS = 7
 
+_MONTH_ABBR_EN = {
+    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+}
+_MONTH_FULL_ES = {
+    "enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5, "junio": 6,
+    "julio": 7, "agosto": 8, "septiembre": 9, "octubre": 10, "noviembre": 11,
+    "diciembre": 12,
+}
 
-def _norm(s):
-    s = (s or "").lower()
-    s = "".join(c for c in unicodedata.normalize("NFKD", s) if not unicodedata.combining(c))
-    return re.sub(r"[^a-z0-9]", "", s)
+_TITLE_LINK_RE = re.compile(r"^/es/pelicula/[^/]+/?$")
 
 
-def _resolve_provider_technical_names():
-    """
-    Pregunta a JustWatch qué proveedores hay en España y hace match por
-    nombre (tolerante a mayúsculas/tildes) para no depender de códigos fijos.
-    """
+def _get_page(url: str, label: str) -> str:
     try:
-        from simplejustwatchapi.justwatch import providers  # type: ignore
-    except ImportError as e:
-        print(f"    ERROR: no se pudo importar simplejustwatchapi ({e!r}) — ¿está en requirements.txt?")
-        return {}
-
-    try:
-        # providers() SOLO acepta `country` (comprobado contra el código fuente
-        # real de la librería en GitHub) — pasarle `language` provocaba un
-        # TypeError y abortaba toda la resolución de streaming.
-        all_providers = providers(country=COUNTRY)
+        r = requests.get(url, headers=HEADERS, timeout=15)
+        time.sleep(REQUEST_DELAY)
+        print(f"    [{label}] GET {url} -> HTTP {r.status_code}, {len(r.text)} bytes")
+        if r.status_code != 200:
+            return ""
+        return r.text
     except Exception as e:
-        print(f"    ERROR al llamar providers(): {e!r}")
-        return {}
+        print(f"    [{label}] ERROR al pedir {url}: {e!r}")
+        return ""
 
-    print(f"    providers() devolvió {len(all_providers)} proveedores para {COUNTRY}")
-    if all_providers:
-        sample = all_providers[0]
-        print(f"    ejemplo de proveedor (para depurar campos): {sample!r}")
 
-    wanted_norm = {_norm(name): name for name in MY_PROVIDER_NAMES}
-    resolved = {}
-    for p in all_providers:
-        # el objeto puede ser dict o namedtuple según versión de la librería
-        name = getattr(p, "name", None) or getattr(p, "clear_name", None) or (p.get("name") if isinstance(p, dict) else None)
-        technical_name = getattr(p, "technical_name", None) or (p.get("technical_name") if isinstance(p, dict) else None)
-        if not name or not technical_name:
+def _parse_date_heading(text: str, today: date):
+    """
+    Intenta leer una cabecera de fecha de la página de JustWatch como fecha
+    real. Soporta varios formatos a propósito (no sabemos al 100% cuál usa
+    la web exactamente en cada caso) — si no reconoce el texto, devuelve
+    None y ese título simplemente no se fecha (no rompe nada).
+    """
+    t = (text or "").strip().lower()
+    t = "".join(c for c in unicodedata.normalize("NFKD", t) if not unicodedata.combining(c))
+    if not t:
+        return None
+    if t == "hoy":
+        return today
+    if t == "ayer":
+        return today - timedelta(days=1)
+
+    # "Aug 25, 2026" / "Aug. 25 2026"
+    m = re.match(r"^([a-z]{3})\.?\s+(\d{1,2}),?\s+(\d{4})$", t)
+    if m:
+        mon = _MONTH_ABBR_EN.get(m.group(1))
+        if mon:
+            try:
+                return date(int(m.group(3)), mon, int(m.group(2)))
+            except ValueError:
+                return None
+
+    # "25 de agosto de 2026" / "25 de agosto"
+    m = re.match(r"^(\d{1,2})\s+de\s+([a-z]+)(?:\s+de\s+(\d{4}))?$", t)
+    if m:
+        mon = _MONTH_FULL_ES.get(m.group(2))
+        if mon:
+            year = int(m.group(3)) if m.group(3) else today.year
+            try:
+                d = date(year, mon, int(m.group(1)))
+                if d > today:
+                    d = date(year - 1, mon, int(m.group(1)))
+                return d
+            except ValueError:
+                return None
+
+    # ISO suelto, por si acaso: "2026-08-25"
+    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", t)
+    if m:
+        try:
+            return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        except ValueError:
+            return None
+
+    return None
+
+
+def _scrape_provider_new_movies(slug: str, label: str, today: date):
+    """
+    Lee https://www.justwatch.com/es/proveedor/{slug}/nuevo/peliculas y
+    devuelve [{title, date}, ...] — un pase lineal por todas las etiquetas
+    de la página EN EL ORDEN EN QUE APARECEN: cada vez que encontramos un
+    texto que parece una cabecera de fecha ("Ayer", "25 de agosto de
+    2026"...) lo recordamos como "fecha activa", y cada enlace a una ficha
+    de película (/es/pelicula/...) que aparece después se etiqueta con esa
+    fecha — así es como la propia página organiza los títulos por día.
+    """
+    url = f"https://www.justwatch.com/es/proveedor/{slug}/nuevo/peliculas"
+    html = _get_page(url, f"JustWatch nuevo · {label} ({slug})")
+    if not html:
+        return []
+    soup = BeautifulSoup(html, "html.parser")
+
+    items = []
+    current_date = None
+    for tag in soup.find_all(True):
+        if tag.name == "a":
+            href = tag.get("href", "")
+            if _TITLE_LINK_RE.match(href):
+                title = tag.get_text(strip=True)
+                if title and current_date:
+                    items.append({"title": title, "date": current_date})
             continue
-        key = _norm(name)
-        for wanted_key, label in wanted_norm.items():
-            if wanted_key in key or key in wanted_key:
-                resolved[technical_name] = label
-    print(f"    proveedores tuyos resueltos: {resolved}")
-    return resolved
-
-
-def _parse_date(s):
-    if not s:
-        return None
-    try:
-        return datetime.strptime(s[:10], "%Y-%m-%d").date()
-    except Exception:
-        return None
-
-
-# Solo estas cuentan como "está en tu plataforma": incluida en la
-# suscripción (o gratis con anuncios). RENT/BUY/CINEMA no cuentan, aunque
-# JustWatch las liste como "oferta" — comprar o ver en cine no es lo que
-# pediste para el finde en streaming.
-STREAMING_MONETIZATION_TYPES = {"FLATRATE", "ADS", "FREE"}
+        # Cabecera de fecha candidata: un elemento sin enlaces dentro (para
+        # no confundir un bloque contenedor entero con una simple etiqueta
+        # de fecha) cuyo texto entero casa con alguno de los formatos.
+        if tag.find("a") is not None:
+            continue
+        text = tag.get_text(" ", strip=True)
+        if not text or len(text) > 40:
+            continue
+        d = _parse_date_heading(text, today)
+        if d:
+            current_date = d
+    return items
 
 
 def get_weekly_streaming_releases():
     """
-    Devuelve lista de dicts: {title, platform, imdb_id, poster, release_date,
-    release_year}, ordenada de más reciente a menos reciente, ya filtrada a
-    estrenos de los últimos RECENCY_WINDOW_DAYS días.
-    Best-effort: si la librería o la API fallan (JustWatch cambia su
-    esquema), devuelve lista vacía en vez de romper el pipeline entero.
-
-    IMPORTANTE: el parámetro `providers=[...]` de search() resultó NO
-    filtrar de verdad (comprobado en real: los 5 proveedores devolvían
-    exactamente los mismos 40 resultados) — así que una peli podía salir
-    etiquetada "Netflix" sin estar realmente disponible ahí (p.ej. estrenos
-    que solo están en cines). Ahora se pide UNA lista amplia sin fiarse del
-    filtro, y se valida caso por caso mirando las ofertas reales de cada
-    película (`e.offers`), aceptando solo las que de verdad tienen una
-    oferta de tipo suscripción/gratis en alguna de tus plataformas.
+    Devuelve lista de dicts: {title, platform, imdb_id, tmdb_id, poster,
+    release_date, release_year}, ordenada de más reciente a menos reciente,
+    ya filtrada a los últimos RECENCY_WINDOW_DAYS días desde que se AÑADIÓ a
+    la plataforma (no desde su estreno en cine — ver cabecera del fichero).
+    Best-effort por proveedor: si uno falla (p.ej. cambia su URL), se avisa
+    en el log y se sigue con el resto, no se rompe toda la ejecución.
     """
-    try:
-        from simplejustwatchapi.justwatch import search  # type: ignore
-    except ImportError as e:
-        print(f"    ERROR: no se pudo importar simplejustwatchapi.search ({e!r})")
-        return []
-
-    provider_map = _resolve_provider_technical_names()  # technical_name -> label bonito
-    if not provider_map:
-        print("    no se resolvió ningún proveedor tuyo, no hay nada que buscar")
-        return []
-
-    cutoff = date.today() - timedelta(days=RECENCY_WINDOW_DAYS)
-    this_year = date.today().year
-
-    try:
-        entries = search(
-            title="",
-            country=COUNTRY,
-            language=LANGUAGE,
-            count=100,
-            best_only=False,  # necesitamos TODAS las ofertas de cada peli, no solo "la mejor", para poder validar de verdad
-            min_release_year=this_year - 1,
-            object_types=["MOVIE"],
-        )
-    except Exception as e:
-        print(f"    ERROR en search(): {e!r}")
-        entries = []
-    print(f"    search() (estrenos recientes en ES, sin filtrar por proveedor) devolvió {len(entries)} resultados")
+    today = date.today()
+    cutoff = today - timedelta(days=RECENCY_WINDOW_DAYS)
 
     all_items = []
     seen = set()
-    for e in entries:
-        rd = _parse_date(getattr(e, "release_date", None))
-        if not rd or rd < cutoff:
-            continue  # no es un estreno reciente, lo descartamos
-        imdb_id = getattr(e, "imdb_id", None)
-        if not imdb_id:
-            continue
+    for slug, label in NEW_RELEASES_PROVIDERS:
+        try:
+            raw = _scrape_provider_new_movies(slug, label, today)
+        except Exception as e:
+            print(f"    [{label} ({slug})] ERROR inesperado: {e!r}")
+            raw = []
+        print(f"    [{label} ({slug})] {len(raw)} títulos con fecha detectada en la página")
 
-        matched_label = None
-        for offer in getattr(e, "offers", None) or []:
-            mtype = getattr(offer, "monetization_type", None)
-            if mtype not in STREAMING_MONETIZATION_TYPES:
+        kept = 0
+        for it in raw:
+            if it["date"] < cutoff:
                 continue
-            package = getattr(offer, "package", None)
-            technical_name = getattr(package, "technical_name", None) if package else None
-            if technical_name in provider_map:
-                matched_label = provider_map[technical_name]
-                break
-
-        if not matched_label:
-            continue  # sin oferta real de suscripción en tus plataformas (p.ej. solo está en cines)
-
-        key = (imdb_id, matched_label)
-        if key in seen:
-            continue
-        seen.add(key)
-        title = getattr(e, "title", None)
-        all_items.append(
-            {
-                "title": title,
-                "platform": matched_label,
-                "imdb_id": imdb_id,
-                # JustWatch ya nos da el tmdb_id gratis en la misma respuesta —
-                # con esto match_engine puede pedir el reparto/director a TMDB
-                # sin tener que resolver primero el imdb_id, un paso menos.
-                "tmdb_id": getattr(e, "tmdb_id", None),
-                "poster": _full_poster_url(getattr(e, "poster", None)),
-                "release_date": rd.isoformat(),
-                "release_year": getattr(e, "release_year", None),
-            }
+            guess = best_guess_imdb(it["title"], year=str(it["date"].year))
+            imdb_id = guess["imdb_id"] if guess else None
+            if not imdb_id:
+                print(f"      sin imdb_id para: {it['title']!r} ({label})")
+                continue
+            key = (imdb_id, label)
+            if key in seen:
+                continue
+            seen.add(key)
+            kept += 1
+            all_items.append(
+                {
+                    "title": guess.get("title") or it["title"],
+                    "platform": label,
+                    "imdb_id": imdb_id,
+                    # Ya no viene gratis de una búsqueda de JustWatch (antes sí,
+                    # con search()) — match_engine sigue funcionando igual,
+                    # simplemente resuelve el tmdb_id él mismo a partir del
+                    # imdb_id, un paso más pero sin coste real (TMDB no bloquea).
+                    "tmdb_id": None,
+                    "poster": guess.get("poster"),
+                    "release_date": it["date"].isoformat(),
+                    "release_year": guess.get("year"),
+                }
+            )
+        print(
+            f"    [{label} ({slug})] {kept} dentro de los últimos "
+            f"{RECENCY_WINDOW_DAYS} días y resueltos a un imdb_id"
         )
-        print(f"    ✓ {title!r} -> oferta real confirmada en {matched_label}")
 
     all_items.sort(key=lambda i: i["release_date"], reverse=True)
-    print(f"    {len(all_items)} estrenos recientes con oferta de streaming real confirmada en tus plataformas")
+    print(
+        f"    {len(all_items)} títulos añadidos recientemente en tus plataformas "
+        f"(vía páginas 'nuevo' de JustWatch, no por fecha de estreno en cine)"
+    )
     return all_items
-
-
-def _full_poster_url(poster_path):
-    """El campo `poster` de JustWatch suele venir como ruta relativa tipo
-    '/poster/123456/{profile}'; hay que completarla con su CDN."""
-    if not poster_path:
-        return None
-    if poster_path.startswith("http"):
-        return poster_path
-    path = poster_path.replace("{profile}", "s332")
-    return f"https://images.justwatch.com{path}"
 
 
 if __name__ == "__main__":
