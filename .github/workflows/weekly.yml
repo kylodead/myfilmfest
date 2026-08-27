@@ -6,7 +6,7 @@ on:
     # GitHub Actions usa UTC; en horario de verano (CEST, UTC+2) eso son las 06:00 UTC,
     # en horario de invierno (CET, UTC+1) serían las 07:00 UTC. Se deja en 06:00 UTC
     # como aproximación razonable todo el año (llegará como muy tarde 1h más tarde en invierno).
-    - cron: "0 6 * * 5"
+    - cron: "0 10 * * 5"
   workflow_dispatch: {}   # permite lanzarlo a mano desde la pestaña "Actions"
 
 permissions:
