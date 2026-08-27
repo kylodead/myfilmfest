@@ -1,0 +1,61 @@
+name: MyFilmFest - actualización semanal
+
+on:
+  schedule:
+    - cron: "0 6 * * 5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Generar recomendaciones de la semana
+        run: python scripts/build_site.py
+
+      - name: Commit docs/data.json
+        run: |
+          git config user.name "myfilmfest-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data.json
+          git diff --cached --quiet || git commit -m "Actualización semanal automática $(date +'%Y-%m-%d')"
+          git push
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
