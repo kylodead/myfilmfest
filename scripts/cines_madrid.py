@@ -21,8 +21,10 @@ Estado real por cine (agosto 2026):
     - Cines Embajadores                     -> su web no se pudo verificar
       todavía (fallo de conexión al comprobarla), pendiente de probar en
       real durante una ejecución.
-    - Sala Equis                            -> no tiene web propia con
-      cartelera estructurada (solo redes sociales/blogs de terceros).
+    - Sala Equis                            -> tiene web propia (salaequis.es)
+      pero sin cartelera estructurada en HTML estático que leer — el enlace
+      que se muestra al usuario SÍ es esa web (salaequis.es), solo que los
+      horarios en sí se siguen sacando de FilmAffinity por dentro.
     - Círculo de Bellas Artes (Cine Estudio) -> su programación se publica
       como PDF descargable, no como HTML.
     - Cinesa Proyecciones                   -> su web bloquea peticiones
@@ -391,13 +393,10 @@ FILMAFFINITY_FALLBACK_IDS = {
 # web?"): FilmAffinity aquí es solo la fuente de datos que usamos por dentro
 # para estos 5 cines (no tienen cartelera propia fácil de leer), pero el
 # enlace visible tiene que ser la web real del cine, comprobada a mano.
-# Sala Equis es la única excepción real: no tiene web propia con cartelera
-# estructurada (solo redes sociales/blogs de terceros, ver cabecera del
-# fichero) — así que ahí no hay enlace honesto que dar, se deja sin enlace
-# en vez de mandar a un sitio que no es "la web del cine".
 CINEMA_OFFICIAL_URLS = {
     "Yelmo Cines Ideal": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/",
     "Cines Embajadores": "https://cinesembajadores.es/madrid/cartelera-del-dia/",
+    "Sala Equis": "https://salaequis.es",
     "Círculo de Bellas Artes (Cine Estudio)": "https://www.circulobellasartes.com/cine-estudio/",
     "Cinesa Proyecciones": "https://www.cinesa.es/cines/proyecciones/",
 }
