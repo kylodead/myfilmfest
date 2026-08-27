@@ -47,6 +47,18 @@ TIME_PATTERN = re.compile(r"(\d{1,2})[:h](\d{2})h?")
 # (V.O.S.E., 70mm, 3D...); se recortan del título antes de buscarlo.
 _TRAILING_ANNOTATION_RE = re.compile(r"\s*[\(\[][^()\[\]]*[\)\]]\s*$")
 
+_SPANISH_MONTHS = (
+    "enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre"
+)
+# Solo la Filmoteca mete la fecha en el propio texto del enlace ("la iguana
+# 27 agosto") — se recorta igual que las anotaciones entre paréntesis, pero
+# SOLO se aplica en scrape_dore() (ver _clean_dore_title), no en el resto de
+# cines: un número suelto al final de un título SÍ puede ser parte real del
+# nombre (p.ej. "Prácticamente magia 2"), así que no se recorta a lo tonto
+# en todos los sitios.
+_TRAILING_DATE_RE = re.compile(rf"\s+\d{{1,2}}\s+(?:{_SPANISH_MONTHS})\s*$", re.IGNORECASE)
+_TRAILING_LONE_NUMBER_RE = re.compile(r"\s+\d+\s*$")
+
 
 def _clean_title(title: str) -> str:
     t = (title or "").strip()
@@ -56,6 +68,16 @@ def _clean_title(title: str) -> str:
             break
         t = new_t
     return t or (title or "").strip()
+
+
+def _clean_dore_title(title: str) -> str:
+    """Como _clean_title, pero además quita la fecha y el número de sesión
+    sueltos que la Filmoteca añade al texto del enlace — seguro aplicarlo
+    solo aquí porque sabemos que este sitio en concreto hace eso."""
+    t = _clean_title(title)
+    t = _TRAILING_DATE_RE.sub("", t).strip()
+    t = _TRAILING_LONE_NUMBER_RE.sub("", t).strip()
+    return t or _clean_title(title)
 
 
 def _get(url: str, label: str) -> str:
@@ -127,10 +149,12 @@ def _generic_direct_scrape(url: str, label: str, href_re: re.Pattern, base_domai
 
 
 def scrape_cineteca():
+    # Sin "^" al principio (ver nota en scrape_mk2paz): así funciona tanto
+    # si el enlace es relativo como si algún día pasa a ser absoluto.
     return _generic_direct_scrape(
         "https://www.cinetecamadrid.com/programacion",
         "Cineteca (Matadero Madrid)",
-        re.compile(r"^/programacion/[^/]+$"),
+        re.compile(r"/programacion/[^/]+$"),
         "https://www.cinetecamadrid.com",
     )
 
@@ -139,7 +163,7 @@ def scrape_renoir():
     return _generic_direct_scrape(
         "https://www.cinesrenoir.com/cine/renoir-plaza-de-espana/cartelera/",
         "Cines Renoir (Plaza de España)",
-        re.compile(r"^/pelicula/[^/]+/?$"),
+        re.compile(r"/pelicula/[^/]+/?$"),
         "https://www.cinesrenoir.com",
     )
 
@@ -148,16 +172,19 @@ def scrape_golem():
     return _generic_direct_scrape(
         "https://www.golem.es/golem/golem-madrid",
         "Cines Golem",
-        re.compile(r"^/golem/pelicula/[^/]+$"),
+        re.compile(r"/golem/pelicula/[^/]+$"),
         "https://www.golem.es",
     )
 
 
 def scrape_mk2paz():
+    # Sin "^" al principio: sus enlaces son absolutos
+    # (https://www.cinepazmadrid.es/es/detalles/...), no relativos como los
+    # demás cines — con el ancla al inicio nunca casaban y por eso salía 0.
     return _generic_direct_scrape(
         "https://www.cinepazmadrid.es/es/cartelera",
         "Mk2 Cine Paz",
-        re.compile(r"^/es/detalles/[^/]+/[^/]+$"),
+        re.compile(r"/es/detalles/[^/]+/[^/]+/?$"),
         "https://www.cinepazmadrid.es",
     )
 
@@ -191,7 +218,7 @@ def scrape_dore():
         entry = grouped.setdefault(
             slug,
             {
-                "title": _clean_title(title),
+                "title": _clean_dore_title(title),
                 "showtimes": set(),
                 "listing_url": "https://entradasfilmoteca.sacatuentrada.es" + link["href"]
                 if link["href"].startswith("/")
