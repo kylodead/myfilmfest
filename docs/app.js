@@ -74,12 +74,12 @@
       line.appendChild(name);
       const times = el("span", "showing-times", (c.showtimes || []).join(" · ") || "horario en la web del cine");
       line.appendChild(times);
-      if (c.sensacine_url) {
+      if (c.listing_url) {
         line.style.cursor = "pointer";
-        line.title = "Ver en SensaCine";
+        line.title = "Ver horarios y entradas";
         line.addEventListener("click", (ev) => {
           ev.stopPropagation();
-          window.open(c.sensacine_url, "_blank", "noopener");
+          window.open(c.listing_url, "_blank", "noopener");
         });
       }
       list.appendChild(line);
