@@ -116,6 +116,15 @@ def imdb_suggestion_search(title: str):
                         "title": item.get("l"),
                         "year": item.get("y"),
                         "poster": (item.get("i") or {}).get("imageUrl"),
+                        # "qid" distingue película/corto/TV/especial... y "rank"
+                        # es la popularidad interna de IMDb (más bajo = más
+                        # popular) — las guardamos porque best_guess_imdb las
+                        # necesita para no perder pelis cuyo título en IMDb no
+                        # se parece en nada al de la cartelera española (ver
+                        # comentario ahí, caso real: "El ser querido" / "The
+                        # Beloved").
+                        "qid": item.get("qid"),
+                        "rank": item.get("rank"),
                     }
                 )
             return out
@@ -284,6 +293,12 @@ def _tmdb_movie_full_fetch(tmdb_id, fallback_imdb_id=None):
     imdb_id = d.get("imdb_id") or fallback_imdb_id
     if not d.get("title") and not d.get("id"):
         return {}
+    # Si la peli pertenece a una saga (p.ej. "Insidious Collection"), TMDB nos
+    # lo da GRATIS en esta misma petición — lo guardamos para poder detectar
+    # "ya has visto y puntuado bien otra peli de esta saga", sin tener que
+    # pedir la lista completa de la colección (eso sí costaría una petición
+    # aparte por cada peli con saga).
+    collection = d.get("belongs_to_collection") or {}
     return {
         "imdb_id": imdb_id,
         "title": d.get("title") or d.get("original_title"),
@@ -292,6 +307,7 @@ def _tmdb_movie_full_fetch(tmdb_id, fallback_imdb_id=None):
         "genres": genres,
         "actors": actors,
         "directors": directors,
+        "collection_name": collection.get("name"),
         "url": f"https://www.imdb.com/title/{imdb_id}/" if imdb_id else d.get("homepage"),
     }
 
@@ -388,25 +404,91 @@ def _title_similarity(a: str, b: str) -> float:
     return difflib.SequenceMatcher(None, normalize_title(a), normalize_title(b)).ratio()
 
 
-def best_guess_imdb(title: str, year: str = None, min_similarity: float = 0.82):
+def _year_key(c):
+    try:
+        return int(c.get("year") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _rank_key(c):
+    # Popularidad interna de IMDb: más bajo = más popular/más probable que
+    # sea "el" resultado correcto entre varios homónimos.
+    try:
+        return int(c.get("rank") or 10**9)
+    except (TypeError, ValueError):
+        return 10**9
+
+
+def _normalize_person_name(name: str) -> str:
+    return normalize_title(name or "")
+
+
+def _director_hint_matches(directors, hint: str) -> bool:
+    hint_norm = _normalize_person_name(hint)
+    if not hint_norm:
+        return False
+    for d in directors or []:
+        d_norm = _normalize_person_name(d)
+        if not d_norm:
+            continue
+        if hint_norm == d_norm or hint_norm in d_norm or d_norm in hint_norm:
+            return True
+    return False
+
+
+def _pick_by_director(candidates, director_hint: str, max_checked: int = 5):
+    """
+    Entre varios candidatos homónimos, pide la ficha completa (TMDB/IMDb) de
+    los más populares y se queda con el primero cuyo director de verdad
+    coincide con `director_hint` — la pista que sacamos de la propia web del
+    cine/FilmAffinity junto al título. Es la señal más fiable de todas para
+    homónimos (dos películas con el mismo título casi nunca comparten
+    director), por eso se prueba antes que año o similitud de texto.
+    Limitado a `max_checked` para no disparar una ficha completa por cada
+    candidato si el título es muy genérico.
+    """
+    ordered = sorted(candidates, key=_rank_key)[:max_checked]
+    for c in ordered:
+        info = get_title_metadata(imdb_id=c.get("imdb_id"))
+        if info and _director_hint_matches(info.get("directors"), director_hint):
+            return c
+    return None
+
+
+def best_guess_imdb(title: str, year: str = None, director_hint: str = None, min_similarity: float = 0.82):
     """
     Busca en IMDb Suggestion y devuelve el candidato más plausible.
-
-    Con VARIOS candidatos, exige que el título coincida de verdad (similitud
-    >= min_similarity) — evita falsos positivos con títulos genéricos cortos
-    (p.ej. "Obsession" podría devolver una peli de 1954 en vez del estreno
-    actual); preferimos no recomendar nada antes que recomendar la película
-    equivocada.
 
     Con UN ÚNICO candidato nos fiamos de él aunque el texto no se parezca en
     absoluto al nuestro: el motor de sugerencias de IMDb ya indexa por
     título original/AKA (no solo por el que ves en pantalla), así que si de
-    verdad no hubiera relación no habría devuelto nada. Esto es justo lo que
-    hacía falta para películas extranjeras con título distinto en la
-    cartelera española que en IMDb — p.ej. "Anoche conquisté Tebas" en el
-    cine es "Last Night I Conquered the City of Thebes" en IMDb: se
-    descartaba antes por "no parecerse", aunque IMDb ya nos había dado la
-    respuesta correcta y sin ambigüedad.
+    verdad no hubiera relación no habría devuelto nada.
+
+    Si nos pasan `director_hint` (sacado de la propia web del cine/
+    FilmAffinity junto al título, cuando está disponible) y hay más de un
+    candidato, lo comprobamos ANTES que nada más: es la confirmación más
+    fiable posible contra el caso real que reportaste — "La conspiración"
+    en el Doré es "The Conspirator" (2010) de Robert Redford, y sin esta
+    comprobación el sistema podía quedarse con OTRA película distinta que
+    también se llama "La conspiración".
+
+    Si no hay pista de director, o no coincide con ninguno, el caso real que
+    esto arregla es "El ser querido" (cartelera en español) / "The Beloved"
+    en IMDb: título completamente distinto, así que la similitud de texto
+    SIEMPRE lo iba a descartar, aunque IMDb Suggestion sí lo tenía entre los
+    candidatos y con el año correcto. Por eso miramos si hay un candidato
+    del año exacto esperado (año real de la sesión si lo sacamos de la
+    propia web, o el actual/anterior como respaldo) antes de exigir que el
+    texto se parezca — el año + ser la única/la más popular coincidencia de
+    ese año es una señal más fiable que el texto cuando el título está
+    traducido. Si hay varios del mismo año, nos quedamos con el más popular
+    en IMDb (rank más bajo), no con el primero que devuelva la API.
+
+    Si nada de eso resuelve la ambigüedad, caemos al criterio más antiguo:
+    exigir similitud de texto >= min_similarity y, entre los que la cumplen,
+    preferir el más reciente (evita el caso "Malabestia" 2026 resolviendo a
+    una peli italiana de los 80 con el mismo título).
     """
     candidates = imdb_suggestion_search(title)
     if not candidates:
@@ -415,7 +497,26 @@ def best_guess_imdb(title: str, year: str = None, min_similarity: float = 0.82):
     if len(candidates) == 1:
         return candidates[0]
 
-    filtered = [c for c in candidates if _title_similarity(title, c.get("title") or "") >= min_similarity]
+    # Descarta personas homónimas (directores, actores...) que a veces se
+    # cuelan en las sugerencias junto a los títulos — se reconocen porque no
+    # tienen año de estreno.
+    films = [c for c in candidates if c.get("year")]
+    if not films:
+        films = candidates
+
+    if director_hint and len(films) > 1:
+        by_director = _pick_by_director(films, director_hint)
+        if by_director:
+            return by_director
+
+    if year:
+        same_year = [c for c in films if str(c.get("year")) == str(year)]
+        if len(same_year) == 1:
+            return same_year[0]
+        if len(same_year) > 1:
+            return min(same_year, key=_rank_key)
+
+    filtered = [c for c in films if _title_similarity(title, c.get("title") or "") >= min_similarity]
     if not filtered:
         return None
 
@@ -423,18 +524,5 @@ def best_guess_imdb(title: str, year: str = None, min_similarity: float = 0.82):
         for c in filtered:
             if str(c.get("year")) == str(year):
                 return c
-
-    # Sin año conocido y con varios candidatos válidos: antes nos quedábamos
-    # con "el primero que devolviera IMDb", que no es necesariamente el más
-    # reciente — así "Malabestia" (cartelera 2026) resolvía a una película
-    # italiana de los 80 con el mismo título, porque IMDb la devolvía
-    # primero. Una cartelera de cine casi siempre es un estreno actual, no
-    # un homónimo antiguo, así que ante la duda preferimos el candidato más
-    # reciente entre los que de verdad se parecen al título.
-    def _year_key(c):
-        try:
-            return int(c.get("year") or 0)
-        except (TypeError, ValueError):
-            return 0
 
     return max(filtered, key=_year_key)
