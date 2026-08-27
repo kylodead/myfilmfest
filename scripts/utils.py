@@ -106,6 +106,7 @@ def imdb_title_info(imdb_id: str):
             r = requests.get(url, headers=HEADERS, timeout=10)
             time.sleep(REQUEST_DELAY)
             if r.status_code != 200:
+                print(f"      [imdb_title_info] {imdb_id}: HTTP {r.status_code} al pedir {url}")
                 return {}
             m = re.search(
                 r'<script type="application/ld\+json">(.*?)</script>',
@@ -113,6 +114,10 @@ def imdb_title_info(imdb_id: str):
                 re.DOTALL,
             )
             if not m:
+                print(
+                    f"      [imdb_title_info] {imdb_id}: HTTP 200 pero no se encontró "
+                    f"el bloque JSON-LD ({len(r.text)} bytes recibidos — ¿página de bloqueo/captcha?)"
+                )
                 return {}
             ld = json.loads(m.group(1))
             actors = ld.get("actor") or []
@@ -136,7 +141,8 @@ def imdb_title_info(imdb_id: str):
                 "description": ld.get("description"),
                 "url": url,
             }
-        except Exception:
+        except Exception as e:
+            print(f"      [imdb_title_info] {imdb_id}: ERROR {e!r}")
             return {}
 
     return cached_get_json(f"title_{imdb_id}", _fetch, max_age_days=25)
