@@ -116,6 +116,65 @@ def _find_showtimes_nearby(link_tag, max_levels: int = 6):
     return []
 
 
+# "Hoy", "Mañana" o el nombre del día, con o sin el número de fecha detrás
+# ("Jueves 27", "Sábado 29 de agosto"...). Usado SOLO por _find_dated_showtimes_nearby
+# (cines que agregan varios días en una sola página, como los que van vía
+# FilmAffinity) — Doré ya tiene su propia fecha exacta sacada de la URL de
+# cada sesión y no necesita esto.
+_DAY_LABEL_RE = re.compile(
+    r"\b(hoy|mañana|lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bado|domingo)"
+    r"(?:\s+\d{1,2}(?:\s+de\s+[a-záéíóúñ]+)?)?",
+    re.IGNORECASE,
+)
+
+
+def _find_dated_showtimes_nearby(link_tag, max_levels: int = 6):
+    """
+    Como _find_showtimes_nearby, pero además intenta anteponer a cada hora el
+    día al que pertenece ("Jueves 27 · 20:00"), leyendo el texto que hay
+    ANTES de esa hora en el mismo contenedor — así es como FilmAffinity y
+    páginas similares organizan varios días en una sola lista ("Hoy Jueves
+    27 16:00 18:10 · Mañana Viernes 28 16:00 19:00 · Sábado 29 de agosto...").
+
+    Es puramente ADITIVO: si no se detecta ningún día cerca, se devuelve la
+    hora sola igual que antes — nunca descarta un horario solo por no poder
+    fecharlo, para no arriesgarse a dejar cines a 0 resultados por un texto
+    con un formato distinto al esperado.
+    """
+    container = link_tag.parent
+    for _ in range(max_levels):
+        if container is None:
+            break
+        text = container.get_text(" ", strip=True)
+        time_matches = list(TIME_PATTERN.finditer(text))
+        if not time_matches:
+            container = container.parent
+            continue
+        day_matches = list(_DAY_LABEL_RE.finditer(text))
+        results = []
+        seen = set()
+        for tm in time_matches:
+            hh, mm = int(tm.group(1)), tm.group(2)
+            if not (0 <= hh <= 23):
+                continue
+            # el día más reciente que aparece ANTES de esta hora en el texto
+            # (mismo orden en que la página los publica)
+            day_label = None
+            for dm in day_matches:
+                if dm.start() <= tm.start():
+                    day_label = dm.group(0).strip().capitalize()
+                else:
+                    break
+            label = f"{day_label} · {hh:02d}:{mm}" if day_label else f"{hh:02d}:{mm}"
+            if label not in seen:
+                seen.add(label)
+                results.append(label)
+        if results:
+            return results
+        container = container.parent
+    return []
+
+
 def _generic_direct_scrape(url: str, label: str, href_re: re.Pattern, base_domain: str):
     """
     Sirve para los cines cuya web muestra la cartelera como HTML estático con
@@ -141,7 +200,7 @@ def _generic_direct_scrape(url: str, label: str, href_re: re.Pattern, base_domai
         films.append(
             {
                 "title": _clean_title(title),
-                "showtimes": _find_showtimes_nearby(link),
+                "showtimes": _find_dated_showtimes_nearby(link),
                 "listing_url": full_url,
             }
         )
@@ -269,7 +328,7 @@ def scrape_via_filmaffinity(cinema_name: str):
         films.append(
             {
                 "title": _clean_title(title),
-                "showtimes": _find_showtimes_nearby(link),
+                "showtimes": _find_dated_showtimes_nearby(link),
                 "listing_url": url_full,
             }
         )
@@ -324,6 +383,18 @@ def get_madrid_billboard():
                 print(f"      sin imdb_id para: {f['title']!r}")
             enriched.append(f)
         print(f"    [{cinema_name}] {resolved}/{len(films)} resueltas a un imdb_id")
+        # Diagnóstico para saber si _find_dated_showtimes_nearby está
+        # detectando el día (p.ej. "Jueves · 20:00") o solo la hora sola —
+        # así lo veo en el log sin tener que adivinar el HTML real de cada
+        # web a ciegas.
+        with_day = sum(
+            1 for f in enriched for s in (f.get("showtimes") or []) if "·" in s
+        )
+        total_showtimes = sum(len(f.get("showtimes") or []) for f in enriched)
+        if total_showtimes:
+            print(
+                f"    [{cinema_name}] horarios con día detectado: {with_day}/{total_showtimes}"
+            )
         billboard[cinema_name] = enriched
     return billboard
 
