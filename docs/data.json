@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T13:42",
+  "generated_at": "2026-08-27T13:54",
   "week_label": "28/08 – 03/09",
   "weekend": {
     "range": "29/08 – 30/08",
@@ -123,7 +123,7 @@
           {
             "name": "Sala Equis",
             "showtimes": [],
-            "listing_url": null
+            "listing_url": "https://salaequis.es"
           }
         ]
       },
@@ -250,7 +250,7 @@
           {
             "name": "Sala Equis",
             "showtimes": [],
-            "listing_url": null
+            "listing_url": "https://salaequis.es"
           },
           {
             "name": "Yelmo Cines Ideal",
@@ -289,7 +289,7 @@
           {
             "name": "Sala Equis",
             "showtimes": [],
-            "listing_url": null
+            "listing_url": "https://salaequis.es"
           }
         ]
       },
@@ -305,7 +305,7 @@
           {
             "name": "Sala Equis",
             "showtimes": [],
-            "listing_url": null
+            "listing_url": "https://salaequis.es"
           }
         ]
       },
