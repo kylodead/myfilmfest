@@ -174,6 +174,12 @@ def select_streaming_picks(streaming_items, taste_profile, favorite_actors, watc
             imdb_id = item.get("imdb_id")
             if not imdb_id or imdb_id in seen_ids:
                 continue
+            # Bug real que se coló en la primera versión de este relleno:
+            # no comprobaba tu lista de votadas, así que una peli que ya
+            # tenías puntuada (p.ej. Spider-Man) podía colarse como "mejor
+            # disponible". Se excluye igual que en el resto del matching.
+            if imdb_id in taste_profile.get("rated_ids", set()):
+                continue
             seen_ids.add(imdb_id)
             info = imdb_title_info(imdb_id) or {}
             rating = info.get("rating")
