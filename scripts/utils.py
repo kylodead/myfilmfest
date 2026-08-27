@@ -346,6 +346,18 @@ def tmdb_title_info_by_imdb(imdb_id: str):
     return cached_get_json(f"tmdb_by_imdb_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
 
 
+# Memoria SOLO de esta ejecución (no se guarda en disco, se pierde al
+# terminar el proceso) — evita el problema real que se vio en el log: una
+# peli que sale en 8-9 cines a la vez (p.ej. un estreno grande) provocaba
+# 8-9 peticiones IDÉNTICAS a TMDB/IMDb para el mismo imdb_id, una por cada
+# cine donde aparecía, porque cada aparición se puntuaba por separado. Como
+# cache_empty=False no guarda los fallos en disco (a propósito, para poder
+# reintentarlos la semana que viene), sin esto un fallo se repetía una y
+# otra vez EN LA MISMA ejecución en vez de solo una — eso multiplicaba por
+# 8-9 el tiempo perdido contra el bloqueo de IMDb.
+_RUN_METADATA_CACHE = {}
+
+
 def get_title_metadata(imdb_id: str = None, tmdb_id: str = None):
     """
     Punto único para pedir reparto/director/géneros/nota/póster de una
@@ -353,6 +365,10 @@ def get_title_metadata(imdb_id: str = None, tmdb_id: str = None):
     TMDB_API_KEY configurada, o TMDB no encuentra la ficha, cae al scraping
     best-effort de IMDb (el mismo de siempre, que puede fallar por bloqueo).
     """
+    cache_key = (imdb_id, tmdb_id)
+    if cache_key in _RUN_METADATA_CACHE:
+        return _RUN_METADATA_CACHE[cache_key]
+
     info = {}
     if TMDB_API_KEY:
         if tmdb_id:
@@ -361,7 +377,9 @@ def get_title_metadata(imdb_id: str = None, tmdb_id: str = None):
             info = tmdb_title_info_by_imdb(imdb_id)
     if not info and imdb_id:
         info = imdb_title_info(imdb_id)
-    return info or {}
+    info = info or {}
+    _RUN_METADATA_CACHE[cache_key] = info
+    return info
 
 
 def _title_similarity(a: str, b: str) -> float:
@@ -405,4 +423,18 @@ def best_guess_imdb(title: str, year: str = None, min_similarity: float = 0.82):
         for c in filtered:
             if str(c.get("year")) == str(year):
                 return c
-    return filtered[0]
+
+    # Sin año conocido y con varios candidatos válidos: antes nos quedábamos
+    # con "el primero que devolviera IMDb", que no es necesariamente el más
+    # reciente — así "Malabestia" (cartelera 2026) resolvía a una película
+    # italiana de los 80 con el mismo título, porque IMDb la devolvía
+    # primero. Una cartelera de cine casi siempre es un estreno actual, no
+    # un homónimo antiguo, así que ante la duda preferimos el candidato más
+    # reciente entre los que de verdad se parecen al título.
+    def _year_key(c):
+        try:
+            return int(c.get("year") or 0)
+        except (TypeError, ValueError):
+            return 0
+
+    return max(filtered, key=_year_key)
