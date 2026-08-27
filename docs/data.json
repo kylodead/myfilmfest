@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T10:31",
+  "generated_at": "2026-08-27T11:36",
   "week_label": "28/08 – 03/09",
   "weekend": {
     "range": "29/08 – 30/08",
@@ -7,38 +7,14 @@
       {
         "imdb_id": "tt39390497",
         "title": "La captura",
-        "poster": "https://images.justwatch.com/poster/348171183/s718/la-captura-2026.jpg",
-        "rating": null,
+        "poster": "https://image.tmdb.org/t/p/w500/iwCeOpuBtuTP1kLosqgniey5OvX.jpg",
+        "rating": 8.737,
         "imdb_url": "https://www.imdb.com/title/tt39390497/",
         "platform": "Netflix",
         "release_date": "2026-08-21",
-        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
+        "reason": "Estreno reciente en Netflix (IMDb 8.737) — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
         "score": 10,
         "day": "viernes"
-      },
-      {
-        "imdb_id": "tt36590417",
-        "title": "No se desea buena suerte",
-        "poster": "https://images.justwatch.com/poster/347522019/s718/dont-say-good-luck.jpg",
-        "rating": null,
-        "imdb_url": "https://www.imdb.com/title/tt36590417/",
-        "platform": "Netflix",
-        "release_date": "2026-08-13",
-        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
-        "score": 10,
-        "day": "sábado"
-      },
-      {
-        "imdb_id": "tt32268156",
-        "title": "La última casa",
-        "poster": "https://images.justwatch.com/poster/346670196/s718/the-last-house-2026.jpg",
-        "rating": null,
-        "imdb_url": "https://www.imdb.com/title/tt32268156/",
-        "platform": "Netflix",
-        "release_date": "2026-08-06",
-        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
-        "score": 10,
-        "day": "domingo"
       }
     ]
   },
@@ -47,9 +23,9 @@
     "picks": [
       {
         "imdb_id": "tt33071426",
-        "title": "The Drama",
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTcwOGZhYmItYTg3ZS00NjUwLWJiMmQtMjU5YjEwYWY0NmNkXkEyXkFqcGc@._V1_.jpg",
-        "rating": null,
+        "title": "El drama",
+        "poster": "https://image.tmdb.org/t/p/w500/zgfBYGYCNcOZ51JDbr6tm45H8y0.jpg",
+        "rating": 6.906,
         "imdb_url": "https://www.imdb.com/title/tt33071426/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
@@ -67,6 +43,79 @@
             "name": "Sala Equis",
             "showtimes": [],
             "listing_url": "https://www.filmaffinity.com/es/film879542.html"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt27165187",
+        "title": "El final de Oak Street",
+        "poster": "https://image.tmdb.org/t/p/w500/g9DUGw8ufetrwhCIrwq3h1NlpWO.jpg",
+        "rating": 6.4,
+        "imdb_url": "https://www.imdb.com/title/tt27165187/",
+        "reason": "Sale Anne Hathaway, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.filmaffinity.com/es/film299953.html"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://www.filmaffinity.com/es/film299953.html"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt1964859",
+        "title": "La conspiración",
+        "poster": "https://image.tmdb.org/t/p/w500/tclEtFvda1FCLHY78UCfYVBqXiU.jpg",
+        "rating": 6.0,
+        "imdb_url": "https://www.imdb.com/title/tt1964859/",
+        "reason": "Sale Silvia Marsó, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Filmoteca - Cine Doré",
+            "showtimes": [
+              "28/08 21:00"
+            ],
+            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/la-conspiracion-28-agosto/2026-08-28\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt0077894",
+        "title": "Malabestia",
+        "poster": "https://image.tmdb.org/t/p/w500/1JhCg8zsTpOvZ60jhQTo8NYjA9p.jpg",
+        "rating": 4.25,
+        "imdb_url": "https://www.imdb.com/title/tt0077894/",
+        "reason": "Sale Femi Benussi, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://www.filmaffinity.com/es/film495536.html"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt33396880",
+        "title": "Flores para Antonio",
+        "poster": "https://image.tmdb.org/t/p/w500/aTSwtWH1mD0kjodSh7S7yNwcTUy.jpg",
+        "rating": 6.719,
+        "imdb_url": "https://www.imdb.com/title/tt33396880/",
+        "reason": "Dirigida por Isaki Lacuesta, a quien sueles puntuar alto (2 pelis con nota ≥8)",
+        "score": 65,
+        "cinemas": [
+          {
+            "name": "Cineteca (Matadero Madrid)",
+            "showtimes": [
+              "19:00"
+            ],
+            "listing_url": "https://www.cinetecamadrid.com/programacion/flores-para-antonio"
           }
         ]
       }
