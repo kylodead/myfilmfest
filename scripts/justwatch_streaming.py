@@ -89,9 +89,12 @@ _FILM_LINK_RE = re.compile(r"/es/film\d+\.html$")
 # forma fiable de descartarlas es por este texto.
 _SERIES_MARKER_RE = re.compile(r"\(\s*(mini)?serie\b", re.IGNORECASE)
 
-# "27 ago." o "27 ago" al principio del texto de un enlace/cabecera.
+# "27 ago." o "27 ago" al principio del texto de un enlace/cabecera — el
+# "\s*" (no "\s+") al final es a propósito: tiene que casar tanto si detrás
+# viene un título ("27 ago. Título") como si el texto es SOLO la fecha
+# ("27 ago.", el caso normal de las cabeceras/etiquetas de fecha sueltas).
 _DATE_ABBR_PREFIX_RE = re.compile(
-    r"^(\d{1,2})\s+([a-záéíóú]{3})\.?\s+", re.IGNORECASE
+    r"^(\d{1,2})\s+([a-záéíóú]{3})\.?\s*", re.IGNORECASE
 )
 # "27 de agosto de 2026" / "27 de agosto" al principio del texto.
 _DATE_FULL_PREFIX_RE = re.compile(
@@ -202,12 +205,29 @@ def _scrape_provider_new_movies(category_id: str, label: str, today: date):
             raw_title = tag.get_text(" ", strip=True)
             if not raw_title:
                 continue
-            is_series = bool(_SERIES_MARKER_RE.search(raw_title))
             # Caso (a): fecha pegada al propio enlace.
             d, rest_title = _match_leading_date(raw_title, today)
-            title = rest_title or raw_title
-            if not d:
-                # Caso (b): usamos la última cabecera de fecha vista.
+            if d and not rest_title:
+                # Todo el texto de este enlace era SOLO la fecha (p.ej. el
+                # enlace que envuelve la miniatura, con la fecha superpuesta
+                # encima de la imagen a modo de "sello" — visto en las
+                # capturas que me pasaste) — no es un título de verdad, solo
+                # actualiza la fecha activa para el siguiente enlace real.
+                current_date = d
+                continue
+            # "(Serie)"/"(Miniserie)" puede venir pegado al propio texto del
+            # título, pero en las páginas de rejilla (ver capturas) suele ir
+            # en una etiqueta APARTE justo al lado (mismo contenedor que el
+            # enlace, no dentro de él) — por eso miramos también el texto del
+            # contenedor padre, no solo el del enlace.
+            parent_text = tag.parent.get_text(" ", strip=True) if tag.parent else raw_title
+            is_series = bool(_SERIES_MARKER_RE.search(raw_title)) or bool(
+                _SERIES_MARKER_RE.search(parent_text)
+            )
+            if d:
+                title = rest_title
+            else:
+                # Caso (b): usamos la última cabecera/sello de fecha visto.
                 d = current_date
                 title = raw_title
             title = _SERIES_MARKER_RE.split(title)[0].strip(" -–·(")
@@ -216,7 +236,7 @@ def _scrape_provider_new_movies(category_id: str, label: str, today: date):
             continue
         # Cabecera de fecha candidata: sin enlaces dentro, texto corto que es
         # ÍNTEGRAMENTE una fecha (si tuviera más texto detrás, sería un
-        # título del caso (a), no una cabecera del caso (b)).
+        # título del caso (a), no una cabecera del caso (b).
         if tag.find("a") is not None:
             continue
         text = tag.get_text(" ", strip=True)
@@ -232,7 +252,7 @@ def get_weekly_streaming_releases():
     """
     Devuelve lista de dicts: {title, platform, imdb_id, tmdb_id, poster,
     release_date, release_year}, ordenada de más reciente a menos reciente,
-    ya filtrada a los últimos RECENCY_WINDOW_DAYS días desde que se AÑADIÓ a
+    ya filtrada a los últimos RECENCY_WINDOW_DAYS días desde que se AÑADÓ a
     la plataforma (no desde su estreno en cine — ver cabecera del fichero).
     Best-effort por proveedor: si uno falla, se avisa en el log y se sigue
     con el resto, no se rompe toda la ejecución.
