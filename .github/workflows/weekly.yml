@@ -2,8 +2,12 @@ name: MyFilmFest - actualización semanal
 
 on:
   schedule:
+    # Cada viernes a las 08:00 hora de Madrid.
+    # GitHub Actions usa UTC; en horario de verano (CEST, UTC+2) eso son las 06:00 UTC,
+    # en horario de invierno (CET, UTC+1) serían las 07:00 UTC. Se deja en 06:00 UTC
+    # como aproximación razonable todo el año (llegará como muy tarde 1h más tarde en invierno).
     - cron: "0 6 * * 5"
-  workflow_dispatch: {}
+  workflow_dispatch: {}   # permite lanzarlo a mano desde la pestaña "Actions"
 
 permissions:
   contents: write
@@ -31,13 +35,15 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Generar recomendaciones de la semana
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: python scripts/build_site.py
 
-      - name: Commit docs/data.json
+      - name: Commit docs/data.json y caché
         run: |
           git config user.name "myfilmfest-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add docs/data.json
+          git add docs/data.json cache/
           git diff --cached --quiet || git commit -m "Actualización semanal automática $(date +'%Y-%m-%d')"
           git push
 
