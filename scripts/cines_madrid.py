@@ -34,7 +34,7 @@ de arquitectura mayor (headless browser) y prefiero que lo decidas tú.
 """
 import re
 import time
-from datetime import datetime
+from datetime import date, datetime
 
 import requests
 from bs4 import BeautifulSoup
@@ -42,6 +42,20 @@ from bs4 import BeautifulSoup
 from utils import HEADERS, REQUEST_DELAY, best_guess_imdb
 
 TIME_PATTERN = re.compile(r"(\d{1,2})[:h](\d{2})h?")
+
+# Año de estreno plausible cerca del título (p.ej. "2010" junto a "La
+# conspiración" en el Doré, o "2026" junto a un estreno reciente en
+# FilmAffinity) — usarlo de verdad, en vez de asumir "el año actual" para
+# TODOS los cines, es lo que arregla el caso real que reportaste: el Doré es
+# una filmoteca, programa constantemente películas antiguas, así que asumir
+# "este año" para una peli suya podía llevar a IMDb a devolver un homónimo
+# reciente en vez de la película antigua correcta.
+_YEAR_NEARBY_RE = re.compile(r"\b(19\d{2}|20\d{2})\b")
+
+# En las páginas de FilmAffinity, el nombre del director junto a cada título
+# va en un enlace con este patrón de URL — lo usamos como "pista de
+# director" para desambiguar homónimos (ver best_guess_imdb en utils.py).
+_FA_DIRECTOR_HREF_RE = re.compile(r"name\.php\?name-id=")
 
 # Anotaciones de versión/formato que solo ensucian el matching contra IMDb
 # (V.O.S.E., 70mm, 3D...); se recortan del título antes de buscarlo.
@@ -175,6 +189,57 @@ def _find_dated_showtimes_nearby(link_tag, max_levels: int = 6):
     return []
 
 
+def _find_year_and_director_nearby(link_tag, max_levels: int = 6):
+    """
+    Sube desde el enlace del título buscando, en el mismo contenedor: un año
+    plausible de estreno (4 dígitos, entre 1900 y el año que viene) y, si la
+    página lo da (de momento solo confirmado en FilmAffinity), el nombre del
+    director vía su propio enlace (`_FA_DIRECTOR_HREF_RE`).
+
+    Puramente aditivo, igual que _find_dated_showtimes_nearby: si no se
+    encuentra nada, se devuelve (None, None) y el resto del sistema sigue
+    funcionando con su respaldo habitual (año actual/anterior, sin pista de
+    director) — nunca se descarta una película por no poder fecharla o
+    identificar a su director.
+
+    Año y director se buscan cada uno POR SEPARADO, parando cada uno en
+    cuanto encuentra algo, en vez de exigir que ambos aparezcan al mismo
+    nivel del árbol: si se acoplaran, uno de los dos casi siempre tendría
+    que subir más niveles que el otro, y en una rejilla con varias películas
+    seguidas eso arriesga "robarle" el director a la película de al lado en
+    vez de a la que estamos mirando.
+    """
+    max_year = date.today().year + 1
+
+    year = None
+    container = link_tag.parent
+    for _ in range(max_levels):
+        if container is None:
+            break
+        text = container.get_text(" ", strip=True)
+        for m in _YEAR_NEARBY_RE.finditer(text):
+            y = int(m.group(1))
+            if 1900 <= y <= max_year:
+                year = str(y)
+                break
+        if year:
+            break
+        container = container.parent
+
+    director = None
+    container = link_tag.parent
+    for _ in range(max_levels):
+        if container is None:
+            break
+        dir_link = container.find("a", href=_FA_DIRECTOR_HREF_RE)
+        if dir_link:
+            director = dir_link.get_text(strip=True) or None
+            break
+        container = container.parent
+
+    return year, director
+
+
 def _generic_direct_scrape(url: str, label: str, href_re: re.Pattern, base_domain: str):
     """
     Sirve para los cines cuya web muestra la cartelera como HTML estático con
@@ -274,6 +339,7 @@ def scrape_dore():
         except Exception:
             day_label = date_str
         times = _find_showtimes_nearby(link) or [""]
+        year_hint, director_hint = _find_year_and_director_nearby(link)
         entry = grouped.setdefault(
             slug,
             {
@@ -282,12 +348,29 @@ def scrape_dore():
                 "listing_url": "https://entradasfilmoteca.sacatuentrada.es" + link["href"]
                 if link["href"].startswith("/")
                 else link["href"],
+                # El Doré es una filmoteca: programa constantemente películas
+                # antiguas, así que NO vale asumir "año actual" como en un
+                # cine comercial — de ahí que aquí sea aún más importante
+                # capturar el año real (y el director, si se encuentra) para
+                # no confundir el título con un homónimo más reciente.
+                "year": year_hint,
+                "director_hint": director_hint,
             },
         )
         for t in times:
             entry["showtimes"].add(f"{day_label} {t}".strip())
+        if year_hint and not entry.get("year"):
+            entry["year"] = year_hint
+        if director_hint and not entry.get("director_hint"):
+            entry["director_hint"] = director_hint
     return [
-        {"title": e["title"], "showtimes": sorted(e["showtimes"]), "listing_url": e["listing_url"]}
+        {
+            "title": e["title"],
+            "showtimes": sorted(e["showtimes"]),
+            "listing_url": e["listing_url"],
+            "year": e.get("year"),
+            "director_hint": e.get("director_hint"),
+        }
         for e in grouped.values()
     ]
 
@@ -303,6 +386,22 @@ FILMAFFINITY_FALLBACK_IDS = {
     "Cinesa Proyecciones": "271",
 }
 
+# El enlace que ve el usuario en la tarjeta NUNCA debe llevar a la ficha de
+# FilmAffinity (eso confundía — parecía un error, "¿por qué me manda a otra
+# web?"): FilmAffinity aquí es solo la fuente de datos que usamos por dentro
+# para estos 5 cines (no tienen cartelera propia fácil de leer), pero el
+# enlace visible tiene que ser la web real del cine, comprobada a mano.
+# Sala Equis es la única excepción real: no tiene web propia con cartelera
+# estructurada (solo redes sociales/blogs de terceros, ver cabecera del
+# fichero) — así que ahí no hay enlace honesto que dar, se deja sin enlace
+# en vez de mandar a un sitio que no es "la web del cine".
+CINEMA_OFFICIAL_URLS = {
+    "Yelmo Cines Ideal": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/",
+    "Cines Embajadores": "https://cinesembajadores.es/madrid/cartelera-del-dia/",
+    "Círculo de Bellas Artes (Cine Estudio)": "https://www.circulobellasartes.com/cine-estudio/",
+    "Cinesa Proyecciones": "https://www.cinesa.es/cines/proyecciones/",
+}
+
 
 def scrape_via_filmaffinity(cinema_name: str):
     theater_id = FILMAFFINITY_FALLBACK_IDS[cinema_name]
@@ -314,6 +413,7 @@ def scrape_via_filmaffinity(cinema_name: str):
     soup = BeautifulSoup(html, "html.parser")
     films = []
     seen_ids = set()
+    official_url = CINEMA_OFFICIAL_URLS.get(cinema_name)
     for link in soup.find_all("a", href=re.compile(r"film\d+\.html$")):
         title = link.get_text(strip=True)
         href = link.get("href", "")
@@ -324,12 +424,14 @@ def scrape_via_filmaffinity(cinema_name: str):
         if film_key in seen_ids:
             continue
         seen_ids.add(film_key)
-        url_full = href if href.startswith("http") else "https://www.filmaffinity.com" + href
+        year_hint, director_hint = _find_year_and_director_nearby(link)
         films.append(
             {
                 "title": _clean_title(title),
                 "showtimes": _find_dated_showtimes_nearby(link),
-                "listing_url": url_full,
+                "listing_url": official_url,
+                "year": year_hint,
+                "director_hint": director_hint,
             }
         )
     return films
@@ -353,6 +455,39 @@ CINEMA_SCRAPERS = {
 }
 
 
+def _resolve_cinema_title(title: str, year_hint: str = None, director_hint: str = None):
+    """
+    Resuelve el título de una peli en cartelera a su ficha de IMDb.
+
+    Si sacamos un año real de la propia web (`year_hint` — cada vez más
+    habitual ahora que _find_year_and_director_nearby lo intenta en Doré y
+    FilmAffinity), lo usamos tal cual: es un dato real, no una suposición.
+    `director_hint`, si lo tenemos, se comprueba ANTES que nada (ver
+    best_guess_imdb en utils.py) — es la señal más fiable para no confundir
+    dos películas homónimas (caso real: "La conspiración" en el Doré es "The
+    Conspirator" de Robert Redford, no otra peli con el mismo título).
+
+    Si no hay año real, cae al respaldo anterior: una peli en cartelera
+    comercial es casi siempre un estreno de este año o del anterior (sigue
+    en cartelera por encima de año nuevo) — probamos los dos antes de caer
+    al criterio sin año como último recurso. Ojo: esta suposición NO vale
+    para el Doré (filmoteca, programa constantemente películas antiguas) —
+    por eso ahí es más importante que en ningún otro sitio haber sacado el
+    año real en vez de depender de este respaldo.
+    """
+    if year_hint:
+        guess = best_guess_imdb(title, year=year_hint, director_hint=director_hint)
+        if guess:
+            return guess
+
+    this_year = date.today().year
+    for year in (this_year, this_year - 1):
+        guess = best_guess_imdb(title, year=str(year), director_hint=director_hint)
+        if guess:
+            return guess
+    return best_guess_imdb(title, director_hint=director_hint)
+
+
 def get_madrid_billboard():
     """
     Devuelve: { cinema_name: [ {title, showtimes, listing_url, imdb_id,
@@ -373,7 +508,7 @@ def get_madrid_billboard():
         enriched = []
         resolved = 0
         for f in films:
-            guess = best_guess_imdb(f["title"])
+            guess = _resolve_cinema_title(f["title"], f.get("year"), f.get("director_hint"))
             f["imdb_id"] = guess["imdb_id"] if guess else None
             f["imdb_hint_title"] = guess.get("title") if guess else None
             f["imdb_hint_poster"] = guess.get("poster") if guess else None
