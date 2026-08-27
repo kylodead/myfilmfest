@@ -13,7 +13,6 @@ contra `providers()` en vez de hardcodear códigos, porque JustWatch los
 cambia de vez en cuando entre países.
 """
 import re
-import time
 import unicodedata
 from datetime import date, datetime, timedelta
 
@@ -88,6 +87,13 @@ def _parse_date(s):
         return None
 
 
+# Solo estas cuentan como "está en tu plataforma": incluida en la
+# suscripción (o gratis con anuncios). RENT/BUY/CINEMA no cuentan, aunque
+# JustWatch las liste como "oferta" — comprar o ver en cine no es lo que
+# pediste para el finde en streaming.
+STREAMING_MONETIZATION_TYPES = {"FLATRATE", "ADS", "FREE"}
+
+
 def get_weekly_streaming_releases():
     """
     Devuelve lista de dicts: {title, platform, imdb_id, poster, release_date,
@@ -95,6 +101,15 @@ def get_weekly_streaming_releases():
     estrenos de los últimos RECENCY_WINDOW_DAYS días.
     Best-effort: si la librería o la API fallan (JustWatch cambia su
     esquema), devuelve lista vacía en vez de romper el pipeline entero.
+
+    IMPORTANTE: el parámetro `providers=[...]` de search() resultó NO
+    filtrar de verdad (comprobado en real: los 5 proveedores devolvían
+    exactamente los mismos 40 resultados) — así que una peli podía salir
+    etiquetada "Netflix" sin estar realmente disponible ahí (p.ej. estrenos
+    que solo están en cines). Ahora se pide UNA lista amplia sin fiarse del
+    filtro, y se valida caso por caso mirando las ofertas reales de cada
+    película (`e.offers`), aceptando solo las que de verdad tienen una
+    oferta de tipo suscripción/gratis en alguna de tus plataformas.
     """
     try:
         from simplejustwatchapi.justwatch import search  # type: ignore
@@ -110,53 +125,64 @@ def get_weekly_streaming_releases():
     cutoff = date.today() - timedelta(days=RECENCY_WINDOW_DAYS)
     this_year = date.today().year
 
+    try:
+        entries = search(
+            title="",
+            country=COUNTRY,
+            language=LANGUAGE,
+            count=100,
+            best_only=False,  # necesitamos TODAS las ofertas de cada peli, no solo "la mejor", para poder validar de verdad
+            min_release_year=this_year - 1,
+            object_types=["MOVIE"],
+        )
+    except Exception as e:
+        print(f"    ERROR en search(): {e!r}")
+        entries = []
+    print(f"    search() (estrenos recientes en ES, sin filtrar por proveedor) devolvió {len(entries)} resultados")
+
     all_items = []
     seen = set()
+    for e in entries:
+        rd = _parse_date(getattr(e, "release_date", None))
+        if not rd or rd < cutoff:
+            continue  # no es un estreno reciente, lo descartamos
+        imdb_id = getattr(e, "imdb_id", None)
+        if not imdb_id:
+            continue
 
-    for technical_name, label in provider_map.items():
-        try:
-            entries = search(
-                title="",
-                country=COUNTRY,
-                language=LANGUAGE,
-                count=40,
-                best_only=True,
-                providers=[technical_name],
-                min_release_year=this_year - 1,
-                object_types=["MOVIE"],
-            )
-        except Exception as e:
-            print(f"    ERROR en search() para {label} ({technical_name}): {e!r}")
-            entries = []
-        time.sleep(0.3)
-        print(f"    [{label}] search() devolvió {len(entries)} resultados")
+        matched_label = None
+        for offer in getattr(e, "offers", None) or []:
+            mtype = getattr(offer, "monetization_type", None)
+            if mtype not in STREAMING_MONETIZATION_TYPES:
+                continue
+            package = getattr(offer, "package", None)
+            technical_name = getattr(package, "technical_name", None) if package else None
+            if technical_name in provider_map:
+                matched_label = provider_map[technical_name]
+                break
 
-        kept = 0
-        for e in entries:
-            rd = _parse_date(getattr(e, "release_date", None))
-            if not rd or rd < cutoff:
-                continue  # no es un estreno reciente, lo descartamos
-            imdb_id = getattr(e, "imdb_id", None)
-            if not imdb_id:
-                continue
-            kept += 1
-            key = (imdb_id, technical_name)
-            if key in seen:
-                continue
-            seen.add(key)
-            all_items.append(
-                {
-                    "title": getattr(e, "title", None),
-                    "platform": label,
-                    "imdb_id": imdb_id,
-                    "poster": _full_poster_url(getattr(e, "poster", None)),
-                    "release_date": rd.isoformat(),
-                    "release_year": getattr(e, "release_year", None),
-                }
-            )
-        print(f"    [{label}] {kept} dentro de los últimos {RECENCY_WINDOW_DAYS} días")
+        if not matched_label:
+            continue  # sin oferta real de suscripción en tus plataformas (p.ej. solo está en cines)
+
+        key = (imdb_id, matched_label)
+        if key in seen:
+            continue
+        seen.add(key)
+        title = getattr(e, "title", None)
+        all_items.append(
+            {
+                "title": title,
+                "platform": matched_label,
+                "imdb_id": imdb_id,
+                "poster": _full_poster_url(getattr(e, "poster", None)),
+                "release_date": rd.isoformat(),
+                "release_year": getattr(e, "release_year", None),
+            }
+        )
+        print(f"    ✓ {title!r} -> oferta real confirmada en {matched_label}")
 
     all_items.sort(key=lambda i: i["release_date"], reverse=True)
+    print(f"    {len(all_items)} estrenos recientes con oferta de streaming real confirmada en tus plataformas")
     return all_items
 
 
