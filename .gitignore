@@ -1,0 +1,6 @@
+# La caché SÍ se versiona a propósito (ver scripts/utils.py): así no hace
+# falta volver a pedir la ficha de una película que ya consultamos hace
+# poco, cada semana que se repita en cartelera o en streaming.
+__pycache__/
+*.pyc
+.DS_Store
