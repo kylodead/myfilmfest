@@ -79,7 +79,19 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
                 continue
             entry = by_imdb.setdefault(
                 imdb_id,
-                {"imdb_id": imdb_id, "reason": reason, "score": score, "cinemas": []},
+                {
+                    "imdb_id": imdb_id,
+                    "reason": reason,
+                    "score": score,
+                    "cinemas": [],
+                    # Respaldo de título/póster por si la ficha completa de
+                    # IMDb (imdb_title_info) falla al cargar (rate limit,
+                    # bloqueo puntual...): usamos lo que ya nos dio la
+                    # búsqueda rápida de IMDb Suggestion al resolver el
+                    # imdb_id, en vez de dejar la tarjeta en blanco.
+                    "fallback_title": f.get("imdb_hint_title") or f.get("title"),
+                    "fallback_poster": f.get("imdb_hint_poster"),
+                },
             )
             entry["cinemas"].append(
                 {
@@ -96,8 +108,8 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
         results.append(
             {
                 "imdb_id": imdb_id,
-                "title": info.get("title"),
-                "poster": info.get("poster"),
+                "title": info.get("title") or entry["fallback_title"],
+                "poster": info.get("poster") or entry["fallback_poster"],
                 "rating": info.get("rating"),
                 "imdb_url": info.get("url", f"https://www.imdb.com/title/{imdb_id}/"),
                 "reason": entry["reason"],
@@ -110,17 +122,24 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
     return results
 
 
-def select_streaming_picks(streaming_items, taste_profile, favorite_actors, watchlist_ids, max_results=6):
+WEEKEND_DAYS = ["viernes", "sábado", "domingo"]
+
+
+def select_streaming_picks(streaming_items, taste_profile, favorite_actors, watchlist_ids):
     """
     streaming_items: lista de {title, release_year, release_date, platform,
     imdb_id, poster} — ya vienen ordenados por recencia real desde
     justwatch_streaming.py (lo más reciente primero).
-    Devuelve hasta `max_results` recomendaciones (para dar opciones de
-    viernes/sábado/domingo, no solo una), con poster + link a IMDb +
-    plataforma.
+
+    Devuelve SIEMPRE hasta 3 recomendaciones, una por día del finde (viernes,
+    sábado, domingo) — nunca "lo que haya salido", como pediste. Primero se
+    llenan con matches de verdad (pendientes / actor / director / género,
+    misma jerarquía que en cines); si no hay suficientes, se completa con los
+    estrenos más recientes disponibles aunque no encajen con tus gustos —
+    pero eso se dice explícitamente en el motivo, no se disfraza de acierto.
     """
-    results = []
     seen_ids = set()
+    strict = []
     for item in streaming_items:
         imdb_id = item.get("imdb_id")
         if not imdb_id or imdb_id in seen_ids:
@@ -132,7 +151,7 @@ def select_streaming_picks(streaming_items, taste_profile, favorite_actors, watc
             continue
         seen_ids.add(imdb_id)
         info = imdb_title_info(imdb_id) or {}
-        results.append(
+        strict.append(
             {
                 "imdb_id": imdb_id,
                 "title": info.get("title") or item.get("title"),
@@ -145,5 +164,39 @@ def select_streaming_picks(streaming_items, taste_profile, favorite_actors, watc
                 "score": score,
             }
         )
-    results.sort(key=lambda r: r["score"], reverse=True)
-    return results[:max_results]
+    strict.sort(key=lambda r: r["score"], reverse=True)
+    picks = strict[:3]
+
+    if len(picks) < 3:
+        for item in streaming_items:
+            if len(picks) >= 3:
+                break
+            imdb_id = item.get("imdb_id")
+            if not imdb_id or imdb_id in seen_ids:
+                continue
+            seen_ids.add(imdb_id)
+            info = imdb_title_info(imdb_id) or {}
+            rating = info.get("rating")
+            platform = item.get("platform") or "tu plataforma"
+            reason = f"Estreno reciente en {platform}"
+            if rating:
+                reason += f" (IMDb {rating})"
+            reason += " — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde"
+            picks.append(
+                {
+                    "imdb_id": imdb_id,
+                    "title": info.get("title") or item.get("title"),
+                    "poster": info.get("poster") or item.get("poster"),
+                    "rating": rating,
+                    "imdb_url": info.get("url", f"https://www.imdb.com/title/{imdb_id}/"),
+                    "platform": item.get("platform"),
+                    "release_date": item.get("release_date"),
+                    "reason": reason,
+                    "score": 10,
+                }
+            )
+
+    for i, p in enumerate(picks):
+        p["day"] = WEEKEND_DAYS[i] if i < len(WEEKEND_DAYS) else None
+
+    return picks
