@@ -27,8 +27,11 @@ MY_PROVIDER_NAMES = [
 COUNTRY = "ES"
 LANGUAGE = "es"
 
-# Cuánto de "reciente" cuenta como estreno reciente para el finde. Ajustable.
-RECENCY_WINDOW_DAYS = 45
+# Cuánto de "reciente" cuenta como estreno reciente para el finde: los
+# últimos 7 días, incluido el propio día de la consulta (viernes) — así lo
+# pediste. Antes eran 45 días, una ventana demasiado ancha que dejaba entrar
+# estrenos de mes y medio atrás como si fueran "de esta semana".
+RECENCY_WINDOW_DAYS = 7
 
 
 def _norm(s):
@@ -174,6 +177,10 @@ def get_weekly_streaming_releases():
                 "title": title,
                 "platform": matched_label,
                 "imdb_id": imdb_id,
+                # JustWatch ya nos da el tmdb_id gratis en la misma respuesta —
+                # con esto match_engine puede pedir el reparto/director a TMDB
+                # sin tener que resolver primero el imdb_id, un paso menos.
+                "tmdb_id": getattr(e, "tmdb_id", None),
                 "poster": _full_poster_url(getattr(e, "poster", None)),
                 "release_date": rd.isoformat(),
                 "release_year": getattr(e, "release_year", None),
