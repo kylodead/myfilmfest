@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T13:54",
+  "generated_at": "2026-08-28T21:10",
   "week_label": "28/08 – 03/09",
   "weekend": {
     "range": "29/08 – 30/08",
@@ -29,14 +29,14 @@
         "day": "sábado"
       },
       {
-        "imdb_id": "tt37076917",
-        "title": "La familia Benetón +2",
-        "poster": "https://image.tmdb.org/t/p/w500/of100MlUVoC0M55mm9latkH5MVu.jpg",
-        "rating": 5.286,
-        "imdb_url": "https://www.imdb.com/title/tt37076917/",
+        "imdb_id": "tt11561116",
+        "title": "Susurran tu nombre",
+        "poster": "https://image.tmdb.org/t/p/w500/63n3rBWRs9Bvlo0nJ8oP2ayuusA.jpg",
+        "rating": 6.4,
+        "imdb_url": "https://www.imdb.com/title/tt11561116/",
         "platform": "Netflix",
-        "release_date": "2026-08-21",
-        "reason": "Sale Anabel Alonso, de tus actores favoritos",
+        "release_date": "2026-08-28",
+        "reason": "Sale Robert De Niro, de tus actores favoritos",
         "score": 85,
         "day": "domingo"
       }
@@ -89,6 +89,7 @@
             "name": "Mk2 Cine Paz",
             "showtimes": [
               "17:15",
+              "19:00",
               "20:00",
               "21:35",
               "22:30"
@@ -229,13 +230,6 @@
         "score": 85,
         "cinemas": [
           {
-            "name": "Cines Golem",
-            "showtimes": [
-              "16:10"
-            ],
-            "listing_url": "https://www.golem.es/golem/pelicula/La-Odisea-(V.O.S.E.)"
-          },
-          {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
@@ -290,38 +284,6 @@
             "name": "Sala Equis",
             "showtimes": [],
             "listing_url": "https://salaequis.es"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt15047880",
-        "title": "El día de la revelación",
-        "poster": "https://image.tmdb.org/t/p/w500/dPTa7jSIeaDhie2d9JSZr7qI0Tf.jpg",
-        "rating": 7.48,
-        "imdb_url": "https://www.imdb.com/title/tt15047880/",
-        "reason": "Sale Emily Blunt, de tus actores favoritos",
-        "score": 85,
-        "cinemas": [
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt1485796",
-        "title": "El gran showman",
-        "poster": "https://image.tmdb.org/t/p/w500/5HjkqEeLPubkMPM9TgV6kB3Iyn0.jpg",
-        "rating": 7.854,
-        "imdb_url": "https://www.imdb.com/title/tt1485796/",
-        "reason": "Sale Rebecca Ferguson y Zendaya, de tus actores favoritos",
-        "score": 85,
-        "cinemas": [
-          {
-            "name": "Cinesa Proyecciones",
-            "showtimes": [],
-            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           }
         ]
       },
