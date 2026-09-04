@@ -191,38 +191,37 @@ def _find_dated_showtimes_nearby(link_tag, max_levels: int = 6):
     return []
 
 
-# Insignia de estado que FilmAffinity pone justo debajo del póster en sus
-# páginas de "theater-showtimes.php" (comprobado a mano viendo la página
-# real de Cinesa Proyecciones): "preventa" para estrenos futuros con venta
-# anticipada (fechas de sesión reales, pero SEMANAS por delante de la
-# semana actual — no es cartelera de esta semana, aunque el scraper viejo
-# las cogía igual porque sí traían horarios con pinta válida), "estreno"
-# para lo que se estrena ESTA semana, y "en cartelera" para lo que ya
-# llevaba más tiempo. Bug real detectado: "La bola negra" salía como si
-# estuviera en cartelera esta semana en Cinesa Proyecciones cuando en
-# realidad solo tenía preventa para el 25-27 de septiembre — de ahí este
-# filtro.
+# Insignia de estado que FilmAffinity pone en sus páginas de
+# "theater-showtimes.php" (comprobado a mano viendo la página real de Cinesa
+# Proyecciones): "preventa" para estrenos futuros con venta anticipada
+# (fechas de sesión reales, pero SEMANAS por delante de la semana actual —
+# no es cartelera de esta semana, aunque el scraper viejo las cogía igual
+# porque sí traían horarios con pinta válida), "estreno" para lo que se
+# estrena ESTA semana, y "en cartelera" para lo que ya llevaba más tiempo.
+# Bug real detectado: "La bola negra" salía como si estuviera en cartelera
+# esta semana en Cinesa Proyecciones cuando en realidad solo tenía preventa
+# para el 25-27 de septiembre — de ahí este filtro.
+#
+# OJO — primer intento fallido, dejado documentado para no repetir el error:
+# probé primero un helper "_find_status_badge_nearby" que subía unos pocos
+# niveles desde el enlace de cada película (mismo estilo que el resto de
+# helpers "_nearby" de este fichero). No funcionó, y además funcionó MAL de
+# una forma peor que no hacer nada: al subir 3-4 niveles en una página con
+# varias secciones ("En cartelera" / "Preventa"...) muy cerca unas de otras
+# en el árbol, acababa leyendo el texto ENTERO de un contenedor que incluía
+# varias secciones a la vez, y con eso el regex ".search()" siempre
+# encontraba la PRIMERA insignia del bloque (casi siempre "en cartelera",
+# por ir primero en la página) y se la asignaba a TODAS las películas,
+# también a las que sí eran preventa — es decir, el filtro daba falsos
+# negativos sistemáticos en vez de simplemente no encontrar nada.
+#
+# Solución real: un único recorrido de arriba a abajo por todo el documento
+# (ver _film_links_with_status más abajo) llevando la insignia vigente en
+# una variable que se actualiza SOLO cuando un bloque de texto corto es
+# ÍNTEGRAMENTE una de estas tres palabras (fullmatch, no search) — el mismo
+# patrón, ya probado en producción, que usa justwatch_streaming.py para
+# agrupar títulos bajo la fecha de cabecera que les corresponde.
 _STATUS_BADGE_RE = re.compile(r"\b(preventa|estreno|en\s+cartelera)\b", re.IGNORECASE)
-
-
-def _find_status_badge_nearby(link_tag, max_levels: int = 4):
-    """Busca la insignia de estado ("preventa"/"estreno"/"en cartelera") en
-    el mismo contenedor pequeño de la ficha (pocos niveles, como el resto de
-    helpers "_nearby" — no queremos robarle la insignia a la película de al
-    lado en una rejilla). Devuelve "preventa", "estreno", "en cartelera" o
-    None si no se encuentra ninguna (páginas sin esta insignia, o no
-    detectada — no se asume nada en ese caso)."""
-    container = link_tag.parent
-    for _ in range(max_levels):
-        if container is None:
-            break
-        text = container.get_text(" ", strip=True)
-        m = _STATUS_BADGE_RE.search(text)
-        if m:
-            label = re.sub(r"\s+", " ", m.group(1).lower())
-            return label
-        container = container.parent
-    return None
 
 
 def _find_year_and_director_nearby(link_tag, max_levels: int = 6):
@@ -437,6 +436,34 @@ CINEMA_OFFICIAL_URLS = {
 
 
 def scrape_via_filmaffinity(cinema_name: str):
+    """
+    Primer intento real (agosto 2026): un helper "_find_status_badge_nearby"
+    que subía unos pocos niveles desde el enlace de cada película para
+    buscar la insignia "preventa"/"estreno" cerca de ella (mismo estilo que
+    el resto de helpers "_nearby" de este fichero). No solo no funcionó —
+    funcionó MAL de una forma peor que no detectar nada: al subir varios
+    niveles en una página con secciones ("En cartelera" / "Preventa"...) muy
+    juntas en el árbol, acababa leyendo el texto de un contenedor que
+    mezclaba varias secciones a la vez, y el regex encontraba SIEMPRE la
+    primera insignia de ese bloque (normalmente "en cartelera") y se la
+    asignaba a TODAS las películas de esa zona, también a las que sí eran
+    preventa — de ahí que "La bola negra" siguiera colándose (bug real
+    reportado) en vez de simplemente no detectarse nada.
+
+    Solución real (ver _STATUS_BADGE_RE): un único recorrido de arriba a
+    abajo por todo el documento, llevando la insignia vigente en una
+    variable (`current_status`) que se actualiza SOLO cuando un bloque de
+    texto corto es ÍNTEGRAMENTE una de las tres palabras (fullmatch, nunca
+    search sobre un bloque grande) — el mismo patrón, ya probado en
+    producción, que usa justwatch_streaming.py para agrupar títulos bajo la
+    fecha de cabecera que les corresponde.
+
+    Red de seguridad: si con esto se detectara "preventa" en la mayoría de
+    la cartelera de un cine, es más probable que sea un fallo de detección
+    que que de verdad casi todo sean preventas — en ese caso no se filtra
+    nada, para no arriesgarse a vaciar la cartelera real de un cine por un
+    falso positivo (se avisa por log para poder revisarlo).
+    """
     theater_id = FILMAFFINITY_FALLBACK_IDS[cinema_name]
     url = f"https://www.filmaffinity.com/es/theater-showtimes.php?id={theater_id}"
     label = f"{cinema_name} (vía FilmAffinity)"
@@ -444,37 +471,64 @@ def scrape_via_filmaffinity(cinema_name: str):
     if not html:
         return []
     soup = BeautifulSoup(html, "html.parser")
-    films = []
-    seen_ids = set()
     official_url = CINEMA_OFFICIAL_URLS.get(cinema_name)
-    for link in soup.find_all("a", href=re.compile(r"film\d+\.html$")):
-        title = link.get_text(strip=True)
-        href = link.get("href", "")
-        if not title:
+    href_re = re.compile(r"film\d+\.html$")
+
+    raw_films = []
+    seen_ids = set()
+    current_status = None
+    for tag in soup.find_all(True):
+        if tag.name == "a":
+            href = tag.get("href", "")
+            if not href_re.search(href):
+                continue
+            title = tag.get_text(strip=True)
+            if not title:
+                continue
+            m = re.search(r"film(\d+)\.html", href)
+            film_key = m.group(1) if m else title
+            if film_key in seen_ids:
+                continue
+            seen_ids.add(film_key)
+            year_hint, director_hint = _find_year_and_director_nearby(tag)
+            raw_films.append(
+                {
+                    "title": _clean_title(title),
+                    "showtimes": _find_dated_showtimes_nearby(tag),
+                    "listing_url": official_url,
+                    "year": year_hint,
+                    "director_hint": director_hint,
+                    "status": current_status,
+                }
+            )
             continue
-        m = re.search(r"film(\d+)\.html", href)
-        film_key = m.group(1) if m else title
-        if film_key in seen_ids:
+        if tag.find("a") is not None:
+            continue  # no es una cabecera suelta, tiene enlaces dentro
+        text = tag.get_text(" ", strip=True)
+        if not text or len(text) > 30:
             continue
-        seen_ids.add(film_key)
-        status = _find_status_badge_nearby(link)
-        if status == "preventa":
-            # Venta anticipada de un estreno futuro (semanas por delante),
-            # NO cartelera de esta semana aunque traiga horarios con fechas
-            # reales — se descarta aquí (bug real detectado con "La bola
-            # negra" en Cinesa Proyecciones, ver _STATUS_BADGE_RE).
-            continue
-        year_hint, director_hint = _find_year_and_director_nearby(link)
-        films.append(
-            {
-                "title": _clean_title(title),
-                "showtimes": _find_dated_showtimes_nearby(link),
-                "listing_url": official_url,
-                "year": year_hint,
-                "director_hint": director_hint,
-                "is_new_release": status == "estreno",
-            }
+        m = _STATUS_BADGE_RE.fullmatch(text)
+        if m:
+            current_status = re.sub(r"\s+", " ", m.group(1).lower())
+
+    preventa_count = sum(1 for f in raw_films if f["status"] == "preventa")
+    if raw_films and preventa_count / len(raw_films) > 0.6:
+        print(
+            f"    [{cinema_name}] AVISO: {preventa_count}/{len(raw_films)} detectadas "
+            f"como 'preventa' — proporción demasiado alta, no se filtra nada por "
+            f"seguridad (posible fallo de detección de la insignia, revisar a mano)"
         )
+        for f in raw_films:
+            f["is_new_release"] = f.pop("status") == "estreno"
+        return raw_films
+
+    films = []
+    for f in raw_films:
+        status = f.pop("status")
+        if status == "preventa":
+            continue
+        f["is_new_release"] = status == "estreno"
+        films.append(f)
     return films
 
 
