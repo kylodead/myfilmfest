@@ -193,6 +193,24 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
         # _score_and_reason (no hace falta para decidir), así que aquí la
         # pedimos solo si todavía no la tenemos — para watchlist principalmente.
         info = entry["info"] or get_title_metadata(imdb_id=imdb_id)
+        # Caso real que motivó esto: "La bola negra" aparecía en la cartelera
+        # de Cinesa Proyecciones cuando en realidad solo tiene preventa para
+        # el 25-27 de septiembre (fecha futura), no una proyección real esta
+        # semana. No era un fallo de orden ni de detección de una insignia de
+        # texto de la web de terceros (dos intentos fallidos con eso, ver
+        # historial en cines_madrid.py) sino que la fecha de estreno en
+        # España que trae TMDB confirmaba que aún no se ha estrenado —
+        # `upcoming_release_date` (utils._spain_release_info) solo tiene
+        # valor en ese caso exacto. Se omite la película entera (no solo se
+        # reordena) hasta la semana de su estreno real, pedido explícitamente
+        # así: "si la fecha es el 25 pues pelicula omitida hasta la semana de
+        # su estreno". No distinguimos aquí el caso de "pase de preview real
+        # antes del estreno oficial" porque los horarios que scrapeamos son
+        # franjas por día de la semana, no fechas concretas verificables —
+        # se prefiere el pequeño riesgo de ocultar un preview genuino antes
+        # que seguir mostrando una preventa como si fuera cartelera real.
+        if info.get("upcoming_release_date"):
+            continue
         entry["cinemas"].sort(key=lambda c: c["name"])
         results.append(
             {
