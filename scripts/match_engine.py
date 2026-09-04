@@ -145,11 +145,10 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
     Devuelve lista de recomendaciones para lunes-jueves, agrupadas por
     película (una peli puede estar en varios cines -> se agrupan showtimes).
 
-    Dentro de un mismo nivel de acierto (mismo `score` — pendientes, actor,
-    director...) se ordena por fecha de estreno real en España, la más
-    reciente primero (ver _release_date_sort_key) — así que también se
-    incluye esa fecha en la ficha de salida (`release_date`), por si algún
-    día quieres mostrarla en la propia tarjeta.
+    El orden final es PURO por fecha de estreno real en España, la más
+    reciente primero (ver _release_date_sort_key), sin agrupar antes por
+    `score` — así que también se incluye esa fecha en la ficha de salida
+    (`release_date`) para poder mostrarla en la propia tarjeta.
     """
     by_imdb = {}
     for cinema_name, films in billboard.items():
@@ -226,9 +225,16 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
             }
         )
 
-    results.sort(
-        key=lambda r: (-r["score"], _release_date_sort_key(r["release_date"]), r["title"] or "")
-    )
+    # Orden PURO por fecha de estreno, la más reciente arriba — pedido
+    # explícitamente así tras ver en producción que agrupar antes por score
+    # (pendientes / actor / director / saga) sacaba cosas como "Cronos"
+    # (recién reestrenada) o una peli de saga favorita muy reciente por
+    # debajo de pendientes con semanas o meses de antigüedad, que es
+    # justo el efecto contrario al que se busca con esta sección: ver arriba
+    # lo que es nuevo en cartelera. El `score` se sigue calculando y
+    # devolviendo (decide qué películas entran y qué "reason" se muestra en
+    # la ficha) pero ya NO participa en el orden.
+    results.sort(key=lambda r: (_release_date_sort_key(r["release_date"]), r["title"] or ""))
     return results
 
 
