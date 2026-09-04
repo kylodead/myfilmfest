@@ -83,11 +83,21 @@ def main():
             return items
 
     print("→ Cruzando datos con tus gustos...")
-    from match_engine import select_cinema_picks, select_streaming_picks
+    from match_engine import WATCHLIST_SCORE, select_cinema_picks, select_streaming_picks
+    from pick_history import load_recent_non_watchlist_ids, record_shown
 
     cinema_picks = select_cinema_picks(
         billboard, taste_profile, favorite_actors, watchlist_ids
     )
+
+    # Títulos que ya se te ofrecieron en streaming en semanas recientes por un
+    # motivo que no era "está en tu lista de pendientes" — para no repetir
+    # "sale un actor/director que te gusta" con la misma peli semana tras
+    # semana mientras haya otra que también encaje, pedido explícitamente
+    # así. Las de pendientes SÍ pueden repetirse (ver WATCHLIST_SCORE).
+    excluded_repeat_ids = load_recent_non_watchlist_ids()
+    if excluded_repeat_ids:
+        print(f"    {len(excluded_repeat_ids)} título(s) ya ofrecidos recientemente, se evitan como repetición")
 
     # Si en los últimos 7 días no hay (suficientes) estrenos de streaming que
     # encajen con tus gustos, en vez de rellenar directamente con "lo último
@@ -101,7 +111,7 @@ def main():
     streaming_window_items = filter_by_window(streaming_items_all, window)
     streaming_picks = select_streaming_picks(
         streaming_window_items, taste_profile, favorite_actors, watchlist_ids,
-        allow_fallback_fill=False,
+        allow_fallback_fill=False, excluded_repeat_ids=excluded_repeat_ids,
     )
     while len(streaming_picks) < 3 and window < MAX_RECENCY_WINDOW_DAYS:
         window += 7
@@ -109,14 +119,22 @@ def main():
         streaming_window_items = filter_by_window(streaming_items_all, window)
         streaming_picks = select_streaming_picks(
             streaming_window_items, taste_profile, favorite_actors, watchlist_ids,
-            allow_fallback_fill=False,
+            allow_fallback_fill=False, excluded_repeat_ids=excluded_repeat_ids,
         )
     if len(streaming_picks) < 3:
         print(f"    sigue sin haber 3 matches tras ampliar hasta {window} días — se rellena con lo más reciente disponible")
         streaming_picks = select_streaming_picks(
             streaming_window_items, taste_profile, favorite_actors, watchlist_ids,
-            allow_fallback_fill=True,
+            allow_fallback_fill=True, excluded_repeat_ids=excluded_repeat_ids,
         )
+
+    # Se guardan en el historial los picks de esta semana que NO sean "está
+    # en tu lista de pendientes" (esos sí pueden repetirse, no hace falta
+    # recordarlos) — así la semana que viene no se te vuelve a ofrecer el
+    # mismo título por el mismo tipo de motivo.
+    record_shown(
+        p["imdb_id"] for p in streaming_picks if p.get("score") != WATCHLIST_SCORE
+    )
 
     friday, saturday, sunday, monday, thursday = _next_weekend_and_week()
 
