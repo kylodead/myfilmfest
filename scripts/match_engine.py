@@ -17,6 +17,7 @@ género — eso es ruido, no una recomendación.
 """
 import re
 import unicodedata
+from datetime import date
 
 from utils import get_title_metadata
 
@@ -114,22 +115,41 @@ def _score_and_reason(imdb_id, taste_profile, favorite_actors, watchlist_ids, tm
     return False, None, 0, info
 
 
+def _release_date_sort_key(release_date_str):
+    """
+    Para ordenar por fecha de estreno MÁS RECIENTE primero dentro de un
+    mismo nivel de acierto — pedido explícitamente así: en vez de fiarnos de
+    una insignia de texto de una página de terceros que no hemos podido
+    verificar (ver el historial de intentos en cines_madrid.py), usamos la
+    fecha de estreno real en España que ya trae TMDB (utils._spain_release_date,
+    con reestrenos/restauraciones de clásicos correctamente detectados —
+    caso real que motivó esto: "Cronos", reestreno esta semana pese a ser de
+    1993).
+
+    Sin fecha conocida se trata como "lo más antiguo posible", para que se
+    vaya al final del grupo en vez de intercalarse al azar entre las que sí
+    tienen fecha real.
+    """
+    if not release_date_str:
+        return float("inf")
+    try:
+        return -date.fromisoformat(release_date_str).toordinal()
+    except ValueError:
+        return float("inf")
+
+
 def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids):
     """
-    billboard: { cinema_name: [ {title, showtimes, listing_url, imdb_id,
-    is_new_release}, ... ] }
+    billboard: { cinema_name: [ {title, showtimes, listing_url, imdb_id},
+    ... ] }
     Devuelve lista de recomendaciones para lunes-jueves, agrupadas por
     película (una peli puede estar en varios cines -> se agrupan showtimes).
 
     Dentro de un mismo nivel de acierto (mismo `score` — pendientes, actor,
-    director...) se ponen primero los estrenos de ESTA semana ("Cronos" caso
-    real que motivó esto: llevaba ya una semana en la lista porque seguía en
-    cartelera, pero al ser un reestreno con fecha de estreno real ESTA
-    semana, tiene sentido que aparezca arriba del todo dentro de su grupo).
-    `is_new_release` viene de cines_madrid.py SOLO cuando la fuente trae esa
-    información real (la insignia "estreno" de FilmAffinity); si ningún cine
-    la trae para una película, se trata como no-estreno por defecto — nunca
-    se inventa el dato.
+    director...) se ordena por fecha de estreno real en España, la más
+    reciente primero (ver _release_date_sort_key) — así que también se
+    incluye esa fecha en la ficha de salida (`release_date`), por si algún
+    día quieres mostrarla en la propia tarjeta.
     """
     by_imdb = {}
     for cinema_name, films in billboard.items():
@@ -150,7 +170,6 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
                     "score": score,
                     "info": info,
                     "cinemas": [],
-                    "is_new_release": False,
                     # Respaldo de título/póster por si la ficha completa
                     # (TMDB o, en su defecto, IMDb) falla al cargar: usamos
                     # lo que ya nos dio la búsqueda rápida de IMDb Suggestion
@@ -160,8 +179,6 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
                     "fallback_poster": f.get("imdb_hint_poster"),
                 },
             )
-            if f.get("is_new_release"):
-                entry["is_new_release"] = True
             entry["cinemas"].append(
                 {
                     "name": cinema_name,
@@ -186,12 +203,14 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
                 "imdb_url": info.get("url", f"https://www.imdb.com/title/{imdb_id}/"),
                 "reason": entry["reason"],
                 "score": entry["score"],
-                "is_new_release": entry["is_new_release"],
+                "release_date": info.get("release_date"),
                 "cinemas": entry["cinemas"],
             }
         )
 
-    results.sort(key=lambda r: (-r["score"], 0 if r["is_new_release"] else 1, r["title"] or ""))
+    results.sort(
+        key=lambda r: (-r["score"], _release_date_sort_key(r["release_date"]), r["title"] or "")
+    )
     return results
 
 
