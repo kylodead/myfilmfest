@@ -1,9 +1,33 @@
 {
-  "generated_at": "2026-09-04T10:34",
+  "generated_at": "2026-09-04T10:51",
   "week_label": "04/09 – 10/09",
   "weekend": {
     "range": "05/09 – 06/09",
     "picks": [
+      {
+        "imdb_id": "tt29002950",
+        "title": "Resurrection",
+        "poster": "https://image.tmdb.org/t/p/w500/vQZK421erWKR5PgF4pbz0lp4o3o.jpg",
+        "rating": 7.224,
+        "imdb_url": "https://www.imdb.com/title/tt29002950/",
+        "platform": "Filmin",
+        "release_date": "2026-08-21",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "day": "viernes"
+      },
+      {
+        "imdb_id": "tt36932751",
+        "title": "Lapönia",
+        "poster": "https://image.tmdb.org/t/p/w500/WyzzRMZDCRtBhbNwN0inFACvhd.jpg",
+        "rating": 5.2,
+        "imdb_url": "https://www.imdb.com/title/tt36932751/",
+        "platform": "Movistar Plus+",
+        "release_date": "2026-08-21",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "day": "sábado"
+      },
       {
         "imdb_id": "tt11561116",
         "title": "Susurran tu nombre",
@@ -14,30 +38,6 @@
         "release_date": "2026-09-04",
         "reason": "Sale Robert De Niro, de tus actores favoritos",
         "score": 85,
-        "day": "viernes"
-      },
-      {
-        "imdb_id": "tt29375937",
-        "title": "Manual para detectar a un narcisista",
-        "poster": "https://image.tmdb.org/t/p/w500/5P2i5H3aqAEX1Nb3SiE7lv0n7iG.jpg",
-        "rating": 6.7,
-        "imdb_url": "https://www.imdb.com/title/tt29375937/",
-        "platform": "Movistar Plus+",
-        "release_date": "2026-08-31",
-        "reason": "Estreno reciente en Movistar Plus+ (IMDb 6.7) — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
-        "score": 10,
-        "day": "sábado"
-      },
-      {
-        "imdb_id": "tt26757462",
-        "title": "Hellboy: El hombre retorcido",
-        "poster": "https://image.tmdb.org/t/p/w500/vaYsXgw4VpCF2l799sOLzwce6Bf.jpg",
-        "rating": 5.126,
-        "imdb_url": "https://www.imdb.com/title/tt26757462/",
-        "platform": "Movistar Plus+",
-        "release_date": "2026-08-30",
-        "reason": "Estreno reciente en Movistar Plus+ (IMDb 5.126) — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
-        "score": 10,
         "day": "domingo"
       }
     ]
