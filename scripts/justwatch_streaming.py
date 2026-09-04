@@ -69,8 +69,18 @@ NEW_RELEASES_PROVIDERS = [
 
 # Cuánto de "reciente" cuenta como "nuevo en tu plataforma" para el finde:
 # los últimos 7 días, incluido el propio día de la consulta (viernes) —
-# pedido explícitamente así.
+# pedido explícitamente así, como ventana "normal" de primera pasada.
 RECENCY_WINDOW_DAYS = 7
+
+# Si en esos 7 días no hay (suficientes) títulos que encajen de verdad con
+# tus gustos, build_site.py va ampliando la ventana de 7 en 7 días (14, 21,
+# 28...) antes de rendirse y ofrecer "lo último aunque no encaje" — pedido
+# explícitamente así: con el catálogo tan grande que tienen tus plataformas,
+# casi siempre habrá algo que sí encaje si se mira más atrás en el tiempo.
+# Este es el tope de esa ampliación: de aquí para atrás ya no se mira más,
+# aunque tampoco haya 3 matches — 9 semanas es más que suficiente margen sin
+# acabar recomendando catálogo tan viejo que ya no se sienta "novedad".
+MAX_RECENCY_WINDOW_DAYS = 63
 
 _MONTH_ABBR_ES = {
     "ene": 1, "feb": 2, "mar": 3, "abr": 4, "may": 5, "jun": 6,
@@ -236,7 +246,7 @@ def _scrape_provider_new_movies(category_id: str, label: str, today: date):
             continue
         # Cabecera de fecha candidata: sin enlaces dentro, texto corto que es
         # ÍNTEGRAMENTE una fecha (si tuviera más texto detrás, sería un
-        # título del caso (a), no una cabecera del caso (b).
+        # título del caso (a), no una cabecera del caso (b)).
         if tag.find("a") is not None:
             continue
         text = tag.get_text(" ", strip=True)
@@ -248,17 +258,26 @@ def _scrape_provider_new_movies(category_id: str, label: str, today: date):
     return items
 
 
-def get_weekly_streaming_releases():
+def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
     """
     Devuelve lista de dicts: {title, platform, imdb_id, tmdb_id, poster,
     release_date, release_year}, ordenada de más reciente a menos reciente,
-    ya filtrada a los últimos RECENCY_WINDOW_DAYS días desde que se AÑADÓ a
-    la plataforma (no desde su estreno en cine — ver cabecera del fichero).
+    ya filtrada a los últimos `window_days` días desde que se AÑADIÓ a la
+    plataforma (no desde su estreno en cine — ver cabecera del fichero).
+
+    Por defecto se pide con el tope MAX_RECENCY_WINDOW_DAYS (no solo los 7
+    "normales"): así una única pasada de scraping trae de golpe todo lo que
+    build_site.py pueda necesitar para ir ampliando la ventana de 7 en 7 días
+    si en los primeros 7 no hay suficientes matches con tus gustos — sin
+    tener que volver a pedir las páginas de FilmAffinity en cada intento.
+    build_site.py luego recorta ese resultado a la ventana que toque en cada
+    vuelta con `filter_by_window()`.
+
     Best-effort por proveedor: si uno falla, se avisa en el log y se sigue
     con el resto, no se rompe toda la ejecución.
     """
     today = date.today()
-    cutoff = today - timedelta(days=RECENCY_WINDOW_DAYS)
+    cutoff = today - timedelta(days=window_days)
 
     all_items = []
     seen = set()
@@ -297,7 +316,7 @@ def get_weekly_streaming_releases():
             )
         print(
             f"    [{label} ({category_id})] {kept} dentro de los últimos "
-            f"{RECENCY_WINDOW_DAYS} días y resueltos a un imdb_id"
+            f"{window_days} días y resueltos a un imdb_id"
         )
 
     all_items.sort(key=lambda i: i["release_date"], reverse=True)
@@ -306,6 +325,16 @@ def get_weekly_streaming_releases():
         f"(vía novedades por plataforma de FilmAffinity)"
     )
     return all_items
+
+
+def filter_by_window(items, window_days: int):
+    """Recorta `items` (ya traídos con get_weekly_streaming_releases, que
+    pide de golpe hasta MAX_RECENCY_WINDOW_DAYS) a los que caen dentro de los
+    últimos `window_days` días. Puramente en memoria, sin volver a scrapear
+    nada — es lo que usa build_site.py para probar primero 7 días, luego 14,
+    21... sin repetir peticiones a FilmAffinity en cada vuelta."""
+    cutoff_iso = (date.today() - timedelta(days=window_days)).isoformat()
+    return [i for i in items if i["release_date"] >= cutoff_iso]
 
 
 if __name__ == "__main__":
