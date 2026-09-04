@@ -191,6 +191,40 @@ def _find_dated_showtimes_nearby(link_tag, max_levels: int = 6):
     return []
 
 
+# Insignia de estado que FilmAffinity pone justo debajo del póster en sus
+# páginas de "theater-showtimes.php" (comprobado a mano viendo la página
+# real de Cinesa Proyecciones): "preventa" para estrenos futuros con venta
+# anticipada (fechas de sesión reales, pero SEMANAS por delante de la
+# semana actual — no es cartelera de esta semana, aunque el scraper viejo
+# las cogía igual porque sí traían horarios con pinta válida), "estreno"
+# para lo que se estrena ESTA semana, y "en cartelera" para lo que ya
+# llevaba más tiempo. Bug real detectado: "La bola negra" salía como si
+# estuviera en cartelera esta semana en Cinesa Proyecciones cuando en
+# realidad solo tenía preventa para el 25-27 de septiembre — de ahí este
+# filtro.
+_STATUS_BADGE_RE = re.compile(r"\b(preventa|estreno|en\s+cartelera)\b", re.IGNORECASE)
+
+
+def _find_status_badge_nearby(link_tag, max_levels: int = 4):
+    """Busca la insignia de estado ("preventa"/"estreno"/"en cartelera") en
+    el mismo contenedor pequeño de la ficha (pocos niveles, como el resto de
+    helpers "_nearby" — no queremos robarle la insignia a la película de al
+    lado en una rejilla). Devuelve "preventa", "estreno", "en cartelera" o
+    None si no se encuentra ninguna (páginas sin esta insignia, o no
+    detectada — no se asume nada en ese caso)."""
+    container = link_tag.parent
+    for _ in range(max_levels):
+        if container is None:
+            break
+        text = container.get_text(" ", strip=True)
+        m = _STATUS_BADGE_RE.search(text)
+        if m:
+            label = re.sub(r"\s+", " ", m.group(1).lower())
+            return label
+        container = container.parent
+    return None
+
+
 def _find_year_and_director_nearby(link_tag, max_levels: int = 6):
     """
     Sube desde el enlace del título buscando, en el mismo contenedor: un año
@@ -423,6 +457,13 @@ def scrape_via_filmaffinity(cinema_name: str):
         if film_key in seen_ids:
             continue
         seen_ids.add(film_key)
+        status = _find_status_badge_nearby(link)
+        if status == "preventa":
+            # Venta anticipada de un estreno futuro (semanas por delante),
+            # NO cartelera de esta semana aunque traiga horarios con fechas
+            # reales — se descarta aquí (bug real detectado con "La bola
+            # negra" en Cinesa Proyecciones, ver _STATUS_BADGE_RE).
+            continue
         year_hint, director_hint = _find_year_and_director_nearby(link)
         films.append(
             {
@@ -431,6 +472,7 @@ def scrape_via_filmaffinity(cinema_name: str):
                 "listing_url": official_url,
                 "year": year_hint,
                 "director_hint": director_hint,
+                "is_new_release": status == "estreno",
             }
         )
     return films
