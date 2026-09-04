@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T13:34",
+  "generated_at": "2026-09-04T14:04",
   "week_label": "04/09 – 10/09",
   "weekend": {
     "range": "05/09 – 06/09",
@@ -29,14 +29,14 @@
         "day": "sábado"
       },
       {
-        "imdb_id": "tt37076917",
-        "title": "La familia Benetón +2",
-        "poster": "https://image.tmdb.org/t/p/w500/of100MlUVoC0M55mm9latkH5MVu.jpg",
-        "rating": 5.286,
-        "imdb_url": "https://www.imdb.com/title/tt37076917/",
-        "platform": "Netflix",
+        "imdb_id": "tt32306991",
+        "title": "Una novia para mi boda",
+        "poster": "https://image.tmdb.org/t/p/w500/3iOvz9wXGvUCb4no5aIvCq2HmlH.jpg",
+        "rating": 7.511,
+        "imdb_url": "https://www.imdb.com/title/tt32306991/",
+        "platform": "Amazon Prime Video",
         "release_date": "2026-08-21",
-        "reason": "Sale Anabel Alonso, de tus actores favoritos",
+        "reason": "Sale Alyson Hannigan, de tus actores favoritos",
         "score": 85,
         "day": "domingo"
       }
@@ -62,11 +62,6 @@
               "22:35"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/el-drama/"
-          },
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
           }
         ]
       },
@@ -113,18 +108,6 @@
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "17:00"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea-70-mm"
-          },
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
-          },
-          {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
@@ -169,33 +152,9 @@
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "16:15"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/106927_1_W_0/la-constelacion-del-perro"
-          },
-          {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt37601810",
-        "title": "Mala bestia",
-        "poster": "https://image.tmdb.org/t/p/w500/4NjHPW0ZttQTkrJZrmFRISq2d5V.jpg",
-        "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt37601810/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "is_new_release": false,
-        "cinemas": [
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
           }
         ]
       },
@@ -249,14 +208,6 @@
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "15:50",
-              "18:00"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/107327_1_W_0/cronos"
           },
           {
             "name": "Yelmo Cines Ideal",
