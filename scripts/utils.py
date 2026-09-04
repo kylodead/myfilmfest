@@ -260,29 +260,35 @@ def _normalize_genre_name(genre_obj):
     return GENRE_ALIASES.get(name.lower(), name)
 
 
-def _spain_release_date(d: dict):
+def _spain_release_info(d: dict):
     """
-    Fecha de estreno REAL en cines de España, sacada de "release_dates" de
-    TMDB (pedida gratis en la misma petición vía append_to_response) — pedido
-    explícitamente así para poder ordenar la cartelera con la más reciente
-    arriba, en vez de fiarnos de insignias de texto de páginas de terceros
-    que no hemos podido verificar (ver cines_madrid.py).
+    Devuelve (fecha_ya_estrenada, fecha_futura_conocida) a partir de
+    "release_dates" de TMDB (pedida gratis en la misma petición vía
+    append_to_response) — como mucho una de las dos tiene valor, nunca las
+    dos a la vez.
 
     TMDB guarda, por país, una LISTA de fechas de estreno con un "type": 1
     premiere, 2 estreno limitado, 3 estreno general, 4 digital, 5 físico, 6
-    TV. Nos interesan solo 2 y 3 (cine) — de esas, la más reciente que no
-    sea futura (evita que una preventa/próximo estreno registrado en TMDB se
-    cuele como "fecha de estreno" todavía no ocurrida). Casos reales que
-    esto cubre bien: un reestreno/restauración de un clásico (p.ej. "Cronos"
-    de 1993 con reestreno en cines este año) SÍ tiene aquí la fecha del
-    reestreno, no la de 1993 — la fecha global de "release_date" que da TMDB
-    por defecto sí sería la de 1993, y por eso no se usa como fuente
-    principal, solo como último recurso si España no tiene nada.
+    TV. Nos interesan solo 2 y 3 (cine). De esas, para España: si hay alguna
+    que YA ha pasado, se usa la más reciente de ellas (esto cubre bien un
+    reestreno/restauración de un clásico — p.ej. "Cronos" de 1993 con
+    reestreno en cines este año: aquí sale la fecha del reestreno, no la de
+    1993). Si NO hay ninguna pasada pero sí una futura, se devuelve esa por
+    separado como "fecha_futura_conocida" — significa "sabemos con certeza
+    que todavía no se ha estrenado", una situación distinta de "no tenemos
+    ningún dato" (donde ambas devueltas son None). Esta distinción es la que
+    permite, en match_engine.py, descartar de la cartelera de esta semana lo
+    que consta como preventa real sin tener que fiarnos de ninguna insignia
+    de texto de una página de terceros (bug real que costó dos intentos
+    fallidos: "La bola negra" seguía colándose en Cinesa Proyecciones).
 
-    Devuelve un string "YYYY-MM-DD" o None si no se encuentra nada usable.
+    Si España no tiene datos en absoluto, se cae a la fecha global de TMDB
+    (puede ser la del estreno en otro país o la del estreno mundial en su
+    día) con el mismo criterio pasada/futura.
     """
     today = date.today()
-    best = None
+    best_past = None
+    earliest_future = None
     for entry in (d.get("release_dates") or {}).get("results") or []:
         if entry.get("iso_3166_1") != "ES":
             continue
@@ -297,17 +303,35 @@ def _spain_release_date(d: dict):
             except ValueError:
                 continue
             if parsed > today:
-                continue
-            if best is None or parsed > best:
-                best = parsed
+                if earliest_future is None or parsed < earliest_future:
+                    earliest_future = parsed
+            elif best_past is None or parsed > best_past:
+                best_past = parsed
         break  # ya hemos encontrado el bloque "ES", no hace falta seguir
-    if best:
-        return best.isoformat()
-    # Respaldo: fecha global de TMDB (puede ser la del estreno original en
-    # otro país / la del estreno mundial en su día — mejor que nada, pero
-    # ver aviso arriba sobre reestrenos de clásicos).
+    if best_past:
+        return best_past.isoformat(), None
+    if earliest_future:
+        return None, earliest_future.isoformat()
+
+    # Sin nada específico de España: respaldo con la fecha global de TMDB.
     fallback = (d.get("release_date") or "")[:10]
-    return fallback or None
+    if not fallback:
+        return None, None
+    try:
+        fallback_date = date.fromisoformat(fallback)
+    except ValueError:
+        return None, None
+    if fallback_date > today:
+        return None, fallback_date.isoformat()
+    return fallback, None
+
+
+def _spain_release_date(d: dict):
+    """Solo la fecha ya estrenada (o None) — ver _spain_release_info.
+    Se mantiene como función aparte porque es lo único que se usaba antes
+    de añadir la detección de preventa; sigue siendo la fuente de la fecha
+    que se muestra en la ficha y con la que se ordena la cartelera."""
+    return _spain_release_info(d)[0]
 
 
 def _tmdb_movie_full_fetch(tmdb_id, fallback_imdb_id=None):
@@ -350,6 +374,7 @@ def _tmdb_movie_full_fetch(tmdb_id, fallback_imdb_id=None):
     # pedir la lista completa de la colección (eso sí costaría una petición
     # aparte por cada peli con saga).
     collection = d.get("belongs_to_collection") or {}
+    release_date, upcoming_release_date = _spain_release_info(d)
     return {
         "imdb_id": imdb_id,
         "title": d.get("title") or d.get("original_title"),
@@ -360,7 +385,12 @@ def _tmdb_movie_full_fetch(tmdb_id, fallback_imdb_id=None):
         "directors": directors,
         "collection_name": collection.get("name"),
         "url": f"https://www.imdb.com/title/{imdb_id}/" if imdb_id else d.get("homepage"),
-        "release_date": _spain_release_date(d),
+        "release_date": release_date,
+        # Solo tiene valor cuando TMDB SÍ registra una fecha de estreno en
+        # España y esa fecha todavía no ha llegado — "sabemos que aún no se
+        # ha estrenado", distinto de "no tenemos el dato" (release_date=None
+        # sin esto tampoco). Ver uso en match_engine.select_cinema_picks.
+        "upcoming_release_date": upcoming_release_date,
     }
 
 
@@ -370,12 +400,12 @@ def tmdb_title_info_by_tmdb_id(tmdb_id: str, imdb_id: str = None):
     if not TMDB_API_KEY or not tmdb_id:
         return {}
     return cached_get_json(
-        # "_v2" a propósito: la ficha cacheada antes de añadir release_date
-        # no tiene ese campo, y con la clave de siempre se habría quedado
-        # así hasta que caducase sola (hasta 25 días) — con el sufijo nuevo
-        # se fuerza a pedirla de nuevo una vez, ya con la fecha de estreno
-        # incluida, sin esperar tanto para que el orden por estreno funcione.
-        f"tmdb_v2_{tmdb_id}",
+        # "_v3" a propósito: cada vez que la ficha cacheada le falta un campo
+        # nuevo (primero release_date, ahora upcoming_release_date), con la
+        # clave de siempre se habría quedado así hasta que caducase sola
+        # (hasta 25 días) — con un sufijo nuevo se fuerza a pedirla otra vez
+        # ya completa, sin esperar tanto para que el filtro/orden funcionen.
+        f"tmdb_v3_{tmdb_id}",
         lambda: _tmdb_movie_full_fetch(tmdb_id, imdb_id),
         max_age_days=25,
         cache_empty=False,
@@ -416,9 +446,10 @@ def tmdb_title_info_by_imdb(imdb_id: str):
             return {}
         return _tmdb_movie_full_fetch(tmdb_id, imdb_id)
 
-    # "_v2" — mismo motivo que en tmdb_title_info_by_tmdb_id: forzar una
-    # recarga con release_date incluido en vez de esperar a que caduque sola.
-    return cached_get_json(f"tmdb_by_imdb_v2_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
+    # "_v3" — mismo motivo que en tmdb_title_info_by_tmdb_id: forzar una
+    # recarga con upcoming_release_date incluido en vez de esperar a que
+    # caduque sola.
+    return cached_get_json(f"tmdb_by_imdb_v3_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
 
 
 # Memoria SOLO de esta ejecución (no se guarda en disco, se pierde al
