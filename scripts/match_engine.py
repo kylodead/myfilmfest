@@ -183,18 +183,30 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
 WEEKEND_DAYS = ["viernes", "sábado", "domingo"]
 
 
-def select_streaming_picks(streaming_items, taste_profile, favorite_actors, watchlist_ids):
+def select_streaming_picks(
+    streaming_items, taste_profile, favorite_actors, watchlist_ids, allow_fallback_fill=True
+):
     """
     streaming_items: lista de {title, release_year, release_date, platform,
     imdb_id, poster} — ya vienen ordenados por recencia real desde
     justwatch_streaming.py (lo más reciente primero).
 
-    Devuelve SIEMPRE hasta 3 recomendaciones, una por día del finde (viernes,
-    sábado, domingo) — nunca "lo que haya salido", como pediste. Primero se
-    llenan con matches de verdad (pendientes / actor / director / género,
-    misma jerarquía que en cines); si no hay suficientes, se completa con los
-    estrenos más recientes disponibles aunque no encajen con tus gustos —
-    pero eso se dice explícitamente en el motivo, no se disfraza de acierto.
+    Primero se llenan los picks con matches DE VERDAD (pendientes / actor /
+    director / género, misma jerarquía que en cines). Si con `streaming_items`
+    no hay 3, build_site.py es quien decide qué hacer: normalmente reintenta
+    esta misma función con una `streaming_items` más amplia (ventana de más
+    días hacia atrás, ver justwatch_streaming.filter_by_window) ANTES de
+    aceptar un relleno sin criterio — así, si esta semana el catálogo nuevo no
+    tiene nada para ti pero hace 2-3 semanas sí, se prefiere eso a "lo último
+    aunque no encaje", como pediste.
+
+    `allow_fallback_fill` controla si, cuando ni ampliando se llega a 3, esta
+    llamada debe completar igualmente con los estrenos más recientes
+    disponibles aunque no encajen con tus gustos (dejándolo dicho de forma
+    explícita en el motivo, nunca disfrazado de acierto) — build_site.py lo
+    deja en False mientras todavía puede ampliar la ventana, y solo lo pone a
+    True en la última vuelta, cuando ya se ha llegado al tope de ampliación y
+    hay que rellenar sí o sí para no dejar el finde a medias.
     """
     seen_ids = set()
     strict = []
@@ -226,7 +238,7 @@ def select_streaming_picks(streaming_items, taste_profile, favorite_actors, watc
     strict.sort(key=lambda r: r["score"], reverse=True)
     picks = strict[:3]
 
-    if len(picks) < 3:
+    if len(picks) < 3 and allow_fallback_fill:
         for item in streaming_items:
             if len(picks) >= 3:
                 break
