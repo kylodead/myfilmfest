@@ -116,9 +116,20 @@ def _score_and_reason(imdb_id, taste_profile, favorite_actors, watchlist_ids, tm
 
 def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids):
     """
-    billboard: { cinema_name: [ {title, showtimes, listing_url, imdb_id}, ... ] }
+    billboard: { cinema_name: [ {title, showtimes, listing_url, imdb_id,
+    is_new_release}, ... ] }
     Devuelve lista de recomendaciones para lunes-jueves, agrupadas por
     película (una peli puede estar en varios cines -> se agrupan showtimes).
+
+    Dentro de un mismo nivel de acierto (mismo `score` — pendientes, actor,
+    director...) se ponen primero los estrenos de ESTA semana ("Cronos" caso
+    real que motivó esto: llevaba ya una semana en la lista porque seguía en
+    cartelera, pero al ser un reestreno con fecha de estreno real ESTA
+    semana, tiene sentido que aparezca arriba del todo dentro de su grupo).
+    `is_new_release` viene de cines_madrid.py SOLO cuando la fuente trae esa
+    información real (la insignia "estreno" de FilmAffinity); si ningún cine
+    la trae para una película, se trata como no-estreno por defecto — nunca
+    se inventa el dato.
     """
     by_imdb = {}
     for cinema_name, films in billboard.items():
@@ -139,6 +150,7 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
                     "score": score,
                     "info": info,
                     "cinemas": [],
+                    "is_new_release": False,
                     # Respaldo de título/póster por si la ficha completa
                     # (TMDB o, en su defecto, IMDb) falla al cargar: usamos
                     # lo que ya nos dio la búsqueda rápida de IMDb Suggestion
@@ -148,6 +160,8 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
                     "fallback_poster": f.get("imdb_hint_poster"),
                 },
             )
+            if f.get("is_new_release"):
+                entry["is_new_release"] = True
             entry["cinemas"].append(
                 {
                     "name": cinema_name,
@@ -172,11 +186,12 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
                 "imdb_url": info.get("url", f"https://www.imdb.com/title/{imdb_id}/"),
                 "reason": entry["reason"],
                 "score": entry["score"],
+                "is_new_release": entry["is_new_release"],
                 "cinemas": entry["cinemas"],
             }
         )
 
-    results.sort(key=lambda r: r["score"], reverse=True)
+    results.sort(key=lambda r: (-r["score"], 0 if r["is_new_release"] else 1, r["title"] or ""))
     return results
 
 
