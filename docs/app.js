@@ -57,6 +57,15 @@
     return card;
   }
 
+  // "2026-09-04" -> "04/09/2026" (release_date de la ficha viene siempre en
+  // ISO desde build_site.py/utils.py, nunca en otro formato).
+  function formatDateEs(iso) {
+    if (!iso) return "";
+    const [y, m, d] = iso.split("-");
+    if (!y || !m || !d) return "";
+    return `${d}/${m}/${y}`;
+  }
+
   // Las fichas de cine son una FILA (póster + info + cines/horarios visibles
   // directamente), no una tarjeta cuadrada — así se ve de un vistazo dónde y
   // a qué hora, sin tener que tocar nada.
@@ -66,6 +75,9 @@
 
     const info = el("div", "cinema-item-info");
     info.appendChild(el("p", "cinema-item-title", item.title || ""));
+    if (item.release_date) {
+      info.appendChild(el("p", "cinema-item-release", "Estreno: " + formatDateEs(item.release_date)));
+    }
     info.appendChild(el("p", "card-reason", item.reason || ""));
 
     const list = el("div", "cinema-item-showings");
