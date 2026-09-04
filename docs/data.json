@@ -1,33 +1,9 @@
 {
-  "generated_at": "2026-08-28T21:10",
-  "week_label": "28/08 – 03/09",
+  "generated_at": "2026-09-04T10:34",
+  "week_label": "04/09 – 10/09",
   "weekend": {
-    "range": "29/08 – 30/08",
+    "range": "05/09 – 06/09",
     "picks": [
-      {
-        "imdb_id": "tt29002950",
-        "title": "Resurrection",
-        "poster": "https://image.tmdb.org/t/p/w500/vQZK421erWKR5PgF4pbz0lp4o3o.jpg",
-        "rating": 7.224,
-        "imdb_url": "https://www.imdb.com/title/tt29002950/",
-        "platform": "Filmin",
-        "release_date": "2026-08-21",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "day": "viernes"
-      },
-      {
-        "imdb_id": "tt36932751",
-        "title": "Lapönia",
-        "poster": "https://image.tmdb.org/t/p/w500/WyzzRMZDCRtBhbNwN0inFACvhd.jpg",
-        "rating": 5.2,
-        "imdb_url": "https://www.imdb.com/title/tt36932751/",
-        "platform": "Movistar Plus+",
-        "release_date": "2026-08-21",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "day": "sábado"
-      },
       {
         "imdb_id": "tt11561116",
         "title": "Susurran tu nombre",
@@ -35,22 +11,46 @@
         "rating": 6.4,
         "imdb_url": "https://www.imdb.com/title/tt11561116/",
         "platform": "Netflix",
-        "release_date": "2026-08-28",
+        "release_date": "2026-09-04",
         "reason": "Sale Robert De Niro, de tus actores favoritos",
         "score": 85,
+        "day": "viernes"
+      },
+      {
+        "imdb_id": "tt29375937",
+        "title": "Manual para detectar a un narcisista",
+        "poster": "https://image.tmdb.org/t/p/w500/5P2i5H3aqAEX1Nb3SiE7lv0n7iG.jpg",
+        "rating": 6.7,
+        "imdb_url": "https://www.imdb.com/title/tt29375937/",
+        "platform": "Movistar Plus+",
+        "release_date": "2026-08-31",
+        "reason": "Estreno reciente en Movistar Plus+ (IMDb 6.7) — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
+        "score": 10,
+        "day": "sábado"
+      },
+      {
+        "imdb_id": "tt26757462",
+        "title": "Hellboy: El hombre retorcido",
+        "poster": "https://image.tmdb.org/t/p/w500/vaYsXgw4VpCF2l799sOLzwce6Bf.jpg",
+        "rating": 5.126,
+        "imdb_url": "https://www.imdb.com/title/tt26757462/",
+        "platform": "Movistar Plus+",
+        "release_date": "2026-08-30",
+        "reason": "Estreno reciente en Movistar Plus+ (IMDb 5.126) — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
+        "score": 10,
         "day": "domingo"
       }
     ]
   },
   "cinema_week": {
-    "range": "31/08 – 03/09",
+    "range": "07/09 – 10/09",
     "picks": [
       {
-        "imdb_id": "tt33451014",
-        "title": "El ser querido",
-        "poster": "https://image.tmdb.org/t/p/w500/bFYCaNsYmj4bOoHGIoqEthRxfRv.jpg",
-        "rating": 6.826,
-        "imdb_url": "https://www.imdb.com/title/tt33451014/",
+        "imdb_id": "tt21285562",
+        "title": "La constelación del perro",
+        "poster": "https://image.tmdb.org/t/p/w500/vbCb1yHXtXym4V1c420MSasbyyP.jpg",
+        "rating": 7.482,
+        "imdb_url": "https://www.imdb.com/title/tt21285562/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
         "cinemas": [
@@ -60,27 +60,6 @@
             "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
           },
           {
-            "name": "Cines Golem",
-            "showtimes": [
-              "16:15",
-              "17:30",
-              "19:00",
-              "20:15",
-              "21:45"
-            ],
-            "listing_url": "https://www.golem.es/golem/pelicula/El-ser-querido"
-          },
-          {
-            "name": "Cines Renoir (Plaza de España)",
-            "showtimes": [
-              "17:00",
-              "18:10",
-              "20:00",
-              "20:45"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/el-ser-querido/"
-          },
-          {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
@@ -88,55 +67,10 @@
           {
             "name": "Mk2 Cine Paz",
             "showtimes": [
-              "17:15",
-              "19:00",
-              "20:00",
-              "21:35",
-              "22:30"
+              "16:15"
             ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/105455_1_W_0/el-ser-querido"
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/106927_1_W_0/la-constelacion-del-perro"
           },
-          {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt33071426",
-        "title": "El drama",
-        "poster": "https://image.tmdb.org/t/p/w500/zgfBYGYCNcOZ51JDbr6tm45H8y0.jpg",
-        "rating": 6.906,
-        "imdb_url": "https://www.imdb.com/title/tt33071426/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "cinemas": [
-          {
-            "name": "Cines Renoir (Plaza de España)",
-            "showtimes": [
-              "16:00",
-              "20:10",
-              "22:35"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/el-drama/"
-          },
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt35223471",
-        "title": "Cronos",
-        "poster": "https://image.tmdb.org/t/p/w500/wDidLFHwIHK6LHcrzVH22lyHRzk.jpg",
-        "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt35223471/",
-        "reason": "Sale Diana Gómez, de tus actores favoritos",
-        "score": 85,
-        "cinemas": [
           {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
@@ -150,47 +84,13 @@
         "poster": "https://image.tmdb.org/t/p/w500/6zWaYWrPXG7JBX3Tb3OI9ITWGad.jpg",
         "rating": 6.845,
         "imdb_url": "https://www.imdb.com/title/tt37853455/",
-        "reason": "Sale Julia Fox y Maya Hawke, de tus actores favoritos",
-        "score": 85,
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "cinemas": [
           {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt21285562",
-        "title": "La constelación del perro",
-        "poster": "https://image.tmdb.org/t/p/w500/vbCb1yHXtXym4V1c420MSasbyyP.jpg",
-        "rating": 7.482,
-        "imdb_url": "https://www.imdb.com/title/tt21285562/",
-        "reason": "Sale Margaret Qualley, de tus actores favoritos",
-        "score": 85,
-        "cinemas": [
-          {
-            "name": "Cines Embajadores",
-            "showtimes": [],
-            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
-          },
-          {
-            "name": "Cinesa Proyecciones",
-            "showtimes": [],
-            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "16:40",
-              "19:05"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/106927_1_W_0/la-constelacion-del-perro"
           },
           {
             "name": "Yelmo Cines Ideal",
@@ -205,8 +105,8 @@
         "poster": "https://image.tmdb.org/t/p/w500/g9DUGw8ufetrwhCIrwq3h1NlpWO.jpg",
         "rating": 6.4,
         "imdb_url": "https://www.imdb.com/title/tt27165187/",
-        "reason": "Sale Anne Hathaway, de tus actores favoritos",
-        "score": 85,
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "cinemas": [
           {
             "name": "Cinesa Proyecciones",
@@ -226,9 +126,14 @@
         "poster": "https://image.tmdb.org/t/p/w500/9aeb5U0saB7Tuu0QITaoENZBxFF.jpg",
         "rating": 7.986,
         "imdb_url": "https://www.imdb.com/title/tt33764258/",
-        "reason": "Sale Anne Hathaway y Mia Goth, de tus actores favoritos",
-        "score": 85,
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          },
           {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
@@ -254,36 +159,101 @@
         ]
       },
       {
-        "imdb_id": "tt0119314",
-        "title": "El hombre que susurraba a los caballos",
-        "poster": "https://image.tmdb.org/t/p/w500/1YKoikePFH63vdV9blLcyoZzfAd.jpg",
-        "rating": 6.898,
-        "imdb_url": "https://www.imdb.com/title/tt0119314/",
-        "reason": "Sale Scarlett Johansson, de tus actores favoritos",
-        "score": 85,
-        "cinemas": [
-          {
-            "name": "Filmoteca - Cine Doré",
-            "showtimes": [
-              "29/08 18:00"
-            ],
-            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/el-hombre-que-susurraba-a-los-caballos-1/2026-08-29\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
-          }
-        ]
-      },
-      {
         "imdb_id": "tt37601810",
         "title": "Mala bestia",
         "poster": "https://image.tmdb.org/t/p/w500/4NjHPW0ZttQTkrJZrmFRISq2d5V.jpg",
         "rating": 0.0,
         "imdb_url": "https://www.imdb.com/title/tt37601810/",
-        "reason": "Sale Iria del Río, de tus actores favoritos",
-        "score": 85,
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "cinemas": [
           {
             "name": "Sala Equis",
             "showtimes": [],
             "listing_url": "https://salaequis.es"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt33071426",
+        "title": "El drama",
+        "poster": "https://image.tmdb.org/t/p/w500/zgfBYGYCNcOZ51JDbr6tm45H8y0.jpg",
+        "rating": 6.906,
+        "imdb_url": "https://www.imdb.com/title/tt33071426/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "cinemas": [
+          {
+            "name": "Cines Renoir (Plaza de España)",
+            "showtimes": [
+              "19:50",
+              "22:35"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/el-drama/"
+          },
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt35511966",
+        "title": "La bola negra",
+        "poster": "https://image.tmdb.org/t/p/w500/qCUSOso8PSkVvZjSZ9awZpS1DQj.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt35511966/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "cinemas": [
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt35223471",
+        "title": "Cronos",
+        "poster": "https://image.tmdb.org/t/p/w500/wDidLFHwIHK6LHcrzVH22lyHRzk.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt35223471/",
+        "reason": "Sale Diana Gómez, de tus actores favoritos",
+        "score": 85,
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          },
+          {
+            "name": "Cines Golem",
+            "showtimes": [
+              "17:00",
+              "19:30",
+              "22:00"
+            ],
+            "listing_url": "https://www.golem.es/golem/pelicula/Cronos-(V.O.S.E.)"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "15:50",
+              "18:00"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/107327_1_W_0/cronos"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
