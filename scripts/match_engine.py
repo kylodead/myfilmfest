@@ -183,8 +183,16 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
 WEEKEND_DAYS = ["viernes", "sábado", "domingo"]
 
 
+WATCHLIST_SCORE = 100  # ver _score_and_reason: es el único motivo que SÍ puede repetirse semana tras semana
+
+
 def select_streaming_picks(
-    streaming_items, taste_profile, favorite_actors, watchlist_ids, allow_fallback_fill=True
+    streaming_items,
+    taste_profile,
+    favorite_actors,
+    watchlist_ids,
+    allow_fallback_fill=True,
+    excluded_repeat_ids=None,
 ):
     """
     streaming_items: lista de {title, release_year, release_date, platform,
@@ -207,7 +215,17 @@ def select_streaming_picks(
     deja en False mientras todavía puede ampliar la ventana, y solo lo pone a
     True en la última vuelta, cuando ya se ha llegado al tope de ampliación y
     hay que rellenar sí o sí para no dejar el finde a medias.
+
+    `excluded_repeat_ids` son imdb_id que ya se te ofrecieron en semanas
+    recientes (ver pick_history.py) por un motivo que NO era "está en tu
+    lista de pendientes" — se descartan aquí para no repetir "sale un actor/
+    director que te gusta" con el mismo título semana tras semana mientras
+    haya otro que también encaje, pedido explícitamente así. La ÚNICA
+    excepción es, precisamente, el motivo "está en tu lista de pendientes"
+    (WATCHLIST_SCORE): ese sí puede repetirse, porque mientras no la veas
+    tiene sentido seguir recordándotela.
     """
+    excluded_repeat_ids = excluded_repeat_ids or set()
     seen_ids = set()
     strict = []
     for item in streaming_items:
@@ -218,6 +236,8 @@ def select_streaming_picks(
             imdb_id, taste_profile, favorite_actors, watchlist_ids, tmdb_id=item.get("tmdb_id")
         )
         if not include:
+            continue
+        if score != WATCHLIST_SCORE and imdb_id in excluded_repeat_ids:
             continue
         seen_ids.add(imdb_id)
         if not info:
@@ -250,6 +270,11 @@ def select_streaming_picks(
             # tenías puntuada (p.ej. Spider-Man) podía colarse como "mejor
             # disponible". Se excluye igual que en el resto del matching.
             if imdb_id in taste_profile.get("rated_ids", set()):
+                continue
+            # Mismo criterio de no-repetición que en los matches de verdad:
+            # un título ya ofrecido como relleno recientemente no vuelve a
+            # colarse aquí mientras haya otro estreno reciente sin ofrecer.
+            if imdb_id in excluded_repeat_ids:
                 continue
             seen_ids.add(imdb_id)
             info = get_title_metadata(imdb_id=imdb_id, tmdb_id=item.get("tmdb_id"))
