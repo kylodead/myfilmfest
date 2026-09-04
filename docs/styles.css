@@ -163,6 +163,7 @@ html, body {
 }
 .cinema-item-info { flex: 1; min-width: 0; }
 .cinema-item-title { font-size: 0.95rem; font-weight: 700; margin: 0 0 3px; }
+.cinema-item-release { font-size: 0.72rem; color: var(--text-dim); margin: 0 0 4px; }
 .cinema-item-showings { margin-top: 8px; display: flex; flex-direction: column; gap: 5px; }
 .showing-line {
   display: flex;
