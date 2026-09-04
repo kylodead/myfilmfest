@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T15:48",
+  "generated_at": "2026-09-04T16:09",
   "week_label": "04/09 – 10/09",
   "weekend": {
     "range": "05/09 – 06/09",
@@ -29,14 +29,14 @@
         "day": "sábado"
       },
       {
-        "imdb_id": "tt18259538",
-        "title": "Avatar Aang: El último maestro del aire",
-        "poster": "https://image.tmdb.org/t/p/w500/gXyICsxc1amVyziopCT4yhnelNv.jpg",
-        "rating": 9.197,
-        "imdb_url": "https://www.imdb.com/title/tt18259538/",
-        "platform": "Movistar Plus+",
-        "release_date": "2026-08-15",
-        "reason": "Sale Taika Waititi, de tus actores favoritos",
+        "imdb_id": "tt36590417",
+        "title": "No se desea buena suerte",
+        "poster": "https://image.tmdb.org/t/p/w500/eSHrRxvVxXH0JYdj2NdBD78FC6B.jpg",
+        "rating": 7.3,
+        "imdb_url": "https://www.imdb.com/title/tt36590417/",
+        "platform": "Netflix",
+        "release_date": "2026-08-14",
+        "reason": "Sale Melanie Lynskey y Stephanie Beatriz, de tus actores favoritos",
         "score": 85,
         "day": "domingo"
       }
@@ -45,23 +45,6 @@
   "cinema_week": {
     "range": "07/09 – 10/09",
     "picks": [
-      {
-        "imdb_id": "tt35511966",
-        "title": "La bola negra",
-        "poster": "https://image.tmdb.org/t/p/w500/qCUSOso8PSkVvZjSZ9awZpS1DQj.jpg",
-        "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt35511966/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "2026-09-25",
-        "cinemas": [
-          {
-            "name": "Cinesa Proyecciones",
-            "showtimes": [],
-            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          }
-        ]
-      },
       {
         "imdb_id": "tt21285562",
         "title": "La constelación del perro",
@@ -226,6 +209,7 @@
           {
             "name": "Mk2 Cine Paz",
             "showtimes": [
+              "15:50",
               "18:00"
             ],
             "listing_url": "https://www.cinepazmadrid.es/es/detalles/107327_1_W_0/cronos"
