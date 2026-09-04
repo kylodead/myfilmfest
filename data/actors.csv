@@ -272,7 +272,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 271,nm1752221,2021-07-10,2021-07-10,,"Gina Rodriguez","Deepwater Horizon","30 de julio de 1984"
 272,nm9923141,2021-07-11,2021-07-11,,"Anya Chalotra","The Witcher","28 de julio de 1995"
 273,nm10140373,2021-07-14,2021-07-14,,"Celia Monedero","Skam España",
-274,nm2969728,2021-07-14,2021-07-14,,"Susana Abaitua","Compulsión","5 de octubre de 1990"
+274,nm2969728,2021-07-14,2021-07-14,,"Susana Abaitua","Un fantasma en la batalla","5 de octubre de 1990"
 275,nm6759748,2021-07-16,2021-07-16,,"Pearl Amanda Dickson","Lucy in the Sky",
 276,nm10428193,2021-07-17,2021-07-17,,"Sabrina De La Hoz","La llorona",
 277,nm9129886,2021-07-17,2021-07-17,,"Diane Bathen","Temblores",
@@ -490,7 +490,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 489,nm9342097,2023-12-31,2023-12-31,,"Ruby Cruz","Mare of Easttown","31 de marzo de 2000"
 490,nm1284201,2024-02-03,2024-02-03,,"Mariona Ribas","Amistades peligrosas","18 de junio de 1984"
 491,nm0447695,2024-02-04,2024-02-04,,"Anna Kendrick","Up in the Air","9 de agosto de 1985"
-492,nm10662997,2024-02-09,2024-02-09,,"Helena Ezquerro","La Moderna",
+492,nm10662997,2024-02-09,2024-02-09,,"Helena Ezquerro","Land of Women",
 493,nm5429286,2024-02-16,2024-02-16,,"Alícia Falcó","Las buenas compañías",
 494,nm7914444,2024-02-20,2024-02-20,,"Karina Fontes","Babylon","15 de noviembre de 1992"
 495,nm2212031,2024-03-01,2024-03-01,,"Abby Elliott","No Strings Attached","16 de junio de 1987"
@@ -561,7 +561,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 560,nm0646575,2025-09-06,2025-09-06,,"Melani Olivares","Aída","18 de febrero de 1973"
 561,nm9374927,2025-09-06,2025-09-06,,"Kelly Depeault","Noémie dit oui","6 de mayo de 2002"
 562,nm0080524,2025-09-06,2025-09-06,,"Mayim Bialik","Beaches","12 de diciembre de 1975"
-563,nm12526687,2025-09-06,2025-09-06,,"Lorea Intxausti Oregi","Muertos S.L.",
+563,nm12526687,2025-09-06,2025-09-06,,"Lorea Intxausti Oregi","Todo lo que nunca fuimos",
 564,nm7165354,2025-09-07,2025-09-07,,"Marta Medina","Despertar",
 565,nm0324409,2025-09-13,2025-09-13,,"Bárbara Goenaga","Los cronocrímenes","20 de julio de 1983"
 566,nm0845209,2025-09-13,2025-09-13,,"Aitana Sánchez-Gijón","The Machinist","5 de noviembre de 1968"
@@ -675,7 +675,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 674,nm0736622,2026-04-15,2026-04-15,,"Seth Rogen","This Is the End","15 de abril de 1982"
 675,nm0001182,2026-04-20,2026-04-20,,"Carmen Electra","Scary Movie 4","20 de abril de 1972"
 676,nm0930226,2026-04-20,2026-04-20,,"Caroline Williams","Renfield","27 de marzo de 1957"
-677,nm0000691,2026-04-22,2026-04-22,,"John Waters","Pecker","22 de abril de 1946"
+677,nm0000691,2026-04-22,2026-04-22,,"John Waters","Hairspray","22 de abril de 1946"
 678,nm0498247,2026-04-22,2026-04-22,,"Sheryl Lee","Twin Peaks: Fire Walk with Me","22 de abril de 1967"
 679,nm2883665,2026-04-24,2026-04-24,,"Mariam Hernández","Juegos de lucha","25 de abril de 1983"
 680,nm2216549,2026-04-25,2026-04-25,,"Úrsula Corberó","La casa de papel","11 de agosto de 1989"
@@ -760,7 +760,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 759,nm6185683,2026-07-17,2026-07-17,,"Emily Rudd","One Piece","24 de febrero de 1993"
 760,nm10603736,2026-07-17,2026-07-17,,"Lera Abova","Anna","4 de noviembre de 1992"
 761,nm1197737,2026-07-18,2026-07-18,,"Carmen Machi","Aída","7 de enero de 1963"
-762,nm16382228,2026-07-18,2026-07-18,,"Aitana Batres","Élite",
+762,nm16382228,2026-07-18,2026-07-18,,"Aitana Batres","Amarga Navidad",
 763,nm18382887,2026-07-20,2026-07-20,,"Vana","VANA: Pray",
 764,nm0172770,2026-07-21,2026-07-21,,"Mary Collinson","Permissive","22 de julio de 1952"
 765,nm1238859,2026-07-23,2026-07-23,,"Ernesto Sevilla","Camera Café, la película","1978"
@@ -779,3 +779,11 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 778,nm7436993,2026-08-20,2026-08-20,,"Tramell Tillman","Mission: Impossible - The Final Reckoning","17 de junio de 1985"
 779,nm16659307,2026-08-25,2026-08-25,,"Six Sex","I'm a Star",
 780,nm7945379,2026-08-25,2026-08-25,,"Sarah Sawyer","Tokyo Vice",
+781,nm0000600,2026-08-28,2026-08-28,,"Sam Raimi","Spider-Man","23 de octubre de 1959"
+782,nm2962353,2026-08-28,2026-08-28,,"Pom Klementieff","Guardians of the Galaxy Vol. 3","3 de mayo de 1986"
+783,nm3065809,2026-08-29,2026-08-29,,"Rosabell Laurenti Sellers","Gli equilibristi","27 de marzo de 1996"
+784,nm1693112,2026-08-30,2026-08-30,,"Carlos Areces","Balada triste de trompeta","27 de marzo de 1976"
+785,nm1481149,2026-08-30,2026-08-30,,"Aitziber Garmendia","Ocho apellidos vascos","10 de diciembre de 1982"
+786,nm2255973,2026-08-31,2026-08-31,,"Donald Glover","Solo: A Star Wars Story","25 de septiembre de 1983"
+787,nm3958585,2026-09-03,2026-09-03,,"Rainey Qualley","Delilah","11 de marzo de 1990"
+788,nm3172796,2026-09-03,2026-09-03,,"Melina Matthews","The Room Next Door","21 de noviembre de 1986"
