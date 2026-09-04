@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T11:51",
+  "generated_at": "2026-09-04T13:34",
   "week_label": "04/09 – 10/09",
   "weekend": {
     "range": "05/09 – 06/09",
@@ -29,14 +29,14 @@
         "day": "sábado"
       },
       {
-        "imdb_id": "tt11561116",
-        "title": "Susurran tu nombre",
-        "poster": "https://image.tmdb.org/t/p/w500/63n3rBWRs9Bvlo0nJ8oP2ayuusA.jpg",
-        "rating": 6.4,
-        "imdb_url": "https://www.imdb.com/title/tt11561116/",
+        "imdb_id": "tt37076917",
+        "title": "La familia Benetón +2",
+        "poster": "https://image.tmdb.org/t/p/w500/of100MlUVoC0M55mm9latkH5MVu.jpg",
+        "rating": 5.286,
+        "imdb_url": "https://www.imdb.com/title/tt37076917/",
         "platform": "Netflix",
-        "release_date": "2026-09-04",
-        "reason": "Sale Robert De Niro, de tus actores favoritos",
+        "release_date": "2026-08-21",
+        "reason": "Sale Anabel Alonso, de tus actores favoritos",
         "score": 85,
         "day": "domingo"
       }
@@ -46,56 +46,27 @@
     "range": "07/09 – 10/09",
     "picks": [
       {
-        "imdb_id": "tt21285562",
-        "title": "La constelación del perro",
-        "poster": "https://image.tmdb.org/t/p/w500/vbCb1yHXtXym4V1c420MSasbyyP.jpg",
-        "rating": 7.482,
-        "imdb_url": "https://www.imdb.com/title/tt21285562/",
+        "imdb_id": "tt33071426",
+        "title": "El drama",
+        "poster": "https://image.tmdb.org/t/p/w500/zgfBYGYCNcOZ51JDbr6tm45H8y0.jpg",
+        "rating": 6.906,
+        "imdb_url": "https://www.imdb.com/title/tt33071426/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
+        "is_new_release": false,
         "cinemas": [
           {
-            "name": "Cines Embajadores",
-            "showtimes": [],
-            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
-          },
-          {
-            "name": "Cinesa Proyecciones",
-            "showtimes": [],
-            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Mk2 Cine Paz",
+            "name": "Cines Renoir (Plaza de España)",
             "showtimes": [
-              "16:15"
+              "19:50",
+              "22:35"
             ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/106927_1_W_0/la-constelacion-del-perro"
+            "listing_url": "https://www.cinesrenoir.com/pelicula/el-drama/"
           },
           {
-            "name": "Yelmo Cines Ideal",
+            "name": "Sala Equis",
             "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt37853455",
-        "title": "Una noche al año",
-        "poster": "https://image.tmdb.org/t/p/w500/6zWaYWrPXG7JBX3Tb3OI9ITWGad.jpg",
-        "rating": 6.845,
-        "imdb_url": "https://www.imdb.com/title/tt37853455/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "cinemas": [
-          {
-            "name": "Cinesa Proyecciones",
-            "showtimes": [],
-            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+            "listing_url": "https://salaequis.es"
           }
         ]
       },
@@ -107,6 +78,7 @@
         "imdb_url": "https://www.imdb.com/title/tt27165187/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
+        "is_new_release": false,
         "cinemas": [
           {
             "name": "Cinesa Proyecciones",
@@ -128,6 +100,7 @@
         "imdb_url": "https://www.imdb.com/title/tt33764258/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
+        "is_new_release": false,
         "cinemas": [
           {
             "name": "Cines Embajadores",
@@ -159,46 +132,6 @@
         ]
       },
       {
-        "imdb_id": "tt37601810",
-        "title": "Mala bestia",
-        "poster": "https://image.tmdb.org/t/p/w500/4NjHPW0ZttQTkrJZrmFRISq2d5V.jpg",
-        "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt37601810/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "cinemas": [
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt33071426",
-        "title": "El drama",
-        "poster": "https://image.tmdb.org/t/p/w500/zgfBYGYCNcOZ51JDbr6tm45H8y0.jpg",
-        "rating": 6.906,
-        "imdb_url": "https://www.imdb.com/title/tt33071426/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "cinemas": [
-          {
-            "name": "Cines Renoir (Plaza de España)",
-            "showtimes": [
-              "19:50",
-              "22:35"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/el-drama/"
-          },
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
-          }
-        ]
-      },
-      {
         "imdb_id": "tt35511966",
         "title": "La bola negra",
         "poster": "https://image.tmdb.org/t/p/w500/qCUSOso8PSkVvZjSZ9awZpS1DQj.jpg",
@@ -206,11 +139,85 @@
         "imdb_url": "https://www.imdb.com/title/tt35511966/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
+        "is_new_release": false,
         "cinemas": [
           {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt21285562",
+        "title": "La constelación del perro",
+        "poster": "https://image.tmdb.org/t/p/w500/vbCb1yHXtXym4V1c420MSasbyyP.jpg",
+        "rating": 7.482,
+        "imdb_url": "https://www.imdb.com/title/tt21285562/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "is_new_release": false,
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "16:15"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/106927_1_W_0/la-constelacion-del-perro"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt37601810",
+        "title": "Mala bestia",
+        "poster": "https://image.tmdb.org/t/p/w500/4NjHPW0ZttQTkrJZrmFRISq2d5V.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt37601810/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "is_new_release": false,
+        "cinemas": [
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt37853455",
+        "title": "Una noche al año",
+        "poster": "https://image.tmdb.org/t/p/w500/6zWaYWrPXG7JBX3Tb3OI9ITWGad.jpg",
+        "rating": 6.845,
+        "imdb_url": "https://www.imdb.com/title/tt37853455/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "is_new_release": false,
+        "cinemas": [
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
@@ -222,6 +229,7 @@
         "imdb_url": "https://www.imdb.com/title/tt35223471/",
         "reason": "Sale Diana Gómez, de tus actores favoritos",
         "score": 85,
+        "is_new_release": false,
         "cinemas": [
           {
             "name": "Cines Embajadores",
@@ -265,6 +273,7 @@
         "imdb_url": "https://www.imdb.com/title/tt33396880/",
         "reason": "Dirigida por Isaki Lacuesta, a quien sueles puntuar alto (2 pelis con nota ≥8)",
         "score": 65,
+        "is_new_release": false,
         "cinemas": [
           {
             "name": "Cineteca (Matadero Madrid)",
