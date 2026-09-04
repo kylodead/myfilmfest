@@ -36,7 +36,7 @@ de arquitectura mayor (headless browser) y prefiero que lo decidas tú.
 """
 import re
 import time
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 import requests
 from bs4 import BeautifulSoup
@@ -44,6 +44,12 @@ from bs4 import BeautifulSoup
 from utils import HEADERS, REQUEST_DELAY, best_guess_imdb
 
 TIME_PATTERN = re.compile(r"(\d{1,2})[:h](\d{2})h?")
+
+# Enlace a ficha de FilmAffinity (patrón compartido por varios helpers de
+# este fichero — sirve tanto para identificar el enlace de una película como
+# para, en _find_far_future_date_nearby, detectar cuándo un contenedor ya
+# incluye más de una película y por tanto hay que dejar de subir).
+_FILM_LINK_RE_GENERIC = re.compile(r"film\d+\.html$")
 
 # Año de estreno plausible cerca del título (p.ej. "2010" junto a "La
 # conspiración" en el Doré, o "2026" junto a un estreno reciente en
@@ -222,6 +228,87 @@ def _find_dated_showtimes_nearby(link_tag, max_levels: int = 6):
 # patrón, ya probado en producción, que usa justwatch_streaming.py para
 # agrupar títulos bajo la fecha de cabecera que les corresponde.
 _STATUS_BADGE_RE = re.compile(r"\b(preventa|estreno|en\s+cartelera)\b", re.IGNORECASE)
+
+# SEGUNDA CAPA de detección de preventa, independiente de _STATUS_BADGE_RE —
+# añadida porque, con el rastreo de cabeceras de arriba TAMPOCO se consiguió
+# quitar "La bola negra" en la práctica real (confirmado por ti), así que la
+# insignia de texto, dondequiera que esté en el HTML real, no se está
+# encontrando de ninguna de las dos formas intentadas hasta ahora — y sin
+# acceso directo a ese HTML no puedo seguir adivinando su estructura a
+# ciegas por tercera vez.
+#
+# Esto en cambio NO depende de encontrar ninguna insignia: se apoya en algo
+# que sí confirmé de verdad en el texto real de la página (vía herramienta
+# de lectura web) — que "La bola negra" tenía, cerca de su enlace, fechas
+# COMPLETAS con mes escrito ("Viernes 25 de septiembre"), mientras que las
+# sesiones normales de esta semana solo dan "Hoy", "Mañana" o el nombre del
+# día suelto, sin mes. Si el mismo enlace de una película tiene cerca una
+# fecha con mes que cae más allá de la ventana de cartelera de esta semana
+# (lunes-jueves próximos), es sesión futura de verdad — sea cual sea la
+# insignia que la acompañe o no la acompañe.
+_MONTH_FULL_ES = {
+    "enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5, "junio": 6,
+    "julio": 7, "agosto": 8, "septiembre": 9, "octubre": 10, "noviembre": 11,
+    "diciembre": 12,
+}
+_FULL_DATE_RE = re.compile(r"(\d{1,2})\s+de\s+([a-záéíóú]+)(?:\s+de\s+(\d{4}))?", re.IGNORECASE)
+
+
+def _target_cinema_week_end(today: date) -> date:
+    """Jueves de la próxima semana lunes-jueves de cartelera de la app
+    (mismo cálculo que _next_weekend_and_week en build_site.py, repetido
+    aquí para que este fichero pueda decidir por sí solo qué es "demasiado
+    lejos en el futuro" sin depender de que build_site.py se lo pase)."""
+    days_to_friday = (4 - today.weekday()) % 7
+    friday = today + timedelta(days=days_to_friday)
+    return friday + timedelta(days=6)
+
+
+def _find_far_future_date_nearby(link_tag, today: date, max_days_ahead: int, max_levels: int = 6):
+    """
+    Busca una fecha COMPLETA con mes ("25 de septiembre", con o sin año)
+    cerca del enlace. Si encuentra una y cae más de `max_days_ahead` días
+    por delante de hoy, la devuelve (señal de preventa futura real). Si no
+    encuentra ninguna fecha con mes, o cae dentro del margen, devuelve None
+    — nunca se asume preventa solo por no encontrar nada, igual que el
+    resto de helpers "_nearby" de este fichero.
+
+    Salvaguarda importante (bug real visto en pruebas): en una rejilla con
+    varias películas seguidas, subir demasiados niveles puede acabar en un
+    contenedor que ya incluye la tarjeta de OTRA película vecina — y con
+    eso, una fecha futura de esa vecina "contaminaba" también a la película
+    correcta. Por eso aquí, a diferencia del resto de helpers "_nearby", se
+    deja de subir en cuanto el contenedor contiene más de un enlace de
+    película (señal clara de haberse salido de la tarjeta individual).
+    """
+    container = link_tag.parent
+    for _ in range(max_levels):
+        if container is None:
+            break
+        if len(container.find_all("a", href=_FILM_LINK_RE_GENERIC)) > 1:
+            break
+        text = container.get_text(" ", strip=True)
+        for m in _FULL_DATE_RE.finditer(text):
+            month = _MONTH_FULL_ES.get(m.group(2).lower())
+            if not month:
+                continue
+            day = int(m.group(1))
+            year = int(m.group(3)) if m.group(3) else today.year
+            try:
+                d = date(year, month, day)
+            except ValueError:
+                continue
+            if not m.group(3) and d < today:
+                # Fecha sin año que ya pasó este año -> es del año que viene
+                # (mismo criterio que ya se usa en justwatch_streaming.py).
+                try:
+                    d = date(year + 1, month, day)
+                except ValueError:
+                    continue
+            if (d - today).days > max_days_ahead:
+                return d
+        container = container.parent
+    return None
 
 
 def _find_year_and_director_nearby(link_tag, max_levels: int = 6):
@@ -472,7 +559,10 @@ def scrape_via_filmaffinity(cinema_name: str):
         return []
     soup = BeautifulSoup(html, "html.parser")
     official_url = CINEMA_OFFICIAL_URLS.get(cinema_name)
-    href_re = re.compile(r"film\d+\.html$")
+    href_re = _FILM_LINK_RE_GENERIC
+
+    today = date.today()
+    max_days_ahead = (_target_cinema_week_end(today) - today).days
 
     raw_films = []
     seen_ids = set()
@@ -491,6 +581,7 @@ def scrape_via_filmaffinity(cinema_name: str):
                 continue
             seen_ids.add(film_key)
             year_hint, director_hint = _find_year_and_director_nearby(tag)
+            far_future_date = _find_far_future_date_nearby(tag, today, max_days_ahead)
             raw_films.append(
                 {
                     "title": _clean_title(title),
@@ -499,6 +590,7 @@ def scrape_via_filmaffinity(cinema_name: str):
                     "year": year_hint,
                     "director_hint": director_hint,
                     "status": current_status,
+                    "far_future_date": far_future_date,
                 }
             )
             continue
@@ -511,23 +603,32 @@ def scrape_via_filmaffinity(cinema_name: str):
         if m:
             current_status = re.sub(r"\s+", " ", m.group(1).lower())
 
-    preventa_count = sum(1 for f in raw_films if f["status"] == "preventa")
-    if raw_films and preventa_count / len(raw_films) > 0.6:
+    excluded_count = sum(
+        1 for f in raw_films if f["status"] == "preventa" or f["far_future_date"]
+    )
+    if raw_films and excluded_count / len(raw_films) > 0.6:
         print(
-            f"    [{cinema_name}] AVISO: {preventa_count}/{len(raw_films)} detectadas "
-            f"como 'preventa' — proporción demasiado alta, no se filtra nada por "
-            f"seguridad (posible fallo de detección de la insignia, revisar a mano)"
+            f"    [{cinema_name}] AVISO: {excluded_count}/{len(raw_films)} detectadas "
+            f"como preventa/futuras — proporción demasiado alta, no se filtra nada por "
+            f"seguridad (posible fallo de detección, revisar a mano)"
         )
         for f in raw_films:
-            f["is_new_release"] = f.pop("status") == "estreno"
+            f.pop("status", None)
+            f.pop("far_future_date", None)
         return raw_films
 
     films = []
     for f in raw_films:
         status = f.pop("status")
-        if status == "preventa":
+        far_future_date = f.pop("far_future_date")
+        if status == "preventa" or far_future_date:
+            if far_future_date:
+                print(
+                    f"    [{cinema_name}] descartada '{f['title']}' — solo tiene "
+                    f"fecha real el {far_future_date.isoformat()}, fuera de la "
+                    f"semana de cartelera actual"
+                )
             continue
-        f["is_new_release"] = status == "estreno"
         films.append(f)
     return films
 
