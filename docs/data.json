@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-05T19:53",
+  "generated_at": "2026-09-05T20:04",
   "week_label": "11/09 – 17/09",
   "weekend": {
-    "range": "12/09 – 13/09",
+    "range": "11/09 – 13/09",
     "picks": [
       {
         "imdb_id": "tt30825738",
@@ -17,27 +17,27 @@
         "day": "viernes"
       },
       {
-        "imdb_id": "tt29603959",
-        "title": "Novocaine",
-        "poster": "https://image.tmdb.org/t/p/w500/6YbTJhN5GJQOlZ1IyRiCyhKSiJE.jpg",
-        "rating": 6.776,
-        "imdb_url": "https://www.imdb.com/title/tt29603959/",
-        "platform": "Movistar Plus+",
-        "release_date": "2026-09-04",
-        "reason": "Sale Amber Midthunder, de tus actores favoritos",
+        "imdb_id": "tt34564059",
+        "title": "A la carrera",
+        "poster": "https://image.tmdb.org/t/p/w500/aBzKyfruwaUgU2qYYtMO7vC1Pv2.jpg",
+        "rating": 6.296,
+        "imdb_url": "https://www.imdb.com/title/tt34564059/",
+        "platform": "Amazon Prime Video",
+        "release_date": "2026-09-02",
+        "reason": "Sale Jessie Cave, de tus actores favoritos",
         "score": 85,
         "day": "sábado"
       },
       {
-        "imdb_id": "tt8864596",
-        "title": "Transformers One",
-        "poster": "https://image.tmdb.org/t/p/w500/1jzVCZxBmgvpGILuEU8icfX77Io.jpg",
-        "rating": 7.976,
-        "imdb_url": "https://www.imdb.com/title/tt8864596/",
-        "platform": "Amazon Prime Video",
-        "release_date": "2026-09-03",
-        "reason": "Sale Scarlett Johansson, de tus actores favoritos",
-        "score": 85,
+        "imdb_id": "tt14549270",
+        "title": "The Palace",
+        "poster": "https://image.tmdb.org/t/p/w500/Ao6FJJ2waHnBKiv00okDhVizncw.jpg",
+        "rating": 5.356,
+        "imdb_url": "https://www.imdb.com/title/tt14549270/",
+        "platform": "Filmin",
+        "release_date": "2026-09-04",
+        "reason": "Dirigida por Roman Polanski, a quien sueles puntuar alto (2 pelis con nota ≥8)",
+        "score": 65,
         "day": "domingo"
       }
     ]
@@ -75,6 +75,14 @@
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "15:50",
+              "18:00"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/107327_1_W_0/cronos"
+          },
+          {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
@@ -100,6 +108,13 @@
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "17:00"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/106927_1_W_0/la-constelacion-del-perro"
           },
           {
             "name": "Yelmo Cines Ideal",
@@ -210,6 +225,13 @@
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "17:00"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea-70-mm"
           },
           {
             "name": "Sala Equis",
