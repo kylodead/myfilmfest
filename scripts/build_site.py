@@ -142,7 +142,11 @@ def main():
         "generated_at": datetime.now().isoformat(timespec="minutes"),
         "week_label": f"{friday.strftime('%d/%m')} – {thursday.strftime('%d/%m')}",
         "weekend": {
-            "range": f"{saturday.strftime('%d/%m')} – {sunday.strftime('%d/%m')}",
+            # Empieza en viernes, no en sábado: el propio "finde" de la app
+            # YA incluye el pick del viernes (ver WEEKEND_DAYS en
+            # match_engine.py) — el rango mostrado tiene que reflejar eso o
+            # el viernes queda fuera del texto aunque sí aparezca la tarjeta.
+            "range": f"{friday.strftime('%d/%m')} – {sunday.strftime('%d/%m')}",
             "picks": streaming_picks,
         },
         "cinema_week": {
