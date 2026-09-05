@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-09-04T16:17",
-  "week_label": "04/09 – 10/09",
+  "generated_at": "2026-09-05T19:53",
+  "week_label": "11/09 – 17/09",
   "weekend": {
-    "range": "05/09 – 06/09",
+    "range": "12/09 – 13/09",
     "picks": [
       {
-        "imdb_id": "tt29002950",
-        "title": "Resurrection",
-        "poster": "https://image.tmdb.org/t/p/w500/vQZK421erWKR5PgF4pbz0lp4o3o.jpg",
-        "rating": 7.208,
-        "imdb_url": "https://www.imdb.com/title/tt29002950/",
-        "platform": "Filmin",
-        "release_date": "2026-08-21",
+        "imdb_id": "tt30825738",
+        "title": "The Mandalorian and Grogu",
+        "poster": "https://image.tmdb.org/t/p/w500/sWitU9IjgFwf6y1OrI0zUaL3GNa.jpg",
+        "rating": 7.489,
+        "imdb_url": "https://www.imdb.com/title/tt30825738/",
+        "platform": "Disney Plus",
+        "release_date": "2026-09-02",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
         "day": "viernes"
       },
       {
-        "imdb_id": "tt36932751",
-        "title": "Lapönia",
-        "poster": "https://image.tmdb.org/t/p/w500/WyzzRMZDCRtBhbNwN0inFACvhd.jpg",
-        "rating": 5.25,
-        "imdb_url": "https://www.imdb.com/title/tt36932751/",
+        "imdb_id": "tt29603959",
+        "title": "Novocaine",
+        "poster": "https://image.tmdb.org/t/p/w500/6YbTJhN5GJQOlZ1IyRiCyhKSiJE.jpg",
+        "rating": 6.776,
+        "imdb_url": "https://www.imdb.com/title/tt29603959/",
         "platform": "Movistar Plus+",
-        "release_date": "2026-08-21",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
+        "release_date": "2026-09-04",
+        "reason": "Sale Amber Midthunder, de tus actores favoritos",
+        "score": 85,
         "day": "sábado"
       },
       {
-        "imdb_id": "tt11674730",
-        "title": "La última parada en Arizona",
-        "poster": "https://image.tmdb.org/t/p/w500/aGv2wLO3vZacOCm73kEOY8uRQIC.jpg",
-        "rating": 6.911,
-        "imdb_url": "https://www.imdb.com/title/tt11674730/",
-        "platform": "Filmin",
-        "release_date": "2026-08-14",
-        "reason": "Sale Barbara Crampton y Sierra McCormick, de tus actores favoritos",
+        "imdb_id": "tt8864596",
+        "title": "Transformers One",
+        "poster": "https://image.tmdb.org/t/p/w500/1jzVCZxBmgvpGILuEU8icfX77Io.jpg",
+        "rating": 7.976,
+        "imdb_url": "https://www.imdb.com/title/tt8864596/",
+        "platform": "Amazon Prime Video",
+        "release_date": "2026-09-03",
+        "reason": "Sale Scarlett Johansson, de tus actores favoritos",
         "score": 85,
         "day": "domingo"
       }
     ]
   },
   "cinema_week": {
-    "range": "07/09 – 10/09",
+    "range": "14/09 – 17/09",
     "picks": [
       {
         "imdb_id": "tt35223471",
@@ -75,14 +75,6 @@
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "15:50",
-              "18:00"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/107327_1_W_0/cronos"
-          },
-          {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
@@ -108,13 +100,6 @@
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "17:00"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/106927_1_W_0/la-constelacion-del-perro"
           },
           {
             "name": "Yelmo Cines Ideal",
@@ -190,6 +175,23 @@
         ]
       },
       {
+        "imdb_id": "tt37601810",
+        "title": "Mala bestia",
+        "poster": "https://image.tmdb.org/t/p/w500/4NjHPW0ZttQTkrJZrmFRISq2d5V.jpg",
+        "rating": 5.0,
+        "imdb_url": "https://www.imdb.com/title/tt37601810/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-07-31",
+        "cinemas": [
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          }
+        ]
+      },
+      {
         "imdb_id": "tt33764258",
         "title": "La Odisea",
         "poster": "https://image.tmdb.org/t/p/w500/9aeb5U0saB7Tuu0QITaoENZBxFF.jpg",
@@ -210,29 +212,10 @@
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "17:00"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea-70-mm"
-          },
-          {
-            "name": "Yelmo Cines Ideal",
+            "name": "Sala Equis",
             "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt29355505",
-        "title": "Toy Story 5",
-        "poster": "https://image.tmdb.org/t/p/w500/pTjZfbFVWUIwUM5OzX3LVh84ejU.jpg",
-        "rating": 8.327,
-        "imdb_url": "https://www.imdb.com/title/tt29355505/",
-        "reason": "Es de la saga de Toy Story - Colección, de la que ya viste y puntuaste bien otra entrega",
-        "score": 55,
-        "release_date": "2026-06-17",
-        "cinemas": [
+            "listing_url": "https://salaequis.es"
+          },
           {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
@@ -257,6 +240,11 @@
               "22:35"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/el-drama/"
+          },
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
           }
         ]
       },
@@ -276,6 +264,25 @@
               "19:00"
             ],
             "listing_url": "https://www.cinetecamadrid.com/programacion/flores-para-antonio"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt0092263",
+        "title": "Un mañana mejor",
+        "poster": "https://image.tmdb.org/t/p/w500/g2H1T5kqj9y992t4ZE8syM3UZDd.jpg",
+        "rating": 7.356,
+        "imdb_url": "https://www.imdb.com/title/tt0092263/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "1986-08-02",
+        "cinemas": [
+          {
+            "name": "Filmoteca - Cine Doré",
+            "showtimes": [
+              "08/09 20:00"
+            ],
+            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/un-mañana-mejor/2026-09-08\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
           }
         ]
       }
