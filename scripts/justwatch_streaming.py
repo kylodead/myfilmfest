@@ -82,9 +82,23 @@ RECENCY_WINDOW_DAYS = 7
 # acabar recomendando catálogo tan viejo que ya no se sienta "novedad".
 MAX_RECENCY_WINDOW_DAYS = 63
 
+# OJO: "sept" (septiembre) tiene 4 letras, no 3 como el resto de meses —
+# FilmAffinity la escribe "sept." (no "sep."). Bug real encontrado en
+# producción: la regex de abajo exigía EXACTAMENTE 3 letras, así que para
+# cualquier título con fecha de septiembre el "t" final de "sept" se quedaba
+# pegado al principio del título (p.ej. "2 sept. The Mandalorian and Grogu"
+# se leía como fecha 2/sep + título "t. The Mandalorian and Grogu"), lo que
+# rompía la búsqueda en IMDb y hacía que la película desapareciera sin más
+# (caso real reportado: "The Mandalorian and Grogu", estreno en Disney+ el
+# 2 de septiembre, en watchlist, y aun así no aparecía en las propuestas).
+# Peor aún: cuando la fecha iba SOLA en el texto (el "sello" superpuesto al
+# póster, sin título pegado, ver _match_leading_date), la comprobación de
+# "todo el texto era la fecha" tampoco cuadraba por la misma letra suelta, así
+# que ni siquiera se actualizaba la fecha activa para los títulos de debajo.
+# Se mantiene también "sep" (3 letras) por si alguna otra plataforma lo usa.
 _MONTH_ABBR_ES = {
     "ene": 1, "feb": 2, "mar": 3, "abr": 4, "may": 5, "jun": 6,
-    "jul": 7, "ago": 8, "sep": 9, "oct": 10, "nov": 11, "dic": 12,
+    "jul": 7, "ago": 8, "sep": 9, "sept": 9, "oct": 10, "nov": 11, "dic": 12,
 }
 _MONTH_FULL_ES = {
     "enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5, "junio": 6,
@@ -103,8 +117,14 @@ _SERIES_MARKER_RE = re.compile(r"\(\s*(mini)?serie\b", re.IGNORECASE)
 # "\s*" (no "\s+") al final es a propósito: tiene que casar tanto si detrás
 # viene un título ("27 ago. Título") como si el texto es SOLO la fecha
 # ("27 ago.", el caso normal de las cabeceras/etiquetas de fecha sueltas).
+# "{3,4}" y no "{3}" fijo: casi todos los meses abrevian a 3 letras, pero
+# "sept" (septiembre) son 4 — con un tamaño fijo se comía solo "sep" y dejaba
+# la "t" suelta pegada al texto siguiente (ver el aviso en _MONTH_ABBR_ES).
+# Es seguro ampliarlo a 4: el punto o el espacio que sigue a la abreviatura
+# corta igualmente la captura si el mes real es de 3 letras, así que nunca
+# se come de más del texto del título.
 _DATE_ABBR_PREFIX_RE = re.compile(
-    r"^(\d{1,2})\s+([a-záéíóú]{3})\.?\s*", re.IGNORECASE
+    r"^(\d{1,2})\s+([a-záéíóú]{3,4})\.?\s*", re.IGNORECASE
 )
 # "27 de agosto de 2026" / "27 de agosto" al principio del texto.
 _DATE_FULL_PREFIX_RE = re.compile(
