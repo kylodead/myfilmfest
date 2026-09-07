@@ -202,6 +202,23 @@ html, body {
 
 .footer { margin-top: 50px; text-align: center; color: var(--text-dim); font-size: 0.72rem; }
 
+/* Atribución obligatoria de TMDB (usamos su API para pósters, notas, géneros,
+   actores/director y fecha de estreno) — texto en vez de su logo: TMDB pide
+   descargar el logo desde su propia página de marca bajo sus condiciones de
+   uso, no enlazarlo a ciegas desde una URL adivinada, así que el texto es la
+   forma segura de cumplir el requisito sin arriesgarse a un asset mal usado. */
+.tmdb-attribution {
+  margin: 8px 0 0;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: var(--text-dim);
+}
+.tmdb-attribution a {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .modal-backdrop {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.55);
