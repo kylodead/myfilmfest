@@ -1,42 +1,42 @@
 {
-  "generated_at": "2026-09-11T06:54",
+  "generated_at": "2026-09-11T14:09",
   "week_label": "11/09 – 17/09",
   "weekend": {
     "range": "11/09 – 13/09",
     "picks": [
       {
-        "imdb_id": "tt36073210",
-        "title": "Enfrentados: Marfil",
-        "poster": "https://image.tmdb.org/t/p/w500/umlft1ztFbUcnHf960pXJocjpdv.jpg",
-        "rating": 6.8,
-        "imdb_url": "https://www.imdb.com/title/tt36073210/",
-        "platform": "Amazon Prime Video",
-        "release_date": "2026-09-09",
-        "reason": "Sale Ester Expósito, de tus actores favoritos",
-        "score": 85,
+        "imdb_id": "tt30825738",
+        "title": "The Mandalorian and Grogu",
+        "poster": "https://image.tmdb.org/t/p/w500/sWitU9IjgFwf6y1OrI0zUaL3GNa.jpg",
+        "rating": 7.489,
+        "imdb_url": "https://www.imdb.com/title/tt30825738/",
+        "platform": "Disney Plus",
+        "release_date": "2026-09-02",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "day": "viernes"
       },
       {
-        "imdb_id": "tt38066489",
-        "title": "Babies",
-        "poster": "https://image.tmdb.org/t/p/w500/qthjxiZ2cNvyQvVbbJz6rfUCEgk.jpg",
+        "imdb_id": "tt38616652",
+        "title": "Gracias, equipo",
+        "poster": "https://image.tmdb.org/t/p/w500/aVGaBCt8g0Q990jKW85wTJKotev.jpg",
         "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt38066489/",
-        "platform": "Filmin",
-        "release_date": "2026-09-08",
-        "reason": "Sale Anna Kendrick y Kate Berlant, de tus actores favoritos",
+        "imdb_url": "https://www.imdb.com/title/tt38616652/",
+        "platform": "Netflix",
+        "release_date": "2026-09-11",
+        "reason": "Sale Alexandra Jiménez, de tus actores favoritos",
         "score": 85,
         "day": "sábado"
       },
       {
-        "imdb_id": "tt16426570",
-        "title": "Barron's Cove",
-        "poster": "https://image.tmdb.org/t/p/w500/r2mnkY3fmcvCpRs4qB7rPnHcxVo.jpg",
-        "rating": 7.164,
-        "imdb_url": "https://www.imdb.com/title/tt16426570/",
-        "platform": "Filmin",
-        "release_date": "2026-09-07",
-        "reason": "Sale Tramell Tillman, de tus actores favoritos",
+        "imdb_id": "tt32278481",
+        "title": "Enola Holmes 3",
+        "poster": "https://image.tmdb.org/t/p/w500/cepT0wSQPvynDDYAM8tHjxa1Quk.jpg",
+        "rating": 6.748,
+        "imdb_url": "https://www.imdb.com/title/tt32278481/",
+        "platform": "Netflix",
+        "release_date": "2026-09-11",
+        "reason": "Sale Helena Bonham Carter y Millie Bobby Brown, de tus actores favoritos",
         "score": 85,
         "day": "domingo"
       }
@@ -111,14 +111,6 @@
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "17:00",
-              "19:20"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/107327_1_W_0/cronos"
           },
           {
             "name": "Yelmo Cines Ideal",
@@ -258,13 +250,6 @@
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "17:00"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea-70-mm"
           },
           {
             "name": "Sala Equis",
