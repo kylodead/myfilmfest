@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T14:09",
+  "generated_at": "2026-09-11T18:30",
   "week_label": "11/09 – 17/09",
   "weekend": {
     "range": "11/09 – 13/09",
@@ -17,26 +17,26 @@
         "day": "viernes"
       },
       {
-        "imdb_id": "tt38616652",
-        "title": "Gracias, equipo",
-        "poster": "https://image.tmdb.org/t/p/w500/aVGaBCt8g0Q990jKW85wTJKotev.jpg",
-        "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt38616652/",
-        "platform": "Netflix",
-        "release_date": "2026-09-11",
-        "reason": "Sale Alexandra Jiménez, de tus actores favoritos",
-        "score": 85,
+        "imdb_id": "tt29002950",
+        "title": "Resurrection",
+        "poster": "https://image.tmdb.org/t/p/w500/vQZK421erWKR5PgF4pbz0lp4o3o.jpg",
+        "rating": 7.208,
+        "imdb_url": "https://www.imdb.com/title/tt29002950/",
+        "platform": "Filmin",
+        "release_date": "2026-08-21",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "day": "sábado"
       },
       {
-        "imdb_id": "tt32278481",
-        "title": "Enola Holmes 3",
-        "poster": "https://image.tmdb.org/t/p/w500/cepT0wSQPvynDDYAM8tHjxa1Quk.jpg",
-        "rating": 6.748,
-        "imdb_url": "https://www.imdb.com/title/tt32278481/",
-        "platform": "Netflix",
-        "release_date": "2026-09-11",
-        "reason": "Sale Helena Bonham Carter y Millie Bobby Brown, de tus actores favoritos",
+        "imdb_id": "tt36932751",
+        "title": "Lapönia",
+        "poster": "https://image.tmdb.org/t/p/w500/WyzzRMZDCRtBhbNwN0inFACvhd.jpg",
+        "rating": 5.25,
+        "imdb_url": "https://www.imdb.com/title/tt36932751/",
+        "platform": "Movistar Plus+",
+        "release_date": "2026-08-21",
+        "reason": "Sale Natalia Verbeke, de tus actores favoritos",
         "score": 85,
         "day": "domingo"
       }
@@ -113,6 +113,14 @@
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "15:45",
+              "18:00"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/107327_1_W_0/cronos"
+          },
+          {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
@@ -164,8 +172,8 @@
         "poster": "https://image.tmdb.org/t/p/w500/uEqCJh1fA9Ao9jaCL2xoROPJeUB.jpg",
         "rating": 6.5,
         "imdb_url": "https://www.imdb.com/title/tt32393988/",
-        "reason": "Es de la saga de Insidious - Colección, de la que ya viste y puntuaste bien otra entrega",
-        "score": 55,
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "release_date": "2026-08-21",
         "cinemas": [
           {
@@ -250,6 +258,13 @@
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "17:00"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea-70-mm"
           },
           {
             "name": "Sala Equis",
