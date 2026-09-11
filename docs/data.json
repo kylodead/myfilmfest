@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T18:30",
+  "generated_at": "2026-09-11T18:38",
   "week_label": "11/09 – 17/09",
   "weekend": {
     "range": "11/09 – 13/09",
@@ -29,15 +29,15 @@
         "day": "sábado"
       },
       {
-        "imdb_id": "tt36932751",
-        "title": "Lapönia",
-        "poster": "https://image.tmdb.org/t/p/w500/WyzzRMZDCRtBhbNwN0inFACvhd.jpg",
-        "rating": 5.25,
-        "imdb_url": "https://www.imdb.com/title/tt36932751/",
-        "platform": "Movistar Plus+",
-        "release_date": "2026-08-21",
-        "reason": "Sale Natalia Verbeke, de tus actores favoritos",
-        "score": 85,
+        "imdb_id": "tt1341338",
+        "title": "Buena suerte, pásalo bien, no mueras",
+        "poster": "https://image.tmdb.org/t/p/w500/vzJkrTx01ol7FTIhzS50pms5xEG.jpg",
+        "rating": 7.114,
+        "imdb_url": "https://www.imdb.com/title/tt1341338/",
+        "platform": "Amazon Prime Video",
+        "release_date": "2026-08-08",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "day": "domingo"
       }
     ]
