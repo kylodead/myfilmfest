@@ -123,7 +123,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 122,nm6848259,2020-06-13,2020-06-13,,"Olivia Delcán","Isla Bonita","29 de mayo de 1992"
 123,nm2442289,2020-06-13,2020-06-13,,"Gina Carano","The Mandalorian","16 de abril"
 124,nm1235867,2020-06-20,2020-06-20,,"Nadia de Santiago","El tiempo que te doy","3 de enero de 1990"
-125,nm4170579,2020-06-20,2020-06-20,,"Iria del Río","Los años nuevos","13 de enero de 1987"
+125,nm4170579,2020-06-20,2020-06-20,,"Iria del Río","Visitante","13 de enero de 1987"
 126,nm10061586,2020-06-20,2020-06-20,,"Carmen Arrufat","La innocència","11 de octubre de 2002"
 127,nm3419668,2020-06-29,2020-06-29,,"Aisha Dee","Safe Home","13 de septiembre de 1993"
 128,nm3126686,2020-07-04,2020-07-04,,"Julia Stockler","A Vida Invisível de Eurídice Gusmão",
@@ -405,7 +405,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 404,nm1326732,2022-10-11,2022-10-11,,"Anaïs Demoustier","Le Comte de Monte-Cristo","29 de septiembre de 1987"
 405,nm2140860,2022-10-12,2022-10-12,,"Maika Monroe","It Follows","29 de mayo de 1993"
 406,nm1987150,2022-10-22,2022-10-22,,"Esperanza Pedreño","Camera café","20 de diciembre de 1974"
-407,nm0851582,2022-12-09,2022-12-09,,"Audrey Tautou","Le Fabuleux Destin d'Amélie Poulain","9 de agosto de 1976"
+407,nm0851582,2022-12-09,2022-12-09,,"Audrey Tautou","Le fabuleux destin d'Amélie Poulain","9 de agosto de 1976"
 408,nm5001826,2022-12-09,2022-12-09,,"Zoe Stein","Mantícora","2000"
 409,nm13581656,2022-12-17,2022-12-17,,"Carla Quílez","La maternal","2008"
 410,nm9220161,2022-12-20,2022-12-20,,"Markella Kavenagh","My First Summer","30 de enero de 2000"
@@ -490,7 +490,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 489,nm9342097,2023-12-31,2023-12-31,,"Ruby Cruz","Mare of Easttown","31 de marzo de 2000"
 490,nm1284201,2024-02-03,2024-02-03,,"Mariona Ribas","Amistades peligrosas","18 de junio de 1984"
 491,nm0447695,2024-02-04,2024-02-04,,"Anna Kendrick","Up in the Air","9 de agosto de 1985"
-492,nm10662997,2024-02-09,2024-02-09,,"Helena Ezquerro","Land of Women",
+492,nm10662997,2024-02-09,2024-02-09,,"Helena Ezquerro","La Moderna",
 493,nm5429286,2024-02-16,2024-02-16,,"Alícia Falcó","Las buenas compañías",
 494,nm7914444,2024-02-20,2024-02-20,,"Karina Fontes","Babylon","15 de noviembre de 1992"
 495,nm2212031,2024-03-01,2024-03-01,,"Abby Elliott","No Strings Attached","16 de junio de 1987"
@@ -613,7 +613,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 612,nm8061858,2026-01-26,2026-01-26,,"María Pedraza","La casa de papel","26 de enero de 1996"
 613,nm0279545,2026-02-03,2026-02-03,,"Isla Fisher","Wedding Crashers","3 de febrero de 1976"
 614,nm3718425,2026-02-05,2026-02-05,,"Carla Díaz","Delicious","19 de julio de 1998"
-615,nm3681769,2026-02-11,2026-02-11,,"Chase Sui Wonders","Bodies Bodies Bodies","21 de mayo de 1996"
+615,nm3681769,2026-02-11,2026-02-11,,"Chase Sui Wonders","I Know What You Did Last Summer","21 de mayo de 1996"
 616,nm13605360,2026-02-14,2026-02-14,,"Nora Hernández","La cena","1998"
 617,nm0375609,2026-02-14,2026-02-14,,"Brigitte Helm","Metropolis","17 de marzo de 1908"
 618,nm3835303,2026-02-16,2026-02-16,,"Lizze Broadway","Ghosted","16 de febrero de 1998"
@@ -760,7 +760,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 759,nm6185683,2026-07-17,2026-07-17,,"Emily Rudd","One Piece","24 de febrero de 1993"
 760,nm10603736,2026-07-17,2026-07-17,,"Lera Abova","Anna","4 de noviembre de 1992"
 761,nm1197737,2026-07-18,2026-07-18,,"Carmen Machi","Aída","7 de enero de 1963"
-762,nm16382228,2026-07-18,2026-07-18,,"Aitana Batres","Amarga Navidad",
+762,nm16382228,2026-07-18,2026-07-18,,"Aitana Batres","Élite",
 763,nm18382887,2026-07-20,2026-07-20,,"Vana","VANA: Pray",
 764,nm0172770,2026-07-21,2026-07-21,,"Mary Collinson","Permissive","22 de julio de 1952"
 765,nm1238859,2026-07-23,2026-07-23,,"Ernesto Sevilla","Camera Café, la película","1978"
@@ -780,10 +780,23 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 779,nm16659307,2026-08-25,2026-08-25,,"Six Sex","I'm a Star",
 780,nm7945379,2026-08-25,2026-08-25,,"Sarah Sawyer","Tokyo Vice",
 781,nm0000600,2026-08-28,2026-08-28,,"Sam Raimi","Spider-Man","23 de octubre de 1959"
-782,nm2962353,2026-08-28,2026-08-28,,"Pom Klementieff","Guardians of the Galaxy Vol. 3","3 de mayo de 1986"
+782,nm2962353,2026-08-28,2026-08-28,,"Pom Klementieff","Avengers: Infinity War","3 de mayo de 1986"
 783,nm3065809,2026-08-29,2026-08-29,,"Rosabell Laurenti Sellers","Gli equilibristi","27 de marzo de 1996"
 784,nm1693112,2026-08-30,2026-08-30,,"Carlos Areces","Balada triste de trompeta","27 de marzo de 1976"
 785,nm1481149,2026-08-30,2026-08-30,,"Aitziber Garmendia","Ocho apellidos vascos","10 de diciembre de 1982"
 786,nm2255973,2026-08-31,2026-08-31,,"Donald Glover","Solo: A Star Wars Story","25 de septiembre de 1983"
 787,nm3958585,2026-09-03,2026-09-03,,"Rainey Qualley","Delilah","11 de marzo de 1990"
 788,nm3172796,2026-09-03,2026-09-03,,"Melina Matthews","The Room Next Door","21 de noviembre de 1986"
+789,nm0005403,2026-09-04,2026-09-04,,"Jason Schwartzman","Rushmore","26 de junio de 1980"
+790,nm7213994,2026-09-04,2026-09-04,,"Grace Edwards","Asteroid City",
+791,nm0027572,2026-09-04,2026-09-04,,"Wes Anderson","Fantastic Mr. Fox","1 de mayo de 1969"
+792,nm3143851,2026-09-04,2026-09-04,,"Sophia Anne Caruso","The School for Good and Evil","11 de julio de 2001"
+793,nm8325312,2026-09-05,2026-09-05,,"Jazzara Jaslyn","One Piece",
+794,nm1570048,2026-09-05,2026-09-05,,"Lola Créton","Après mai","16 de diciembre de 1993"
+795,nm1252362,2026-09-07,2026-09-07,,"Bertrand Mandico","Les Garçons sauvages","21 de marzo de 1971"
+796,nm10384695,2026-09-08,2026-09-08,,"María Herrera","El cuento de una noche de verano",
+797,nm1913734,2026-09-09,2026-09-09,,"Rooney Mara","The Girl with the Dragon Tattoo","17 de abril de 1985"
+798,nm0085312,2026-09-09,2026-09-09,,"Jack Black","School of Rock","28 de agosto de 1969"
+799,nm1706767,2026-09-09,2026-09-09,,"Jonah Hill","22 Jump Street","20 de diciembre de 1983"
+800,nm1247855,2026-09-09,2026-09-09,,"Carrie Brownstein","Portlandia","27 de septiembre de 1974"
+801,nm0001814,2026-09-09,2026-09-09,,"Gus Van Sant","Elephant","24 de julio de 1952"
