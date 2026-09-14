@@ -49,6 +49,67 @@ def _cache_path(key: str) -> Path:
     return CACHE_DIR / f"{safe}.json"
 
 
+# Prefijos de clave de caché que ya NO usa ningún código actual (quedaron
+# huérfanos al subir la versión de la clave — ver el porqué de este patrón
+# en tmdb_title_info_by_tmdb_id/tmdb_title_info_by_imdb más abajo). Se
+# pueden borrar sin miedo: nada los vuelve a leer nunca.
+_OBSOLETE_CACHE_PREFIXES = ("tmdb_by_imdb_v2_", "tmdb_by_imdb_v3_", "tmdb_v2_", "tmdb_v3_")
+
+# Cuánto tiempo sin tocarse (ni leerse ni refrescarse) tiene que pasar para
+# borrar un fichero de caché "vivo" (de una clave que sí se sigue usando) —
+# si una película lleva más de un año sin que nadie la vuelva a mirar, es
+# muy poco probable que se necesite pronto, y si hiciera falta, volver a
+# pedirla a TMDB/IMDb una vez es gratis. Bastante más generoso que
+# max_age_days (25/60), que solo decide "sirve esto o pide otra vez" — esto
+# decide "hace falta seguir guardando el fichero en absoluto".
+STALE_CACHE_FILE_MAX_AGE_DAYS = 365
+
+# El historial de streaming (pick_history.py) tiene su propia poda por
+# semanas (ver ese fichero) — nunca lo debe tocar esta limpieza genérica.
+_CACHE_PRUNE_EXCLUDE_NAMES = {"streaming_pick_history.json"}
+
+
+def prune_stale_cache():
+    """
+    Limpieza de cache/ para que no crezca sin control en el repo (ni en
+    número de ficheros ni en peso): pensada para llamarse UNA vez al
+    principio de cada ejecución de build_site.py, antes de generar nada.
+
+    Borra dos tipos de fichero:
+      1. Los de una versión de clave ya obsoleta (_OBSOLETE_CACHE_PREFIXES)
+         — huérfanos desde que se subió el sufijo de versión, nadie los lee.
+      2. Cualquier otro fichero de caché cuyo mtime lleve más de
+         STALE_CACHE_FILE_MAX_AGE_DAYS sin refrescarse — se asume que ya no
+         hace falta conservarlo.
+
+    Devuelve (borrados_obsoletos, borrados_por_antiguos) para que
+    build_site.py pueda dejarlo dicho en el log, sin sorpresas silenciosas.
+    """
+    if not CACHE_DIR.exists():
+        return 0, 0
+    now = time.time()
+    obsolete_count = 0
+    stale_count = 0
+    for path in CACHE_DIR.glob("*.json"):
+        if path.name in _CACHE_PRUNE_EXCLUDE_NAMES:
+            continue
+        if path.name.startswith(_OBSOLETE_CACHE_PREFIXES):
+            try:
+                path.unlink()
+                obsolete_count += 1
+            except OSError:
+                pass
+            continue
+        age_days = (now - path.stat().st_mtime) / 86400
+        if age_days > STALE_CACHE_FILE_MAX_AGE_DAYS:
+            try:
+                path.unlink()
+                stale_count += 1
+            except OSError:
+                pass
+    return obsolete_count, stale_count
+
+
 def cached_get_json(key: str, fetch_fn, max_age_days: int = 25, cache_empty: bool = True):
     """
     Devuelve datos cacheados si existen y son recientes; si no, llama a
@@ -260,6 +321,13 @@ def _normalize_genre_name(genre_obj):
     return GENRE_ALIASES.get(name.lower(), name)
 
 
+# Margen de días para el respaldo SIN dato específico de España (ver
+# _spain_release_info) antes de tratar una fecha global futura como preventa
+# real — evita falsos positivos en títulos pequeños con la fecha de España
+# aún sin cargar en TMDB justo el día de su estreno.
+FALLBACK_FUTURE_BUFFER_DAYS = 5
+
+
 def _spain_release_info(d: dict):
     """
     Devuelve (fecha_ya_estrenada, fecha_futura_conocida) a partir de
@@ -284,7 +352,18 @@ def _spain_release_info(d: dict):
 
     Si España no tiene datos en absoluto, se cae a la fecha global de TMDB
     (puede ser la del estreno en otro país o la del estreno mundial en su
-    día) con el mismo criterio pasada/futura.
+    día) con el mismo criterio pasada/futura — PERO con un margen de
+    tolerancia (ver FALLBACK_FUTURE_BUFFER_DAYS): sin un dato específico de
+    España que lo confirme, una fecha global que cae unos pocos días por
+    delante de hoy es más probablemente una imprecisión de TMDB (título
+    pequeño, ficha con la fecha de estreno en otro país, o el dato de España
+    que aún no se ha cargado justo el día del estreno) que una preventa real
+    — bug real que esto corrige: "Lionel", estreno en cines el mismo día en
+    que se generó la propuesta, sin entrada específica de España en TMDB
+    todavía, se descartó como si fuera preventa por culpa de una fecha
+    global ligeramente distinta. Cuando SÍ hay un dato explícito de España
+    (best_past/earliest_future de arriba), es autoritativo y no lleva
+    margen: ahí sí nos fiamos a rajatabla, sea la fecha que sea.
     """
     today = date.today()
     best_past = None
@@ -313,7 +392,9 @@ def _spain_release_info(d: dict):
     if earliest_future:
         return None, earliest_future.isoformat()
 
-    # Sin nada específico de España: respaldo con la fecha global de TMDB.
+    # Sin nada específico de España: respaldo con la fecha global de TMDB,
+    # con margen de tolerancia (ver docstring de arriba) antes de tratarla
+    # como preventa.
     fallback = (d.get("release_date") or "")[:10]
     if not fallback:
         return None, None
@@ -321,7 +402,7 @@ def _spain_release_info(d: dict):
         fallback_date = date.fromisoformat(fallback)
     except ValueError:
         return None, None
-    if fallback_date > today:
+    if (fallback_date - today).days > FALLBACK_FUTURE_BUFFER_DAYS:
         return None, fallback_date.isoformat()
     return fallback, None
 
@@ -400,12 +481,15 @@ def tmdb_title_info_by_tmdb_id(tmdb_id: str, imdb_id: str = None):
     if not TMDB_API_KEY or not tmdb_id:
         return {}
     return cached_get_json(
-        # "_v3" a propósito: cada vez que la ficha cacheada le falta un campo
-        # nuevo (primero release_date, ahora upcoming_release_date), con la
-        # clave de siempre se habría quedado así hasta que caducase sola
-        # (hasta 25 días) — con un sufijo nuevo se fuerza a pedirla otra vez
-        # ya completa, sin esperar tanto para que el filtro/orden funcionen.
-        f"tmdb_v3_{tmdb_id}",
+        # "_v4": cada vez que cambia cómo se calcula la ficha cacheada (antes
+        # release_date, luego upcoming_release_date, ahora el margen de
+        # tolerancia de FALLBACK_FUTURE_BUFFER_DAYS) se sube el sufijo para
+        # forzar una recarga inmediata en vez de esperar a que caduque sola
+        # (hasta 25 días) — bug real que esto corrige: "Lionel" se cacheó
+        # como "aún sin estrenar" el mismo día de su estreno, y sin este
+        # cambio se habría quedado así 25 días aunque el código ya estuviera
+        # arreglado.
+        f"tmdb_v4_{tmdb_id}",
         lambda: _tmdb_movie_full_fetch(tmdb_id, imdb_id),
         max_age_days=25,
         cache_empty=False,
@@ -446,10 +530,10 @@ def tmdb_title_info_by_imdb(imdb_id: str):
             return {}
         return _tmdb_movie_full_fetch(tmdb_id, imdb_id)
 
-    # "_v3" — mismo motivo que en tmdb_title_info_by_tmdb_id: forzar una
-    # recarga con upcoming_release_date incluido en vez de esperar a que
+    # "_v4" — mismo motivo que en tmdb_title_info_by_tmdb_id: forzar una
+    # recarga con el margen de tolerancia nuevo en vez de esperar a que
     # caduque sola.
-    return cached_get_json(f"tmdb_by_imdb_v3_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
+    return cached_get_json(f"tmdb_by_imdb_v4_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
 
 
 # Memoria SOLO de esta ejecución (no se guarda en disco, se pierde al
