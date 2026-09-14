@@ -40,6 +40,21 @@ def main():
 
     errors = []
 
+    # Limpieza de cache/ ANTES de generar nada — pedido explícitamente por
+    # David al ver que la carpeta crece sin parar en GitHub: borra ficheros
+    # de versiones de clave ya obsoletas (ver _OBSOLETE_CACHE_PREFIXES en
+    # utils.py) y cualquier ficha que lleve más de un año sin usarse. Ver
+    # utils.prune_stale_cache para el detalle de qué borra y por qué.
+    from utils import prune_stale_cache
+
+    obsolete_deleted, stale_deleted = prune_stale_cache()
+    if obsolete_deleted or stale_deleted:
+        print(
+            f"→ Limpieza de caché: {obsolete_deleted} fichero(s) de versión "
+            f"obsoleta + {stale_deleted} fichero(s) sin usar hace más de un "
+            f"año, borrados"
+        )
+
     print("→ Leyendo tus listas de IMDb (CSV en data/)...")
     taste_profile = build_taste_profile()
     favorite_actors = get_favorite_actor_names()
@@ -86,16 +101,27 @@ def main():
     from match_engine import WATCHLIST_SCORE, select_cinema_picks, select_streaming_picks
     from pick_history import load_recent_non_watchlist_ids, record_shown
 
+    # Se calcula aquí (antes de lo que lo necesitaba antes) porque el
+    # historial de streaming ahora lo usa como clave de "semana" — ver más
+    # abajo y el comentario en pick_history.py.
+    friday, saturday, sunday, monday, thursday = _next_weekend_and_week()
+
     cinema_picks = select_cinema_picks(
         billboard, taste_profile, favorite_actors, watchlist_ids
     )
 
-    # Títulos que ya se te ofrecieron en streaming en semanas recientes por un
-    # motivo que no era "está en tu lista de pendientes" — para no repetir
-    # "sale un actor/director que te gusta" con la misma peli semana tras
-    # semana mientras haya otra que también encaje, pedido explícitamente
-    # así. Las de pendientes SÍ pueden repetirse (ver WATCHLIST_SCORE).
-    excluded_repeat_ids = load_recent_non_watchlist_ids()
+    # Títulos que ya se te ofrecieron en streaming en SEMANAS ANTERIORES (no
+    # en esta misma) por un motivo que no era "está en tu lista de
+    # pendientes" — para no repetir "sale un actor/director que te gusta" con
+    # la misma peli semana tras semana mientras haya otra que también
+    # encaje, pedido explícitamente así. Las de pendientes SÍ pueden
+    # repetirse (ver WATCHLIST_SCORE). Se pasa `friday` (la semana para la
+    # que se está generando esto) para que relanzar la app varias veces en
+    # el mismo día/semana de prueba no se autoexcluya sus propios resultados
+    # de hace un rato — bug real reportado: probar dos veces en un día hacía
+    # que la segunda pasada excluyera lo que acababa de ofrecer la primera,
+    # degradando el resultado a mitad del mismo día.
+    excluded_repeat_ids = load_recent_non_watchlist_ids(week_of=friday)
     if excluded_repeat_ids:
         print(f"    {len(excluded_repeat_ids)} título(s) ya ofrecidos recientemente, se evitan como repetición")
 
@@ -131,12 +157,13 @@ def main():
     # Se guardan en el historial los picks de esta semana que NO sean "está
     # en tu lista de pendientes" (esos sí pueden repetirse, no hace falta
     # recordarlos) — así la semana que viene no se te vuelve a ofrecer el
-    # mismo título por el mismo tipo de motivo.
+    # mismo título por el mismo tipo de motivo. Se anota bajo la semana
+    # `friday` (no "hoy"): relanzar el mismo viernes varias veces sobrescribe
+    # la misma entrada de semana en vez de acumular varias, ver pick_history.py.
     record_shown(
-        p["imdb_id"] for p in streaming_picks if p.get("score") != WATCHLIST_SCORE
+        (p["imdb_id"] for p in streaming_picks if p.get("score") != WATCHLIST_SCORE),
+        week_of=friday,
     )
-
-    friday, saturday, sunday, monday, thursday = _next_weekend_and_week()
 
     output = {
         "generated_at": datetime.now().isoformat(timespec="minutes"),
