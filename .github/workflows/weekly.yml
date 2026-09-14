@@ -1,13 +1,7 @@
 name: MyFilmFest - actualización semanal
 
 on:
-  schedule:
-    # Cada viernes a las 08:00 hora de Madrid.
-    # GitHub Actions usa UTC; en horario de verano (CEST, UTC+2) eso son las 06:00 UTC,
-    # en horario de invierno (CET, UTC+1) serían las 07:00 UTC. Se deja en 06:00 UTC
-    # como aproximación razonable todo el año (llegará como muy tarde 1h más tarde en invierno).
-    - cron: "0 10 * * 5"
-  workflow_dispatch: {}   # permite lanzarlo a mano desde la pestaña "Actions"
+  workflow_dispatch: {}   # solo disparo manual, sin cron
 
 permissions:
   contents: write
