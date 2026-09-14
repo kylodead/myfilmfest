@@ -209,6 +209,17 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
         # se prefiere el pequeño riesgo de ocultar un preview genuino antes
         # que seguir mostrando una preventa como si fuera cartelera real.
         if info.get("upcoming_release_date"):
+            # Log explícito a propósito (bug real: "Lionel" se descartó en
+            # silencio el mismo día de su estreno por un dato de TMDB
+            # impreciso, y sin este aviso no había forma de diagnosticarlo
+            # desde el log sin acceso directo al repo) — si esto vuelve a
+            # pasar, aquí se ve el título y la fecha exacta que lo causó.
+            title_for_log = info.get("title") or entry.get("fallback_title") or imdb_id
+            print(
+                f"    [cines] descartada '{title_for_log}' ({imdb_id}) — TMDB indica "
+                f"estreno en España el {info['upcoming_release_date']}, futuro "
+                f"respecto a hoy"
+            )
             continue
         entry["cinemas"].sort(key=lambda c: c["name"])
         results.append(
