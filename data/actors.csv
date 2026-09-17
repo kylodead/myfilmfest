@@ -220,7 +220,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 219,nm0186225,2021-03-01,2021-03-01,,"Barbara Crampton","From Beyond","27 de diciembre"
 220,nm6764011,2021-03-02,2021-03-02,,"Madeline Quinn","The Scary of Sixty-First","22 de enero de 1991"
 221,nm0006702,2021-03-02,2021-03-02,,"Ana Belén","La pasión turca","27 de mayo de 1951"
-222,nm10823391,2021-03-03,2021-03-03,,"Elisheva Weil","Mishehu Yohav Mishehu",
+222,nm10823391,2021-03-03,2021-03-03,,"Elisheva Weil","Mishehu Yohav Mishehu","26 de abril de 1996"
 223,nm6597419,2021-03-03,2021-03-03,,"Ani Mesa-Perez","Destroy All Girls",
 224,nm6597420,2021-03-03,2021-03-03,,"Alessandra Mesa","Superior",
 225,nm8018197,2021-03-05,2021-03-05,,"Eugénie Derouand","Le coeur du pélican",
@@ -361,7 +361,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 360,nm6351089,2022-05-07,2022-05-07,,"Millie Brady","Roadkill","24 de diciembre de 1993"
 361,nm0135037,2022-05-12,2022-05-12,,"Barbara Capell","L'éducation sentimentale","23 de enero de 1950"
 362,nm0546556,2022-05-15,2022-05-15,,"Leticia Marfil","Mil gritos tiene la noche",
-363,nm0303756,2022-05-15,2022-05-15,,"Silvia Gambino","Mil gritos tiene la noche","1 de enero de 1965"
+363,nm0303756,2022-05-15,2022-05-15,,"Silvia Gambino","Telepasión española","1 de enero de 1965"
 364,nm0631331,2022-05-15,2022-05-15,,"Roxana Nieto","Mil gritos tiene la noche",
 365,nm2539953,2022-05-19,2022-05-19,,"Alicia Vikander","Ex Machina","3 de octubre de 1988"
 366,nm0616766,2022-05-19,2022-05-19,,"Kim Myers","A Nightmare on Elm Street Part 2: Freddy's Revenge","15 de febrero de 1966"
@@ -376,7 +376,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 375,nm0286579,2022-06-22,2022-06-22,,"Verónica Forqué","¿Qué he hecho YO para merecer esto!!","1 de diciembre de 1955"
 376,nm1105980,2022-06-29,2022-06-29,,"Kathryn Newton","Ant-Man and the Wasp: Quantumania","8 de febrero"
 377,nm0092608,2022-07-04,2022-07-04,,"Jenovéfa Boková","Chvilky","16 de mayo de 1992"
-378,nm3987673,2022-07-05,2022-07-05,,"Ariane Labed","Assassin's Creed","8 de mayo de 1984"
+378,nm3987673,2022-07-05,2022-07-05,,"Ariane Labed","Attenberg","8 de mayo de 1984"
 379,nm3272744,2022-07-05,2022-07-05,,"Fatma Mohamed","In Fabric","4 de septiembre de 1975"
 380,nm0219827,2022-07-06,2022-07-06,,"Donna Denton","Outlaw of Gor",
 381,nm2251731,2022-07-09,2022-07-09,,"Aya Cash","The Boys","13 de julio"
@@ -420,7 +420,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 419,nm3948952,2023-02-11,2023-02-11,,"Vanessa Kirby","The Crown","18 de abril de 1987"
 420,nm0000099,2023-02-11,2023-02-11,,"Patricia Arquette","True Romance","8 de abril de 1968"
 421,nm0000486,2023-02-11,2023-02-11,,"Heather Langenkamp","A Nightmare on Elm Street","17 de julio de 1964"
-422,nm0748075,2023-02-11,2023-02-11,,"Jennifer Rubin","Screamers","3 de abril de 1962"
+422,nm0748075,2023-02-11,2023-02-11,,"Jennifer Rubin","A Nightmare on Elm Street 3: Dream Warriors","3 de abril de 1962"
 423,nm0000208,2023-02-18,2023-02-18,,"Molly Ringwald","Sixteen Candles","18 de febrero de 1968"
 424,nm6854116,2023-02-18,2023-02-18,,"Milly Alcock","Supergirl","11 de abril de 2000"
 425,nm0006802,2023-03-11,2023-03-11,,"Toy Newkirk","A Nightmare on Elm Street 4: The Dream Master","27 de julio de 1969"
@@ -473,13 +473,13 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 472,nm0004193,2023-10-06,2023-10-06,,"Debbie Rochon","Flesh of the Unforgiven","3 de noviembre de 1968"
 473,nm11326276,2023-10-06,2023-10-06,,"Gabrielle Echols","Evil Dead Rise",
 474,nm0410622,2023-10-13,2023-10-13,,"Katharine Isabelle","Ginger Snaps","2 de noviembre de 1981"
-475,nm0444621,2023-10-13,2023-10-13,,"Monica Keena","While You Were Sleeping","28 de mayo de 1979"
+475,nm0444621,2023-10-13,2023-10-13,,"Monica Keena","Man of the House","28 de mayo de 1979"
 476,nm0424848,2023-10-15,2023-10-15,,"Dakota Johnson","Fifty Shades of Grey","4 de octubre de 1989"
 477,nm0803938,2023-10-16,2023-10-16,,"Brigitte Skay","Die Tote aus der Themse","18 de julio de 1940"
 478,nm7567645,2023-10-21,2023-10-21,,"Sarah Sherman","Three Busy Debras","7 de marzo de 1993"
 479,nm11109114,2023-10-21,2023-10-21,,"Chloe Troast","Please Don't Destroy: The Treasure of Foggy Mountain","14 de mayo de 1997"
 480,nm8298041,2023-10-21,2023-10-21,,"Laia Manzanares","La Tierra llamando a Ana","30 de marzo de 1994"
-481,nm5184937,2023-10-27,2023-10-27,,"Felicity Anne","The Cover-Up",
+481,nm5184937,2023-10-27,2023-10-27,,"Felicity Anne","Devil in Ohio",
 482,nm3192593,2023-10-29,2023-10-29,,"Lydia Fairén","Rey Gitano","2 de octubre de 1989"
 483,nm3957052,2023-11-08,2023-11-08,,"Jenna Kanell","Terrifier","12 de noviembre"
 484,nm2327927,2023-11-08,2023-11-08,,"Katie Maguire","Billions",
@@ -490,7 +490,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 489,nm9342097,2023-12-31,2023-12-31,,"Ruby Cruz","Mare of Easttown","31 de marzo de 2000"
 490,nm1284201,2024-02-03,2024-02-03,,"Mariona Ribas","Amistades peligrosas","18 de junio de 1984"
 491,nm0447695,2024-02-04,2024-02-04,,"Anna Kendrick","Up in the Air","9 de agosto de 1985"
-492,nm10662997,2024-02-09,2024-02-09,,"Helena Ezquerro","La Moderna",
+492,nm10662997,2024-02-09,2024-02-09,,"Helena Ezquerro","Land of Women",
 493,nm5429286,2024-02-16,2024-02-16,,"Alícia Falcó","Las buenas compañías",
 494,nm7914444,2024-02-20,2024-02-20,,"Karina Fontes","Babylon","15 de noviembre de 1992"
 495,nm2212031,2024-03-01,2024-03-01,,"Abby Elliott","No Strings Attached","16 de junio de 1987"
@@ -548,7 +548,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 547,nm6092492,2025-05-10,2025-05-10,,"Bailey Spry","It Follows",
 548,nm2714273,2025-05-10,2025-05-10,,"Lili Sepe","It Follows","13 de enero"
 549,nm8740834,2025-05-18,2025-05-18,,"Ryan Kiera Armstrong","The Lowdown","10 de marzo de 2010"
-550,nm2204429,2025-05-31,2025-05-31,,"Kim Matula","Fighting with My Family","23 de agosto de 1988"
+550,nm2204429,2025-05-31,2025-05-31,,"Kim Matula","Tapawingo","23 de agosto de 1988"
 551,nm5563492,2025-06-01,2025-06-01,,"Angélique Pleau","20 ans d'écart",
 552,nm11004152,2025-06-18,2025-06-18,,"Elizabeth Dulau","Wicked",
 553,nm9480386,2025-06-23,2025-06-23,,"Dora Dimic Rakar","Crno-bijeli svijet","1996"
@@ -769,7 +769,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 768,nm4555326,2026-07-26,2026-07-26,,"Ivana Staneva","Conan the Barbarian",
 769,nm0629697,2026-07-27,2026-07-27,,"Rachel Nichols","G.I. Joe: The Rise of Cobra","8 de enero de 1980"
 770,nm10656367,2026-08-02,2026-08-02,,"Zoey Luna","Slay","23 de julio de 2001"
-771,nm0000138,2026-08-03,2026-08-03,,"Leonardo DiCaprio","The Wolf of Wall Street","11 de noviembre de 1974"
+771,nm0000138,2026-08-03,2026-08-03,,"Leonardo DiCaprio","The Departed","11 de noviembre de 1974"
 772,nm3121384,2026-08-04,2026-08-04,,"Becky G","Power Rangers","2 de marzo de 1997"
 773,nm1046264,2026-08-08,2026-08-08,,"Mónica Naranjo","Mónica Naranjo: Empiezo a recordarte","23 de mayo de 1974"
 774,nm0959515,2026-08-08,2026-08-08,,"Marian Álvarez","Lo mejor de mí","1 de abril de 1978"
@@ -780,7 +780,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 779,nm16659307,2026-08-25,2026-08-25,,"Six Sex","I'm a Star",
 780,nm7945379,2026-08-25,2026-08-25,,"Sarah Sawyer","Tokyo Vice",
 781,nm0000600,2026-08-28,2026-08-28,,"Sam Raimi","Spider-Man","23 de octubre de 1959"
-782,nm2962353,2026-08-28,2026-08-28,,"Pom Klementieff","Avengers: Infinity War","3 de mayo de 1986"
+782,nm2962353,2026-08-28,2026-08-28,,"Pom Klementieff","Guardians of the Galaxy Vol. 3","3 de mayo de 1986"
 783,nm3065809,2026-08-29,2026-08-29,,"Rosabell Laurenti Sellers","Gli equilibristi","27 de marzo de 1996"
 784,nm1693112,2026-08-30,2026-08-30,,"Carlos Areces","Balada triste de trompeta","27 de marzo de 1976"
 785,nm1481149,2026-08-30,2026-08-30,,"Aitziber Garmendia","Ocho apellidos vascos","10 de diciembre de 1982"
