@@ -476,6 +476,11 @@ def _tmdb_movie_full_fetch(tmdb_id, fallback_imdb_id=None):
     collection = d.get("belongs_to_collection") or {}
     return {
         "imdb_id": imdb_id,
+        # Se guarda también el propio tmdb_id (antes se descartaba): hace
+        # falta para poder pedir después /watch/providers de esta misma
+        # película sin tener que volver a resolverlo — ver
+        # tmdb_flatrate_providers_es().
+        "tmdb_id": d.get("id"),
         "title": d.get("title") or d.get("original_title"),
         "poster": poster,
         "rating": d.get("vote_average"),
@@ -589,6 +594,81 @@ def tmdb_title_info_by_imdb(imdb_id: str):
     # cacheada cambió de forma (ya no lleva el veredicto de fecha congelado).
     info = cached_get_json(f"tmdb_by_imdb_v5_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
     return _with_fresh_release_verdict(info)
+
+
+def _tmdb_watch_providers_fetch(tmdb_id) -> dict:
+    """Ficha cruda de TMDB /watch/providers para España, o {} si falla."""
+    try:
+        r = requests.get(
+            f"{TMDB_BASE}/movie/{tmdb_id}/watch/providers",
+            params={"api_key": TMDB_API_KEY},
+            timeout=10,
+        )
+        if r.status_code != 200:
+            print(f"      [tmdb providers] {tmdb_id}: HTTP {r.status_code}")
+            return {}
+        return ((r.json() or {}).get("results") or {}).get("ES") or {}
+    except Exception as e:
+        print(f"      [tmdb providers] {tmdb_id}: ERROR {e!r}")
+        return {}
+
+
+def tmdb_flatrate_providers_es(tmdb_id):
+    """
+    Nombres de las plataformas donde esta película está incluida EN
+    SUSCRIPCIÓN ("flatrate" en TMDB) para España ahora mismo — NO cuenta
+    alquiler ("rent") ni compra ("buy"), que es justo la distinción que
+    pidió David: "Insidious: Fuera del más allá" apareció como novedad de
+    Movistar Plus+ (vía la página de novedades de FilmAffinity, que mezcla
+    catálogo y alquiler/compra sin distinguirlos) pero solo está disponible
+    ahí en taquilla/alquiler, no en el catálogo de suscripción — "eso no me
+    vale", palabras suyas.
+
+    Devuelve `None` (no `[]`) cuando no se puede saber (sin TMDB_API_KEY, o
+    la petición falla) — a propósito, para que quien llame a esto pueda
+    distinguir "consultado y no está en ninguna suscripción" de "no lo
+    hemos podido comprobar" y NO descarte por defecto en el segundo caso
+    (mismo criterio que ya usamos en cines_madrid.py: no descartar nunca
+    solo porque la detección haya fallado).
+    """
+    if not TMDB_API_KEY or not tmdb_id:
+        return None
+    data = cached_get_json(
+        f"tmdb_watchproviders_es_v1_{tmdb_id}",
+        lambda: _tmdb_watch_providers_fetch(tmdb_id),
+        max_age_days=5,  # las plataformas de streaming cambian de mes en
+        # mes -- 5 días, no los 25 que usamos para el resto de la ficha
+        # TMDB (reparto/año/estreno, que no cambian nunca).
+        cache_empty=True,
+    )
+    if data is None:
+        return None
+    flatrate = data.get("flatrate") or []
+    names = {p.get("provider_name") for p in flatrate if p.get("provider_name")}
+    return names
+
+
+def platform_label_matches_provider(label: str, provider_names) -> bool:
+    """
+    ¿Aparece nuestra `label` bonita de plataforma (ej. "Movistar Plus+",
+    "Amazon Prime Video") entre los nombres reales que da TMDB
+    (`provider_names`, de tmdb_flatrate_providers_es)? Comparación
+    tolerante (sin acentos, en minúsculas, por inclusión en cualquier
+    sentido) porque TMDB a veces varía ligeramente el nombre exacto de la
+    plataforma respecto al que usamos nosotros.
+    """
+    if provider_names is None:
+        return True  # no lo sabemos -> no descartamos (ver docstring de arriba)
+    norm_label = _strip_accents_local(label).lower()
+    for name in provider_names:
+        norm_name = _strip_accents_local(name).lower()
+        if norm_label in norm_name or norm_name in norm_label:
+            return True
+    return False
+
+
+def _strip_accents_local(s: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFKD", s) if not unicodedata.combining(c))
 
 
 # Memoria SOLO de esta ejecución (no se guarda en disco, se pierde al
