@@ -761,19 +761,31 @@ def best_guess_imdb(title: str, year: str = None, director_hint: str = None, min
     if not films:
         films = candidates
 
+    same_year = [c for c in films if year and str(c.get("year")) == str(year)] if year else []
+
     if director_hint and len(films) > 1:
         by_director, checked_any = _pick_by_director(films, director_hint)
         if by_director:
             return by_director
-        if checked_any:
+        if checked_any and not same_year:
+            # Ningún candidato tenía el director esperado NI el año esperado
+            # -- las dos señales fiables fallan a la vez, así que es más
+            # probable que la película real ni siquiera esté en esta lista
+            # de sugerencias (caso real: "La boda" de Wajda solo indexada en
+            # IMDb como "Wesele") que no un fallo de nuestra comprobación.
+            # Preferimos no resolver antes que arriesgarnos al homónimo
+            # equivocado.
             return None
+        # Si SÍ hay un candidato del año exacto (aunque el director_hint no
+        # haya coincidido — puede ser un alias/mote como "Los Javis" que
+        # IMDb no lista igual, ver caso real "La bola negra"), seguimos
+        # confiando en el año como ya se hacía antes de este cambio: es una
+        # señal independiente y ya demostrada fiable (caso "El ser querido").
 
-    if year:
-        same_year = [c for c in films if str(c.get("year")) == str(year)]
+    if same_year:
         if len(same_year) == 1:
             return same_year[0]
-        if len(same_year) > 1:
-            return min(same_year, key=_rank_key)
+        return min(same_year, key=_rank_key)
 
     filtered = [c for c in films if _title_similarity(title, c.get("title") or "") >= min_similarity]
     if not filtered:
