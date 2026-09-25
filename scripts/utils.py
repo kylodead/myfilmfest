@@ -666,7 +666,7 @@ def _director_hint_matches(directors, hint: str) -> bool:
     return False
 
 
-def _pick_by_director(candidates, director_hint: str, max_checked: int = 5):
+def _pick_by_director(candidates, director_hint: str, max_checked: int = 8):
     """
     Entre varios candidatos homónimos, pide la ficha completa (TMDB/IMDb) de
     los más populares y se queda con el primero cuyo director de verdad
@@ -675,14 +675,28 @@ def _pick_by_director(candidates, director_hint: str, max_checked: int = 5):
     homónimos (dos películas con el mismo título casi nunca comparten
     director), por eso se prueba antes que año o similitud de texto.
     Limitado a `max_checked` para no disparar una ficha completa por cada
-    candidato si el título es muy genérico.
+    candidato si el título es muy genérico (subido de 5 a 8 — IMDb Suggestion
+    normalmente devuelve como mucho unos 8 candidatos por búsqueda, así que
+    esto en la práctica revisa la lista entera sin añadir coste real).
+
+    Devuelve (candidato_o_None, se_comprobó_algún_candidato). El segundo
+    valor importa en `best_guess_imdb`: si SÍ se comprobaron candidatos y
+    NINGUNO tenía el director esperado, es una señal fuerte de que la
+    película real no está en esta lista de sugerencias de IMDb (caso real:
+    "La boda" (1973) de Wajda no aparece nunca al buscar "La boda" en IMDb
+    Suggestion — solo está indexada bajo su título original polaco,
+    "Wesele" — así que ningún candidato de esa búsqueda iba a tener nunca a
+    Wajda de director, por muchos que se comprobaran).
     """
     ordered = sorted(candidates, key=_rank_key)[:max_checked]
+    checked_any = False
     for c in ordered:
         info = get_title_metadata(imdb_id=c.get("imdb_id"))
-        if info and _director_hint_matches(info.get("directors"), director_hint):
-            return c
-    return None
+        if info:
+            checked_any = True
+            if _director_hint_matches(info.get("directors"), director_hint):
+                return c, checked_any
+    return None, checked_any
 
 
 def best_guess_imdb(title: str, year: str = None, director_hint: str = None, min_similarity: float = 0.82):
@@ -718,6 +732,20 @@ def best_guess_imdb(title: str, year: str = None, director_hint: str = None, min
     exigir similitud de texto >= min_similarity y, entre los que la cumplen,
     preferir el más reciente (evita el caso "Malabestia" 2026 resolviendo a
     una peli italiana de los 80 con el mismo título).
+
+    Caso real (septiembre 2026, Doré): "La boda" (Wesele, Wajda, 1973) NUNCA
+    aparece entre los candidatos de IMDb Suggestion al buscar "La boda" —
+    solo está indexada bajo su título original polaco. Antes de este cambio,
+    cuando `_pick_by_director` no encontraba ningún candidato con el
+    director esperado, el código seguía adelante y acababa devolviendo el
+    homónimo moderno (2026) por año/similitud de texto — un falso positivo
+    con mucha confianza, mostrando una película que NO es la de la sesión
+    real. Ahora, si tenemos un `director_hint` (una pista real, sacada de la
+    propia web del cine, no una suposición) y se llegaron a comprobar
+    candidatos pero NINGUNO tenía ese director, se trata como señal de que
+    la película real probablemente ni siquiera está en esta lista de
+    sugerencias — y se prefiere no resolver (devolver None, "sin imdb_id")
+    antes que arriesgarse a mostrar con confianza el homónimo equivocado.
     """
     candidates = imdb_suggestion_search(title)
     if not candidates:
@@ -734,9 +762,11 @@ def best_guess_imdb(title: str, year: str = None, director_hint: str = None, min
         films = candidates
 
     if director_hint and len(films) > 1:
-        by_director = _pick_by_director(films, director_hint)
+        by_director, checked_any = _pick_by_director(films, director_hint)
         if by_director:
             return by_director
+        if checked_any:
+            return None
 
     if year:
         same_year = [c for c in films if str(c.get("year")) == str(year)]
