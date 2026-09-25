@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T14:57",
+  "generated_at": "2026-09-25T15:25",
   "week_label": "25/09 – 01/10",
   "weekend": {
     "range": "25/09 – 27/09",
@@ -250,6 +250,7 @@
           {
             "name": "Mk2 Cine Paz",
             "showtimes": [
+              "11:30",
               "17:00"
             ],
             "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea"
