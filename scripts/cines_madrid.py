@@ -79,6 +79,39 @@ _SPANISH_MONTHS = (
 _TRAILING_DATE_RE = re.compile(rf"\s+\d{{1,2}}\s+(?:{_SPANISH_MONTHS})\s*$", re.IGNORECASE)
 _TRAILING_LONE_NUMBER_RE = re.compile(r"\s+\d+\s*$")
 
+# El propio texto del enlace en la Filmoteca lleva el año real entre
+# paréntesis al final ("La boda (1973)") — hay que sacarlo ANTES de limpiar
+# el título (_clean_title recorta justo ese paréntesis, ver
+# _TRAILING_ANNOTATION_RE, porque en el resto de cines ahí solo va la
+# versión/formato, no un año). Caso real que motivó esto: sin el año, "La
+# boda" (Andrzej Wajda, 1973, en la Filmoteca) se resolvía a otra "La boda"
+# homónima de 2026 que sí estaba en tu lista de pendientes — falso positivo
+# real, detectado por David.
+_DORE_YEAR_IN_TITLE_RE = re.compile(r"\((\d{4})\)\s*$")
+
+
+def _find_dore_director_nearby(link_tag, max_levels: int = 4):
+    """
+    En la Filmoteca el nombre del director va en un <h3> justo debajo del
+    título, dentro de la misma tarjeta — no como enlace con
+    name.php?name-id= (patrón de FilmAffinity, ver _FA_DIRECTOR_HREF_RE), así
+    que _find_year_and_director_nearby (pensado para ese otro patrón) nunca
+    lo encuentra aquí. Puramente aditivo: si no hay <h3>, se devuelve None y
+    el resto del sistema sigue con su respaldo habitual (año/similitud de
+    texto), igual que el resto de helpers "_nearby" de este fichero.
+    """
+    container = link_tag.parent
+    for _ in range(max_levels):
+        if container is None:
+            break
+        h3 = container.find("h3")
+        if h3:
+            text = h3.get_text(strip=True)
+            if text:
+                return text
+        container = container.parent
+    return None
+
 
 def _clean_title(title: str) -> str:
     t = (title or "").strip()
@@ -360,7 +393,17 @@ def scrape_dore():
         except Exception:
             day_label = date_str
         times = _find_showtimes_nearby(link) or [""]
+        # _find_year_and_director_nearby está pensado para el patrón de
+        # FilmAffinity (director como enlace name.php?name-id=) y aquí nunca
+        # encuentra nada — el año real y el director de la Filmoteca se sacan
+        # con los helpers de arriba, específicos de este sitio (ver
+        # _DORE_YEAR_IN_TITLE_RE y _find_dore_director_nearby).
         year_hint, director_hint = _find_year_and_director_nearby(link)
+        year_in_title = _DORE_YEAR_IN_TITLE_RE.search(title)
+        if not year_hint and year_in_title:
+            year_hint = year_in_title.group(1)
+        if not director_hint:
+            director_hint = _find_dore_director_nearby(link)
         entry = grouped.setdefault(
             slug,
             {
@@ -544,6 +587,19 @@ def get_madrid_billboard():
             f["imdb_id"] = guess["imdb_id"] if guess else None
             f["imdb_hint_title"] = guess.get("title") if guess else None
             f["imdb_hint_poster"] = guess.get("poster") if guess else None
+            # Log de diagnóstico a propósito (falsos positivos reportados en
+            # Yelmo Cines Ideal: películas que aparecían en la app pero que
+            # David no encontraba ni en la web del cine ni en FilmAffinity) —
+            # sin ver el título CRUDO que se scrapeó frente al título al que
+            # se resolvió, no se puede saber si el fallo es un scrape
+            # confuso (título mal extraído) o un match erróneo (título bien
+            # extraído pero resuelto al imdb_id de otra película). Con esto
+            # en el log, la próxima vez que pase se ve de un vistazo cuál es.
+            if guess and guess.get("title") and f["title"] != guess.get("title"):
+                print(
+                    f"      '{f['title']}' (scrapeado) -> resuelto a "
+                    f"'{guess.get('title')}' ({f['imdb_id']}, año {guess.get('year')})"
+                )
             if f["imdb_id"]:
                 resolved += 1
             else:
