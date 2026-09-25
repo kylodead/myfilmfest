@@ -192,33 +192,27 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
         # _score_and_reason (no hace falta para decidir), así que aquí la
         # pedimos solo si todavía no la tenemos — para watchlist principalmente.
         info = entry["info"] or get_title_metadata(imdb_id=imdb_id)
-        # Caso real que motivó esto: "La bola negra" aparecía en la cartelera
-        # de Cinesa Proyecciones cuando en realidad solo tiene preventa para
-        # el 25-27 de septiembre (fecha futura), no una proyección real esta
-        # semana. No era un fallo de orden ni de detección de una insignia de
-        # texto de la web de terceros (dos intentos fallidos con eso, ver
-        # historial en cines_madrid.py) sino que la fecha de estreno en
-        # España que trae TMDB confirmaba que aún no se ha estrenado —
-        # `upcoming_release_date` (utils._spain_release_info) solo tiene
-        # valor en ese caso exacto. Se omite la película entera (no solo se
-        # reordena) hasta la semana de su estreno real, pedido explícitamente
-        # así: "si la fecha es el 25 pues pelicula omitida hasta la semana de
-        # su estreno". No distinguimos aquí el caso de "pase de preview real
-        # antes del estreno oficial" porque los horarios que scrapeamos son
-        # franjas por día de la semana, no fechas concretas verificables —
-        # se prefiere el pequeño riesgo de ocultar un preview genuino antes
-        # que seguir mostrando una preventa como si fuera cartelera real.
+        # Se quitó (septiembre 2026) la detección de preventa basada en
+        # insignias de texto o fechas cercanas al enlace en cines_madrid.py
+        # — esa capa fue la menos fiable de las dos y la que más falsos
+        # negativos causó ("Lionel", posiblemente también "La bola negra").
+        # Se mantiene SOLO esta comprobación, la más fiable de las dos: la
+        # fecha de estreno oficial en España que da TMDB de forma explícita
+        # (`upcoming_release_date`, ver utils._spain_release_info) — cuando
+        # TMDB confirma expresamente que el estreno en España es una fecha
+        # futura, se omite la película hasta la semana de ese estreno. Esto
+        # NO usa el respaldo de fecha global impreciso que causó el bug de
+        # "Lionel" (ese ya tiene su propio margen de tolerancia, ver
+        # FALLBACK_FUTURE_BUFFER_DAYS en utils.py) — solo se dispara con un
+        # dato explícito de España, que es autoritativo.
         if info.get("upcoming_release_date"):
-            # Log explícito a propósito (bug real: "Lionel" se descartó en
-            # silencio el mismo día de su estreno por un dato de TMDB
-            # impreciso, y sin este aviso no había forma de diagnosticarlo
-            # desde el log sin acceso directo al repo) — si esto vuelve a
-            # pasar, aquí se ve el título y la fecha exacta que lo causó.
             title_for_log = info.get("title") or entry.get("fallback_title") or imdb_id
             print(
                 f"    [cines] descartada '{title_for_log}' ({imdb_id}) — TMDB indica "
-                f"estreno en España el {info['upcoming_release_date']}, futuro "
-                f"respecto a hoy"
+                f"estreno oficial en España el {info['upcoming_release_date']}, "
+                f"futuro respecto a hoy (si esto vuelve a pasar con una película "
+                f"que SÍ se está proyectando ya, dínoslo con el título exacto y "
+                f"esta línea del log — es la única señal que queda activa)"
             )
             continue
         entry["cinemas"].sort(key=lambda c: c["name"])
@@ -293,6 +287,14 @@ def select_streaming_picks(
     excepción es, precisamente, el motivo "está en tu lista de pendientes"
     (WATCHLIST_SCORE): ese sí puede repetirse, porque mientras no la veas
     tiene sentido seguir recordándotela.
+
+    Orden final de los candidatos (pedido explícitamente así): 1) está en tu
+    lista de pendientes siempre arriba (WATCHLIST_SCORE ya es el score más
+    alto posible, así que el orden por `score` ya lo garantiza), 2) dentro de
+    un mismo `score` (p.ej. varias con "sale un actor favorito"), la que
+    tenga MÁS talento tuyo (más actores favoritos + acierto de director)
+    se prioriza por encima — no basta con "tiene alguno", cuantos más mejor.
+    Ver `_talent_count` más abajo.
     """
     excluded_repeat_ids = excluded_repeat_ids or set()
     seen_ids = set()
@@ -311,6 +313,17 @@ def select_streaming_picks(
         seen_ids.add(imdb_id)
         if not info:
             info = get_title_metadata(imdb_id=imdb_id, tmdb_id=item.get("tmdb_id"))
+        # Cuenta CUÁNTO talento tuyo tiene esta película, no solo si tiene
+        # alguno — pedido explícitamente así ("cuanto mas talento que me
+        # guste tiene la pelicula, más arriba tiene que priorizarla"), para
+        # desempatar entre varias con el mismo `score` (p.ej. dos con "sale
+        # un actor favorito", pero una con dos de tus actores favoritos en
+        # el reparto y la otra con solo uno).
+        matched_actor_count = len(set(info.get("actors") or []) & favorite_actors)
+        matched_director_count = len(
+            set(info.get("directors") or []) & taste_profile.get("top_directors", set())
+        )
+        talent_count = matched_actor_count + matched_director_count
         strict.append(
             {
                 "imdb_id": imdb_id,
@@ -322,10 +335,15 @@ def select_streaming_picks(
                 "release_date": item.get("release_date"),
                 "reason": reason,
                 "score": score,
+                "_talent_count": talent_count,
             }
         )
-    strict.sort(key=lambda r: r["score"], reverse=True)
+    # Orden: 1) score (pendientes=100 siempre arriba, luego actor/director/
+    # saga/género), 2) DENTRO de ese mismo score, más talento tuyo primero.
+    strict.sort(key=lambda r: (r["score"], r["_talent_count"]), reverse=True)
     picks = strict[:3]
+    for p in picks:
+        p.pop("_talent_count", None)
 
     if len(picks) < 3 and allow_fallback_fill:
         for item in streaming_items:
