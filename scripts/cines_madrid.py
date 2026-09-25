@@ -90,27 +90,40 @@ _TRAILING_LONE_NUMBER_RE = re.compile(r"\s+\d+\s*$")
 _DORE_YEAR_IN_TITLE_RE = re.compile(r"\((\d{4})\)\s*$")
 
 
-def _find_dore_director_nearby(link_tag, max_levels: int = 4):
+def _find_dore_title_and_director_nearby(link_tag, max_levels: int = 4):
     """
-    En la Filmoteca el nombre del director va en un <h3> justo debajo del
-    título, dentro de la misma tarjeta — no como enlace con
-    name.php?name-id= (patrón de FilmAffinity, ver _FA_DIRECTOR_HREF_RE), así
-    que _find_year_and_director_nearby (pensado para ese otro patrón) nunca
-    lo encuentra aquí. Puramente aditivo: si no hay <h3>, se devuelve None y
-    el resto del sistema sigue con su respaldo habitual (año/similitud de
-    texto), igual que el resto de helpers "_nearby" de este fichero.
+    Muchas tarjetas de la Filmoteca envuelven SOLO una imagen dentro del
+    enlace (`<a><img alt="La boda (1973)"></a>`, sin texto propio en el
+    enlace) — confirmado viendo el HTML real de la página. Con
+    `link.get_text()` vacío, el código caía al slug de la URL
+    ("la-boda-9" -> "la boda 9"), y el "9" (sufijo de desambiguación de
+    sacatuentrada.es para homónimos, NO parte real del título) se recortaba
+    después por parecer un número suelto al final — dejando "la boda", sin
+    año ni director, que resolvía a la película homónima equivocada (bug
+    real reportado por David).
+
+    El título real (CON el año entre paréntesis) va en un <h2> dentro de la
+    misma tarjeta, y el director en un <h3> justo debajo — confirmado con el
+    HTML literal de la página. Se devuelve (título, director) juntos, desde
+    el mismo contenedor, para no arriesgarse a coger el <h3> de la tarjeta
+    de OTRA sesión si se buscaran por separado en distintas pasadas.
+    Puramente aditivo: si no hay <h2>, se devuelve (None, None) y el resto
+    del sistema sigue con su respaldo habitual (slug/año/similitud de
+    texto).
     """
     container = link_tag.parent
     for _ in range(max_levels):
         if container is None:
             break
-        h3 = container.find("h3")
-        if h3:
-            text = h3.get_text(strip=True)
-            if text:
-                return text
+        h2 = container.find("h2")
+        if h2:
+            title_text = h2.get_text(strip=True)
+            if title_text:
+                h3 = container.find("h3")
+                director_text = h3.get_text(strip=True) if h3 else None
+                return title_text, director_text
         container = container.parent
-    return None
+    return None, None
 
 
 def _clean_title(title: str) -> str:
@@ -193,10 +206,25 @@ def _find_dated_showtimes_nearby(link_tag, max_levels: int = 6):
     hora sola igual que antes — nunca descarta un horario solo por no poder
     fecharlo, para no arriesgarse a dejar cines a 0 resultados por un texto
     con un formato distinto al esperado.
+
+    Salvaguarda (añadida tras el bug real de "Hoppers"/"Super Mario Galaxy"
+    colándose en Yelmo Cines Ideal con el horario de OTRA película): si al
+    subir llegamos a un contenedor que ya agrupa más de un enlace a ficha de
+    película (`_FILM_LINK_RE_GENERIC`), significa que hemos salido de la
+    tarjeta de ESTA película y entrado en una rejilla/lista compartida — un
+    horario encontrado ahí bien podría pertenecer a la película vecina, no a
+    la nuestra. En ese caso paramos de subir y devolvemos lo que tengamos
+    hasta ahora (nada, si no se había encontrado ya un horario propio),
+    igual que hacía `_find_far_future_date_nearby` (ya retirado) para este
+    mismo riesgo de contaminación entre tarjetas.
     """
     container = link_tag.parent
     for _ in range(max_levels):
         if container is None:
+            break
+        film_links = container.find_all("a", href=_FILM_LINK_RE_GENERIC)
+        distinct_films = {a.get("href") for a in film_links}
+        if len(distinct_films) > 1:
             break
         text = container.get_text(" ", strip=True)
         time_matches = list(TIME_PATTERN.finditer(text))
@@ -386,7 +414,13 @@ def scrape_dore():
         if not m:
             continue
         slug, date_str = m.group(1), m.group(2)
-        title = link.get_text(strip=True) or slug.replace("-", " ")
+        # El enlace en sí a veces envuelve solo una imagen (sin texto propio)
+        # — ver _find_dore_title_and_director_nearby para el bug real que
+        # esto corrige. Se intenta primero el <h2> de la tarjeta (título CON
+        # año real) antes de caer al texto del enlace o, en último caso, al
+        # slug de la URL.
+        h2_title, h2_director = _find_dore_title_and_director_nearby(link)
+        title = link.get_text(strip=True) or h2_title or slug.replace("-", " ")
         try:
             d = datetime.strptime(date_str, "%Y-%m-%d").date()
             day_label = f"{d.day:02d}/{d.month:02d}"
@@ -396,14 +430,14 @@ def scrape_dore():
         # _find_year_and_director_nearby está pensado para el patrón de
         # FilmAffinity (director como enlace name.php?name-id=) y aquí nunca
         # encuentra nada — el año real y el director de la Filmoteca se sacan
-        # con los helpers de arriba, específicos de este sitio (ver
-        # _DORE_YEAR_IN_TITLE_RE y _find_dore_director_nearby).
+        # del <h2>/<h3> de la propia tarjeta (ver _DORE_YEAR_IN_TITLE_RE y
+        # _find_dore_title_and_director_nearby).
         year_hint, director_hint = _find_year_and_director_nearby(link)
         year_in_title = _DORE_YEAR_IN_TITLE_RE.search(title)
         if not year_hint and year_in_title:
             year_hint = year_in_title.group(1)
         if not director_hint:
-            director_hint = _find_dore_director_nearby(link)
+            director_hint = h2_director
         entry = grouped.setdefault(
             slug,
             {
@@ -500,10 +534,36 @@ def scrape_via_filmaffinity(cinema_name: str):
             continue
         seen_ids.add(film_key)
         year_hint, director_hint = _find_year_and_director_nearby(tag)
+        showtimes = _find_dated_showtimes_nearby(tag)
+        # FilmAffinity mete en esta misma página, además de la cartelera real
+        # con horarios, un carrusel de "destacados" (próximos estrenos,
+        # títulos que ha llevado el cine, etc.) con SU PROPIO enlace
+        # film\d+.html pero SIN ningún horario de sesión real cerca — caso
+        # real reportado por David: "Super Mario Galaxy: La película" y
+        # "Hoppers" aparecían en la app pero no estaban realmente en
+        # cartelera esa semana ni en la web del cine ni en FilmAffinity.
+        # Confirmado viendo el HTML real de la página: esas dos películas NO
+        # tenían ninguna sesión con horario en la sección real de cartelera,
+        # solo aparecían en ese carrusel. En vez de adivinar de nuevo por
+        # insignias de texto (ya falló dos veces, ver historial), el criterio
+        # aquí es mucho más simple y verificable: si no se le encuentra
+        # NINGÚN horario real cerca, no es cartelera real de esta semana, se
+        # descarta. Si esto llega a esconder por error una sesión real sin
+        # horario detectado (fallo distinto, de _find_dated_showtimes_nearby),
+        # se verá en el log de abajo y se podrá diagnosticar con el título
+        # exacto.
+        if not showtimes:
+            print(
+                f"    [{cinema_name}] descartada '{_clean_title(title)}' — "
+                f"no se le encontró ningún horario de sesión real cerca "
+                f"(probable carrusel de destacados/próximos estrenos de "
+                f"FilmAffinity, no cartelera real de esta semana)"
+            )
+            continue
         films.append(
             {
                 "title": _clean_title(title),
-                "showtimes": _find_dated_showtimes_nearby(tag),
+                "showtimes": showtimes,
                 "listing_url": official_url,
                 "year": year_hint,
                 "director_hint": director_hint,
