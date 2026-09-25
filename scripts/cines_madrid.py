@@ -498,14 +498,20 @@ CINEMA_OFFICIAL_URLS = {
 
 def scrape_via_filmaffinity(cinema_name: str):
     """
-    Pedido explícito de David: ya no se intenta adivinar aquí si una
-    película está "en preventa" o no (ver el comentario justo encima de
-    _FILM_LINK_RE_GENERIC más arriba para el historial de los dos intentos
-    que se probaron y no funcionaron de forma fiable). Se listan tal cual
-    todas las películas que aparecen en la página de cartelera de
-    FilmAffinity para este cine — es match_engine.py quien decide qué
-    enseñarte de verdad, con tus criterios (pendientes / talento que te
-    gusta), no una insignia de una web de terceros.
+    Cada tarjeta de película en la página de cartelera de FilmAffinity vive
+    en un contenedor único e identificable: un <div id="m-<id_de_ficha>">
+    (confirmado viendo el HTML real y en vivo de la página, no un resumen de
+    WebFetch — ver HANDOFF.md). Dentro de ESE contenedor concreto (no "N
+    niveles hacia arriba", que es lo que ya falló dos veces por mezclar
+    tarjetas vecinas), FilmAffinity pone el texto literal "Entradas en
+    preventa. ¡Presta especial atención a las fechas!" cuando la sesión es
+    de verdad una preventa de un estreno futuro con fecha ya anunciada — se
+    confirmó en vivo que esto es EXACTAMENTE lo que pasaba con "Hoppers" y
+    "Super Mario Galaxy: La película" que David reportó viendo en la app sin
+    estar realmente en cartelera esta semana: FilmAffinity sí las lista
+    (con sesiones reales, pero para dentro de dos semanas) y las marca con
+    este aviso. Se descartan aquí usando esa marca explícita del propio
+    sitio, no una suposición nuestra sobre dónde cae el texto.
     """
     theater_id = FILMAFFINITY_FALLBACK_IDS[cinema_name]
     url = f"https://www.filmaffinity.com/es/theater-showtimes.php?id={theater_id}"
@@ -531,23 +537,29 @@ def scrape_via_filmaffinity(cinema_name: str):
         if film_key in seen_ids:
             continue
         seen_ids.add(film_key)
+
+        card = tag.find_parent(id=f"m-{film_key}") if m else None
+        if card and re.search(r"entradas?\s+en\s+preventa", card.get_text(" ", strip=True), re.IGNORECASE):
+            print(
+                f"    [{cinema_name}] descartada '{_clean_title(title)}' — "
+                f"la propia FilmAffinity la marca como 'Entradas en preventa' "
+                f"(estreno futuro con sesiones ya anunciadas, no cartelera de "
+                f"esta semana)"
+            )
+            continue
+
         year_hint, director_hint = _find_year_and_director_nearby(tag)
         showtimes = _find_dated_showtimes_nearby(tag)
-        # REVERTIDO (25 sept 2026): el intento de descartar aquí las
-        # películas sin ningún horario detectado cerca (pensado para el
-        # carrusel de "destacados" de FilmAffinity — ver historial en
-        # HANDOFF.md) causó una regresión grave confirmada por David: el
-        # número de resultados cayó de 8-10 a solo 4, señal de que
-        # _find_dated_showtimes_nearby (con la salvaguarda anti-contaminación
-        # añadida en el mismo cambio) no encontraba horario para la MAYORÍA
-        # de películas realmente en cartelera, no solo para las del carrusel
-        # — es decir, la hipótesis sobre la estructura real de la página
-        # (nunca confirmada con HTML literal, solo con WebFetch resumido, ya
-        # antes probado poco fiable para este sitio) era incorrecta. Se
-        # vuelve a listar tal cual todo lo que aparece con enlace de ficha,
-        # sin exigir horario, hasta tener HTML literal real que confirme por
-        # qué "Hoppers"/"Super Mario Galaxy" aparecían sin estar en
-        # cartelera.
+        # Nota histórica: un intento anterior (25 sept 2026) descartaba aquí
+        # cualquier película SIN ningún horario detectado cerca, pensando
+        # que así se filtraba un supuesto "carrusel de destacados" — esa
+        # hipótesis nunca se confirmó con HTML real y causó una regresión
+        # grave (de 8-10 resultados a solo 4). Se revirtió. El filtro de
+        # preventa de arriba (basado en el texto literal "Entradas en
+        # preventa" de la propia FilmAffinity, SÍ confirmado con HTML real
+        # en vivo) es el reemplazo correcto — no exige horario, solo
+        # descarta cuando el propio sitio dice explícitamente que es una
+        # preventa futura.
         films.append(
             {
                 "title": _clean_title(title),
