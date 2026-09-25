@@ -21,7 +21,13 @@ DOCS_DIR = Path(__file__).resolve().parent.parent / "docs"
 
 
 def _next_weekend_and_week():
-    today = date.today()
+    from utils import madrid_today
+
+    # Hora de Madrid, no UTC (GitHub Actions corre en UTC) — ver el
+    # comentario de madrid_today() en utils.py para el bug real que esto
+    # evita (una fecha de estreno "de hoy" tratada como futura por el
+    # desfase horario entre Madrid y UTC).
+    today = madrid_today()
     # próximo viernes (si hoy es viernes, es hoy)
     days_to_friday = (4 - today.weekday()) % 7
     friday = today + timedelta(days=days_to_friday)
