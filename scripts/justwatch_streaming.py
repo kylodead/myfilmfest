@@ -54,7 +54,7 @@ from datetime import date, timedelta
 import requests
 from bs4 import BeautifulSoup
 
-from utils import HEADERS, REQUEST_DELAY, best_guess_imdb
+from utils import HEADERS, REQUEST_DELAY, best_guess_imdb, madrid_today
 
 # id de categoría de FilmAffinity -> nombre bonito que ya usa el resto de la
 # app. Varias entradas pueden compartir nombre (p.ej. Filmin normal no tiene
@@ -296,7 +296,7 @@ def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
     Best-effort por proveedor: si uno falla, se avisa en el log y se sigue
     con el resto, no se rompe toda la ejecución.
     """
-    today = date.today()
+    today = madrid_today()  # hora de Madrid, no UTC — ver utils.madrid_today
     cutoff = today - timedelta(days=window_days)
 
     all_items = []
@@ -353,7 +353,7 @@ def filter_by_window(items, window_days: int):
     últimos `window_days` días. Puramente en memoria, sin volver a scrapear
     nada — es lo que usa build_site.py para probar primero 7 días, luego 14,
     21... sin repetir peticiones a FilmAffinity en cada vuelta."""
-    cutoff_iso = (date.today() - timedelta(days=window_days)).isoformat()
+    cutoff_iso = (madrid_today() - timedelta(days=window_days)).isoformat()
     return [i for i in items if i["release_date"] >= cutoff_iso]
 
 
