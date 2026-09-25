@@ -123,7 +123,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 122,nm6848259,2020-06-13,2020-06-13,,"Olivia Delcán","Isla Bonita","29 de mayo de 1992"
 123,nm2442289,2020-06-13,2020-06-13,,"Gina Carano","The Mandalorian","16 de abril"
 124,nm1235867,2020-06-20,2020-06-20,,"Nadia de Santiago","El tiempo que te doy","3 de enero de 1990"
-125,nm4170579,2020-06-20,2020-06-20,,"Iria del Río","Visitante","13 de enero de 1987"
+125,nm4170579,2020-06-20,2020-06-20,,"Iria del Río","Los años nuevos","13 de enero de 1987"
 126,nm10061586,2020-06-20,2020-06-20,,"Carmen Arrufat","La innocència","11 de octubre de 2002"
 127,nm3419668,2020-06-29,2020-06-29,,"Aisha Dee","Safe Home","13 de septiembre de 1993"
 128,nm3126686,2020-07-04,2020-07-04,,"Julia Stockler","A Vida Invisível de Eurídice Gusmão",
@@ -155,7 +155,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 154,nm0683467,2020-09-03,2020-09-03,,"Alison Pill","Scott Pilgrim vs. the World","27 de noviembre de 1985"
 155,nm8314228,2020-09-03,2020-09-03,,"Cailee Spaeny","Alien: Romulus","24 de julio de 1998"
 156,nm3270673,2020-09-06,2020-09-06,,"Rachel Jackson","Beats","23 de agosto"
-157,nm4456120,2020-09-11,2020-09-11,,"Elizabeth Debicki","Everest","24 de agosto de 1990"
+157,nm4456120,2020-09-11,2020-09-11,,"Elizabeth Debicki","The Great Gatsby","24 de agosto de 1990"
 158,nm2832695,2020-09-14,2020-09-14,,"Deborah Ann Woll","True Blood","7 de febrero de 1985"
 159,nm0304801,2020-09-14,2020-09-14,,"Romola Garai","Atonement","6 de agosto de 1982"
 160,nm2858875,2020-09-19,2020-09-19,,"Sydney Sweeney","Euphoria","12 de septiembre de 1997"
@@ -357,7 +357,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 356,nm0785897,2022-04-29,2022-04-29,,"Nathalie Seseña","La Celestina","1967"
 357,nm0000379,2022-05-01,2022-05-01,,"Kirsten Dunst","Spider-Man","30 de abril de 1982"
 358,nm0274216,2022-05-01,2022-05-01,,"Rebecca Ferratti","Ace Ventura: Pet Detective","27 de noviembre de 1964"
-359,nm1373106,2022-05-01,2022-05-01,,"Lali Espósito","Permitidos","10 de octubre de 1991"
+359,nm1373106,2022-05-01,2022-05-01,,"Lali Espósito","Casi ángeles","10 de octubre de 1991"
 360,nm6351089,2022-05-07,2022-05-07,,"Millie Brady","Roadkill","24 de diciembre de 1993"
 361,nm0135037,2022-05-12,2022-05-12,,"Barbara Capell","L'éducation sentimentale","23 de enero de 1950"
 362,nm0546556,2022-05-15,2022-05-15,,"Leticia Marfil","Mil gritos tiene la noche",
@@ -548,7 +548,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 547,nm6092492,2025-05-10,2025-05-10,,"Bailey Spry","It Follows",
 548,nm2714273,2025-05-10,2025-05-10,,"Lili Sepe","It Follows","13 de enero"
 549,nm8740834,2025-05-18,2025-05-18,,"Ryan Kiera Armstrong","The Lowdown","10 de marzo de 2010"
-550,nm2204429,2025-05-31,2025-05-31,,"Kim Matula","Tapawingo","23 de agosto de 1988"
+550,nm2204429,2025-05-31,2025-05-31,,"Kim Matula","Fighting with My Family","23 de agosto de 1988"
 551,nm5563492,2025-06-01,2025-06-01,,"Angélique Pleau","20 ans d'écart",
 552,nm11004152,2025-06-18,2025-06-18,,"Elizabeth Dulau","Wicked",
 553,nm9480386,2025-06-23,2025-06-23,,"Dora Dimic Rakar","Crno-bijeli svijet","1996"
@@ -651,7 +651,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 650,nm3138882,2026-03-23,2026-03-23,,"Britt Lower","High Maintenance","2 de agosto de 1985"
 651,nm7862766,2026-03-23,2026-03-23,,"Sydney Cole Alexander","Severance",
 652,nm0359734,2026-03-23,2026-03-23,,"Michael Haneke","Caché","23 de marzo de 1942"
-653,nm0000041,2026-03-23,2026-03-23,,"Akira Kurosawa","Kakushi-toride no san-akunin","23 de marzo de 1910"
+653,nm0000041,2026-03-23,2026-03-23,,"Akira Kurosawa","Kagemusha","23 de marzo de 1910"
 654,nm12043107,2026-03-23,2026-03-23,,"Sarah Bock","Severance","15 de agosto de 2006"
 655,nm0001264,2026-03-23,2026-03-23,,"Sarah Michelle Gellar","Buffy the Vampire Slayer","14 de abril de 1977"
 656,nm0004918,2026-03-23,2026-03-23,,"Danielle Fishel","Boy Meets World","5 de mayo de 1981"
@@ -800,3 +800,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 799,nm1706767,2026-09-09,2026-09-09,,"Jonah Hill","22 Jump Street","20 de diciembre de 1983"
 800,nm1247855,2026-09-09,2026-09-09,,"Carrie Brownstein","Portlandia","27 de septiembre de 1974"
 801,nm0001814,2026-09-09,2026-09-09,,"Gus Van Sant","Elephant","24 de julio de 1952"
+802,nm2785837,2026-09-18,2026-09-18,,"Young-mi","Sanada kunoichi ninpo-den Kasumi nairan! Yukimura ansatsu!!",
+803,nm2087739,2026-09-19,2026-09-19,,"Jeremy Allen White","Springsteen: Deliver Me from Nowhere","17 de febrero de 1991"
+804,nm3747326,2026-09-19,2026-09-19,,"Nicki Minaj","The Other Woman","8 de diciembre de 1982"
+805,nm12659254,2026-09-19,2026-09-19,,"Paulina Villarreal","The Warning: Qué Más Quieres",
