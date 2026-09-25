@@ -49,6 +49,15 @@ HISTORY_PATH = Path(__file__).resolve().parent.parent / "cache" / "streaming_pic
 HISTORY_MAX_AGE_DAYS = 180
 
 
+def _default_today() -> date:
+    # build_site.py siempre pasa `week_of` explícito (ver _next_weekend_and_week),
+    # así que esto es solo un respaldo defensivo si alguna vez se llama sin
+    # él — usa hora de Madrid, no UTC (ver utils.madrid_today).
+    from utils import madrid_today
+
+    return madrid_today()
+
+
 def _read_valid_entries(week_of: date):
     """Lee el fichero de historial y devuelve solo las entradas todavía
     "vigentes" (dentro de HISTORY_MAX_AGE_DAYS contando desde `week_of`) —
@@ -83,7 +92,7 @@ def load_recent_non_watchlist_ids(week_of: date = None) -> set:
     autoexcluirse sus propios resultados) dentro de los últimos
     HISTORY_MAX_AGE_DAYS días — para excluirlos de volver a salir por ese
     mismo tipo de motivo esta semana."""
-    week_of = week_of or date.today()
+    week_of = week_of or _default_today()
     return {
         e["imdb_id"]
         for e in _read_valid_entries(week_of)
@@ -98,7 +107,7 @@ def record_shown(imdb_ids, week_of: date = None):
     guardarlos aquí). Si ya había una entrada de ese imdb_id para la MISMA
     semana (relanzamiento de prueba), se sobrescribe en vez de duplicarse.
     Fusiona con lo que ya hubiera vigente y poda lo caducado."""
-    week_of = week_of or date.today()
+    week_of = week_of or _default_today()
     kept = _read_valid_entries(week_of)
     by_id = {e["imdb_id"]: e for e in kept}
     for imdb_id in imdb_ids:
