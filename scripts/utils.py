@@ -641,12 +641,39 @@ def tmdb_flatrate_providers_es(tmdb_id):
     ahí en taquilla/alquiler, no en el catálogo de suscripción — "eso no me
     vale", palabras suyas.
 
-    Devuelve `None` (no `[]`) cuando no se puede saber (sin TMDB_API_KEY, o
-    la petición falla) — a propósito, para que quien llame a esto pueda
-    distinguir "consultado y no está en ninguna suscripción" de "no lo
-    hemos podido comprobar" y NO descarte por defecto en el segundo caso
-    (mismo criterio que ya usamos en cines_madrid.py: no descartar nunca
-    solo porque la detección haya fallado).
+    Devuelve `None` (no `[]`) cuando no se puede saber (sin TMDB_API_KEY, la
+    petición falla, O TMDB directamente no tiene NINGÚN dato de España para
+    esta ficha — ni "flatrate", ni "rent", ni "buy", ni "ads", ni "free") —
+    a propósito, para que quien llame a esto pueda distinguir "consultado y
+    confirmado que no está en ninguna suscripción" de "no lo hemos podido
+    comprobar" y NO descarte por defecto en el segundo caso (mismo criterio
+    que ya usamos en cines_madrid.py: no descartar nunca solo porque la
+    detección haya fallado).
+
+    BUG REAL corregido (25 sept 2026, mismo día que el de la caché
+    "Insidious"): al desplegar este arreglo, muchísimos estrenos genuinos de
+    esta misma semana en catálogo de suscripción (p.ej. "Unabomber" en
+    Netflix, que sí es un original de Netflix recién publicado) se
+    descartaban igual, porque TMDB simplemente TODAVÍA no había indexado
+    ningún dato de disponibilidad en España para esos títulos tan
+    recientes — su `/watch/providers` para "ES" venía completamente vacío
+    (`{}`, sin ninguna categoría, ni siquiera "rent"), no porque de verdad
+    no estuviera en ninguna plataforma. Antes de este arreglo, un `{}` vacío
+    se trataba igual que "confirmado sin suscripción en ningún sitio"
+    (devolvía un `set()` vacío, no `None`), así que `platform_label_matches_
+    provider` lo descartaba igual que si TMDB hubiera confirmado de verdad
+    que solo está en alquiler — justo el resultado contrario al buscado:
+    títulos recién añadidos (que es EXACTAMENTE la población que scrapeamos
+    cada semana) quedaban penalizados por su propia novedad.
+
+    Ahora se distingue: si TMDB no tiene NINGUNA categoría con datos para
+    España (ni flatrate, ni alquiler, ni compra, ni con anuncios, ni
+    gratis), se trata como "no se puede comprobar" (`None`, no descarta) —
+    igual que un fallo de red. Solo se devuelve un veredicto real (aunque
+    sea un `set()` vacío) cuando TMDB SÍ tiene algún dato de España para
+    esta ficha, lo que confirma que de verdad la ha indexado (típicamente
+    porque aparece en OTRA plataforma distinta a la nuestra, que es el caso
+    real que sí queremos seguir descartando).
     """
     if not TMDB_API_KEY or not tmdb_id:
         return None
@@ -659,6 +686,13 @@ def tmdb_flatrate_providers_es(tmdb_id):
         cache_empty=True,
     )
     if data is None:
+        return None
+    # TMDB no tiene NADA indexado para España en esta ficha (ni siquiera
+    # alquiler/compra) -- lo más probable con un estreno tan reciente es que
+    # todavía no le haya dado tiempo a indexarlo, no que de verdad no esté en
+    # ningún sitio. Tratarlo como "no se puede comprobar", igual que un
+    # fallo de red -- ver aviso de bug real más arriba en el docstring.
+    if not any(data.get(k) for k in ("flatrate", "rent", "buy", "ads", "free")):
         return None
     flatrate = data.get("flatrate") or []
     names = {p.get("provider_name") for p in flatrate if p.get("provider_name")}
