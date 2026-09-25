@@ -54,7 +54,15 @@ from datetime import date, timedelta
 import requests
 from bs4 import BeautifulSoup
 
-from utils import HEADERS, REQUEST_DELAY, best_guess_imdb, madrid_today
+from utils import (
+    HEADERS,
+    REQUEST_DELAY,
+    best_guess_imdb,
+    get_title_metadata,
+    madrid_today,
+    platform_label_matches_provider,
+    tmdb_flatrate_providers_es,
+)
 
 # id de categoría de FilmAffinity -> nombre bonito que ya usa el resto de la
 # app. Varias entradas pueden compartir nombre (p.ej. Filmin normal no tiene
@@ -212,12 +220,32 @@ def _scrape_provider_new_movies(category_id: str, label: str, today: date):
     [{title, date}, ...] SOLO para películas (se descartan series/miniseries
     por el texto, ver _SERIES_MARKER_RE).
 
-    Tolerante con dos estructuras de página distintas a la vez (ver aviso de
-    fragilidad en la cabecera del fichero):
-      (a) la fecha va pegada al propio texto del enlace del título
-          ("27 ago. Título (Serie de TV)")
-      (b) la fecha va en una cabecera aparte, sin enlace dentro, y varios
-          títulos aparecen debajo de ella hasta la siguiente cabecera.
+    IMPORTANTE (corrección de David, 25 sept 2026 — bug real de
+    contaminación, no de preventa/taquilla): la versión anterior de esta
+    función recorría TODA la página (`soup.find_all(True)`, cualquier
+    etiqueta, sin acotar a ningún contenedor) buscando enlaces a fichas de
+    película. Eso incluye widgets totalmente ajenos a "novedades de esta
+    plataforma" — comprobado en vivo que esta misma página tiene, además de
+    la rejilla real de novedades, un carrusel de "Últimas películas
+    consultadas" (recomendaciones/historial reciente, nada que ver con
+    catálogo de la plataforma) en otro sitio de la página. Caso real: "hoy
+    se estrena en Movistar Insidious" resultó ser exactamente esto — el
+    enlace a "Insidious: Fuera del más allá" venía de ese carrusel, no de la
+    rejilla de novedades (comprobado con el HTML real: NINGÚN enlace a esa
+    ficha vive dentro de la rejilla `.movies-row`, los tres que hay están
+    fuera). No era un problema de taquilla vs. suscripción — la película ni
+    siquiera era una "novedad de Movistar" de verdad, veniamos leyendo un
+    widget que no tiene nada que ver.
+
+    Por eso ahora esta función se ACOTA al contenedor real y único de la
+    rejilla de novedades, `<div class="... movies-row">` (confirmado en
+    vivo, un solo contenedor con ese nombre en toda la página), y dentro de
+    él a cada tarjeta `.col[data-movie-id]`, con su fecha en
+    `.release-text` (ej. "25<br>sept.") y su título en el enlace
+    `.movie-title`. Si esa rejilla no aparece (cambio de plantilla), se
+    devuelve una lista vacía y se avisa en el log — NUNCA se cae a
+    recorrer toda la página como antes, que es precisamente lo que causó
+    esta contaminación.
     """
     url = f"https://www.filmaffinity.com/es/category.php?id={category_id}"
     html = _get_page(url, f"FilmAffinity novedades · {label} ({category_id})")
@@ -225,56 +253,37 @@ def _scrape_provider_new_movies(category_id: str, label: str, today: date):
         return []
     soup = BeautifulSoup(html, "html.parser")
 
+    grid = soup.find(class_="movies-row")
+    if grid is None:
+        print(
+            f"    [{label} ({category_id})] AVISO: no se encontró la rejilla "
+            f"real de novedades (.movies-row) — cambio de plantilla probable. "
+            f"Devolviendo 0 títulos en vez de recorrer toda la página (eso "
+            f"es lo que causó el bug real de 'Insidious' contaminando "
+            f"Movistar Plus+, ver docstring de esta función)."
+        )
+        return []
+
     items = []
-    current_date = None
-    for tag in soup.find_all(True):
-        if tag.name == "a":
-            href = tag.get("href", "")
-            if not _FILM_LINK_RE.search(href):
-                continue
-            raw_title = tag.get_text(" ", strip=True)
-            if not raw_title:
-                continue
-            # Caso (a): fecha pegada al propio enlace.
-            d, rest_title = _match_leading_date(raw_title, today)
-            if d and not rest_title:
-                # Todo el texto de este enlace era SOLO la fecha (p.ej. el
-                # enlace que envuelve la miniatura, con la fecha superpuesta
-                # encima de la imagen a modo de "sello" — visto en las
-                # capturas que me pasaste) — no es un título de verdad, solo
-                # actualiza la fecha activa para el siguiente enlace real.
-                current_date = d
-                continue
-            # "(Serie)"/"(Miniserie)" puede venir pegado al propio texto del
-            # título, pero en las páginas de rejilla (ver capturas) suele ir
-            # en una etiqueta APARTE justo al lado (mismo contenedor que el
-            # enlace, no dentro de él) — por eso miramos también el texto del
-            # contenedor padre, no solo el del enlace.
-            parent_text = tag.parent.get_text(" ", strip=True) if tag.parent else raw_title
-            is_series = bool(_SERIES_MARKER_RE.search(raw_title)) or bool(
-                _SERIES_MARKER_RE.search(parent_text)
-            )
-            if d:
-                title = rest_title
-            else:
-                # Caso (b): usamos la última cabecera/sello de fecha visto.
-                d = current_date
-                title = raw_title
-            title = _SERIES_MARKER_RE.split(title)[0].strip(" -–·(")
-            if d and title and not is_series:
-                items.append({"title": title, "date": d})
+    for col in grid.find_all(attrs={"data-movie-id": True}):
+        title_link = col.find(class_="movie-title") or col.find("a")
+        if title_link is None:
             continue
-        # Cabecera de fecha candidata: sin enlaces dentro, texto corto que es
-        # ÍNTEGRAMENTE una fecha (si tuviera más texto detrás, sería un
-        # título del caso (a), no una cabecera del caso (b)).
-        if tag.find("a") is not None:
+        raw_title = title_link.get_text(" ", strip=True)
+        if not raw_title:
             continue
-        text = tag.get_text(" ", strip=True)
-        if not text or len(text) > 40:
-            continue
-        d = _parse_date_heading(text, today)
-        if d:
-            current_date = d
+
+        date_tag = col.find(class_="release-text")
+        d = None
+        if date_tag is not None:
+            d = _parse_date_heading(date_tag.get_text(" ", strip=True), today)
+
+        card_text = col.get_text(" ", strip=True)
+        is_series = bool(_SERIES_MARKER_RE.search(card_text))
+
+        title = _SERIES_MARKER_RE.split(raw_title)[0].strip(" -–·(")
+        if d and title and not is_series:
+            items.append({"title": title, "date": d})
     return items
 
 
@@ -318,6 +327,33 @@ def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
             if not imdb_id:
                 print(f"      sin imdb_id para: {it['title']!r} ({label})")
                 continue
+
+            # Pedido explícito de David (25 sept 2026), caso real:
+            # "Insidious: Fuera del más allá" salió como novedad de Movistar
+            # Plus+ sacado de esta misma página de FilmAffinity, pero solo
+            # está ahí en taquilla/alquiler (una compra suelta), no en el
+            # catálogo de SUSCRIPCIÓN de Movistar -- "eso no me vale". La
+            # página de novedades de FilmAffinity no distingue esto en su
+            # HTML (ni en la ficha ni en la propia página del cine se ve
+            # ningún aviso de "alquiler"/"taquilla"), así que no hay forma
+            # de detectarlo aquí sin consultar otra fuente: se usa el
+            # catálogo real de TMDB (/watch/providers, España, apartado
+            # "flatrate" = incluido en suscripción, NO "rent"/"buy") para
+            # confirmarlo. Si no se puede comprobar (sin TMDB_API_KEY, o la
+            # petición falla), NO se descarta por defecto -- mismo criterio
+            # que en cines_madrid.py: nunca descartar solo por no haber
+            # podido comprobarlo.
+            tmdb_id = (get_title_metadata(imdb_id=imdb_id) or {}).get("tmdb_id")
+            providers = tmdb_flatrate_providers_es(tmdb_id) if tmdb_id else None
+            if not platform_label_matches_provider(label, providers):
+                print(
+                    f"      descartada {it['title']!r} ({label}) — TMDB dice "
+                    f"que en España NO está en el catálogo de suscripción de "
+                    f"{label} ahora mismo (solo alquiler/compra suelta, o en "
+                    f"otra plataforma): {sorted(providers) if providers else providers}"
+                )
+                continue
+
             key = (imdb_id, label)
             if key in seen:
                 continue
