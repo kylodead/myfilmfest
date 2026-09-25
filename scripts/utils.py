@@ -69,7 +69,10 @@ def _cache_path(key: str) -> Path:
 # huérfanos al subir la versión de la clave — ver el porqué de este patrón
 # en tmdb_title_info_by_tmdb_id/tmdb_title_info_by_imdb más abajo). Se
 # pueden borrar sin miedo: nada los vuelve a leer nunca.
-_OBSOLETE_CACHE_PREFIXES = ("tmdb_by_imdb_v2_", "tmdb_by_imdb_v3_", "tmdb_v2_", "tmdb_v3_")
+_OBSOLETE_CACHE_PREFIXES = (
+    "tmdb_by_imdb_v2_", "tmdb_by_imdb_v3_", "tmdb_by_imdb_v4_",
+    "tmdb_v2_", "tmdb_v3_", "tmdb_v4_",
+)
 
 # Cuánto tiempo sin tocarse (ni leerse ni refrescarse) tiene que pasar para
 # borrar un fichero de caché "vivo" (de una clave que sí se sigue usando) —
@@ -471,7 +474,6 @@ def _tmdb_movie_full_fetch(tmdb_id, fallback_imdb_id=None):
     # pedir la lista completa de la colección (eso sí costaría una petición
     # aparte por cada peli con saga).
     collection = d.get("belongs_to_collection") or {}
-    release_date, upcoming_release_date = _spain_release_info(d)
     return {
         "imdb_id": imdb_id,
         "title": d.get("title") or d.get("original_title"),
@@ -482,13 +484,51 @@ def _tmdb_movie_full_fetch(tmdb_id, fallback_imdb_id=None):
         "directors": directors,
         "collection_name": collection.get("name"),
         "url": f"https://www.imdb.com/title/{imdb_id}/" if imdb_id else d.get("homepage"),
-        "release_date": release_date,
-        # Solo tiene valor cuando TMDB SÍ registra una fecha de estreno en
-        # España y esa fecha todavía no ha llegado — "sabemos que aún no se
-        # ha estrenado", distinto de "no tenemos el dato" (release_date=None
-        # sin esto tampoco). Ver uso en match_engine.select_cinema_picks.
-        "upcoming_release_date": upcoming_release_date,
+        # OJO — NO se calcula aquí "release_date"/"upcoming_release_date"
+        # (si ya se estrenó o si es preventa futura): eso depende de "hoy",
+        # que cambia cada día, y esta ficha entera se cachea en disco hasta
+        # 25 días (ver cached_get_json). Bug real que esto corrige: aunque
+        # la lógica de fechas ya estaba arreglada (margen de tolerancia,
+        # zona horaria de Madrid...), el veredicto de "es preventa" quedaba
+        # CONGELADO en la caché el día en que se pidió por primera vez —
+        # "La bola negra" se cacheó como preventa el primer día y siguió
+        # apareciendo así aunque el código ya no tuviera el bug, porque
+        # nunca se recalculaba. Se guardan aquí solo los datos CRUDOS de
+        # TMDB (sin depender de "hoy"), y el veredicto se calcula fresco en
+        # cada llamada a get_title_metadata, venga la ficha de caché o no.
+        "_raw_release_dates": d.get("release_dates"),
+        "_raw_global_release_date": d.get("release_date"),
     }
+
+
+def _with_fresh_release_verdict(info: dict) -> dict:
+    """
+    Toma una ficha (recién pedida o recuperada de caché de hace hasta 25
+    días, da igual) y le añade "release_date"/"upcoming_release_date"
+    calculados AHORA MISMO, con la fecha de hoy real — nunca un veredicto
+    que viniera ya calculado y congelado dentro de la propia caché. Bug real
+    que esto corrige: "La bola negra" se cacheó como preventa el día en que
+    se pidió por primera vez, y aunque la lógica de fechas se arregló
+    después, la ficha cacheada seguía sirviendo ese mismo veredicto viejo
+    sin recalcularlo — cambiar el código no servía de nada mientras la
+    caché no expirase sola (hasta 25 días).
+    """
+    if not info:
+        return info
+    release_date, upcoming_release_date = _spain_release_info(
+        {
+            "release_dates": info.get("_raw_release_dates"),
+            "release_date": info.get("_raw_global_release_date"),
+        }
+    )
+    out = dict(info)
+    out["release_date"] = release_date
+    # Solo tiene valor cuando TMDB SÍ registra una fecha de estreno en
+    # España y esa fecha todavía no ha llegado — "sabemos que aún no se ha
+    # estrenado", distinto de "no tenemos el dato" (release_date=None sin
+    # esto tampoco). Ver uso en match_engine.select_cinema_picks.
+    out["upcoming_release_date"] = upcoming_release_date
+    return out
 
 
 def tmdb_title_info_by_tmdb_id(tmdb_id: str, imdb_id: str = None):
@@ -496,20 +536,19 @@ def tmdb_title_info_by_tmdb_id(tmdb_id: str, imdb_id: str = None):
     cada resultado de búsqueda, así nos ahorramos una petición extra)."""
     if not TMDB_API_KEY or not tmdb_id:
         return {}
-    return cached_get_json(
-        # "_v4": cada vez que cambia cómo se calcula la ficha cacheada (antes
-        # release_date, luego upcoming_release_date, ahora el margen de
-        # tolerancia de FALLBACK_FUTURE_BUFFER_DAYS) se sube el sufijo para
-        # forzar una recarga inmediata en vez de esperar a que caduque sola
-        # (hasta 25 días) — bug real que esto corrige: "Lionel" se cacheó
-        # como "aún sin estrenar" el mismo día de su estreno, y sin este
-        # cambio se habría quedado así 25 días aunque el código ya estuviera
-        # arreglado.
-        f"tmdb_v4_{tmdb_id}",
+    info = cached_get_json(
+        # "_v5": la ficha cacheada ya NO guarda "release_date"/
+        # "upcoming_release_date" calculados (ver _with_fresh_release_verdict
+        # más arriba) — solo los datos crudos de TMDB. Cambia la FORMA de lo
+        # que se guarda, así que hace falta forzar una recarga con un
+        # sufijo nuevo en vez de reutilizar una ficha "v4" vieja que no
+        # tiene los campos "_raw_*" que ahora hacen falta.
+        f"tmdb_v5_{tmdb_id}",
         lambda: _tmdb_movie_full_fetch(tmdb_id, imdb_id),
         max_age_days=25,
         cache_empty=False,
     )
+    return _with_fresh_release_verdict(info)
 
 
 def tmdb_title_info_by_imdb(imdb_id: str):
@@ -546,10 +585,10 @@ def tmdb_title_info_by_imdb(imdb_id: str):
             return {}
         return _tmdb_movie_full_fetch(tmdb_id, imdb_id)
 
-    # "_v4" — mismo motivo que en tmdb_title_info_by_tmdb_id: forzar una
-    # recarga con el margen de tolerancia nuevo en vez de esperar a que
-    # caduque sola.
-    return cached_get_json(f"tmdb_by_imdb_v4_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
+    # "_v5" — mismo motivo que en tmdb_title_info_by_tmdb_id: la ficha
+    # cacheada cambió de forma (ya no lleva el veredicto de fecha congelado).
+    info = cached_get_json(f"tmdb_by_imdb_v5_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
+    return _with_fresh_release_verdict(info)
 
 
 # Memoria SOLO de esta ejecución (no se guarda en disco, se pierde al
