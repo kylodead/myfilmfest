@@ -207,24 +207,22 @@ def _find_dated_showtimes_nearby(link_tag, max_levels: int = 6):
     fecharlo, para no arriesgarse a dejar cines a 0 resultados por un texto
     con un formato distinto al esperado.
 
-    Salvaguarda (añadida tras el bug real de "Hoppers"/"Super Mario Galaxy"
-    colándose en Yelmo Cines Ideal con el horario de OTRA película): si al
-    subir llegamos a un contenedor que ya agrupa más de un enlace a ficha de
-    película (`_FILM_LINK_RE_GENERIC`), significa que hemos salido de la
-    tarjeta de ESTA película y entrado en una rejilla/lista compartida — un
-    horario encontrado ahí bien podría pertenecer a la película vecina, no a
-    la nuestra. En ese caso paramos de subir y devolvemos lo que tengamos
-    hasta ahora (nada, si no se había encontrado ya un horario propio),
-    igual que hacía `_find_far_future_date_nearby` (ya retirado) para este
-    mismo riesgo de contaminación entre tarjetas.
+    REVERTIDO (25 sept 2026): tuvo una salvaguarda anti-contaminación entre
+    tarjetas (parar de subir si el contenedor agrupa más de un enlace a
+    ficha de película) pensada para el bug de "Hoppers"/"Super Mario
+    Galaxy" en Yelmo Cines Ideal. Causó una regresión grave confirmada por
+    David (resultados de 8-10 a solo 4): en la estructura REAL de la página
+    de cartelera de FilmAffinity, aparentemente cualquier contenedor lo
+    bastante grande como para contener el horario de una película también
+    contiene enlaces a otras películas (es una tabla/lista de cartelera
+    completa), así que esta salvaguarda paraba de subir casi siempre antes
+    de encontrar el horario real — dejando la inmensa mayoría de películas
+    sin horario y por tanto excluidas. Retirada hasta tener HTML literal
+    real que confirme la estructura exacta antes de tocar esto de nuevo.
     """
     container = link_tag.parent
     for _ in range(max_levels):
         if container is None:
-            break
-        film_links = container.find_all("a", href=_FILM_LINK_RE_GENERIC)
-        distinct_films = {a.get("href") for a in film_links}
-        if len(distinct_films) > 1:
             break
         text = container.get_text(" ", strip=True)
         time_matches = list(TIME_PATTERN.finditer(text))
@@ -535,31 +533,21 @@ def scrape_via_filmaffinity(cinema_name: str):
         seen_ids.add(film_key)
         year_hint, director_hint = _find_year_and_director_nearby(tag)
         showtimes = _find_dated_showtimes_nearby(tag)
-        # FilmAffinity mete en esta misma página, además de la cartelera real
-        # con horarios, un carrusel de "destacados" (próximos estrenos,
-        # títulos que ha llevado el cine, etc.) con SU PROPIO enlace
-        # film\d+.html pero SIN ningún horario de sesión real cerca — caso
-        # real reportado por David: "Super Mario Galaxy: La película" y
-        # "Hoppers" aparecían en la app pero no estaban realmente en
-        # cartelera esa semana ni en la web del cine ni en FilmAffinity.
-        # Confirmado viendo el HTML real de la página: esas dos películas NO
-        # tenían ninguna sesión con horario en la sección real de cartelera,
-        # solo aparecían en ese carrusel. En vez de adivinar de nuevo por
-        # insignias de texto (ya falló dos veces, ver historial), el criterio
-        # aquí es mucho más simple y verificable: si no se le encuentra
-        # NINGÚN horario real cerca, no es cartelera real de esta semana, se
-        # descarta. Si esto llega a esconder por error una sesión real sin
-        # horario detectado (fallo distinto, de _find_dated_showtimes_nearby),
-        # se verá en el log de abajo y se podrá diagnosticar con el título
-        # exacto.
-        if not showtimes:
-            print(
-                f"    [{cinema_name}] descartada '{_clean_title(title)}' — "
-                f"no se le encontró ningún horario de sesión real cerca "
-                f"(probable carrusel de destacados/próximos estrenos de "
-                f"FilmAffinity, no cartelera real de esta semana)"
-            )
-            continue
+        # REVERTIDO (25 sept 2026): el intento de descartar aquí las
+        # películas sin ningún horario detectado cerca (pensado para el
+        # carrusel de "destacados" de FilmAffinity — ver historial en
+        # HANDOFF.md) causó una regresión grave confirmada por David: el
+        # número de resultados cayó de 8-10 a solo 4, señal de que
+        # _find_dated_showtimes_nearby (con la salvaguarda anti-contaminación
+        # añadida en el mismo cambio) no encontraba horario para la MAYORÍA
+        # de películas realmente en cartelera, no solo para las del carrusel
+        # — es decir, la hipótesis sobre la estructura real de la página
+        # (nunca confirmada con HTML literal, solo con WebFetch resumido, ya
+        # antes probado poco fiable para este sitio) era incorrecta. Se
+        # vuelve a listar tal cual todo lo que aparece con enlace de ficha,
+        # sin exigir horario, hasta tener HTML literal real que confirme por
+        # qué "Hoppers"/"Super Mario Galaxy" aparecían sin estar en
+        # cartelera.
         films.append(
             {
                 "title": _clean_title(title),
