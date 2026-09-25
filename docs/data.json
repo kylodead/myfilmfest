@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T14:38",
+  "generated_at": "2026-09-25T14:57",
   "week_label": "25/09 – 01/10",
   "weekend": {
     "range": "25/09 – 27/09",
@@ -8,7 +8,7 @@
         "imdb_id": "tt32393988",
         "title": "Insidious: Fuera del más allá",
         "poster": "https://image.tmdb.org/t/p/w500/uEqCJh1fA9Ao9jaCL2xoROPJeUB.jpg",
-        "rating": 6.5,
+        "rating": 6.512,
         "imdb_url": "https://www.imdb.com/title/tt32393988/",
         "platform": "Movistar Plus+",
         "release_date": "2026-09-21",
@@ -32,7 +32,7 @@
         "imdb_id": "tt19864472",
         "title": "La bestia en la jungla",
         "poster": "https://image.tmdb.org/t/p/w500/3XsthfsUOZ96QzIedIW1RsgUV5H.jpg",
-        "rating": 5.426,
+        "rating": 5.4,
         "imdb_url": "https://www.imdb.com/title/tt19864472/",
         "platform": "Filmin",
         "release_date": "2026-09-25",
@@ -46,10 +46,78 @@
     "range": "28/09 – 01/10",
     "picks": [
       {
+        "imdb_id": "tt35511966",
+        "title": "La bola negra",
+        "poster": "https://image.tmdb.org/t/p/w500/4omaYktw4VYkk5Tkq7rmUsWnQa5.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt35511966/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-09-25",
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          },
+          {
+            "name": "Cines Golem",
+            "showtimes": [
+              "16:00",
+              "17:00",
+              "19:00",
+              "20:00"
+            ],
+            "listing_url": "https://www.golem.es/golem/pelicula/La-bola-negra"
+          },
+          {
+            "name": "Cines Renoir (Plaza de España)",
+            "showtimes": [
+              "16:15",
+              "18:00",
+              "19:00",
+              "21:30"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/la-bola-negra/"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "19:00"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/108195_0_W_0/la-bola-negra-35mm"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "19:00",
+              "19:20",
+              "21:40"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/108195_1_W_0/la-bola-negra-digital"
+          },
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
         "imdb_id": "tt35538033",
         "title": "Resident Evil",
         "poster": "https://image.tmdb.org/t/p/w500/3d8D5tZXiPUE2VmRjnrTNzFORBa.jpg",
-        "rating": 7.827,
+        "rating": 7.3,
         "imdb_url": "https://www.imdb.com/title/tt35538033/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
@@ -71,7 +139,7 @@
         "imdb_id": "tt29714073",
         "title": "Bad Apples",
         "poster": "https://image.tmdb.org/t/p/w500/sDgb5jVuZ6ZOh4YjtSMMnbovkCi.jpg",
-        "rating": 6.938,
+        "rating": 6.963,
         "imdb_url": "https://www.imdb.com/title/tt29714073/",
         "reason": "Sale Saoirse Ronan, de tus actores favoritos",
         "score": 85,
@@ -98,7 +166,7 @@
         "imdb_id": "tt32393988",
         "title": "Insidious: Fuera del más allá",
         "poster": "https://image.tmdb.org/t/p/w500/uEqCJh1fA9Ao9jaCL2xoROPJeUB.jpg",
-        "rating": 6.5,
+        "rating": 6.512,
         "imdb_url": "https://www.imdb.com/title/tt32393988/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
@@ -168,7 +236,7 @@
         "imdb_id": "tt33764258",
         "title": "La Odisea",
         "poster": "https://image.tmdb.org/t/p/w500/9aeb5U0saB7Tuu0QITaoENZBxFF.jpg",
-        "rating": 8.0,
+        "rating": 8.018,
         "imdb_url": "https://www.imdb.com/title/tt33764258/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
@@ -202,7 +270,7 @@
         "imdb_id": "tt33071426",
         "title": "El drama",
         "poster": "https://image.tmdb.org/t/p/w500/zgfBYGYCNcOZ51JDbr6tm45H8y0.jpg",
-        "rating": 6.9,
+        "rating": 6.908,
         "imdb_url": "https://www.imdb.com/title/tt33071426/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
@@ -236,7 +304,7 @@
         "imdb_id": "tt26443616",
         "title": "Hoppers",
         "poster": "https://image.tmdb.org/t/p/w500/hJRMZZv1WUKWMYQ73VB8hdFq8tq.jpg",
-        "rating": 8.154,
+        "rating": 8.149,
         "imdb_url": "https://www.imdb.com/title/tt26443616/",
         "reason": "Sale Melissa Villaseñor y Vanessa Bayer, de tus actores favoritos",
         "score": 85,
