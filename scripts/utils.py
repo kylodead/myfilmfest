@@ -24,10 +24,26 @@ import os
 import re
 import time
 import unicodedata
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
+
+# GitHub Actions (y el propio contenedor donde corre esto en general) usa
+# UTC, no hora de Madrid. Bug real confirmado por log: TMDB daba a "La bola
+# negra" una fecha de estreno EN ESPAÑA de "hoy mismo" (2026-09-25), pero
+# `date.today()` en UTC devolvía todavía el día anterior en el tramo horario
+# en que ya es "mañana" en Madrid (CEST = UTC+2) pero aún no en UTC — con
+# eso, `fecha_estreno > hoy` salía True por error y una película que se
+# estrena HOY se trataba como preventa futura. Cualquier sitio que compare
+# una fecha de estreno/cartelera real con "hoy" debe usar `madrid_today()`
+# de aquí, nunca `date.today()` a secas.
+MADRID_TZ = ZoneInfo("Europe/Madrid")
+
+
+def madrid_today() -> date:
+    return datetime.now(MADRID_TZ).date()
 
 CACHE_DIR = Path(__file__).resolve().parent.parent / "cache"
 CACHE_DIR.mkdir(exist_ok=True)
@@ -365,7 +381,7 @@ def _spain_release_info(d: dict):
     (best_past/earliest_future de arriba), es autoritativo y no lleva
     margen: ahí sí nos fiamos a rajatabla, sea la fecha que sea.
     """
-    today = date.today()
+    today = madrid_today()
     best_past = None
     earliest_future = None
     for entry in (d.get("release_dates") or {}).get("results") or []:
