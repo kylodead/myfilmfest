@@ -36,12 +36,12 @@ de arquitectura mayor (headless browser) y prefiero que lo decidas tú.
 """
 import re
 import time
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 import requests
 from bs4 import BeautifulSoup
 
-from utils import HEADERS, REQUEST_DELAY, best_guess_imdb
+from utils import HEADERS, REQUEST_DELAY, best_guess_imdb, madrid_today
 
 TIME_PATTERN = re.compile(r"(\d{1,2})[:h](\d{2})h?")
 
@@ -496,6 +496,18 @@ CINEMA_OFFICIAL_URLS = {
 }
 
 
+def _this_and_next_week_cutoff(today: date) -> date:
+    """
+    Domingo de "la semana que viene" (semana = lunes a domingo), tomando
+    `today` como referencia. Ej.: si hoy es viernes 25 de septiembre de 2026
+    (semana del 21-27), "la semana que viene" es del 28 de sept. al 4 de
+    octubre -> devuelve 2026-10-04. Ver `scrape_via_filmaffinity` para por
+    qué esta ventana concreta (pedida explícitamente así por David).
+    """
+    end_of_this_week = today + timedelta(days=(6 - today.weekday()))
+    return end_of_this_week + timedelta(days=7)
+
+
 def scrape_via_filmaffinity(cinema_name: str):
     """
     Cada tarjeta de película en la página de cartelera de FilmAffinity vive
@@ -503,31 +515,43 @@ def scrape_via_filmaffinity(cinema_name: str):
     (confirmado viendo el HTML real y en vivo de la página, no un resumen de
     WebFetch — ver HANDOFF.md).
 
-    IMPORTANTE (corrección de David, 25 sept 2026): este scraper YA NO
-    descarta tarjetas por el texto "Entradas en preventa. ¡Presta especial
-    atención a las fechas!". Se probó ese filtro (para "Hoppers"/"Super
-    Mario Galaxy") y causó una regresión real: ese mismo texto lo usa
-    FilmAffinity/el cine tanto para una preventa de verdad (película que
-    AÚN NO se ha estrenado) como para una simple "entrada anticipada" de
-    una película que YA está estrenada, cuando solo hay sesión programada
-    para dentro de unos días (ej.: "La odisea" y "El ser querido" en Sala
-    Equis, que David confirmó que sí son proyecciones reales de películas
-    ya estrenadas, no preventas). Palabras de David: "puedes comprar el
-    dia 1 de octubre entradas para final de mes.... eso no es preventa....
-    porque son peliculas ya estrenadas..... Lo que estas viendo es entrada
-    anticipada, no preventa. NO es lo mismo." Como el texto es idéntico en
-    ambos casos, no hay forma fiable de distinguirlos aquí con solo el
-    HTML de esta página.
+    HISTORIAL (25 sept 2026, para no repetir los mismos tres errores):
+    1) Un intento descartaba aquí cualquier película SIN ningún horario
+       detectado cerca, pensando que así se filtraba un supuesto "carrusel
+       de destacados" — esa hipótesis nunca se confirmó con HTML real y
+       causó una regresión grave (de 8-10 resultados a solo 4). Revertido.
+    2) Un segundo intento descartaba cualquier tarjeta marcada por
+       FilmAffinity con el texto "Entradas en preventa" — mecánicamente
+       funcionaba, pero ese mismo aviso se usa TANTO para una preventa de
+       verdad (película aún no estrenada) COMO para una simple "entrada
+       anticipada" de una película YA estrenada con sesión dentro de unos
+       días (David: *"puedes comprar el dia 1 de octubre entradas para
+       final de mes.... eso no es preventa.... porque son peliculas ya
+       estrenadas"*). Como el texto es idéntico en los dos casos, no
+       distingue nada por sí solo. Revertido.
+    3) Comprobado también que basarse en si la película YA se ha estrenado
+       (fecha oficial de TMDB) tampoco sirve: "La odisea" (estrenada en
+       julio 2026) y "El drama" (estrenado y ya en HBO Max desde agosto
+       2026) están LAS DOS ya estrenadas, con sesión suelta futura en Sala
+       Equis, y aun así David quiere una sí y la otra... en realidad
+       también sí, una vez comprobado que la fecha era real (ver más
+       abajo) — el estado de estreno nunca fue el criterio real.
 
-    La señal fiable para "esto es un estreno futuro, no lo enseñes todavía"
-    ya existe y vive en otro sitio: la fecha de estreno oficial en España
-    que da TMDB de forma explícita (`upcoming_release_date`, comprobado en
-    match_engine.py con los datos ya resueltos por IMDb/TMDB, no con el
-    texto de esta página). Esa comprobación es autoritativa porque se basa
-    en si la película se ha estrenado de verdad, no en cómo cada cine
-    redacta su aviso de venta de entradas. Este scraper, por tanto, se
-    limita a listar lo que FilmAffinity muestra, sin intentar adivinar aquí
-    si es preventa o no.
+    El criterio real, dado explícitamente por David tras ver los datos
+    reales de "Hoppers"/"Super Mario Galaxy" (solo pase suelto dentro de
+    2-3 semanas) frente a "El drama" (pase suelto dentro de unos días,
+    aceptado): *"si el pase no es la semana que viene no tiene que
+    aparecer"*. Es decir, el criterio nunca fue semántico (preventa vs.
+    entrada anticipada vs. estreno) — es solo de PROXIMIDAD: si NINGUNA
+    sesión de esa tarjeta cae dentro de esta semana o la que viene, no se
+    muestra, tenga o no aviso de preventa.
+
+    Para aplicarlo de forma fiable se usa el atributo `data-sess-date`
+    ("YYYY-MM-DD") que FilmAffinity pone en cada fila de sesión dentro de
+    la tarjeta — confirmado en vivo con el HTML real (no el texto
+    traducido/parseado, que es lo que ya falló antes) que es exacto y sin
+    ambigüedad de mes/año, a diferencia de intentar parsear "2 de octubre"
+    con una regex.
     """
     theater_id = FILMAFFINITY_FALLBACK_IDS[cinema_name]
     url = f"https://www.filmaffinity.com/es/theater-showtimes.php?id={theater_id}"
@@ -538,6 +562,7 @@ def scrape_via_filmaffinity(cinema_name: str):
     soup = BeautifulSoup(html, "html.parser")
     official_url = CINEMA_OFFICIAL_URLS.get(cinema_name)
     href_re = _FILM_LINK_RE_GENERIC
+    cutoff = _this_and_next_week_cutoff(madrid_today())
 
     films = []
     seen_ids = set()
@@ -554,23 +579,34 @@ def scrape_via_filmaffinity(cinema_name: str):
             continue
         seen_ids.add(film_key)
 
+        card = tag.find_parent(id=f"m-{film_key}") if m else None
+        if card is not None:
+            sess_dates = []
+            for el in card.find_all(attrs={"data-sess-date": True}):
+                try:
+                    sess_dates.append(
+                        datetime.strptime(el["data-sess-date"], "%Y-%m-%d").date()
+                    )
+                except ValueError:
+                    pass
+            if sess_dates and not any(d <= cutoff for d in sess_dates):
+                print(
+                    f"    [{cinema_name}] descartada '{_clean_title(title)}' — "
+                    f"la sesión más próxima que da FilmAffinity es el "
+                    f"{min(sess_dates).isoformat()}, más allá de esta semana "
+                    f"y la que viene (pedido explícitamente así por David: "
+                    f"si el pase no es para esta semana o la siguiente, no "
+                    f"se muestra)"
+                )
+                continue
+            # Si no se detectó NINGÚN data-sess-date en la tarjeta (cambio
+            # de plantilla, fallo de parseo...), no se descarta por defecto
+            # — ver el punto 1 del historial de arriba: descartar por falta
+            # de detección, en vez de por una fecha real comprobada, es
+            # exactamente el error que ya causó una regresión grave.
+
         year_hint, director_hint = _find_year_and_director_nearby(tag)
         showtimes = _find_dated_showtimes_nearby(tag)
-        # Nota histórica (para no repetir estos dos errores):
-        # 1) Un intento (25 sept 2026) descartaba aquí cualquier película
-        #    SIN ningún horario detectado cerca, pensando que así se
-        #    filtraba un supuesto "carrusel de destacados" — esa hipótesis
-        #    nunca se confirmó con HTML real y causó una regresión grave
-        #    (de 8-10 resultados a solo 4). Se revirtió.
-        # 2) Un segundo intento (mismo día) descartaba aquí cualquier
-        #    tarjeta marcada por FilmAffinity con "Entradas en preventa" —
-        #    mecánicamente funcionaba, pero David explicó que ese mismo
-        #    aviso también se usa para "entrada anticipada" de películas
-        #    YA estrenadas (ver docstring de la función) y causó una
-        #    regresión distinta (perdió "La odisea", "El ser querido" en
-        #    Sala Equis). También se quitó. El filtro de "no está
-        #    realmente estrenada todavía" vive solo en match_engine.py,
-        #    basado en la fecha de estreno oficial de TMDB, no aquí.
         films.append(
             {
                 "title": _clean_title(title),
