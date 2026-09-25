@@ -70,8 +70,8 @@ def _cache_path(key: str) -> Path:
 # en tmdb_title_info_by_tmdb_id/tmdb_title_info_by_imdb más abajo). Se
 # pueden borrar sin miedo: nada los vuelve a leer nunca.
 _OBSOLETE_CACHE_PREFIXES = (
-    "tmdb_by_imdb_v2_", "tmdb_by_imdb_v3_", "tmdb_by_imdb_v4_",
-    "tmdb_v2_", "tmdb_v3_", "tmdb_v4_",
+    "tmdb_by_imdb_v2_", "tmdb_by_imdb_v3_", "tmdb_by_imdb_v4_", "tmdb_by_imdb_v5_",
+    "tmdb_v2_", "tmdb_v3_", "tmdb_v4_", "tmdb_v5_",
 )
 
 # Cuánto tiempo sin tocarse (ni leerse ni refrescarse) tiene que pasar para
@@ -542,13 +542,26 @@ def tmdb_title_info_by_tmdb_id(tmdb_id: str, imdb_id: str = None):
     if not TMDB_API_KEY or not tmdb_id:
         return {}
     info = cached_get_json(
-        # "_v5": la ficha cacheada ya NO guarda "release_date"/
-        # "upcoming_release_date" calculados (ver _with_fresh_release_verdict
-        # más arriba) — solo los datos crudos de TMDB. Cambia la FORMA de lo
-        # que se guarda, así que hace falta forzar una recarga con un
-        # sufijo nuevo en vez de reutilizar una ficha "v4" vieja que no
-        # tiene los campos "_raw_*" que ahora hacen falta.
-        f"tmdb_v5_{tmdb_id}",
+        # "_v6" (25 sept 2026 — bug real encontrado tras el caso "Insidious"):
+        # se añadió el campo "tmdb_id" al dict que devuelve
+        # _tmdb_movie_full_fetch (hace falta para poder pedir después
+        # /watch/providers de la misma película sin volver a resolverla, ver
+        # tmdb_flatrate_providers_es). Como esta ficha se cachea en disco
+        # hasta 25 días, cualquier ficha ya cacheada ANTES de ese cambio (bajo
+        # la clave "v5") se seguía sirviendo tal cual — sin el campo nuevo —
+        # así que `tmdb_flatrate_providers_es(info.get("tmdb_id"))` recibía
+        # `None` para cualquier título ya visto antes, y al no poder
+        # comprobarse, NUNCA se descartaba (criterio de "no descartar si no
+        # se puede comprobar"). Resultado real: "Insidious: Fuera del más
+        # allá" seguía colándose como novedad de Movistar Plus+ (solo
+        # disponible en taquilla/alquiler ahí) pese a que el propio código
+        # de la comprobación ya estaba bien, porque su ficha de TMDB llevaba
+        # cacheada desde antes de añadir "tmdb_id". Se sube a "_v6" para
+        # forzar que TODAS las fichas ya cacheadas se vuelvan a pedir una vez
+        # y así lleven el campo nuevo — mismo motivo que el salto v4 -> v5
+        # de más arriba, no es la primera vez que este tipo de cambio de
+        # forma necesita esto.
+        f"tmdb_v6_{tmdb_id}",
         lambda: _tmdb_movie_full_fetch(tmdb_id, imdb_id),
         max_age_days=25,
         cache_empty=False,
@@ -590,9 +603,13 @@ def tmdb_title_info_by_imdb(imdb_id: str):
             return {}
         return _tmdb_movie_full_fetch(tmdb_id, imdb_id)
 
-    # "_v5" — mismo motivo que en tmdb_title_info_by_tmdb_id: la ficha
-    # cacheada cambió de forma (ya no lleva el veredicto de fecha congelado).
-    info = cached_get_json(f"tmdb_by_imdb_v5_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
+    # "_v6" — mismo motivo que en tmdb_title_info_by_tmdb_id justo arriba
+    # (ver el comentario largo ahí): la ficha volvió a cambiar de forma
+    # (se añadió "tmdb_id") y una ficha "v5" ya cacheada no lo tiene, lo que
+    # dejó inerte en silencio la comprobación de suscripción vs. alquiler
+    # para cualquier título visto antes de ese cambio — caso real:
+    # "Insidious: Fuera del más allá".
+    info = cached_get_json(f"tmdb_by_imdb_v6_{imdb_id}", _fetch, max_age_days=25, cache_empty=False)
     return _with_fresh_release_verdict(info)
 
 
