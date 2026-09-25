@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-09-18T04:14",
-  "week_label": "18/09 – 24/09",
+  "generated_at": "2026-09-25T04:30",
+  "week_label": "25/09 – 01/10",
   "weekend": {
-    "range": "18/09 – 20/09",
+    "range": "25/09 – 27/09",
     "picks": [
       {
-        "imdb_id": "tt27208407",
-        "title": "No alimentes a los niños",
-        "poster": "https://image.tmdb.org/t/p/w500/1NDlMWUkZTikx9aDm7SwL8GOuhd.jpg",
-        "rating": 6.1,
-        "imdb_url": "https://www.imdb.com/title/tt27208407/",
-        "platform": "Amazon Prime Video",
-        "release_date": "2026-09-18",
-        "reason": "Sale Zoe Colletti, de tus actores favoritos",
-        "score": 85,
+        "imdb_id": "tt32393988",
+        "title": "Insidious: Fuera del más allá",
+        "poster": "https://image.tmdb.org/t/p/w500/uEqCJh1fA9Ao9jaCL2xoROPJeUB.jpg",
+        "rating": 6.5,
+        "imdb_url": "https://www.imdb.com/title/tt32393988/",
+        "platform": "Movistar Plus+",
+        "release_date": "2026-09-21",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "day": "viernes"
       },
       {
-        "imdb_id": "tt37209937",
-        "title": "Pizza Movie",
-        "poster": "https://image.tmdb.org/t/p/w500/sy9Z3rdGCRnG4uYSVicfp4LSwYa.jpg",
-        "rating": 6.356,
-        "imdb_url": "https://www.imdb.com/title/tt37209937/",
-        "platform": "Movistar Plus+",
-        "release_date": "2026-09-18",
-        "reason": "Sale Lulu Wilson y Sarah Sherman, de tus actores favoritos",
+        "imdb_id": "tt19864472",
+        "title": "La bestia en la jungla",
+        "poster": "https://image.tmdb.org/t/p/w500/3XsthfsUOZ96QzIedIW1RsgUV5H.jpg",
+        "rating": 5.426,
+        "imdb_url": "https://www.imdb.com/title/tt19864472/",
+        "platform": "Filmin",
+        "release_date": "2026-09-25",
+        "reason": "Sale Anaïs Demoustier, de tus actores favoritos",
         "score": 85,
         "day": "sábado"
       },
       {
-        "imdb_id": "tt32676674",
-        "title": "Wolfgang (Extraordinario)",
-        "poster": "https://image.tmdb.org/t/p/w500/kbJBuOHZfAoE1VSrfOT4GGMPQxz.jpg",
-        "rating": 6.6,
-        "imdb_url": "https://www.imdb.com/title/tt32676674/",
-        "platform": "Netflix",
-        "release_date": "2026-09-12",
-        "reason": "Sale Anna Castillo, de tus actores favoritos",
+        "imdb_id": "tt32386654",
+        "title": "El mago del Kremlin",
+        "poster": "https://image.tmdb.org/t/p/w500/bRIpjnIIbt6wkoG33QFnF9Z11BC.jpg",
+        "rating": 6.492,
+        "imdb_url": "https://www.imdb.com/title/tt32386654/",
+        "platform": "Movistar Plus+",
+        "release_date": "2026-09-25",
+        "reason": "Sale Alicia Vikander, de tus actores favoritos",
         "score": 85,
         "day": "domingo"
       }
     ]
   },
   "cinema_week": {
-    "range": "21/09 – 24/09",
+    "range": "28/09 – 01/10",
     "picks": [
       {
         "imdb_id": "tt27681354",
@@ -105,29 +105,14 @@
             "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
           },
           {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          },
+          {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt32126595",
-        "title": "Forastera",
-        "poster": "https://image.tmdb.org/t/p/w500/fl7Bl7KSHjN5IzzhGrvWJBsJ3SS.jpg",
-        "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt32126595/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "2026-09-11",
-        "cinemas": [
-          {
-            "name": "Cines Renoir (Plaza de España)",
-            "showtimes": [
-              "16:00",
-              "22:05"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/forastera/"
           }
         ]
       },
@@ -141,14 +126,6 @@
         "score": 85,
         "release_date": "2026-09-04",
         "cinemas": [
-          {
-            "name": "Cines Golem",
-            "showtimes": [
-              "18:30",
-              "21:00"
-            ],
-            "listing_url": "https://www.golem.es/golem/pelicula/Cronos-(V.O.S.E.)"
-          },
           {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
@@ -176,23 +153,6 @@
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
-          {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt37853455",
-        "title": "Una noche al año",
-        "poster": "https://image.tmdb.org/t/p/w500/85Fvq0lZ4hHTOj0KwAWfPlv8cFe.jpg",
-        "rating": 6.531,
-        "imdb_url": "https://www.imdb.com/title/tt37853455/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "2026-08-26",
-        "cinemas": [
           {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
@@ -235,6 +195,59 @@
         ]
       },
       {
+        "imdb_id": "tt38573778",
+        "title": "Yo, Narciso",
+        "poster": "https://image.tmdb.org/t/p/w500/3qe9gaT7jpKVJJ6UtM9Pr5jm3Hq.jpg",
+        "rating": 6.5,
+        "imdb_url": "https://www.imdb.com/title/tt38573778/",
+        "reason": "Sale Natalia Oreiro, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-08-13",
+        "cinemas": [
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "18:00"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/109663_1_W_0/narciso"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt29356163",
+        "title": "La Patrulla Canina: La dino película",
+        "poster": "https://image.tmdb.org/t/p/w500/5aYdIHHt8WbtYzuhCSFfJC6NYHK.jpg",
+        "rating": 7.989,
+        "imdb_url": "https://www.imdb.com/title/tt29356163/",
+        "reason": "Sale Mckenna Grace, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-08-07",
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt37601810",
+        "title": "Mala bestia",
+        "poster": "https://image.tmdb.org/t/p/w500/4NjHPW0ZttQTkrJZrmFRISq2d5V.jpg",
+        "rating": 5.0,
+        "imdb_url": "https://www.imdb.com/title/tt37601810/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-07-31",
+        "cinemas": [
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          }
+        ]
+      },
+      {
         "imdb_id": "tt33764258",
         "title": "La Odisea",
         "poster": "https://image.tmdb.org/t/p/w500/9aeb5U0saB7Tuu0QITaoENZBxFF.jpg",
@@ -245,11 +258,6 @@
         "release_date": "2026-07-17",
         "cinemas": [
           {
-            "name": "Cines Embajadores",
-            "showtimes": [],
-            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
-          },
-          {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
@@ -259,7 +267,7 @@
             "showtimes": [
               "17:00"
             ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea-70-mm"
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea"
           },
           {
             "name": "Sala Equis",
@@ -308,59 +316,21 @@
         ]
       },
       {
-        "imdb_id": "tt7853636",
-        "title": "Bajo el mismo techo",
-        "poster": "https://image.tmdb.org/t/p/w500/24VMAJjGFwtCbdGuFITklELqQuQ.jpg",
-        "rating": 5.5,
-        "imdb_url": "https://www.imdb.com/title/tt7853636/",
-        "reason": "Sale Ana Morgade y Cristina Castaño, de tus actores favoritos",
-        "score": 85,
-        "release_date": "2019-02-01",
-        "cinemas": [
-          {
-            "name": "Cineteca (Matadero Madrid)",
-            "showtimes": [
-              "19:30"
-            ],
-            "listing_url": "https://www.cinetecamadrid.com/programacion/bajo-el-mismo-sol"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt0097202",
-        "title": "The Killer (El asesino)",
-        "poster": "https://image.tmdb.org/t/p/w500/8hTxlSqMAHBXAh1eB69ir0BXhzE.jpg",
-        "rating": 7.595,
-        "imdb_url": "https://www.imdb.com/title/tt0097202/",
+        "imdb_id": "tt32502698",
+        "title": "La boda",
+        "poster": "https://image.tmdb.org/t/p/w500/aMLphoNMfSyxVftCoIpnBNAYQzL.jpg",
+        "rating": 7.4,
+        "imdb_url": "https://www.imdb.com/title/tt32502698/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
-        "release_date": "1992-03-02",
+        "release_date": "2026-01-30",
         "cinemas": [
           {
             "name": "Filmoteca - Cine Doré",
             "showtimes": [
-              "19/09 20:00"
+              "26/09 19:00"
             ],
-            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/the-killer/2026-09-19\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt0146621",
-        "title": "Después de… Segunda parte: atado y bien atado",
-        "poster": "https://image.tmdb.org/t/p/w500/jmNnKo8KEljXIOO8ab69nZbgB8D.jpg",
-        "rating": 8.167,
-        "imdb_url": "https://www.imdb.com/title/tt0146621/",
-        "reason": "Sale Ana Belén y Emma Cohen, de tus actores favoritos",
-        "score": 85,
-        "release_date": "1983-11-07",
-        "cinemas": [
-          {
-            "name": "Cineteca (Matadero Madrid)",
-            "showtimes": [
-              "21:30"
-            ],
-            "listing_url": "https://www.cinetecamadrid.com/programacion/despues-de-atado-y-bien-atado"
+            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/la-boda-9/2026-09-26\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
           }
         ]
       }
