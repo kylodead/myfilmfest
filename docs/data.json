@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T15:48",
+  "generated_at": "2026-09-25T17:57",
   "week_label": "25/09 – 01/10",
   "weekend": {
     "range": "25/09 – 27/09",
@@ -78,18 +78,85 @@
           {
             "name": "Mk2 Cine Paz",
             "showtimes": [
-              "19:00"
+              "21:40"
             ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/108195_0_W_0/la-bola-negra-35mm"
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/108195_1_W_0/la-bola-negra-digital"
           },
           {
             "name": "Mk2 Cine Paz",
             "showtimes": [
+              "11:45",
+              "15:45",
               "19:00",
-              "19:20",
-              "21:40"
+              "22:15"
             ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/108195_1_W_0/la-bola-negra-digital"
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/108195_0_W_0/la-bola-negra-35mm"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt35538033",
+        "title": "Resident Evil",
+        "poster": "https://image.tmdb.org/t/p/w500/3d8D5tZXiPUE2VmRjnrTNzFORBa.jpg",
+        "rating": 7.3,
+        "imdb_url": "https://www.imdb.com/title/tt35538033/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-09-18",
+        "cinemas": [
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt29714073",
+        "title": "Bad Apples",
+        "poster": "https://image.tmdb.org/t/p/w500/sDgb5jVuZ6ZOh4YjtSMMnbovkCi.jpg",
+        "rating": 6.963,
+        "imdb_url": "https://www.imdb.com/title/tt29714073/",
+        "reason": "Sale Saoirse Ronan, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-09-11",
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          },
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt32393988",
+        "title": "Insidious: Fuera del más allá",
+        "poster": "https://image.tmdb.org/t/p/w500/uEqCJh1fA9Ao9jaCL2xoROPJeUB.jpg",
+        "rating": 6.512,
+        "imdb_url": "https://www.imdb.com/title/tt32393988/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-08-21",
+        "cinemas": [
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
@@ -113,6 +180,40 @@
         ]
       },
       {
+        "imdb_id": "tt29356163",
+        "title": "La Patrulla Canina: La dino película",
+        "poster": "https://image.tmdb.org/t/p/w500/5aYdIHHt8WbtYzuhCSFfJC6NYHK.jpg",
+        "rating": 7.989,
+        "imdb_url": "https://www.imdb.com/title/tt29356163/",
+        "reason": "Sale Mckenna Grace, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-08-07",
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt37601810",
+        "title": "Mala bestia",
+        "poster": "https://image.tmdb.org/t/p/w500/4NjHPW0ZttQTkrJZrmFRISq2d5V.jpg",
+        "rating": 5.0,
+        "imdb_url": "https://www.imdb.com/title/tt37601810/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-07-31",
+        "cinemas": [
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          }
+        ]
+      },
+      {
         "imdb_id": "tt33764258",
         "title": "La Odisea",
         "poster": "https://image.tmdb.org/t/p/w500/9aeb5U0saB7Tuu0QITaoENZBxFF.jpg",
@@ -123,31 +224,78 @@
         "release_date": "2026-07-17",
         "cinemas": [
           {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
             "name": "Mk2 Cine Paz",
             "showtimes": [
               "11:30",
               "17:00"
             ],
             "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea"
+          },
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
       {
-        "imdb_id": "tt32502698",
-        "title": "La boda",
-        "poster": "https://image.tmdb.org/t/p/w500/aMLphoNMfSyxVftCoIpnBNAYQzL.jpg",
-        "rating": 7.4,
-        "imdb_url": "https://www.imdb.com/title/tt32502698/",
+        "imdb_id": "tt33071426",
+        "title": "El drama",
+        "poster": "https://image.tmdb.org/t/p/w500/zgfBYGYCNcOZ51JDbr6tm45H8y0.jpg",
+        "rating": 6.908,
+        "imdb_url": "https://www.imdb.com/title/tt33071426/",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
-        "release_date": "2026-01-30",
+        "release_date": "2026-05-29",
         "cinemas": [
           {
-            "name": "Filmoteca - Cine Doré",
-            "showtimes": [
-              "26/09 19:00"
-            ],
-            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/la-boda-9/2026-09-26\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt28650488",
+        "title": "Super Mario Galaxy la película",
+        "poster": "https://image.tmdb.org/t/p/w500/79EVB4qhyfrdlMgT8GIRAikdzsQ.jpg",
+        "rating": 8.223,
+        "imdb_url": "https://www.imdb.com/title/tt28650488/",
+        "reason": "Sale Anya Taylor-Joy y Donald Glover, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-04-01",
+        "cinemas": [
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt26443616",
+        "title": "Hoppers",
+        "poster": "https://image.tmdb.org/t/p/w500/hJRMZZv1WUKWMYQ73VB8hdFq8tq.jpg",
+        "rating": 8.149,
+        "imdb_url": "https://www.imdb.com/title/tt26443616/",
+        "reason": "Sale Melissa Villaseñor y Vanessa Bayer, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-03-06",
+        "cinemas": [
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       }
