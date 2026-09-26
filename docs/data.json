@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T10:07",
+  "generated_at": "2026-09-26T15:09",
   "week_label": "02/10 – 08/10",
   "weekend": {
     "range": "02/10 – 04/10",
@@ -89,7 +89,6 @@
           {
             "name": "Mk2 Cine Paz",
             "showtimes": [
-              "15:45",
               "19:00",
               "22:15"
             ],
@@ -151,28 +150,6 @@
             "name": "Sala Equis",
             "showtimes": [],
             "listing_url": "https://salaequis.es"
-          },
-          {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt32393988",
-        "title": "Insidious: Fuera del más allá",
-        "poster": "https://image.tmdb.org/t/p/w500/uEqCJh1fA9Ao9jaCL2xoROPJeUB.jpg",
-        "rating": 6.512,
-        "imdb_url": "https://www.imdb.com/title/tt32393988/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "2026-08-21",
-        "cinemas": [
-          {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
@@ -230,6 +207,7 @@
           {
             "name": "Mk2 Cine Paz",
             "showtimes": [
+              "11:30",
               "17:00"
             ],
             "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea"
