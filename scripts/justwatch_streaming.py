@@ -46,20 +46,32 @@ real el log muestra 0 títulos con fecha para TODAS las plataformas a la vez
 más), es señal de que ninguna de las dos estructuras coincide con la
 plantilla real y hay que revisarlo con el log en la mano.
 
-ARQUITECTURA DE VERIFICACIÓN (26 sept 2026 — decisión de David, ver el
+ARQUITECTURA DE VERIFICACIÓN (26-27 sept 2026 — decisión de David, ver el
 comentario largo dentro de get_weekly_streaming_releases): FilmAffinity (esta
 misma fuente) decide QUÉ está de alta y CUÁNDO para cada plataforma — es la
 fuente local/nacional, y su rejilla de novedades ya está acotada al
 contenedor real único (ver _scrape_provider_new_movies). TMDB se usa
 únicamente para verificar que hemos resuelto la película correcta (no un
 homónimo) y para enriquecer póster/reparto/género — NUNCA para decidir si
-una plataforma concreta tiene o no esta película en su catálogo. Antes de
-esto hubo tres vueltas usando TMDB (/watch/providers) como filtro de
-suscripción-vs-alquiler para el caso "Insidious: Fuera del más allá"; se
-abandonó esa vía porque protegía contra un problema que ya no existía (la
-contaminación de rejilla, arreglada aparte) mientras causaba descartes reales
-de estrenos genuinos (caso "Unabomber" en Netflix) por la lentitud de TMDB
-indexando catálogo de España.
+una plataforma concreta tiene o no esta película en su catálogo... con UNA
+excepción, Movistar Plus+ (ver PLATFORMS_MIXING_RENTAL_AND_SUBSCRIPTION más
+abajo): esa plataforma vende suscripción y alquiler suelto dentro de la
+misma app, y su rejilla de novedades en FilmAffinity no distingue entre
+ambos, así que ahí SÍ se usa TMDB para confirmar suscripción antes de
+aceptar el título.
+
+Antes de esto hubo tres vueltas usando TMDB (/watch/providers) como filtro
+de suscripción-vs-alquiler PARA TODAS las plataformas por igual, para el
+caso "Insidious: Fuera del más allá"; se abandonó esa vía el 26 sept 2026
+porque para Netflix/Disney+/Amazon/Filmin protegía contra un problema que ya
+no existía (la contaminación de rejilla, arreglada aparte) mientras causaba
+descartes reales de estrenos genuinos (caso "Unabomber" en Netflix) por la
+lentitud de TMDB indexando catálogo de España. Un día después (27 sept
+2026), "Insidious" volvió a colarse — esta vez confirmado con JustWatch que
+NO está disponible en ningún sitio todavía, ni siquiera en alquiler — así
+que se reintrodujo el filtro, pero acotado solo a Movistar Plus+, que es la
+única de las 5 plataformas con este problema de raíz (mezcla suscripción y
+alquiler en la misma rejilla).
 """
 import re
 import time
@@ -75,7 +87,35 @@ from utils import (
     best_guess_imdb,
     get_title_metadata,
     madrid_today,
+    platform_label_matches_provider,
+    tmdb_flatrate_providers_es,
 )
+
+# QUINTA vuelta sobre el caso "Insidious" (27 sept 2026): tras quitar el
+# filtro de TMDB para TODAS las plataformas (ver ARQUITECTURA DE
+# VERIFICACIÓN más abajo), "Insidious: Fuera del más allá" volvió a
+# colarse un sábado como novedad de Movistar Plus+. Comprobado en vivo con
+# JustWatch (agregador dedicado solo a disponibilidad de streaming, más
+# fiable para esto que FilmAffinity o TMDB): esta película NO está
+# disponible para streaming en NINGÚN sitio todavía, solo en cine — así
+# que la rejilla de novedades de FilmAffinity para Movistar Plus+ la
+# incluyó sin estar realmente disponible ahí.
+#
+# La diferencia con las otras 4 plataformas: Netflix, Disney+, Amazon
+# Prime Video y Filmin son servicios de un solo modelo (todo lo de su
+# rejilla de novedades es catálogo de suscripción). Movistar Plus+ vende
+# DENTRO de la misma app tanto catálogo de suscripción como alquiler/
+# compra suelta ("taquilla") — el origen de TODO este caso desde el
+# principio — y su rejilla de novedades en FilmAffinity no distingue
+# entre ambos. Por eso SOLO para Movistar Plus+ se reintroduce la
+# verificación de TMDB (/watch/providers, catálogo "flatrate" = incluido
+# en suscripción) antes de aceptar un título como novedad: si TMDB no
+# confirma positivamente que está en su "flatrate" de España, se descarta.
+# Las otras 4 plataformas se quedan exactamente igual que tras el cambio
+# de arquitectura del 26 sept 2026 (sin este filtro), porque ahí SÍ causaba
+# descartes reales de estrenos genuinos (caso "Unabomber" en Netflix) sin
+# proteger contra ningún problema real conocido.
+PLATFORMS_MIXING_RENTAL_AND_SUBSCRIPTION = {"Movistar Plus+"}
 
 # id de categoría de FilmAffinity -> nombre bonito que ya usa el resto de la
 # app. Varias entradas pueden compartir nombre (p.ej. Filmin normal no tiene
@@ -379,6 +419,30 @@ def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
             # la película."
             metadata = get_title_metadata(imdb_id=imdb_id) or {}
             tmdb_id = metadata.get("tmdb_id")
+
+            # Solo para Movistar Plus+ (ver PLATFORMS_MIXING_RENTAL_AND_SUBSCRIPTION
+            # más arriba): confirmar con TMDB que está de verdad en su
+            # catálogo de suscripción, no solo en alquiler/taquilla o
+            # todavía sin llegar. Mismo criterio "exclude unless confirmed"
+            # que ya se usó antes (ver utils.platform_label_matches_provider).
+            if label in PLATFORMS_MIXING_RENTAL_AND_SUBSCRIPTION:
+                providers = tmdb_flatrate_providers_es(tmdb_id) if tmdb_id else None
+                if not platform_label_matches_provider(label, providers):
+                    if providers is None:
+                        motivo = (
+                            "TMDB no puede confirmar que esté en el catálogo "
+                            "de suscripción de España (sin dato indexado "
+                            "todavía, o fallo al consultarlo)"
+                        )
+                    else:
+                        motivo = (
+                            f"TMDB confirma que en España NO está en "
+                            f"suscripción de {label} ahora mismo (solo "
+                            f"alquiler/compra suelta, o en otra plataforma): "
+                            f"{sorted(providers)}"
+                        )
+                    print(f"      descartada {it['title']!r} ({label}) — {motivo}")
+                    continue
 
             key = (imdb_id, label)
             if key in seen:
