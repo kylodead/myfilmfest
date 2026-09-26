@@ -104,8 +104,8 @@ def main():
             return items
 
     print("→ Cruzando datos con tus gustos...")
-    from match_engine import WATCHLIST_SCORE, select_cinema_picks, select_streaming_picks
-    from pick_history import load_recent_non_watchlist_ids, record_shown
+    from match_engine import select_cinema_picks, select_streaming_picks
+    from pick_history import load_recent_shown_ids, record_shown
 
     # Se calcula aquí (antes de lo que lo necesitaba antes) porque el
     # historial de streaming ahora lo usa como clave de "semana" — ver más
@@ -117,17 +117,24 @@ def main():
     )
 
     # Títulos que ya se te ofrecieron en streaming en SEMANAS ANTERIORES (no
-    # en esta misma) por un motivo que no era "está en tu lista de
-    # pendientes" — para no repetir "sale un actor/director que te gusta" con
-    # la misma peli semana tras semana mientras haya otra que también
-    # encaje, pedido explícitamente así. Las de pendientes SÍ pueden
-    # repetirse (ver WATCHLIST_SCORE). Se pasa `friday` (la semana para la
-    # que se está generando esto) para que relanzar la app varias veces en
+    # en esta misma) — para no repetir el mismo título semana tras semana
+    # mientras haya otro que también encaje. Se pasa `friday` (la semana para
+    # la que se está generando esto) para que relanzar la app varias veces en
     # el mismo día/semana de prueba no se autoexcluya sus propios resultados
     # de hace un rato — bug real reportado: probar dos veces en un día hacía
     # que la segunda pasada excluyera lo que acababa de ofrecer la primera,
     # degradando el resultado a mitad del mismo día.
-    excluded_repeat_ids = load_recent_non_watchlist_ids(week_of=friday)
+    #
+    # CAMBIO (27 sept 2026, pedido explícitamente por David): antes esta
+    # exclusión NO se aplicaba a los picks con motivo "está en tu lista de
+    # pendientes" (WATCHLIST_SCORE) — podían repetirse indefinidamente
+    # mientras no se vieran. David reportó "Resurrection" y "Buena suerte,
+    # pásalo bien, no mueras" repitiéndose varias semanas seguidas en
+    # streaming y pidió explícitamente: "si sale una semana en streaming no
+    # se repite" — sin excepción para pendientes. Ahora se guardan y excluyen
+    # TODOS los picks de streaming por igual (ver
+    # pick_history.load_recent_shown_ids, antes "load_recent_non_watchlist_ids").
+    excluded_repeat_ids = load_recent_shown_ids(week_of=friday)
     if excluded_repeat_ids:
         print(f"    {len(excluded_repeat_ids)} título(s) ya ofrecidos recientemente, se evitan como repetición")
 
@@ -160,14 +167,15 @@ def main():
             allow_fallback_fill=True, excluded_repeat_ids=excluded_repeat_ids,
         )
 
-    # Se guardan en el historial los picks de esta semana que NO sean "está
-    # en tu lista de pendientes" (esos sí pueden repetirse, no hace falta
-    # recordarlos) — así la semana que viene no se te vuelve a ofrecer el
-    # mismo título por el mismo tipo de motivo. Se anota bajo la semana
-    # `friday` (no "hoy"): relanzar el mismo viernes varias veces sobrescribe
-    # la misma entrada de semana en vez de acumular varias, ver pick_history.py.
+    # Se guardan en el historial TODOS los picks de streaming de esta semana,
+    # sin excepción (incluidos los de "está en tu lista de pendientes" —
+    # cambio del 27 sept 2026, ver el comentario largo más arriba, junto a
+    # `excluded_repeat_ids`) — así la semana que viene no se te vuelve a
+    # ofrecer el mismo título. Se anota bajo la semana `friday` (no "hoy"):
+    # relanzar el mismo viernes varias veces sobrescribe la misma entrada de
+    # semana en vez de acumular varias, ver pick_history.py.
     record_shown(
-        (p["imdb_id"] for p in streaming_picks if p.get("score") != WATCHLIST_SCORE),
+        (p["imdb_id"] for p in streaming_picks),
         week_of=friday,
     )
 
