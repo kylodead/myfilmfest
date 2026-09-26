@@ -641,39 +641,49 @@ def tmdb_flatrate_providers_es(tmdb_id):
     ahí en taquilla/alquiler, no en el catálogo de suscripción — "eso no me
     vale", palabras suyas.
 
-    Devuelve `None` (no `[]`) cuando no se puede saber (sin TMDB_API_KEY, la
-    petición falla, O TMDB directamente no tiene NINGÚN dato de España para
-    esta ficha — ni "flatrate", ni "rent", ni "buy", ni "ads", ni "free") —
-    a propósito, para que quien llame a esto pueda distinguir "consultado y
-    confirmado que no está en ninguna suscripción" de "no lo hemos podido
-    comprobar" y NO descarte por defecto en el segundo caso (mismo criterio
-    que ya usamos en cines_madrid.py: no descartar nunca solo porque la
-    detección haya fallado).
+    Devuelve `None` cuando no se puede saber (sin TMDB_API_KEY, la petición
+    falla, o TMDB no tiene NINGÚN dato de España para esta ficha — ni
+    "flatrate", ni "rent", ni "buy", ni "ads", ni "free"); devuelve un
+    `set()` (vacío o con nombres) en cualquier otro caso, cuando TMDB SÍ
+    tiene algún dato de España para esta ficha (confirma que la ha
+    indexado). Quien llama a esto (`platform_label_matches_provider`)
+    decide qué hacer con cada caso — ver el historial de criterio más abajo,
+    ha cambiado dos veces en el mismo día.
 
-    BUG REAL corregido (25 sept 2026, mismo día que el de la caché
-    "Insidious"): al desplegar este arreglo, muchísimos estrenos genuinos de
-    esta misma semana en catálogo de suscripción (p.ej. "Unabomber" en
-    Netflix, que sí es un original de Netflix recién publicado) se
-    descartaban igual, porque TMDB simplemente TODAVÍA no había indexado
-    ningún dato de disponibilidad en España para esos títulos tan
-    recientes — su `/watch/providers` para "ES" venía completamente vacío
-    (`{}`, sin ninguna categoría, ni siquiera "rent"), no porque de verdad
-    no estuviera en ninguna plataforma. Antes de este arreglo, un `{}` vacío
-    se trataba igual que "confirmado sin suscripción en ningún sitio"
-    (devolvía un `set()` vacío, no `None`), así que `platform_label_matches_
-    provider` lo descartaba igual que si TMDB hubiera confirmado de verdad
-    que solo está en alquiler — justo el resultado contrario al buscado:
-    títulos recién añadidos (que es EXACTAMENTE la población que scrapeamos
-    cada semana) quedaban penalizados por su propia novedad.
+    HISTORIAL DE CRITERIO (25-26 sept 2026, mismo caso "Insidious", tres
+    vueltas en total):
 
-    Ahora se distingue: si TMDB no tiene NINGUNA categoría con datos para
-    España (ni flatrate, ni alquiler, ni compra, ni con anuncios, ni
-    gratis), se trata como "no se puede comprobar" (`None`, no descarta) —
-    igual que un fallo de red. Solo se devuelve un veredicto real (aunque
-    sea un `set()` vacío) cuando TMDB SÍ tiene algún dato de España para
-    esta ficha, lo que confirma que de verdad la ha indexado (típicamente
-    porque aparece en OTRA plataforma distinta a la nuestra, que es el caso
-    real que sí queremos seguir descartando).
+    1ª vuelta: un `{}` vacío de TMDB (sin ninguna categoría) se trataba
+    igual que "confirmado sin suscripción en ningún sitio" -> se descartaba.
+    Bug real: muchos estrenos genuinos de esa misma semana en catálogo de
+    suscripción (p.ej. "Unabomber" en Netflix, original recién publicado)
+    se descartaban también, porque TMDB simplemente TODAVÍA no había
+    indexado ningún dato para España de un título tan reciente — no porque
+    de verdad no estuviera en ninguna plataforma.
+
+    2ª vuelta: se cambió a que un `{}` vacío devolviera `None` ("no se
+    puede comprobar"), y `platform_label_matches_provider` NO descartaba
+    en ese caso — mismo criterio de "nunca descartar solo porque la
+    detección haya fallado" que ya se usaba en `cines_madrid.py`. Esto
+    arregló lo de "Unabomber", pero dejó sin resolver el caso original:
+    con "Insidious" TMDB tampoco tiene NINGÚN dato de España, así que
+    `None` -> no se descartaba -> seguía colándose como novedad de
+    Movistar Plus+ pese a no estar realmente en su catálogo de suscripción.
+
+    3ª vuelta (ESTA, pedida explícitamente por David tras ver que la 2ª
+    vuelta no arreglaba el caso real): "el objetivo es que salgan películas
+    que PUEDA ver, no películas inaccesibles" — así que ahora, si TMDB no
+    puede CONFIRMAR POSITIVAMENTE que la plataforma está en su lista
+    "flatrate" para España, se descarta, sea cual sea el motivo concreto
+    (sin dato en absoluto, sin API key, fallo de red, o datos que
+    confirman que está en OTRA plataforma). Esto es un cambio de
+    prioridad consciente y pedido así, no un descuido: se prefiere
+    perder ocasionalmente un estreno legítimo tan reciente que TMDB aún no
+    ha indexado (build_site.py ya tiene su propio colchón para esto: si
+    faltan candidatos amplía la ventana de búsqueda 7->14->21...->63 días,
+    así que un título así tiene semanas siguientes para aparecer en cuanto
+    TMDB lo indexe) antes que arriesgarse a mostrar otra vez algo que
+    luego resulta no estar disponible de verdad.
     """
     if not TMDB_API_KEY or not tmdb_id:
         return None
@@ -688,10 +698,10 @@ def tmdb_flatrate_providers_es(tmdb_id):
     if data is None:
         return None
     # TMDB no tiene NADA indexado para España en esta ficha (ni siquiera
-    # alquiler/compra) -- lo más probable con un estreno tan reciente es que
-    # todavía no le haya dado tiempo a indexarlo, no que de verdad no esté en
-    # ningún sitio. Tratarlo como "no se puede comprobar", igual que un
-    # fallo de red -- ver aviso de bug real más arriba en el docstring.
+    # alquiler/compra) -- se sigue distinguiendo de un `set()` real (por
+    # claridad en los logs), pero desde la 3ª vuelta del criterio (ver
+    # docstring) el llamante trata ambos casos igual: sin confirmación
+    # positiva de suscripción, se descarta.
     if not any(data.get(k) for k in ("flatrate", "rent", "buy", "ads", "free")):
         return None
     flatrate = data.get("flatrate") or []
@@ -707,9 +717,23 @@ def platform_label_matches_provider(label: str, provider_names) -> bool:
     tolerante (sin acentos, en minúsculas, por inclusión en cualquier
     sentido) porque TMDB a veces varía ligeramente el nombre exacto de la
     plataforma respecto al que usamos nosotros.
+
+    CRITERIO (3ª vuelta, 26 sept 2026 — ver el historial largo en el
+    docstring de `tmdb_flatrate_providers_es`): `provider_names is None`
+    ("no se puede comprobar" -- sin API key, fallo de red, o TMDB sin
+    ningún dato de España para esta ficha) ahora devuelve `False` (SÍ se
+    descarta), no `True` como en la vuelta anterior. Pedido explícitamente
+    por David: "el objetivo es que salgan películas que PUEDA ver, no
+    películas inaccesibles" -- prefiere perder algún estreno legítimo tan
+    reciente que TMDB no ha indexado todavía (recuperable en semanas
+    siguientes, ver `filter_by_window`/ventana ampliada en build_site.py)
+    antes que arriesgarse a mostrar otra vez un título que en realidad no
+    está en el catálogo de suscripción de la plataforma (caso real:
+    "Insidious: Fuera del más allá" en Movistar Plus+, que TMDB nunca ha
+    llegado a indexar para España en ninguna categoría).
     """
     if provider_names is None:
-        return True  # no lo sabemos -> no descartamos (ver docstring de arriba)
+        return False  # no se puede confirmar -> se descarta (ver docstring)
     norm_label = _strip_accents_local(label).lower()
     for name in provider_names:
         norm_name = _strip_accents_local(name).lower()
@@ -872,11 +896,27 @@ def best_guess_imdb(title: str, year: str = None, director_hint: str = None, min
     homónimo moderno (2026) por año/similitud de texto — un falso positivo
     con mucha confianza, mostrando una película que NO es la de la sesión
     real. Ahora, si tenemos un `director_hint` (una pista real, sacada de la
-    propia web del cine, no una suposición) y se llegaron a comprobar
-    candidatos pero NINGUNO tenía ese director, se trata como señal de que
-    la película real probablemente ni siquiera está en esta lista de
-    sugerencias — y se prefiere no resolver (devolver None, "sin imdb_id")
-    antes que arriesgarse a mostrar con confianza el homónimo equivocado.
+    propia web del cine, no una suposición) y NINGÚN candidato resulta
+    confirmado con ese director — ya sea porque se comprobaron y no
+    coincidía ninguno, O porque no se pudo comprobar ni uno solo (fallo de
+    TMDB/IMDb al pedir sus fichas, ver `_pick_by_director`) — se trata igual
+    en los dos casos como "sin confirmación", y se prefiere no resolver
+    (devolver None, "sin imdb_id") antes que arriesgarse a mostrar con
+    confianza el homónimo equivocado.
+
+    SEGUNDA vuelta sobre este mismo caso (26 sept 2026): el propio David
+    reportó que "La boda" (2026, homónimo) seguía apareciendo pese a este
+    arreglo. Investigado en vivo: con `year_hint`/`director_hint` extraídos
+    correctamente de la web del Doré ("1973"/"Andrzej Wajda"), la única
+    forma de que esto pasara es que `_pick_by_director` no llegara a
+    comprobar con éxito NINGÚN candidato (`checked_any=False`) — la versión
+    anterior de este código solo protegía el caso "se comprobó y no
+    coincidía" (`checked_any=True`), dejando sin cubrir el caso "no se pudo
+    comprobar ninguno", que caía sin red de seguridad al respaldo de
+    similitud de texto — y ese respaldo encuentra coincidencia EXACTA de
+    texto con el homónimo de 2026 (y con otro de 2019), quedándose sin año
+    real que desempate con el más reciente de los dos. Arreglado tratando
+    ambos casos (`checked_any` True o False) exactamente igual.
     """
     candidates = imdb_suggestion_search(title)
     if not candidates:
@@ -898,14 +938,36 @@ def best_guess_imdb(title: str, year: str = None, director_hint: str = None, min
         by_director, checked_any = _pick_by_director(films, director_hint)
         if by_director:
             return by_director
-        if checked_any and not same_year:
-            # Ningún candidato tenía el director esperado NI el año esperado
-            # -- las dos señales fiables fallan a la vez, así que es más
-            # probable que la película real ni siquiera esté en esta lista
-            # de sugerencias (caso real: "La boda" de Wajda solo indexada en
-            # IMDb como "Wesele") que no un fallo de nuestra comprobación.
-            # Preferimos no resolver antes que arriesgarnos al homónimo
-            # equivocado.
+        if not same_year:
+            # CUARTA vuelta sobre el caso "La boda" (26 sept 2026, reportado
+            # de nuevo por David: seguía resolviendo al homónimo moderno de
+            # 2026 pese a este arreglo). Antes esta rama solo se activaba si
+            # `checked_any` era True (se llegó a comprobar el director de
+            # algún candidato y ninguno coincidía). Pero si NO se pudo
+            # comprobar el director de NI UN SOLO candidato (`checked_any`
+            # False -- p.ej. TMDB/IMDb fallando esa semana para todos los
+            # candidatos, o sin TMDB_API_KEY), el código cala igualmente por
+            # aquí sin entrar en este `if`, y acababa cayendo al respaldo de
+            # similitud de texto de más abajo -- que para "La boda" encuentra
+            # coincidencia EXACTA de texto con el homónimo de 2026 (y con
+            # otro más de 2019) y, sin año que desempate, se queda con el más
+            # reciente: exactamente el homónimo equivocado otra vez.
+            #
+            # "No se pudo comprobar ninguno" y "se comprobaron y ninguno
+            # coincidía" son las dos, en el fondo, "no tengo confirmación
+            # positiva de que este candidato sea la película real" -- no hay
+            # motivo para tratar la primera con más confianza que la segunda,
+            # así que ahora las dos evitan el respaldo de similitud de texto
+            # por igual. Preferimos no resolver antes que arriesgarnos al
+            # homónimo equivocado.
+            if not checked_any:
+                print(
+                    f"      [best_guess_imdb] {title!r}: no se pudo comprobar "
+                    f"el director de NINGÚN candidato (fallo de TMDB/IMDb al "
+                    f"pedir su ficha) -- se trata igual que 'comprobado y "
+                    f"ninguno coincide', no se resuelve por similitud de "
+                    f"texto sin más"
+                )
             return None
         # Si SÍ hay un candidato del año exacto (aunque el director_hint no
         # haya coincidido — puede ser un alias/mote como "Los Javis" que
