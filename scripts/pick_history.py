@@ -1,11 +1,21 @@
 """
 Historial de qué títulos de streaming ya se te han OFRECIDO como recomendación
 (no "visto" — eso ya lo llevan tus CSVs de IMDb), para no repetir la misma
-peli semana tras semana cuando el motivo es "sale un actor/director/género
-que te gusta" — pedido explícitamente así: si hay más de una opción que
-encaja, mejor variar; solo se permite repetir cuando el motivo es "está en
-tu lista de pendientes", porque ahí sí tiene sentido seguir recordándotela
-mientras no la veas.
+peli semana tras semana — pedido explícitamente así: si hay más de una
+opción que encaja, mejor variar.
+
+CAMBIO (27 sept 2026, pedido explícitamente por David tras ver "Resurrection"
+y "Buena suerte, pásalo bien, no mueras" repetidos varias semanas seguidas:
+*"si sale una semana en streaming no se repite"*): antes, un pick con motivo
+"está en tu lista de pendientes" estaba EXENTO de esta comprobación —podía
+repetirse indefinidamente mientras no lo vieras (era una decisión consciente
+en su momento). Ahora ya no hay excepción: CUALQUIER título ofrecido en
+streaming se guarda aquí y se excluye de repetirse, tenga el motivo que
+tenga. Por eso `load_recent_non_watchlist_ids` se ha renombrado a
+`load_recent_shown_ids` — ya no distingue por motivo, y dejar el nombre
+viejo habría sido engañoso (ver la lección de HANDOFF.md sobre el bug de
+"La boda"/`_find_dore_director_nearby`: un nombre de función que no refleja
+lo que hace de verdad es una fuente de confusión real, no solo cosmética).
 
 Se guarda en cache/streaming_pick_history.json — la misma carpeta "cache/"
 que el workflow YA commitea junto a docs/data.json en cada ejecución
@@ -85,13 +95,15 @@ def _read_valid_entries(week_of: date):
     return valid
 
 
-def load_recent_non_watchlist_ids(week_of: date = None) -> set:
-    """imdb_id que se ofrecieron por un motivo que NO es "está en tu lista de
-    pendientes" en semanas ANTERIORES a `week_of` (nunca la propia semana que
-    se está generando ahora — relanzar la misma semana varias veces no debe
-    autoexcluirse sus propios resultados) dentro de los últimos
-    HISTORY_MAX_AGE_DAYS días — para excluirlos de volver a salir por ese
-    mismo tipo de motivo esta semana."""
+def load_recent_shown_ids(week_of: date = None) -> set:
+    """imdb_id que se ofrecieron en streaming en semanas ANTERIORES a
+    `week_of` (nunca la propia semana que se está generando ahora — relanzar
+    la misma semana varias veces no debe autoexcluirse sus propios
+    resultados) dentro de los últimos HISTORY_MAX_AGE_DAYS días — para
+    excluirlos de volver a salir esta semana. Antes se llamaba
+    `load_recent_non_watchlist_ids` y excluía "está en tu lista de
+    pendientes" de esta comprobación; ya no (ver cambio del 27 sept 2026 en
+    la cabecera de este fichero)."""
     week_of = week_of or _default_today()
     return {
         e["imdb_id"]
@@ -101,12 +113,13 @@ def load_recent_non_watchlist_ids(week_of: date = None) -> set:
 
 
 def record_shown(imdb_ids, week_of: date = None):
-    """Añade estos imdb_id al historial bajo la semana `week_of` — llamar
-    SOLO con los picks finales de streaming cuyo motivo no sea "está en tu
-    lista de pendientes" (esos se pueden repetir sin límite, no hace falta
-    guardarlos aquí). Si ya había una entrada de ese imdb_id para la MISMA
-    semana (relanzamiento de prueba), se sobrescribe en vez de duplicarse.
-    Fusiona con lo que ya hubiera vigente y poda lo caducado."""
+    """Añade estos imdb_id al historial bajo la semana `week_of` — llamar con
+    TODOS los picks finales de streaming de esta semana, sin excepción (ver
+    cambio del 27 sept 2026 en la cabecera de este fichero: ya no se excluye
+    "está en tu lista de pendientes"). Si ya había una entrada de ese
+    imdb_id para la MISMA semana (relanzamiento de prueba), se sobrescribe
+    en vez de duplicarse. Fusiona con lo que ya hubiera vigente y poda lo
+    caducado."""
     week_of = week_of or _default_today()
     kept = _read_valid_entries(week_of)
     by_id = {e["imdb_id"]: e for e in kept}
