@@ -45,6 +45,21 @@ real el log muestra 0 títulos con fecha para TODAS las plataformas a la vez
 (a diferencia de "0 dentro de la ventana de 7 días", que sí puede pasar sin
 más), es señal de que ninguna de las dos estructuras coincide con la
 plantilla real y hay que revisarlo con el log en la mano.
+
+ARQUITECTURA DE VERIFICACIÓN (26 sept 2026 — decisión de David, ver el
+comentario largo dentro de get_weekly_streaming_releases): FilmAffinity (esta
+misma fuente) decide QUÉ está de alta y CUÁNDO para cada plataforma — es la
+fuente local/nacional, y su rejilla de novedades ya está acotada al
+contenedor real único (ver _scrape_provider_new_movies). TMDB se usa
+únicamente para verificar que hemos resuelto la película correcta (no un
+homónimo) y para enriquecer póster/reparto/género — NUNCA para decidir si
+una plataforma concreta tiene o no esta película en su catálogo. Antes de
+esto hubo tres vueltas usando TMDB (/watch/providers) como filtro de
+suscripción-vs-alquiler para el caso "Insidious: Fuera del más allá"; se
+abandonó esa vía porque protegía contra un problema que ya no existía (la
+contaminación de rejilla, arreglada aparte) mientras causaba descartes reales
+de estrenos genuinos (caso "Unabomber" en Netflix) por la lentitud de TMDB
+indexando catálogo de España.
 """
 import re
 import time
@@ -60,8 +75,6 @@ from utils import (
     best_guess_imdb,
     get_title_metadata,
     madrid_today,
-    platform_label_matches_provider,
-    tmdb_flatrate_providers_es,
 )
 
 # id de categoría de FilmAffinity -> nombre bonito que ya usa el resto de la
@@ -328,31 +341,44 @@ def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
                 print(f"      sin imdb_id para: {it['title']!r} ({label})")
                 continue
 
-            # Pedido explícito de David (25 sept 2026), caso real:
-            # "Insidious: Fuera del más allá" salió como novedad de Movistar
-            # Plus+ sacado de esta misma página de FilmAffinity, pero solo
-            # está ahí en taquilla/alquiler (una compra suelta), no en el
-            # catálogo de SUSCRIPCIÓN de Movistar -- "eso no me vale". La
-            # página de novedades de FilmAffinity no distingue esto en su
-            # HTML (ni en la ficha ni en la propia página del cine se ve
-            # ningún aviso de "alquiler"/"taquilla"), así que no hay forma
-            # de detectarlo aquí sin consultar otra fuente: se usa el
-            # catálogo real de TMDB (/watch/providers, España, apartado
-            # "flatrate" = incluido en suscripción, NO "rent"/"buy") para
-            # confirmarlo. Si no se puede comprobar (sin TMDB_API_KEY, o la
-            # petición falla), NO se descarta por defecto -- mismo criterio
-            # que en cines_madrid.py: nunca descartar solo por no haber
-            # podido comprobarlo.
-            tmdb_id = (get_title_metadata(imdb_id=imdb_id) or {}).get("tmdb_id")
-            providers = tmdb_flatrate_providers_es(tmdb_id) if tmdb_id else None
-            if not platform_label_matches_provider(label, providers):
-                print(
-                    f"      descartada {it['title']!r} ({label}) — TMDB dice "
-                    f"que en España NO está en el catálogo de suscripción de "
-                    f"{label} ahora mismo (solo alquiler/compra suelta, o en "
-                    f"otra plataforma): {sorted(providers) if providers else providers}"
-                )
-                continue
+            # CUARTA vuelta sobre el caso "Insidious" (26 sept 2026) — cambio
+            # de arquitectura pedido explícitamente por David, no un ajuste
+            # de criterio como las tres anteriores (ver el historial completo,
+            # todavía documentado en utils.tmdb_flatrate_providers_es /
+            # platform_label_matches_provider, aunque esas funciones ya NO se
+            # llaman desde aquí).
+            #
+            # Las tres vueltas anteriores usaban TMDB (/watch/providers) para
+            # decidir si esta plataforma REALMENTE tiene la película en su
+            # catálogo de suscripción, descartándola si no. David señaló el
+            # 26 sept 2026 el motivo de fondo: FilmAffinity es una web
+            # nacional con datos locales de España, mientras que TMDB es
+            # internacional y tarda en indexar catálogo español — usar TMDB
+            # como filtro no protegía de nada que no estuviera ya arreglado
+            # (ver el fix de "rejilla real" de _scrape_provider_new_movies,
+            # confirmado en vivo el 26 sept 2026: new_movistar_f es una
+            # categoría de FilmAffinity DISTINTA de "Movistar Plus+ (próx)" y
+            # de "Próximamente alquiler" — páginas/category-ids separados, no
+            # pestañas de una misma página que se puedan confundir), y en
+            # cambio SÍ causaba un daño real y comprobado: descartar estrenos
+            # genuinos muy recientes que TMDB aún no había indexado para
+            # España (caso real: "Unabomber" en Netflix).
+            #
+            # Criterio actual: la fecha de alta y la pertenencia a la rejilla
+            # de novedades de esta plataforma las decide FilmAffinity (fuente
+            # local/nacional, y ya acotada a la rejilla real única, sin
+            # mezclar carruseles ajenos). TMDB se sigue usando aquí — vía
+            # get_title_metadata, que ya se llama más abajo en
+            # match_engine.py con el imdb_id resuelto — solo para verificar
+            # que es la película correcta (no un homónimo) y para enriquecer
+            # póster/reparto/género, NUNCA para decidir si esta plataforma
+            # concreta la tiene en catálogo. Pedido explícito de David: "TMDB
+            # solo debería confirmar datos de la película, no verificar que
+            # el estreno en plataformas está definido [...] la fecha de
+            # estreno manda FilmAffinity, pero el sistema tiene que verificar
+            # la película."
+            metadata = get_title_metadata(imdb_id=imdb_id) or {}
+            tmdb_id = metadata.get("tmdb_id")
 
             key = (imdb_id, label)
             if key in seen:
@@ -364,8 +390,8 @@ def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
                     "title": guess.get("title") or it["title"],
                     "platform": label,
                     "imdb_id": imdb_id,
-                    "tmdb_id": None,
-                    "poster": guess.get("poster"),
+                    "tmdb_id": tmdb_id,
+                    "poster": metadata.get("poster") or guess.get("poster"),
                     "release_date": it["date"].isoformat(),
                     "release_year": guess.get("year"),
                 }
