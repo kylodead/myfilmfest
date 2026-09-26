@@ -246,7 +246,11 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
 WEEKEND_DAYS = ["viernes", "sábado", "domingo"]
 
 
-WATCHLIST_SCORE = 100  # ver _score_and_reason: es el único motivo que SÍ puede repetirse semana tras semana
+WATCHLIST_SCORE = 100  # ver _score_and_reason: el score más alto posible,
+# para que "está en tu lista de pendientes" siempre quede arriba del todo al
+# ordenar los picks. (Ya NO es un motivo exento de la comprobación de
+# no-repetición en streaming — ver select_streaming_picks, cambio del 27
+# sept 2026.)
 
 
 def select_streaming_picks(
@@ -279,14 +283,20 @@ def select_streaming_picks(
     True en la última vuelta, cuando ya se ha llegado al tope de ampliación y
     hay que rellenar sí o sí para no dejar el finde a medias.
 
-    `excluded_repeat_ids` son imdb_id que ya se te ofrecieron en semanas
-    recientes (ver pick_history.py) por un motivo que NO era "está en tu
-    lista de pendientes" — se descartan aquí para no repetir "sale un actor/
-    director que te gusta" con el mismo título semana tras semana mientras
-    haya otro que también encaje, pedido explícitamente así. La ÚNICA
-    excepción es, precisamente, el motivo "está en tu lista de pendientes"
-    (WATCHLIST_SCORE): ese sí puede repetirse, porque mientras no la veas
-    tiene sentido seguir recordándotela.
+    `excluded_repeat_ids` son imdb_id que ya se te ofrecieron en streaming en
+    semanas recientes (ver pick_history.py) — se descartan aquí para no
+    repetir el mismo título semana tras semana mientras haya otro que
+    también encaje.
+
+    CAMBIO (27 sept 2026, pedido explícitamente por David tras ver
+    "Resurrection" y "Buena suerte, pásalo bien, no mueras" repetidos varias
+    semanas seguidas en streaming: *"si sale una semana en streaming no se
+    repite"*): antes, un pick con motivo "está en tu lista de pendientes"
+    (`WATCHLIST_SCORE`) estaba EXENTO de esta comprobación — podía repetirse
+    indefinidamente semana tras semana mientras no lo vieras (era una
+    decisión consciente en su momento, ver HANDOFF.md). Ahora ya no hay
+    excepción: cualquier `imdb_id` en `excluded_repeat_ids` se descarta,
+    tenga el motivo que tenga, incluida "está en tu lista de pendientes".
 
     Orden final de los candidatos (pedido explícitamente así): 1) está en tu
     lista de pendientes siempre arriba (WATCHLIST_SCORE ya es el score más
@@ -308,7 +318,7 @@ def select_streaming_picks(
         )
         if not include:
             continue
-        if score != WATCHLIST_SCORE and imdb_id in excluded_repeat_ids:
+        if imdb_id in excluded_repeat_ids:
             continue
         seen_ids.add(imdb_id)
         if not info:
