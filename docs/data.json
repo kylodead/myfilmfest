@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-09-26T15:09",
+  "generated_at": "2026-10-02T07:42",
   "week_label": "02/10 – 08/10",
   "weekend": {
     "range": "02/10 – 04/10",
     "picks": [
       {
-        "imdb_id": "tt1341338",
-        "title": "Buena suerte, pásalo bien, no mueras",
-        "poster": "https://image.tmdb.org/t/p/w500/vzJkrTx01ol7FTIhzS50pms5xEG.jpg",
-        "rating": 7.125,
-        "imdb_url": "https://www.imdb.com/title/tt1341338/",
-        "platform": "Amazon Prime Video",
-        "release_date": "2026-08-08",
+        "imdb_id": "tt36151341",
+        "title": "Mallorca confidencial",
+        "poster": "https://image.tmdb.org/t/p/w500/r8EK0Z5or4XIsCOzAruN6hutq78.jpg",
+        "rating": 8.667,
+        "imdb_url": "https://www.imdb.com/title/tt36151341/",
+        "platform": "Movistar Plus+",
+        "release_date": "2026-09-30",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
         "day": "viernes"
       },
       {
-        "imdb_id": "tt29002950",
-        "title": "Resurrection",
-        "poster": "https://image.tmdb.org/t/p/w500/vQZK421erWKR5PgF4pbz0lp4o3o.jpg",
-        "rating": 7.1,
-        "imdb_url": "https://www.imdb.com/title/tt29002950/",
-        "platform": "Filmin",
-        "release_date": "2026-08-21",
+        "imdb_id": "tt32654916",
+        "title": "Soulm8te",
+        "poster": "https://image.tmdb.org/t/p/w500/xeBFjbLFp3vvv49yD2q1Gg64zyb.jpg",
+        "rating": 7.4,
+        "imdb_url": "https://www.imdb.com/title/tt32654916/",
+        "platform": "Disney Plus",
+        "release_date": "2026-10-01",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
         "day": "sábado"
       },
       {
-        "imdb_id": "tt34664406",
-        "title": "Solos",
-        "poster": "https://image.tmdb.org/t/p/w500/wRBtljl5LqWGzTzp9W6Z3l8tb78.jpg",
-        "rating": 6.4,
-        "imdb_url": "https://www.imdb.com/title/tt34664406/",
-        "platform": "Movistar Plus+",
-        "release_date": "2026-08-11",
-        "reason": "Sale Elia Galera, de tus actores favoritos",
-        "score": 85,
+        "imdb_id": "tt32358025",
+        "title": "Carrera de bestias",
+        "poster": "https://image.tmdb.org/t/p/w500/6Qwd9xKb1TnO7juMlZqHNiiJLWm.jpg",
+        "rating": 6.9,
+        "imdb_url": "https://www.imdb.com/title/tt32358025/",
+        "platform": "Amazon Prime Video",
+        "release_date": "2026-08-07",
+        "reason": "Dirigida por Fernando Meirelles, a quien sueles puntuar alto (2 pelis con nota ≥8)",
+        "score": 65,
         "day": "domingo"
       }
     ]
@@ -46,14 +46,14 @@
     "range": "05/10 – 08/10",
     "picks": [
       {
-        "imdb_id": "tt35511966",
-        "title": "La bola negra",
-        "poster": "https://image.tmdb.org/t/p/w500/4omaYktw4VYkk5Tkq7rmUsWnQa5.jpg",
-        "rating": 8.5,
-        "imdb_url": "https://www.imdb.com/title/tt35511966/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "2026-09-25",
+        "imdb_id": "tt13129406",
+        "title": "Narciso",
+        "poster": "https://image.tmdb.org/t/p/w500/myt5b8olQaxNlziYFsF6kVMvO2A.jpg",
+        "rating": 10.0,
+        "imdb_url": "https://www.imdb.com/title/tt13129406/",
+        "reason": "Sale Mona Martínez, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-10-02",
         "cinemas": [
           {
             "name": "Cines Embajadores",
@@ -61,46 +61,26 @@
             "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
           },
           {
-            "name": "Cines Golem",
-            "showtimes": [
-              "16:10",
-              "17:15",
-              "19:15",
-              "20:30"
-            ],
-            "listing_url": "https://www.golem.es/golem/pelicula/La-bola-negra"
-          },
-          {
-            "name": "Cines Renoir (Plaza de España)",
-            "showtimes": [
-              "16:15",
-              "18:00",
-              "19:00",
-              "21:30",
-              "22:00"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/la-bola-negra/"
-          },
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt32261958",
+        "title": "Verity. La sombra de un engaño",
+        "poster": "https://image.tmdb.org/t/p/w500/e2t7NjahJTgz2PMx2BW4ZRgHR6Z.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt32261958/",
+        "reason": "Sale Anne Hathaway y Dakota Johnson, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-10-02",
+        "cinemas": [
           {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "19:00",
-              "22:15"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/108195_0_W_0/la-bola-negra-35mm"
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "17:20",
-              "20:30"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/108195_1_W_0/la-bola-negra-digital"
           },
           {
             "name": "Yelmo Cines Ideal",
@@ -132,24 +112,19 @@
         ]
       },
       {
-        "imdb_id": "tt29714073",
-        "title": "Bad Apples",
-        "poster": "https://image.tmdb.org/t/p/w500/sDgb5jVuZ6ZOh4YjtSMMnbovkCi.jpg",
-        "rating": 6.963,
-        "imdb_url": "https://www.imdb.com/title/tt29714073/",
-        "reason": "Sale Saoirse Ronan, de tus actores favoritos",
-        "score": 85,
-        "release_date": "2026-09-11",
+        "imdb_id": "tt32393988",
+        "title": "Insidious: Fuera del más allá",
+        "poster": "https://image.tmdb.org/t/p/w500/uEqCJh1fA9Ao9jaCL2xoROPJeUB.jpg",
+        "rating": 6.512,
+        "imdb_url": "https://www.imdb.com/title/tt32393988/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-08-21",
         "cinemas": [
           {
-            "name": "Cines Embajadores",
+            "name": "Yelmo Cines Ideal",
             "showtimes": [],
-            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
-          },
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
@@ -164,28 +139,23 @@
         "release_date": "2026-08-13",
         "cinemas": [
           {
+            "name": "Cines Renoir (Plaza de España)",
+            "showtimes": [
+              "15:50",
+              "18:15",
+              "20:15",
+              "22:30"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/narciso/"
+          },
+          {
             "name": "Mk2 Cine Paz",
             "showtimes": [
-              "18:00"
+              "15:45",
+              "18:00",
+              "20:40"
             ],
             "listing_url": "https://www.cinepazmadrid.es/es/detalles/109663_1_W_0/narciso"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt29356163",
-        "title": "La Patrulla Canina: La dino película",
-        "poster": "https://image.tmdb.org/t/p/w500/5aYdIHHt8WbtYzuhCSFfJC6NYHK.jpg",
-        "rating": 8.004,
-        "imdb_url": "https://www.imdb.com/title/tt29356163/",
-        "reason": "Sale Mckenna Grace, de tus actores favoritos",
-        "score": 85,
-        "release_date": "2026-08-07",
-        "cinemas": [
-          {
-            "name": "Cines Embajadores",
-            "showtimes": [],
-            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
           }
         ]
       },
@@ -207,15 +177,9 @@
           {
             "name": "Mk2 Cine Paz",
             "showtimes": [
-              "11:30",
               "17:00"
             ],
             "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea"
-          },
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
           },
           {
             "name": "Yelmo Cines Ideal",
@@ -225,19 +189,57 @@
         ]
       },
       {
-        "imdb_id": "tt33071426",
-        "title": "El drama",
-        "poster": "https://image.tmdb.org/t/p/w500/zgfBYGYCNcOZ51JDbr6tm45H8y0.jpg",
-        "rating": 6.908,
-        "imdb_url": "https://www.imdb.com/title/tt33071426/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "2026-05-29",
+        "imdb_id": "tt26443616",
+        "title": "Hoppers",
+        "poster": "https://image.tmdb.org/t/p/w500/hJRMZZv1WUKWMYQ73VB8hdFq8tq.jpg",
+        "rating": 8.144,
+        "imdb_url": "https://www.imdb.com/title/tt26443616/",
+        "reason": "Sale Melissa Villaseñor y Vanessa Bayer, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-03-06",
         "cinemas": [
           {
-            "name": "Sala Equis",
+            "name": "Yelmo Cines Ideal",
             "showtimes": [],
-            "listing_url": "https://salaequis.es"
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt0101307",
+        "title": "Allemagne 90 neuf zéro",
+        "poster": "https://image.tmdb.org/t/p/w500/yWiAhYpUjPwD7nY59k0SH4pt2pb.jpg",
+        "rating": 6.7,
+        "imdb_url": "https://www.imdb.com/title/tt0101307/",
+        "reason": "Dirigida por Jean-Luc Godard, a quien sueles puntuar alto (14 pelis con nota ≥8)",
+        "score": 65,
+        "release_date": "1993-01-15",
+        "cinemas": [
+          {
+            "name": "Filmoteca - Cine Doré",
+            "showtimes": [
+              "04/10 20:00"
+            ],
+            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/allemagne-annee-90-neuf-zero/2026-10-04\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt0097202",
+        "title": "The Killer (El asesino)",
+        "poster": "https://image.tmdb.org/t/p/w500/8hTxlSqMAHBXAh1eB69ir0BXhzE.jpg",
+        "rating": 7.592,
+        "imdb_url": "https://www.imdb.com/title/tt0097202/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "1992-03-02",
+        "cinemas": [
+          {
+            "name": "Filmoteca - Cine Doré",
+            "showtimes": [
+              "03/10 20:00"
+            ],
+            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/the-killer-1/2026-10-03\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
           }
         ]
       }
