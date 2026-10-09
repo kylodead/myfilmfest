@@ -10,7 +10,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 9,nm2251846,2019-07-29,2019-07-29,,"Joanna Kulig","Zimna wojna","24 de junio de 1982"
 10,nm0271763,2019-08-01,2019-08-01,,"Edwige Fenech","Hostel: Part II","24 de diciembre de 1948"
 11,nm5584702,2019-08-02,2019-08-02,,"Michalina Olszańska","Já, Olga Hepnarová","29 de junio de 1992"
-12,nm1206844,2019-08-03,2019-08-03,,"Drew Goddard","The Martian","26 de febrero de 1975"
+12,nm1206844,2019-08-03,2019-08-03,,"Drew Goddard","The Cabin in the Woods","26 de febrero de 1975"
 13,nm0435299,2019-08-04,2019-08-04,,"Meiko Kaji","Shurayuki-hime","24 de marzo de 1947"
 14,nm2292661,2019-08-08,2019-08-08,,"Zoe Colletti","Scary Stories to Tell in the Dark","27 de noviembre de 2001"
 15,nm0840754,2019-08-10,2019-08-10,,"Blanca Suárez","El bar","21 de octubre de 1988"
@@ -79,7 +79,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 78,nm0852801,2019-12-30,2019-12-30,,"Louise Taylor-Smith","Eyes Wide Shut",
 79,nm0861344,2019-12-30,2019-12-30,,"Stewart Thorndike","Eyes Wide Shut",
 80,nm5057169,2020-01-19,2020-01-19,,"Thomasin McKenzie","Leave No Trace","26 de julio de 2000"
-81,nm0424060,2020-01-19,2020-01-19,,"Scarlett Johansson","Lost in Translation","22 de noviembre de 1984"
+81,nm0424060,2020-01-19,2020-01-19,,"Scarlett Johansson","Her","22 de noviembre de 1984"
 82,nm0169806,2020-01-19,2020-01-19,,"Taika Waititi","What We Do in the Shadows","16 de agosto de 1975"
 83,nm3860305,2020-01-19,2020-01-19,,"Lola Kirke","Gone Girl","27 de septiembre"
 84,nm3231692,2020-01-19,2020-01-19,,"Hannah Dunne","Marriage Story","8 de abril de 1990"
@@ -123,7 +123,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 122,nm6848259,2020-06-13,2020-06-13,,"Olivia Delcán","Isla Bonita","29 de mayo de 1992"
 123,nm2442289,2020-06-13,2020-06-13,,"Gina Carano","The Mandalorian","16 de abril"
 124,nm1235867,2020-06-20,2020-06-20,,"Nadia de Santiago","El tiempo que te doy","3 de enero de 1990"
-125,nm4170579,2020-06-20,2020-06-20,,"Iria del Río","Los años nuevos","13 de enero de 1987"
+125,nm4170579,2020-06-20,2020-06-20,,"Iria del Río","Visitante","13 de enero de 1987"
 126,nm10061586,2020-06-20,2020-06-20,,"Carmen Arrufat","La innocència","11 de octubre de 2002"
 127,nm3419668,2020-06-29,2020-06-29,,"Aisha Dee","Safe Home","13 de septiembre de 1993"
 128,nm3126686,2020-07-04,2020-07-04,,"Julia Stockler","A Vida Invisível de Eurídice Gusmão",
@@ -173,7 +173,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 172,nm0607865,2020-10-10,2020-10-10,,"Emily Mortimer","Mary Poppins Returns","6 de octubre de 1971"
 173,nm2757333,2020-10-10,2020-10-10,,"Bella Heathcote","The Neon Demon","27 de mayo de 1987"
 174,nm10301720,2020-10-12,2020-10-12,,"Fruzsina Hais","Post Mortem",
-175,nm4608926,2020-10-12,2020-10-12,,"Valeria Gonzalez","Inside the Circle",
+175,nm4608926,2020-10-12,2020-10-12,,"Valeria Gonzalez","H and H",
 176,nm7015080,2020-10-12,2020-10-12,,"Romane Denis","Charlotte a du fun",
 177,nm4209430,2020-10-13,2020-10-13,,"Carlos Vermut","Quién te cantará","6 de marzo de 1980"
 178,nm3014031,2020-10-15,2020-10-15,,"Rachel Brosnahan","The Marvelous Mrs. Maisel","12 de julio de 1990"
@@ -208,7 +208,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 207,nm0577867,2021-01-03,2021-01-03,,"Marisa Mell","Diabolik","24 de febrero de 1939"
 208,nm7210025,2021-01-10,2021-01-10,,"Maria Bakalova","Borat Subsequent Moviefilm: Delivery of Prodigious Bribe to American Regime for Make Benefit Once Glorious Nation of Kazakhstan","4 de junio de 1996"
 209,nm0622980,2021-01-24,2021-01-24,,"Nieves Navarro","La morte cammina con i tacchi alti","10 de noviembre de 1938"
-210,nm0952841,2021-01-24,2021-01-24,,"Mónica Zanchi","Incontri molto... ravvicinati del quarto tipo","1959"
+210,nm0952841,2021-01-24,2021-01-24,,"Mónica Zanchi","Autostop rosso sangue","1959"
 211,nm2129662,2021-01-29,2021-01-29,,"Cristin Milioti","Palm Springs","16 de agosto de 1985"
 212,nm0172769,2021-01-30,2021-01-30,,"Madeleine Collinson","Permissive","22 de julio de 1952"
 213,nm0475752,2021-01-30,2021-01-30,,"Chiaki Kuriyama","Kill Bill: Vol. 1","10 de octubre de 1984"
@@ -271,542 +271,547 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 270,nm1752221,2021-07-10,2021-07-10,,"Gina Rodriguez","Deepwater Horizon","30 de julio de 1984"
 271,nm9923141,2021-07-11,2021-07-11,,"Anya Chalotra","The Witcher","28 de julio de 1995"
 272,nm10140373,2021-07-14,2021-07-14,,"Celia Monedero","Skam España",
-273,nm2969728,2021-07-14,2021-07-14,,"Susana Abaitua","Compulsión","5 de octubre de 1990"
-274,nm6759748,2021-07-16,2021-07-16,,"Pearl Amanda Dickson","Lucy in the Sky",
-275,nm10428193,2021-07-17,2021-07-17,,"Sabrina De La Hoz","La llorona",
-276,nm9129886,2021-07-17,2021-07-17,,"Diane Bathen","Temblores",
-277,nm0717709,2021-07-18,2021-07-18,,"Kelly Reilly","Pride & Prejudice","18 de julio de 1977"
-278,nm0596670,2021-07-18,2021-07-18,,"Claudia Molina","Planta 25","19 de noviembre de 1985"
-279,nm1017334,2021-07-21,2021-07-21,,"Juno Temple","Atonement","21 de julio de 1989"
-280,nm0000427,2021-07-23,2021-07-23,,"Pam Grier","Jackie Brown","26 de mayo de 1949"
-281,nm4960279,2021-07-23,2021-07-23,,"Margaret Qualley","Once Upon a Time in... Hollywood","23 de octubre de 1994"
-282,nm0266824,2021-07-27,2021-07-27,,"Dakota Fanning","War of the Worlds","23 de febrero de 1994"
-283,nm5611121,2021-07-31,2021-07-31,,"Millie Bobby Brown","Enola Holmes","19 de febrero de 2004"
-284,nm0880521,2021-08-02,2021-08-02,,"Liv Ullmann","Viskningar och rop","16 de diciembre de 1938"
-285,nm0001012,2021-08-04,2021-08-04,,"Claudia Cardinale","C'era una volta il West","15 de abril de 1938"
-286,nm0000003,2021-08-04,2021-08-04,,"Brigitte Bardot","Le Mépris","28 de septiembre de 1934"
-287,nm1950086,2021-08-04,2021-08-04,,"Greta Gerwig","Barbie","4 de agosto de 1983"
-288,nm1275259,2021-08-04,2021-08-04,,"Alexandra Daddario","Baywatch","16 de marzo de 1986"
-289,nm0865501,2021-08-10,2021-08-10,,"Maria Teresa Toffano","La notte che Evelyn uscì dalla tomba",
-290,nm3034977,2021-08-25,2021-08-25,,"Samara Weaving","Three Billboards Outside Ebbing, Missouri","23 de febrero de 1992"
-291,nm3725055,2021-09-09,2021-09-09,,"Jessica Henwick","The Royal Hotel","30 de agosto"
-292,nm0267812,2021-09-11,2021-09-11,,"Vera Farmiga","The Departed","6 de agosto de 1973"
-293,nm2265157,2021-09-11,2021-09-11,,"Isabelle Fuhrman","Orphan","25 de febrero de 1997"
-294,nm5046593,2021-09-14,2021-09-14,,"Amy Forsyth","Hell Fest","6 de agosto de 1995"
-295,nm0169358,2021-09-16,2021-09-16,,"Emma Cohen","Novela","21 de noviembre de 1946"
-296,nm4469165,2021-10-07,2021-10-07,,"Garance Marillier","Grave","11 de febrero de 1998"
-297,nm6224152,2021-10-08,2021-10-08,,"Paula Gallego","La pasajera","5 de febrero de 2004"
-298,nm6906829,2021-10-08,2021-10-08,,"Annes Elwy","Little Women",
-299,nm5304098,2021-10-08,2021-10-08,,"Sarah Perles","Au Pair",
-300,nm4842197,2021-10-09,2021-10-09,,"Hayley Squires","I, Daniel Blake","16 de abril de 1988"
-301,nm1443740,2021-10-14,2021-10-14,,"Zoe Kazan","Ruby Sparks","9 de septiembre de 1983"
-302,nm0626259,2021-10-19,2021-10-19,,"Franco Nero","John Wick: Chapter 2","23 de noviembre de 1941"
-303,nm0707728,2021-10-19,2021-10-19,,"Giovanna Ralli","C'eravamo tanto amati","2 de enero de 1935"
-304,nm8928699,2021-10-20,2021-10-20,,"Keith Thomas","The Vigil",
-305,nm0179281,2021-10-21,2021-10-21,,"Sergio Corbucci","Django","6 de diciembre de 1926"
-306,nm1296762,2021-10-26,2021-10-26,,"Macarena Gómez","Musarañas","2 de febrero de 1978"
-307,nm0581145,2021-10-26,2021-10-26,,"Raquel Meroño","Paco y Veva","8 de agosto de 1975"
-308,nm4068901,2021-10-26,2021-10-26,,"Madison Wolfe","The Conjuring 2","16 de octubre de 2002"
-309,nm6264850,2021-10-30,2021-10-30,,"Eliza Rycembel","Boze Cialo","1992"
-310,nm11579814,2021-10-30,2021-10-30,,"Almudena Amor","El buen patrón","30 de marzo de 1994"
-311,nm8594741,2021-10-30,2025-08-22,,"Karina Kolokolchykova","La abuela","1992"
-312,nm8002173,2021-10-30,2021-10-30,,"Chacha Huang","La casa de papel","13 de noviembre"
-313,nm7210986,2021-10-31,2021-10-31,,"Erin Kellyman","Solo: A Star Wars Story","17 de octubre de 1998"
-314,nm4023073,2021-11-02,2021-11-02,,"Rosa Salazar","Alita: Battle Angel","16 de julio de 1985"
-315,nm7084251,2021-11-02,2021-11-02,,"Skylar Radzion","John, 316",
-316,nm3425340,2021-11-02,2021-11-02,,"Margarethe von Stern","The Day of the Purple Sun: Part II",
-317,nm0001303,2021-11-03,2021-11-03,,"Carla Gugino","Watchmen","29 de agosto de 1971"
-318,nm10814833,2021-11-08,2021-11-08,,"Maria Morera","Libertad",
-319,nm8132285,2021-11-10,2021-11-10,,"Amalia Ulman","El Planeta","1989"
-320,nm7107258,2021-11-14,2021-11-14,,"Elisabet Casanovas","La Ruta","15 de diciembre de 1994"
-321,nm0542146,2021-11-20,2021-11-20,,"Silvana Mangano","Dune","21 de abril de 1930"
-322,nm0942486,2021-11-20,2021-11-20,,"Jenny Wright","Near Dark","23 de marzo de 1962"
-323,nm0000899,2021-11-28,2021-11-28,,"Monica Bellucci","Malèna","30 de septiembre de 1964"
-324,nm0000124,2021-12-02,2021-12-02,,"Jennifer Connelly","A Beautiful Mind","12 de diciembre de 1970"
-325,nm0647634,2021-12-07,2021-12-07,,"Elizabeth Olsen","Martha Marcy May Marlene","16 de febrero de 1989"
-326,nm0000478,2021-12-19,2021-12-19,,"Tawny Kitaen","Bachelor Party","5 de agosto de 1961"
-327,nm5157662,2021-12-22,2021-12-22,,"Lulu Wilson","The Haunting of Hill House","7 de octubre"
-328,nm5301405,2021-12-29,2021-12-29,,"Mia Goth","Pearl","25 de octubre de 1993"
-329,nm3830257,2022-01-01,2022-01-01,,"Melissa Villaseñor","Hoppers","9 de octubre de 1987"
-330,nm0150014,2022-01-12,2022-01-12,,"Pauline Challoner","One Step Beyond","1951"
-331,nm0661192,2022-01-12,2022-01-12,,"Conchita Paredes","La residencia",
-332,nm0554718,2022-01-12,2022-01-12,,"Maribel Martín","El juglar y la reina","1 de noviembre de 1954"
-333,nm7393303,2022-01-14,2022-01-14,,"Sophie Thatcher","Companion","18 de octubre de 2000"
-334,nm1555340,2022-01-14,2022-01-14,,"Alison Brie","GLOW","29 de diciembre de 1982"
-335,nm5376319,2022-01-28,2022-01-28,,"Alisa Torres","Please Baby Please",
-336,nm0000193,2022-01-28,2022-01-28,,"Demi Moore","Striptease","11 de noviembre de 1962"
-337,nm0200680,2022-02-07,2022-02-07,,"Lise Danvers","Contes immoraux",
-338,nm0018823,2022-02-07,2022-02-07,,"Charlotte Alexandra","Une vraie jeune fille",
-339,nm0683831,2022-02-10,2022-02-10,,"Silvia Pinal","Viridiana","12 de septiembre de 1931"
-340,nm3907977,2022-02-11,2022-02-11,,"Sophie Kargman","Query",
-341,nm9476408,2022-03-01,2022-03-01,,"Hunter Schafer","Euphoria","31 de diciembre de 1998"
-342,nm0740760,2022-03-06,2022-03-06,,"Mireia Ros","La Moños","3 de diciembre de 1956"
-343,nm0508835,2022-03-06,2022-03-06,,"Eva Lyberten","Samanka","20 de diciembre de 1958"
-344,nm0650449,2022-03-06,2022-03-06,,"Alicia Orozco","Los violadores del amanecer",
-345,nm0493473,2022-03-06,2022-03-06,,"Linda Lay","Los violadores del amanecer",
-346,nm0763768,2022-03-22,2022-03-22,,"Inma de Santis","La duda","24 de febrero de 1959"
-347,nm3920288,2022-03-28,2022-03-28,,"Taissa Farmiga","The Final Girls","17 de agosto de 1994"
-348,nm0438585,2022-03-31,2022-03-31,,"Valérie Kaprisky","Breathless","19 de agosto de 1962"
-349,nm1799971,2022-04-08,2022-04-08,,"Marta Hazas","Amigos hasta la muerte","31 de diciembre de 1977"
-350,nm0729252,2022-04-08,2022-04-08,,"Elena Rivera","Sequía","29 de agosto de 1992"
-351,nm11778190,2022-04-13,2022-04-13,,"Rosalía Mira","Ella solo come carne",
-352,nm4487976,2022-04-17,2022-04-17,,"Maddie Hasson","Elevation","4 de enero de 1995"
-353,nm1132359,2022-04-28,2022-04-28,,"Summer Glau","Serenity","24 de julio de 1981"
-354,nm1083430,2022-04-29,2022-04-29,,"Yoima Valdés","Agua con sal",
-355,nm0785897,2022-04-29,2022-04-29,,"Nathalie Seseña","La Celestina","1967"
-356,nm0000379,2022-05-01,2022-05-01,,"Kirsten Dunst","Spider-Man","30 de abril de 1982"
-357,nm0274216,2022-05-01,2022-05-01,,"Rebecca Ferratti","Ace Ventura: Pet Detective","27 de noviembre de 1964"
-358,nm1373106,2022-05-01,2022-05-01,,"Lali Espósito","Casi ángeles","10 de octubre de 1991"
-359,nm6351089,2022-05-07,2022-05-07,,"Millie Brady","Roadkill","24 de diciembre de 1993"
-360,nm0135037,2022-05-12,2022-05-12,,"Barbara Capell","L'éducation sentimentale","23 de enero de 1950"
-361,nm0546556,2022-05-15,2022-05-15,,"Leticia Marfil","Mil gritos tiene la noche",
-362,nm0303756,2022-05-15,2022-05-15,,"Silvia Gambino","Telepasión española","1 de enero de 1965"
-363,nm0631331,2022-05-15,2022-05-15,,"Roxana Nieto","Mil gritos tiene la noche",
-364,nm2539953,2022-05-19,2022-05-19,,"Alicia Vikander","Ex Machina","3 de octubre de 1988"
-365,nm0616766,2022-05-19,2022-05-19,,"Kim Myers","A Nightmare on Elm Street Part 2: Freddy's Revenge","15 de febrero de 1966"
-366,nm0005060,2022-05-24,2022-05-24,,"Kristen Johnston","Austin Powers: The Spy Who Shagged Me","20 de septiembre de 1967"
-367,nm2028131,2022-06-02,2022-06-02,,"Adriana Torrebejano","La sombra de la ley","3 de noviembre de 1991"
-368,nm0898288,2022-06-06,2022-06-06,,"Denis Villeneuve","Dune: Part One","3 de octubre de 1967"
-369,nm0397171,2022-06-08,2022-06-08,,"Bryce Dallas Howard","Jurassic World: Dominion","2 de marzo de 1981"
-370,nm0893638,2022-06-08,2022-06-08,,"Natalia Verbeke","El otro lado de la cama","23 de febrero de 1975"
-371,nm8402992,2022-06-14,2022-06-14,,"Daisy Edgar-Jones","Normal People","24 de mayo de 1998"
-372,nm10620978,2022-06-18,2022-06-18,,"Sidney Flanigan","Never Rarely Sometimes Always","19 de octubre de 1998"
-373,nm7867621,2022-06-18,2022-06-18,,"Talia Ryder","Never Rarely Sometimes Always","16 de agosto de 2002"
-374,nm0286579,2022-06-22,2022-06-22,,"Verónica Forqué","¿Qué he hecho YO para merecer esto!!","1 de diciembre de 1955"
-375,nm1105980,2022-06-29,2022-06-29,,"Kathryn Newton","Ant-Man and the Wasp: Quantumania","8 de febrero"
-376,nm0092608,2022-07-04,2022-07-04,,"Jenovéfa Boková","Chvilky","16 de mayo de 1992"
-377,nm3987673,2022-07-05,2022-07-05,,"Ariane Labed","Assassin's Creed","8 de mayo de 1984"
-378,nm3272744,2022-07-05,2022-07-05,,"Fatma Mohamed","In Fabric","4 de septiembre de 1975"
-379,nm0219827,2022-07-06,2022-07-06,,"Donna Denton","Outlaw of Gor",
-380,nm2251731,2022-07-09,2022-07-09,,"Aya Cash","The Boys","13 de julio"
-381,nm9306091,2022-07-10,2022-07-10,,"Amaryllis Tremblay","Six Degrés",
-382,nm1361837,2022-07-11,2022-07-11,,"Natalia Sánchez","Sueños de libertad","27 de marzo de 1990"
-383,nm0845189,2022-07-11,2022-07-11,,"Verónica Sánchez","Gordos","1 de julio de 1977"
-384,nm0000043,2022-07-11,2022-07-11,,"Veronica Lake","Sullivan's Travels","14 de noviembre de 1922"
-385,nm2414781,2022-07-16,2022-07-16,,"Laura de la Isla","Barcelona, nit d'hivern","1987"
-386,nm0001159,2022-07-16,2022-07-16,,"Faye Dunaway","Bonnie and Clyde","14 de enero de 1941"
-387,nm0000303,2022-07-18,2022-07-18,,"Honor Blackman","Goldfinger","22 de agosto de 1925"
-388,nm0247881,2022-07-18,2022-07-18,,"Shirley Eaton","Goldfinger","12 de enero de 1937"
-389,nm1690270,2022-08-04,2022-08-04,,"Amber Midthunder","Prey","26 de abril"
-390,nm0000805,2022-08-10,2022-08-10,,"Claudine Auger","Thunderball","26 de abril de 1941"
-391,nm0000079,2022-08-12,2022-08-12,,"Raquel Welch","The Three Musketeers","5 de septiembre de 1940"
-392,nm0284315,2022-08-16,2022-08-16,,"Alison Folland","To Die For","10 de agosto de 1978"
-393,nm5584750,2022-08-16,2022-08-16,,"Sadie Sink","Stranger Things","16 de abril de 2002"
-394,nm7581394,2022-08-16,2022-08-16,,"Audrey Holcomb","Stranger Things",
-395,nm3513533,2022-09-03,2022-09-03,,"Stephanie Hsu","The Marvelous Mrs. Maisel","25 de noviembre de 1990"
-396,nm4561559,2022-09-03,2022-09-03,,"Renate Reinsve","Affeksjonsverdi","24 de noviembre de 1987"
-397,nm0840772,2022-09-19,2022-09-19,,"Emma Suárez","Julieta","25 de junio de 1964"
-398,nm0728484,2022-09-19,2022-09-19,,"Ana Risueño","La herencia Valdemar","22 de junio de 1969"
-399,nm2913275,2022-09-24,2022-09-24,,"Debby Ryan","Insatiable","13 de mayo de 1993"
-400,nm11942181,2022-10-10,2022-10-10,,"Edurne Azkarate","Irati",
-401,nm1189197,2022-10-11,2022-10-11,,"Quentin Dupieux","Rubber","14 de abril de 1974"
-402,nm4205963,2022-10-11,2022-10-11,,"Oulaya Amamra","Divines","12 de noviembre de 1996"
-403,nm1326732,2022-10-11,2022-10-11,,"Anaïs Demoustier","Le Comte de Monte-Cristo","29 de septiembre de 1987"
-404,nm2140860,2022-10-12,2022-10-12,,"Maika Monroe","It Follows","29 de mayo de 1993"
-405,nm1987150,2022-10-22,2022-10-22,,"Esperanza Pedreño","Camera café","20 de diciembre de 1974"
-406,nm0851582,2022-12-09,2022-12-09,,"Audrey Tautou","Le fabuleux destin d'Amélie Poulain","9 de agosto de 1976"
-407,nm5001826,2022-12-09,2022-12-09,,"Zoe Stein","Mantícora","2000"
-408,nm13581656,2022-12-17,2022-12-17,,"Carla Quílez","La maternal","2008"
-409,nm9220161,2022-12-20,2022-12-20,,"Markella Kavenagh","My First Summer","30 de enero de 2000"
-410,nm0428065,2022-12-21,2022-12-21,,"Felicity Jones","Rogue One","17 de octubre de 1983"
-411,nm2033210,2022-12-22,2022-12-22,,"Celia Freijeiro","Vida perfecta","9 de febrero de 1983"
-412,nm0531808,2023-01-06,2023-01-06,,"Kelly Macdonald","No Country for Old Men","23 de febrero de 1976"
-413,nm4911194,2023-01-13,2023-01-13,,"Jenna Ortega","Wednesday","27 de septiembre de 2002"
-414,nm0771268,2023-01-14,2023-01-14,,"Rosanna Schiaffino","La mandragola","25 de noviembre de 1939"
-415,nm0090041,2023-01-24,2023-01-24,,"Janus Blythe","The Hills Have Eyes","29 de enero de 1951"
-416,nm2555462,2023-02-04,2023-02-04,,"Eiza González","Baby Driver","30 de enero"
-417,nm0005412,2023-02-08,2023-02-08,,"Jane Seymour","Somewhere in Time","15 de febrero de 1951"
-418,nm3948952,2023-02-11,2023-02-11,,"Vanessa Kirby","The Crown","18 de abril de 1987"
-419,nm0000099,2023-02-11,2023-02-11,,"Patricia Arquette","True Romance","8 de abril de 1968"
-420,nm0000486,2023-02-11,2023-02-11,,"Heather Langenkamp","A Nightmare on Elm Street","17 de julio de 1964"
-421,nm0748075,2023-02-11,2023-02-11,,"Jennifer Rubin","A Nightmare on Elm Street 3: Dream Warriors","3 de abril de 1962"
-422,nm0000208,2023-02-18,2023-02-18,,"Molly Ringwald","Sixteen Candles","18 de febrero de 1968"
-423,nm6854116,2023-02-18,2023-02-18,,"Milly Alcock","Supergirl","11 de abril de 2000"
-424,nm0006802,2023-03-11,2023-03-11,,"Toy Newkirk","A Nightmare on Elm Street 4: The Dream Master","27 de julio de 1969"
-425,nm4714676,2023-03-31,2023-03-31,,"Luàna Bajrami","Portrait de la jeune fille en feu","14 de marzo de 2001"
-426,nm3964350,2023-03-31,2023-03-31,,"Amandla Stenberg","The Hunger Games","23 de octubre de 1998"
-427,nm0823219,2023-04-03,2023-04-03,,"Koo Stark","Electric Dreams","26 de abril de 1956"
-428,nm0000819,2023-04-05,2023-04-05,,"Barbara Bach","The Spy Who Loved Me","28 de agosto de 1946"
-429,nm0613098,2023-04-05,2023-04-05,,"Caroline Munro","The Spy Who Loved Me","16 de enero de 1949"
-430,nm10847160,2023-04-06,2023-04-06,,"Suzanna Son","Red Rocket","31 de octubre de 1995"
-431,nm3856214,2023-04-20,2023-04-20,,"Mireia Vilapuig","Selftape","2 de septiembre de 1997"
-432,nm4001257,2023-04-20,2023-04-20,,"Joana Vilapuig","Selftape","23 de octubre de 1994"
-433,nm1333962,2023-04-22,2023-04-22,,"Carolina Gaitan","Encanto","4 de abril de 1984"
-434,nm4738005,2023-04-22,2023-04-22,,"Clara Alvarado","La casa de papel",
-435,nm9016307,2023-04-28,2023-04-28,,"Katrin Vankova","The Unbearable Weight of Massive Talent",
-436,nm2091852,2023-04-28,2023-04-28,,"Lily Mo Sheen","The Unbearable Weight of Massive Talent","31 de enero de 1999"
-437,nm3380235,2023-04-29,2023-04-29,,"Ana Morgade","Tu cara me suena","8 de noviembre de 1979"
-438,nm7463803,2023-05-03,2023-05-03,,"Julia Antonelli","Beau Is Afraid","7 de mayo de 2003"
-439,nm0310823,2023-05-05,2023-05-05,,"Françoise Gayat","Moonraker",
-440,nm0508828,2023-05-05,2023-05-05,,"Béatrice Libert","Moonraker",
-441,nm2780716,2023-05-07,2023-05-07,,"Victoria Luengo","The Room Next Door","7 de abril de 1990"
-442,nm3177499,2023-05-17,2023-05-17,,"Numa Paredes","Are You Afraid of the Dark?",
-443,nm1982510,2023-05-20,2023-05-20,,"Jenna Coleman","Victoria","27 de abril de 1986"
-444,nm2725254,2023-05-22,2023-05-22,,"María León","La voz dormida","30 de julio de 1984"
-445,nm6713944,2023-05-28,2023-05-28,,"Laura Weissmahr","Salve Maria","1992"
-446,nm0001349,2023-05-30,2023-05-30,,"Jennifer Love Hewitt","I Know What You Did Last Summer","21 de febrero de 1979"
-447,nm0135666,2023-06-01,2023-06-01,,"Debora Caprioglio","Paprika","3 de mayo de 1968"
-448,nm0342111,2023-06-01,2023-06-01,,"Eva Grimaldi","Intimo","7 de septiembre de 1961"
-449,nm10678598,2023-06-05,2023-06-05,,"Yune Nogueiras","La infiltrada",
-450,nm0073031,2023-06-07,2023-06-07,,"Femi Benussi","Il boia scarlatto","4 de marzo de 1945"
-451,nm0001042,2023-06-09,2023-06-09,,"Lois Chiles","Moonraker","15 de abril de 1947"
-452,nm8567338,2023-06-17,2023-06-17,,"Sasha Calle","The Flash","7 de agosto de 1995"
-453,nm13592008,2023-06-25,2023-06-25,,"Frankie Corio","Aftersun","7 de julio de 2010"
-454,nm0376602,2023-06-26,2023-06-26,,"Shirley Henderson","Star Wars: Episode IX - The Rise of Skywalker","24 de noviembre de 1965"
-455,nm10563281,2023-06-27,2023-06-27,,"Aria Bedmar","Hermana Muerte","1 de diciembre de 1994"
-456,nm0382920,2023-07-07,2023-07-07,,"Michele Hicks","Mr. Robot","4 de junio de 1973"
-457,nm14341886,2023-07-09,2023-07-09,,"Ada Mar",,
-458,nm0273312,2023-07-09,2023-07-09,,"Marta Fernández Muro","Laberinto de pasiones","12 de febrero de 1950"
-459,nm1005787,2023-07-09,2023-07-09,,"Natalie Pinot","Ni una más",
-460,nm11306934,2023-07-16,2023-07-16,,"Lydia Page","Blue Jean","29 de mayo de 2002"
-461,nm2259018,2023-07-16,2023-07-16,,"Kerrie Hayes","Blue Jean","1986"
-462,nm0928244,2023-07-18,2023-07-18,,"Lisa Wilcox","A Nightmare on Elm Street 4: The Dream Master","27 de abril"
-463,nm0005571,2023-07-31,2023-07-31,,"Lisa Zane","Freddy's Dead: The Final Nightmare","5 de abril"
-464,nm6341515,2023-08-02,2023-08-02,,"Hari Nef","Barbie","21 de octubre de 1992"
-465,nm0000324,2023-08-10,2023-08-10,,"Barbara Carrera","Never Say Never Again","31 de diciembre de 1945"
-466,nm4258351,2023-08-21,2023-08-21,,"Irantzu Zugarrondo","El reino",
-467,nm14296240,2023-09-02,2023-09-02,,"Sara Espías","Dos dies i l'eternitat",
-468,nm2863907,2023-09-11,2023-09-11,,"Andrea Duro","Tres metros sobre el cielo","14 de octubre de 1991"
-469,nm7090381,2023-09-17,2023-09-17,,"Jasmine Lemée","Mon cirque à moi",
-470,nm4836100,2023-09-20,2023-09-20,,"Nell Tiger Free","The First Omen","13 de octubre de 1999"
-471,nm0004193,2023-10-06,2023-10-06,,"Debbie Rochon","Flesh of the Unforgiven","3 de noviembre de 1968"
-472,nm11326276,2023-10-06,2023-10-06,,"Gabrielle Echols","Reminiscence",
-473,nm0410622,2023-10-13,2023-10-13,,"Katharine Isabelle","Ginger Snaps","2 de noviembre de 1981"
-474,nm0444621,2023-10-13,2023-10-13,,"Monica Keena","Man of the House","28 de mayo de 1979"
-475,nm0424848,2023-10-15,2023-10-15,,"Dakota Johnson","Fifty Shades of Grey","4 de octubre de 1989"
-476,nm0803938,2023-10-16,2023-10-16,,"Brigitte Skay","Die Tote aus der Themse","18 de julio de 1940"
-477,nm7567645,2023-10-21,2023-10-21,,"Sarah Sherman","Three Busy Debras","7 de marzo de 1993"
-478,nm11109114,2023-10-21,2023-10-21,,"Chloe Troast","Please Don't Destroy: The Treasure of Foggy Mountain","14 de mayo de 1997"
-479,nm8298041,2023-10-21,2023-10-21,,"Laia Manzanares","La Tierra llamando a Ana","30 de marzo de 1994"
-480,nm5184937,2023-10-27,2023-10-27,,"Felicity Anne","Devil in Ohio",
-481,nm3192593,2023-10-29,2023-10-29,,"Lydia Fairén","Rey Gitano","2 de octubre de 1989"
-482,nm3957052,2023-11-08,2023-11-08,,"Jenna Kanell","Terrifier","12 de noviembre"
-483,nm2327927,2023-11-08,2023-11-08,,"Katie Maguire","Billions",
-484,nm13805264,2023-12-01,2023-12-01,,"Ania Guijarro","La Mesías",
-485,nm0414046,2023-12-15,2023-12-15,,"Sherry Jackson","The Miracle of Our Lady of Fatima","15 de febrero de 1942"
-486,nm0000508,2023-12-15,2023-12-15,,"Carey Lowell","Licence to Kill","11 de febrero de 1961"
-487,nm5913850,2023-12-16,2023-12-16,,"Nicole Wallace","Culpa mía","22 de marzo de 2002"
-488,nm9342097,2023-12-31,2023-12-31,,"Ruby Cruz","Mare of Easttown","31 de marzo de 2000"
-489,nm1284201,2024-02-03,2024-02-03,,"Mariona Ribas","Amistades peligrosas","18 de junio de 1984"
-490,nm0447695,2024-02-04,2024-02-04,,"Anna Kendrick","Up in the Air","9 de agosto de 1985"
-491,nm10662997,2024-02-09,2024-02-09,,"Helena Ezquerro","La Moderna",
-492,nm5429286,2024-02-16,2024-02-16,,"Alícia Falcó","Las buenas compañías",
-493,nm7914444,2024-02-20,2024-02-20,,"Karina Fontes","Babylon","15 de noviembre de 1992"
-494,nm2212031,2024-03-01,2024-03-01,,"Abby Elliott","No Strings Attached","16 de junio de 1987"
-495,nm0098710,2024-03-03,2024-03-03,,"María Botto","Hustle","10 de febrero de 1974"
-496,nm3993669,2024-03-03,2024-03-03,,"Eva Ugarte","Mira lo que has hecho","14 de diciembre de 1983"
-497,nm12865529,2024-03-04,2024-03-04,,"Paula Campos","Matar cangrejos",
-498,nm12787121,2024-03-23,2024-03-23,,"Catherine Clinch","An Cailín Ciúin",
-499,nm12704880,2024-04-19,2024-04-19,,"Mirela Balic","Una vocal","27 de agosto de 1999"
-500,nm12130013,2024-05-18,2024-05-18,,"Isa Montalbán","Tótem Loba","1998"
-501,nm15213425,2024-05-18,2024-05-18,,"Laura Wedel","Las largas sombras","7 de junio"
-502,nm6847929,2024-05-18,2024-05-18,,"Amanda Arcuri","Fingernails","21 de octubre"
-503,nm3752864,2024-06-02,2024-06-02,,"Paula Jornet","La banyera",
-504,nm6891947,2024-06-09,2024-06-09,,"Lyna Khoudri","The French Dispatch of the Liberty, Kansas Evening Sun","3 de octubre de 1992"
-505,nm0581953,2024-06-09,2024-06-09,,"Roxane Mesquida","À ma soeur !","1 de octubre"
-506,nm0001560,2024-06-24,2024-06-24,,"Ornella Muti","Flash Gordon","9 de marzo de 1955"
-507,nm9496380,2024-06-29,2024-06-29,,"Ingrid Torelli","Late Night with the Devil",
-508,nm2898911,2024-07-06,2024-07-06,,"Mia McKenna-Bruce","Last Train to Christmas","3 de julio"
-509,nm8954229,2024-07-07,2024-07-07,,"Maria Caballero","Alma",
-510,nm6748436,2024-07-28,2024-07-28,,"Dafne Keen","Logan","4 de enero de 2005"
-511,nm2865013,2024-08-04,2024-08-04,,"Helena Miquel","El idioma imposible",
-512,nm1113550,2024-08-19,2024-08-19,,"Abigail Breslin","Little Miss Sunshine","14 de abril de 1996"
-513,nm5527153,2024-09-01,2024-09-01,,"Rosaline Elbay","The Diplomat",
-514,nm0632655,2024-09-02,2024-09-02,,"Momoko Nishida","Denji sentai Megarenjâ","12 de enero de 1975"
-515,nm6812382,2024-09-08,2024-09-08,,"Aina Picarolo","Nina","8 de mayo de 2003"
-516,nm0332081,2024-09-20,2024-09-20,,"Ellie Cornell","Halloween 4: The Return of Michael Myers","15 de diciembre de 1963"
-517,nm0438388,2024-09-20,2024-09-20,,"Wendy Foxworth","Halloween 5: The Revenge of Michael Myers","19 de febrero de 1966"
-518,nm7060064,2024-09-23,2024-09-23,,"Mia Khalifa","Ho in Headlights","10 de febrero de 1993"
-519,nm2790595,2024-10-05,2024-10-05,,"May Calamawy","Ramy","28 de octubre de 1986"
-520,nm11392028,2024-10-12,2024-10-12,,"Haizea Carneros","Cursed",
-521,nm5931077,2024-10-27,2024-10-27,,"Kimberley Tell","Eva's Comet","10 de marzo"
-522,nm7333021,2024-11-09,2024-11-09,,"Kaia Gerber","Bottoms","3 de septiembre de 2001"
-523,nm9603580,2024-11-16,2024-11-16,,"Begoña Vargas","Las leyes de la frontera","18 de diciembre de 1999"
-524,nm3703506,2024-12-08,2024-12-08,,"Eliya Shenhav","Pídeme lo que quieras",
-525,nm0555331,2024-12-11,2024-12-11,,"Sonia Martínez","Segunda enseñanza","23 de septiembre de 1963"
-526,nm2609571,2024-12-17,2024-12-17,,"Violeta Rodríguez","Violeta no coge el ascensor","3 de febrero de 1997"
-527,nm1216145,2024-12-20,2024-12-20,,"Aina Clotet","Això no és Suècia","23 de septiembre de 1982"
-528,nm0570896,2024-12-23,2024-12-23,,"Ashlyn Gere","Realities 2","14 de septiembre de 1959"
-529,nm1443814,2025-01-12,2025-01-12,,"Clara Segura","Mar adentro","6 de mayo de 1974"
-530,nm0722599,2025-01-17,2025-01-17,,"Madlyn Rhue","It's a Mad, Mad, Mad, Mad World","3 de octubre de 1935"
-531,nm0422998,2025-01-26,2025-01-26,,"Lucía Jiménez","El Trono","21 de noviembre de 1978"
-532,nm15446382,2025-02-01,2025-02-01,,"Camila del Campo","Los amantes astronautas",
-533,nm1007012,2025-02-07,2025-02-07,,"Aida Folch","El artista y la modelo","24 de noviembre de 1986"
-534,nm2168632,2025-02-08,2025-02-08,,"Manuela Vellés","Secuestrados","16 de enero de 1987"
-535,nm3864163,2025-02-13,2025-02-13,,"Raffey Cassidy","The Brutalist","12 de noviembre"
-536,nm0211473,2025-02-16,2025-02-16,,"Orchidea De Santis","Amore e morte nel giardino degli dei","20 de diciembre de 1948"
-537,nm3990647,2025-02-27,2025-02-27,,"Valentina Herszage","Mate-me Por Favor","11 de marzo de 1998"
-538,nm9500800,2025-02-27,2025-02-27,,"Bárbara Luz","Ainda Estou Aqui",
-539,nm1212934,2025-03-16,2025-03-16,,"Elena de Frutos","R.I.S. Científica","23 de diciembre de 1985"
-540,nm0833617,2025-04-01,2025-04-01,,"Dorothy Stratten","Galaxina","28 de febrero de 1960"
-541,nm12149893,2025-04-09,2025-04-09,,"Gabriela Andrada","Pídeme lo que quieras","1999"
-542,nm3871647,2025-04-11,2025-04-11,,"Dylan Gelula","First Girl I Loved","7 de mayo de 1994"
-543,nm15730727,2025-04-21,2025-04-21,,"Lourdes Muñiz","¿Estás en casa?",
-544,nm0526259,2025-05-01,2025-05-01,,"Zoë Lund","Bad Lieutenant","9 de febrero de 1962"
-545,nm16412314,2025-05-02,2025-05-02,,"Maite Aguilar","Alemania",
-546,nm6092492,2025-05-10,2025-05-10,,"Bailey Spry","It Follows",
-547,nm2714273,2025-05-10,2025-05-10,,"Lili Sepe","It Follows","13 de enero"
-548,nm8740834,2025-05-18,2025-05-18,,"Ryan Kiera Armstrong","The Lowdown","10 de marzo de 2010"
-549,nm2204429,2025-05-31,2025-05-31,,"Kim Matula","Fighting with My Family","23 de agosto de 1988"
-550,nm5563492,2025-06-01,2025-06-01,,"Angélique Pleau","20 ans d'écart",
-551,nm11004152,2025-06-18,2025-06-18,,"Elizabeth Dulau","Wicked",
-552,nm9480386,2025-06-23,2025-06-23,,"Dora Dimic Rakar","Crno-bijeli svijet","1996"
-553,nm8349839,2025-07-04,2025-07-04,,"Ever Anderson","Resident Evil: The Final Chapter","3 de noviembre de 2007"
-554,nm4129745,2025-07-07,2025-07-07,,"Allison Williams","Girls","13 de abril de 1988"
-555,nm9209960,2025-07-21,2025-07-21,,"Barbie Ferreira","Bob Trevino Likes It","14 de diciembre de 1996"
-556,nm0674020,2025-07-22,2025-07-22,,"Osgood Perkins","Longlegs","2 de febrero de 1974"
-557,nm1995372,2025-08-18,2025-08-18,,"Asami","Joshû Ayaka: Itaburi mesu chôkyô","19 de agosto de 1985"
-558,nm2011274,2025-08-18,2025-08-18,,"Akiho Yoshizawa","Nôsatsu waka-okami: Iroppoi koshitsuki","3 de marzo de 1984"
-559,nm0646575,2025-09-06,2025-09-06,,"Melani Olivares","Aída","18 de febrero de 1973"
-560,nm9374927,2025-09-06,2025-09-06,,"Kelly Depeault","Noémie dit oui","6 de mayo de 2002"
-561,nm0080524,2025-09-06,2025-09-06,,"Mayim Bialik","Beaches","12 de diciembre de 1975"
-562,nm12526687,2025-09-06,2025-09-06,,"Lorea Intxausti Oregi","Todo lo que nunca fuimos",
-563,nm7165354,2025-09-07,2025-09-07,,"Marta Medina","Despertar",
-564,nm0324409,2025-09-13,2025-09-13,,"Bárbara Goenaga","Los cronocrímenes","20 de julio de 1983"
-565,nm0845209,2025-09-13,2025-09-13,,"Aitana Sánchez-Gijón","The Machinist","5 de noviembre de 1968"
-566,nm0632385,2025-09-13,2025-09-13,,"Najwa Nimri","Abre los ojos","14 de febrero de 1972"
-567,nm5557379,2025-09-27,2025-09-27,,"Chloe East","The Fabelmans","16 de febrero de 2001"
-568,nm1631269,2025-09-30,2025-09-30,,"Chloë Grace Moretz","Kick-Ass","10 de febrero de 1997"
-569,nm8438061,2025-10-04,2025-10-04,,"Simone Bucio","La región salvaje",
-570,nm1910857,2025-10-05,2025-10-05,,"Marta Nieto","La mitad de Ana","31 de enero de 1982"
-571,nm11152317,2025-10-10,2025-10-10,,"Kôki","Tornado","5 de febrero de 2003"
-572,nm9557828,2025-10-13,2025-10-13,,"Alexandra Lacaita","Scenes of a Hidden Self",
-573,nm11820179,2025-10-13,2025-10-13,,"Clara Ingold","Rich Flu",
-574,nm14091414,2025-11-02,2025-11-02,,"Aina Martínez","Com si fos ahir",
-575,nm4417692,2025-11-15,2025-11-15,,"Judith Fernández","Santo","2001"
-576,nm10750726,2025-11-15,2025-11-15,,"Victoria Martín","Se tiene que morir mucha gente",
-577,nm8962949,2025-11-15,2025-11-15,,"Júlia Gibert","Ciencia Forense",
-578,nm7874369,2025-11-15,2025-11-15,,"Yasmina Drissi","La Unidad",
-579,nm10348419,2025-11-15,2025-11-15,,"Natàlia Barrientos","No voy a pedirle a nadie que me crea",
-580,nm0551397,2025-11-17,2025-11-17,,"Silvia Marsó","Un, dos, tres... responda otra vez","8 de marzo de 1964"
-581,nm0038572,2025-11-17,2025-11-17,,"Neus Asensi","Los hombres de Paco","4 de agosto de 1965"
-582,nm0193846,2025-11-18,2025-11-18,,"Elisha Cuthbert","The Girl Next Door","30 de noviembre de 1982"
-583,nm12196562,2025-11-24,2025-11-24,,"Sara Martínez","Todo lo otro",
-584,nm4032297,2025-11-30,2025-11-30,,"Chloe Bennet","Agents of S.H.I.E.L.D.","18 de abril de 1992"
-585,nm4874651,2025-11-30,2025-11-30,,"Dove Cameron","56 Days","15 de enero de 1996"
-586,nm1015269,2025-12-05,2025-12-05,,"Nuria Mencía","Post coitum",
-587,nm6773271,2025-12-06,2025-12-06,,"Lucía Díez","El Cid","17 de junio de 1996"
-588,nm1308063,2025-12-06,2025-12-06,,"Ana Polvorosa","La fortuna","14 de diciembre de 1987"
-589,nm10628313,2025-12-12,2025-12-12,,"Mel Jarnson","Mortal Kombat","1 de febrero de 1998"
-590,nm5570560,2025-12-22,2025-12-22,,"Odessa A'zion","Hellraiser","17 de junio de 2000"
-591,nm1108007,2025-12-26,2025-12-26,,"David Lowery","A Ghost Story","26 de diciembre de 1980"
-592,nm14039339,2026-01-01,2026-01-01,,"Ice Spice","Highest 2 Lowest","1 de enero de 2000"
-593,nm0891895,2026-01-02,2026-01-02,,"Paz Vega","Lucía y el sexo","2 de enero de 1976"
-594,nm1086543,2026-01-02,2026-01-02,,"Amanda Seyfried","Les Misérables","3 de diciembre de 1985"
-595,nm4422007,2026-01-03,2026-01-03,,"Anamaria Vartolomei","L'événement","9 de abril de 1999"
-596,nm2794962,2026-01-10,2026-01-10,,"Hailee Steinfeld","True Grit","11 de diciembre de 1996"
-597,nm9757015,2026-01-12,2026-01-12,,"Claudia Riera","La mesita del comedor","22 de noviembre de 1995"
-598,nm0351228,2026-01-12,2026-01-12,,"Paz Gómez","Intacto","29 de julio de 1974"
-599,nm0167941,2026-01-12,2026-01-12,,"Yohana Cobo","Volver","12 de enero de 1985"
-600,nm0002536,2026-01-14,2026-01-14,,"Emmy Rossum","The Phantom of the Opera","12 de septiembre de 1986"
-601,nm3160752,2026-01-14,2026-01-14,,"Emma Kenney","Shameless","14 de septiembre de 1999"
-602,nm2270016,2026-01-14,2026-01-14,,"Laura Wiggins","Rings","8 de agosto de 1988"
-603,nm16120731,2026-01-16,2026-01-16,,"Elvira Lara","Los Tortuga","23 de diciembre de 2005"
-604,nm2215143,2026-01-17,2026-01-17,,"Kiernan Shipka","Carriers","10 de noviembre de 1999"
-605,nm10348418,2026-01-19,2026-01-19,,"Dèlia Brufau","Els encantats",
-606,nm10741326,2026-01-19,2026-01-19,,"Laia Fontàn","Estación Rocafort",
-607,nm0000464,2026-01-22,2026-01-22,,"Jim Jarmusch","Stranger Than Paradise","22 de enero de 1953"
-608,nm0002002,2026-01-22,2026-01-22,,"Shin'ichi Chiba","Kill Bill: Vol. 1","22 de enero de 1939"
-609,nm3091000,2026-01-24,2026-01-24,,"Ana Mena","La piel que habito","25 de febrero de 1997"
-610,nm0007711,2026-01-25,2026-01-25,,"Silvia Abascal","No digas nada","20 de marzo de 1979"
-611,nm8061858,2026-01-26,2026-01-26,,"María Pedraza","La casa de papel","26 de enero de 1996"
-612,nm0279545,2026-02-03,2026-02-03,,"Isla Fisher","Wedding Crashers","3 de febrero de 1976"
-613,nm3718425,2026-02-05,2026-02-05,,"Carla Díaz","Delicious","19 de julio de 1998"
-614,nm3681769,2026-02-11,2026-02-11,,"Chase Sui Wonders","I Know What You Did Last Summer","21 de mayo de 1996"
-615,nm13605360,2026-02-14,2026-02-14,,"Nora Hernández","La cena","1998"
-616,nm0375609,2026-02-14,2026-02-14,,"Brigitte Helm","Metropolis","17 de marzo de 1908"
-617,nm3835303,2026-02-16,2026-02-16,,"Lizze Broadway","Ghosted","16 de febrero de 1998"
-618,nm8958015,2026-02-19,2026-02-19,,"Chappell Roan","Bugonia","19 de febrero de 1998"
-619,nm3849842,2026-02-21,2026-02-21,,"Sophie Turner","Game of Thrones","21 de febrero de 1996"
-620,nm3084972,2026-02-21,2026-02-21,,"Loreto Mauleón","Los renglones torcidos de Dios","14 de agosto de 1988"
-621,nm2987470,2026-02-21,2026-02-21,,"Ana Rujas","Cardo","14 de mayo de 1989"
-622,nm2645106,2026-02-22,2026-02-22,,"Elena Furiase","Cuéntame cómo pasó","9 de marzo de 1988"
-623,nm1226817,2026-02-23,2026-02-23,,"Devon Aoki","DOA: Dead or Alive","10 de agosto de 1982"
-624,nm0048918,2026-02-26,2026-02-26,,"Sean Baker","Red Rocket","26 de febrero"
-625,nm0544718,2026-02-27,2026-02-27,,"Kate Mara","Fantastic Four","27 de febrero de 1983"
-626,nm0000072,2026-02-27,2026-02-27,,"Elizabeth Taylor","Who's Afraid of Virginia Woolf?","27 de febrero de 1932"
-627,nm16944029,2026-02-28,2026-02-28,,"Blanca Soroa","Los domingos","2008"
-628,nm3480246,2026-02-28,2026-02-28,,"Ella Purnell","Fallout","17 de septiembre de 1996"
-629,nm0000366,2026-03-02,2026-03-02,,"Catherine Deneuve","8 femmes","22 de octubre de 1943"
-630,nm5305981,2026-03-03,2026-03-03,,"Camila Cabello","Cinderella","3 de marzo de 1997"
-631,nm0278979,2026-03-07,2026-03-07,,"Jenna Fischer","The Office","7 de marzo de 1974"
-632,nm2168927,2026-03-08,2026-03-08,,"Milana Vayntrub","Werewolves Within","8 de marzo"
-633,nm4957233,2026-03-08,2026-03-08,,"Aisling Franciosi","Stopmotion","6 de junio"
-634,nm1312575,2026-03-10,2026-03-10,,"Olivia Wilde","Don't Worry Darling","10 de marzo de 1984"
-635,nm0012560,2026-03-12,2026-03-12,,"María Adánez","5ºB Escalera dcha.","12 de marzo de 1976"
-636,nm0000304,2026-03-12,2026-03-12,,"Linda Blair","The Exorcist","22 de enero de 1959"
-637,nm5674649,2026-03-13,2026-03-13,,"London Thor","The Girl on the Train","9 de febrero de 1997"
-638,nm1036659,2026-03-14,2026-03-14,,"Bárbara Lennie","Los renglones torcidos de Dios","20 de abril de 1984"
-639,nm4977202,2026-03-14,2026-03-14,,"Amaia Romero","La Mesías","3 de enero de 1999"
-640,nm0000343,2026-03-14,2026-03-14,,"David Cronenberg","The Fly","15 de marzo de 1943"
-641,nm14551692,2026-03-16,2026-03-16,,"Chase Infiniti","One Battle After Another","1 de mayo de 2000"
-642,nm1231899,2026-03-16,2026-03-16,,"Priyanka Chopra Jonas","Barfi!","18 de julio de 1982"
-643,nm14171402,2026-03-18,2026-03-18,,"Júlia Mascort","Yo no moriré de amor",
-644,nm0000266,2026-03-19,2026-03-19,,"Ursula Andress","Dr. No","19 de marzo de 1936"
-645,nm0301984,2026-03-19,2026-03-19,,"Elia Galera","Hospital Central","19 de marzo de 1973"
-646,nm1085458,2026-03-21,2026-03-21,,"Miriam Giovanelli","Limoncello","28 de abril de 1989"
-647,nm0431372,2026-03-21,2026-03-21,,"Duna Jové","Perfume: The Story of a Murderer","29 de septiembre de 1974"
-648,nm0713389,2026-03-22,2026-03-22,,"Tania Raymonde","Lost","22 de marzo de 1988"
-649,nm3138882,2026-03-23,2026-03-23,,"Britt Lower","High Maintenance","2 de agosto de 1985"
-650,nm7862766,2026-03-23,2026-03-23,,"Sydney Cole Alexander","Severance",
-651,nm0359734,2026-03-23,2026-03-23,,"Michael Haneke","Caché","23 de marzo de 1942"
-652,nm0000041,2026-03-23,2026-03-23,,"Akira Kurosawa","Kagemusha","23 de marzo de 1910"
-653,nm12043107,2026-03-23,2026-03-23,,"Sarah Bock","Severance","15 de agosto de 2006"
-654,nm0001264,2026-03-23,2026-03-23,,"Sarah Michelle Gellar","Buffy the Vampire Slayer","14 de abril de 1977"
-655,nm0004918,2026-03-23,2026-03-23,,"Danielle Fishel","Boy Meets World","5 de mayo de 1981"
-656,nm8292247,2026-03-23,2026-03-23,,"Sandra Escacena","Verónica","30 de marzo de 2001"
-657,nm1567113,2026-03-24,2026-03-24,,"Jessica Chastain","Zero Dark Thirty","24 de marzo de 1977"
-658,nm0004989,2026-03-24,2026-03-24,,"Alyson Hannigan","Buffy the Vampire Slayer","24 de marzo de 1974"
-659,nm1482999,2026-03-24,2026-03-24,,"María Valverde","Exodus: Gods and Kings","24 de marzo de 1987"
-660,nm1128572,2026-03-24,2026-03-24,,"Lake Bell","In a World...","24 de marzo de 1979"
-661,nm5700898,2026-03-25,2026-03-25,,"Mikey Madison","Anora","25 de marzo de 1999"
-662,nm1486317,2026-04-01,2026-04-01,,"Alycia Debnam-Carey","Apple Cider Vinegar","20 de julio de 1993"
-663,nm1659348,2026-04-01,2026-04-01,,"Lauren Cohan","The Boy","7 de enero de 1982"
-664,nm0000338,2026-04-07,2026-04-07,,"Francis Ford Coppola","Apocalypse Now","7 de abril de 1939"
-665,nm0638428,2026-04-07,2026-04-07,,"Ruth Núñez","Yo soy Bea","7 de abril de 1979"
-666,nm0829576,2026-04-08,2026-04-08,,"Kristen Stewart","The Twilight Saga: Eclipse","9 de abril de 1990"
-667,nm0842258,2026-04-10,2026-04-10,,"Dita Von Teese","The Death of Salvador Dali","28 de septiembre de 1972"
-668,nm1933672,2026-04-10,2026-04-10,,"Inma Cuevas","Vis a vis","1978"
-669,nm0273451,2026-04-10,2026-04-10,,"Dafne Fernández","Un paso adelante","31 de marzo de 1985"
-670,nm1238701,2026-04-10,2026-04-10,,"Joaquín Reyes","Muchachada nui","16 de agosto de 1974"
-671,nm4477261,2026-04-12,2026-04-12,,"Ilana Glazer","Broad City","12 de abril de 1987"
-672,nm5085683,2026-04-13,2026-04-13,,"Mckenna Grace","Gifted","25 de junio de 2006"
-673,nm0736622,2026-04-15,2026-04-15,,"Seth Rogen","This Is the End","15 de abril de 1982"
-674,nm0001182,2026-04-20,2026-04-20,,"Carmen Electra","Scary Movie 4","20 de abril de 1972"
-675,nm0930226,2026-04-20,2026-04-20,,"Caroline Williams","Renfield","27 de marzo de 1957"
-676,nm0000691,2026-04-22,2026-04-22,,"John Waters","Hairspray","22 de abril de 1946"
-677,nm0498247,2026-04-22,2026-04-22,,"Sheryl Lee","Twin Peaks: Fire Walk with Me","22 de abril de 1967"
-678,nm2883665,2026-04-24,2026-04-24,,"Mariam Hernández","Juegos de lucha","25 de abril de 1983"
-679,nm2216549,2026-04-25,2026-04-25,,"Úrsula Corberó","La casa de papel","11 de agosto de 1989"
-680,nm17074540,2026-04-26,2026-04-26,,"Ana Boga","Yo siempre a veces","1994"
-681,nm0763832,2026-05-02,2026-05-02,,"Eva Santolaria","Compañeros","2 de mayo de 1975"
-682,nm14184963,2026-05-02,2026-05-02,,"Andrea Reiriz","Rondallas",
-683,nm0376716,2026-05-03,2026-05-03,,"Christina Hendricks","Ginger & Rosa","3 de mayo de 1975"
-684,nm2772584,2026-05-03,2026-05-03,,"Olivia Taylor Dudley","The Magicians","4 de noviembre de 1985"
-685,nm5262775,2026-05-07,2026-05-07,,"Aidy Bryant","Saturday Night Live","7 de mayo"
-686,nm0327273,2026-05-08,2026-05-08,,"Michel Gondry","Eternal Sunshine of the Spotless Mind","8 de mayo de 1963"
-687,nm1476614,2026-05-10,2026-05-10,,"Elena Jimenez","Kimi-tachi wa dô ikiru ka","26 de junio de 1994"
-688,nm1074427,2026-05-10,2026-05-10,,"Alba Alonso","Encontrando el Fin del Mundo","2 de julio de 1980"
-689,nm4248775,2026-05-11,2026-05-11,,"Sabrina Carpenter","Emergency","11 de mayo de 1999"
-690,nm2501633,2026-05-13,2026-05-13,,"Lena Dunham","Tiny Furniture","13 de mayo de 1986"
-691,nm0001068,2026-05-14,2026-05-14,,"Sofia Coppola","The Godfather Part III","14 de mayo de 1971"
-692,nm0000517,2026-05-14,2026-05-14,,"Terrence Malick","Badlands","30 de noviembre de 1943"
-693,nm0004266,2026-05-14,2026-05-14,,"Anne Hathaway","Les Misérables","12 de noviembre de 1982"
-694,nm1289434,2026-05-14,2026-05-14,,"Emily Blunt","Edge of Tomorrow","23 de febrero de 1983"
-695,nm3056937,2026-05-15,2026-05-15,,"Nerea Camacho","Camino","15 de mayo de 1996"
-696,nm17206913,2026-05-15,2026-05-15,,"Tamara Cortes","La misteriosa mirada del flamenco",
-697,nm0304770,2026-05-16,2026-05-16,,"Alaska","Lucía y el sexo","13 de junio de 1963"
-698,nm9380750,2026-05-16,2026-05-16,,"Aitana","Operación triunfo","27 de junio de 1999"
-699,nm0022134,2026-05-16,2026-05-16,,"Anabel Alonso","7 vidas","11 de noviembre de 1964"
-700,nm1125523,2026-05-16,2026-05-16,,"Chenoa","Operación triunfo","25 de junio de 1975"
-701,nm1083271,2026-05-16,2026-05-16,,"Megan Fox","Transformers","16 de mayo de 1986"
-702,nm3152327,2026-05-16,2026-05-16,,"Ryūsuke Hamaguchi","Doraibu mai kâ","16 de diciembre de 1978"
-703,nm0002817,2026-05-16,2026-05-16,,"Soledad Miranda","Vampyros Lesbos","9 de julio de 1943"
-704,nm0141123,2026-05-17,2026-05-17,,"Raffaella Carrà","En tout cas","18 de junio de 1943"
-705,nm0716347,2026-05-18,2026-05-18,,"Nicolas Winding Refn","The Neon Demon","29 de septiembre de 1970"
-706,nm0649638,2026-05-19,2026-05-19,,"Natalia Oreiro","Sos mi vida","19 de mayo de 1977"
-707,nm6031795,2026-05-24,2026-05-24,,"Júlia Molins","Framed","24 de mayo de 1993"
-708,nm5455952,2026-05-27,2026-05-27,,"Ashley Padilla","Saturday Night Live","27 de mayo de 1993"
-709,nm10948522,2026-06-06,2026-06-06,,"Isabel Aimé González-Sola","Las corrientes",
-710,nm9917159,2026-06-07,2026-06-07,,"Lily Collias","Good One",
-711,nm4528537,2026-06-07,2026-06-07,,"Nick Antosca","Channel Zero","23 de enero de 1983"
-712,nm0298188,2026-06-07,2026-06-07,,"Bryan Fuller","Pushing Daisies","27 de julio de 1969"
-713,nm2282610,2026-06-09,2026-06-09,,"Lauren Socha","Misfits","9 de junio de 1990"
-714,nm16117984,2026-06-14,2026-06-14,,"Mahsa Rostami","Dane-ye anjir-e ma'abed",
-715,nm1017221,2026-06-15,2026-06-15,,"Diana Gómez","¡García!","7 de marzo de 1989"
-716,nm5256792,2026-06-15,2026-06-15,,"Paula Malia","A muerte",
-717,nm1283047,2026-06-18,2026-06-18,,"Núria Gago","Verónica","10 de marzo de 1980"
-718,nm10977171,2026-06-20,2026-06-20,,"Valèria Sorolla","La consagración de la primavera","13 de mayo de 1997"
-719,nm8410818,2026-06-20,2026-06-20,,"Eden Weiss","Keeper",
-720,nm0000066,2026-06-20,2026-06-20,,"Jane Russell","Gentlemen Prefer Blondes","21 de junio de 1921"
-721,nm4787894,2026-06-21,2026-06-21,,"Lana Del Rey","The Great Gatsby","21 de junio de 1985"
-722,nm3929195,2026-06-24,2026-06-24,,"Erin Moriarty","The Boys","24 de junio de 1994"
-723,nm0001882,2026-06-24,2026-06-24,,"Olivia d'Abo","Conan the Destroyer","22 de enero de 1969"
-724,nm5982255,2026-06-26,2026-06-26,,"Giuditta Niccoli","Great White Waters",
-725,nm9380741,2026-06-27,2026-06-27,,"Lola Índigo","Cupido, Lola Indigo, Alizzz: Autoestima","1 de abril de 1992"
-726,nm2728165,2026-06-27,2026-06-27,,"Jessie Cave","Harry Potter and the Half-Blood Prince","5 de mayo de 1987"
-727,nm0010736,2026-06-29,2026-06-29,,"Amy Adams","Arrival","20 de agosto de 1974"
-728,nm0000194,2026-06-30,2026-06-30,,"Julianne Moore","Far from Heaven","3 de diciembre de 1960"
-729,nm8619739,2026-07-03,2026-07-03,,"Paula Reyes","Casa de fieras",
-730,nm13707936,2026-07-03,2026-07-03,,"Victoria Oliver","Morangos com Açúcar",
-731,nm5229490,2026-07-03,2026-07-03,,"Vito Sanz","Volveréis",
-732,nm9816829,2026-07-03,2026-07-03,,"Isa Calderón","Millennial Mal",
-733,nm18661118,2026-07-03,2026-07-03,,"Paula Gala","Parecido a un asesinato",
-734,nm14123962,2026-07-03,2026-07-03,,"Miriam Rubio","Millennial Mal",
-735,nm4901194,2026-07-04,2026-07-04,,"Rigoberta Bandini","Divergent","1990"
-736,nm4805115,2026-07-04,2026-07-04,,"Elena Martín","Júlia ist","1992"
-737,nm1354244,2026-07-04,2026-07-04,,"Alizée","A Good Year","21 de agosto de 1984"
-738,nm1296554,2026-07-04,2026-07-04,,"Ben Wheatley","Free Fire","mayo de 1972"
-739,nm6584167,2026-07-04,2026-07-04,,"Lena Urzendowsky","Kokon","16 de febrero de 2000"
-740,nm17309058,2026-07-04,2026-07-04,,"Greta Krämer","In die Sonne schauen",
-741,nm4945765,2026-07-09,2026-07-09,,"Belén Barenys","Autodefensa",
-742,nm2247200,2026-07-09,2026-07-09,,"Albert Serra","Pacifiction","1975"
-743,nm0243233,2026-07-09,2026-07-09,,"Mark Duplass","Creep","7 de diciembre de 1976"
-744,nm5313125,2026-07-09,2026-07-09,,"Jane Schoenbrun","Teenage Sex and Death at Camp Miasma","5 de febrero"
-745,nm0307497,2026-07-10,2026-07-10,,"Alex Garland","Ex Machina","26 de mayo de 1970"
-746,nm0706066,2026-07-12,2026-07-12,,"Taija Rae","Raw Talent","29 de enero de 1961"
-747,nm5950715,2026-07-13,2026-07-13,,"Tate McRae","F1","1 de julio de 2003"
-748,nm0000182,2026-07-13,2026-07-13,,"Jennifer Lopez","Hustlers","24 de julio de 1969"
-749,nm8367841,2026-07-14,2026-07-14,,"Lauren LaVera","Terrifier 2","14 de junio de 1994"
-750,nm10080112,2026-07-14,2026-07-14,,"Amelie McLain","Terrifier 2",
-751,nm6637505,2026-07-14,2026-07-14,,"Kailey Hyman","Terrifier 2","15 de febrero de 1996"
-752,nm9985559,2026-07-14,2026-07-14,,"Izaro","IZARO & Baiuca feat. Oreka TX: Xorieri",
-753,nm9984699,2026-07-15,2026-07-15,,"Inde Navarrette","Obsession","3 de marzo de 2001"
-754,nm6102767,2026-07-15,2026-07-15,,"Megan Lawless","Obsession",
-755,nm3364779,2026-07-16,2026-07-16,,"Vanessa Bayer","Trainwreck","14 de noviembre de 1981"
-756,nm3977393,2026-07-16,2026-07-16,,"Tessa Violet","The Matchbreaker",
-757,nm5261051,2026-07-17,2026-07-17,,"Annalisa Scarrone","Annalisa: Bellissima","5 de agosto de 1985"
-758,nm6185683,2026-07-17,2026-07-17,,"Emily Rudd","One Piece","24 de febrero de 1993"
-759,nm10603736,2026-07-17,2026-07-17,,"Lera Abova","Anna","4 de noviembre de 1992"
-760,nm1197737,2026-07-18,2026-07-18,,"Carmen Machi","Aída","7 de enero de 1963"
-761,nm16382228,2026-07-18,2026-07-18,,"Aitana Batres","Élite",
-762,nm18382887,2026-07-20,2026-07-20,,"Vana","VANA: Pray",
-763,nm0172770,2026-07-21,2026-07-21,,"Mary Collinson","Permissive","22 de julio de 1952"
-764,nm1238859,2026-07-23,2026-07-23,,"Ernesto Sevilla","Camera Café, la película","1978"
-765,nm11860692,2026-07-24,2026-07-24,,"Mae Muller","Moonshot","26 de agosto de 1997"
-766,nm0000535,2026-07-26,2026-07-26,,"Rose McGowan","Planet Terror","5 de septiembre de 1973"
-767,nm4555326,2026-07-26,2026-07-26,,"Ivana Staneva","Conan the Barbarian",
-768,nm0629697,2026-07-27,2026-07-27,,"Rachel Nichols","G.I. Joe: The Rise of Cobra","8 de enero de 1980"
-769,nm10656367,2026-08-02,2026-08-02,,"Zoey Luna","Slay","23 de julio de 2001"
-770,nm0000138,2026-08-03,2026-08-03,,"Leonardo DiCaprio","The Departed","11 de noviembre de 1974"
-771,nm3121384,2026-08-04,2026-08-04,,"Becky G","Power Rangers","2 de marzo de 1997"
-772,nm1046264,2026-08-08,2026-08-08,,"Mónica Naranjo","Minions: The Rise of Gru","23 de mayo de 1974"
-773,nm0959515,2026-08-08,2026-08-08,,"Marian Álvarez","Lo mejor de mí","1 de abril de 1978"
-774,nm5362727,2026-08-08,2026-08-08,,"Elena Sanz","Black Mirror",
-775,nm0508249,2026-08-17,2026-08-17,,"Loles León","Átame!","1 de agosto de 1950"
-776,nm1676221,2026-08-20,2026-08-20,,"Andy Samberg","Popstar: Never Stop Never Stopping","18 de agosto de 1978"
-777,nm7436993,2026-08-20,2026-08-20,,"Tramell Tillman","Mission: Impossible - The Final Reckoning","17 de junio de 1985"
-778,nm16659307,2026-08-25,2026-08-25,,"Six Sex","I'm a Star",
-779,nm7945379,2026-08-25,2026-08-25,,"Sarah Sawyer","Tokyo Vice",
-780,nm0000600,2026-08-28,2026-08-28,,"Sam Raimi","Spider-Man","23 de octubre de 1959"
-781,nm2962353,2026-08-28,2026-08-28,,"Pom Klementieff","Guardians of the Galaxy Vol. 3","3 de mayo de 1986"
-782,nm3065809,2026-08-29,2026-08-29,,"Rosabell Laurenti Sellers","Gli equilibristi","27 de marzo de 1996"
-783,nm1693112,2026-08-30,2026-08-30,,"Carlos Areces","Balada triste de trompeta","27 de marzo de 1976"
-784,nm1481149,2026-08-30,2026-08-30,,"Aitziber Garmendia","Ocho apellidos vascos","10 de diciembre de 1982"
-785,nm2255973,2026-08-31,2026-08-31,,"Donald Glover","Solo: A Star Wars Story","25 de septiembre de 1983"
-786,nm3958585,2026-09-03,2026-09-03,,"Rainey Qualley","Delilah","11 de marzo de 1990"
-787,nm3172796,2026-09-03,2026-09-03,,"Melina Matthews","The Room Next Door","21 de noviembre de 1986"
-788,nm0005403,2026-09-04,2026-09-04,,"Jason Schwartzman","Rushmore","26 de junio de 1980"
-789,nm7213994,2026-09-04,2026-09-04,,"Grace Edwards","Asteroid City",
-790,nm0027572,2026-09-04,2026-09-04,,"Wes Anderson","Fantastic Mr. Fox","1 de mayo de 1969"
-791,nm3143851,2026-09-04,2026-09-04,,"Sophia Anne Caruso","The School for Good and Evil","11 de julio de 2001"
-792,nm8325312,2026-09-05,2026-09-05,,"Jazzara Jaslyn","One Piece",
-793,nm1570048,2026-09-05,2026-09-05,,"Lola Créton","Après mai","16 de diciembre de 1993"
-794,nm1252362,2026-09-07,2026-09-07,,"Bertrand Mandico","Les Garçons sauvages","21 de marzo de 1971"
-795,nm10384695,2026-09-08,2026-09-08,,"María Herrera","El cuento de una noche de verano",
-796,nm1913734,2026-09-09,2026-09-09,,"Rooney Mara","The Girl with the Dragon Tattoo","17 de abril de 1985"
-797,nm0085312,2026-09-09,2026-09-09,,"Jack Black","School of Rock","28 de agosto de 1969"
-798,nm1706767,2026-09-09,2026-09-09,,"Jonah Hill","22 Jump Street","20 de diciembre de 1983"
-799,nm1247855,2026-09-09,2026-09-09,,"Carrie Brownstein","Portlandia","27 de septiembre de 1974"
-800,nm0001814,2026-09-09,2026-09-09,,"Gus Van Sant","Elephant","24 de julio de 1952"
-801,nm2785837,2026-09-18,2026-09-18,,"Young-mi","Sanada kunoichi ninpo-den Kasumi nairan! Yukimura ansatsu!!",
-802,nm2087739,2026-09-19,2026-09-19,,"Jeremy Allen White","Springsteen: Deliver Me from Nowhere","17 de febrero de 1991"
-803,nm3747326,2026-09-19,2026-09-19,,"Nicki Minaj","The Other Woman","8 de diciembre de 1982"
-804,nm12659254,2026-09-19,2026-09-19,,"Paulina Villarreal","The Warning: Qué Más Quieres",
-805,nm4663937,2026-09-26,2026-09-26,,"Laia Costa","Victoria","18 de febrero de 1985"
-806,nm2724795,2026-09-26,2026-09-26,,"Oriol Pla","Yo, adicto","17 de abril de 1993"
-807,nm0617687,2026-09-26,2026-09-26,,"Nicolás Méndez","9'8m/s²",
-808,nm10242824,2026-09-26,2026-09-26,,"Ava Max","Scoob!","16 de febrero de 1994"
-809,nm12749556,2026-09-28,2026-09-28,,"Akari Takaishi","Ghost Killer",
-810,nm2225369,2026-09-28,2026-09-28,,"Jennifer Lawrence","The Hunger Games","15 de agosto de 1990"
-811,nm13511755,2026-09-30,2026-09-30,,"Lizzie Davidson","Death in Paradise",
+273,nm6759748,2021-07-16,2021-07-16,,"Pearl Amanda Dickson","Lucy in the Sky",
+274,nm10428193,2021-07-17,2021-07-17,,"Sabrina De La Hoz","La llorona",
+275,nm9129886,2021-07-17,2021-07-17,,"Diane Bathen","Temblores",
+276,nm0717709,2021-07-18,2021-07-18,,"Kelly Reilly","Pride & Prejudice","18 de julio de 1977"
+277,nm0596670,2021-07-18,2021-07-18,,"Claudia Molina","Planta 25","19 de noviembre de 1985"
+278,nm1017334,2021-07-21,2021-07-21,,"Juno Temple","Atonement","21 de julio de 1989"
+279,nm0000427,2021-07-23,2021-07-23,,"Pam Grier","Jackie Brown","26 de mayo de 1949"
+280,nm4960279,2021-07-23,2021-07-23,,"Margaret Qualley","Once Upon a Time in... Hollywood","23 de octubre de 1994"
+281,nm0266824,2021-07-27,2021-07-27,,"Dakota Fanning","War of the Worlds","23 de febrero de 1994"
+282,nm5611121,2021-07-31,2021-07-31,,"Millie Bobby Brown","Enola Holmes","19 de febrero de 2004"
+283,nm0880521,2021-08-02,2021-08-02,,"Liv Ullmann","Viskningar och rop","16 de diciembre de 1938"
+284,nm0001012,2021-08-04,2021-08-04,,"Claudia Cardinale","C'era una volta il West","15 de abril de 1938"
+285,nm0000003,2021-08-04,2021-08-04,,"Brigitte Bardot","Le Mépris","28 de septiembre de 1934"
+286,nm1950086,2021-08-04,2021-08-04,,"Greta Gerwig","Barbie","4 de agosto de 1983"
+287,nm1275259,2021-08-04,2021-08-04,,"Alexandra Daddario","Baywatch","16 de marzo de 1986"
+288,nm0865501,2021-08-10,2021-08-10,,"Maria Teresa Toffano","La notte che Evelyn uscì dalla tomba",
+289,nm3034977,2021-08-25,2021-08-25,,"Samara Weaving","Three Billboards Outside Ebbing, Missouri","23 de febrero de 1992"
+290,nm3725055,2021-09-09,2021-09-09,,"Jessica Henwick","The Royal Hotel","30 de agosto"
+291,nm0267812,2021-09-11,2021-09-11,,"Vera Farmiga","Up in the Air","6 de agosto de 1973"
+292,nm2265157,2021-09-11,2021-09-11,,"Isabelle Fuhrman","Orphan","25 de febrero de 1997"
+293,nm5046593,2021-09-14,2021-09-14,,"Amy Forsyth","Hell Fest","6 de agosto de 1995"
+294,nm0169358,2021-09-16,2021-09-16,,"Emma Cohen","Novela","21 de noviembre de 1946"
+295,nm4469165,2021-10-07,2021-10-07,,"Garance Marillier","Grave","11 de febrero de 1998"
+296,nm6224152,2021-10-08,2021-10-08,,"Paula Gallego","La pasajera","5 de febrero de 2004"
+297,nm6906829,2021-10-08,2021-10-08,,"Annes Elwy","Little Women",
+298,nm5304098,2021-10-08,2021-10-08,,"Sarah Perles","Au Pair",
+299,nm4842197,2021-10-09,2021-10-09,,"Hayley Squires","I, Daniel Blake","16 de abril de 1988"
+300,nm1443740,2021-10-14,2021-10-14,,"Zoe Kazan","Ruby Sparks","9 de septiembre de 1983"
+301,nm0626259,2021-10-19,2021-10-19,,"Franco Nero","John Wick: Chapter 2","23 de noviembre de 1941"
+302,nm0707728,2021-10-19,2021-10-19,,"Giovanna Ralli","C'eravamo tanto amati","2 de enero de 1935"
+303,nm8928699,2021-10-20,2021-10-20,,"Keith Thomas","The Vigil",
+304,nm0179281,2021-10-21,2021-10-21,,"Sergio Corbucci","Django","6 de diciembre de 1926"
+305,nm1296762,2021-10-26,2021-10-26,,"Macarena Gómez","Musarañas","2 de febrero de 1978"
+306,nm0581145,2021-10-26,2021-10-26,,"Raquel Meroño","Paco y Veva","8 de agosto de 1975"
+307,nm4068901,2021-10-26,2021-10-26,,"Madison Wolfe","The Conjuring 2","16 de octubre de 2002"
+308,nm6264850,2021-10-30,2021-10-30,,"Eliza Rycembel","Boze Cialo","1992"
+309,nm11579814,2021-10-30,2021-10-30,,"Almudena Amor","El buen patrón","30 de marzo de 1994"
+310,nm8594741,2021-10-30,2025-08-22,,"Karina Kolokolchykova","La abuela","1992"
+311,nm8002173,2021-10-30,2021-10-30,,"Chacha Huang","La casa de papel","13 de noviembre"
+312,nm7210986,2021-10-31,2021-10-31,,"Erin Kellyman","Solo: A Star Wars Story","17 de octubre de 1998"
+313,nm4023073,2021-11-02,2021-11-02,,"Rosa Salazar","Alita: Battle Angel","16 de julio de 1985"
+314,nm7084251,2021-11-02,2021-11-02,,"Skylar Radzion","John, 316",
+315,nm3425340,2021-11-02,2021-11-02,,"Margarethe von Stern","The Day of the Purple Sun: Part II",
+316,nm0001303,2021-11-03,2021-11-03,,"Carla Gugino","Watchmen","29 de agosto de 1971"
+317,nm10814833,2021-11-08,2021-11-08,,"Maria Morera","Libertad",
+318,nm8132285,2021-11-10,2021-11-10,,"Amalia Ulman","El Planeta","1989"
+319,nm7107258,2021-11-14,2021-11-14,,"Elisabet Casanovas","La Ruta","15 de diciembre de 1994"
+320,nm0542146,2021-11-20,2021-11-20,,"Silvana Mangano","Dune","21 de abril de 1930"
+321,nm0942486,2021-11-20,2021-11-20,,"Jenny Wright","Near Dark","23 de marzo de 1962"
+322,nm0000899,2021-11-28,2021-11-28,,"Monica Bellucci","Malèna","30 de septiembre de 1964"
+323,nm0000124,2021-12-02,2021-12-02,,"Jennifer Connelly","A Beautiful Mind","12 de diciembre de 1970"
+324,nm0647634,2021-12-07,2021-12-07,,"Elizabeth Olsen","Martha Marcy May Marlene","16 de febrero de 1989"
+325,nm0000478,2021-12-19,2021-12-19,,"Tawny Kitaen","Bachelor Party","5 de agosto de 1961"
+326,nm5157662,2021-12-22,2021-12-22,,"Lulu Wilson","The Haunting of Hill House","7 de octubre"
+327,nm5301405,2021-12-29,2021-12-29,,"Mia Goth","Pearl","25 de octubre de 1993"
+328,nm3830257,2022-01-01,2022-01-01,,"Melissa Villaseñor","Hoppers","9 de octubre de 1987"
+329,nm0150014,2022-01-12,2022-01-12,,"Pauline Challoner","One Step Beyond","1951"
+330,nm0661192,2022-01-12,2022-01-12,,"Conchita Paredes","La residencia",
+331,nm0554718,2022-01-12,2022-01-12,,"Maribel Martín","El juglar y la reina","1 de noviembre de 1954"
+332,nm7393303,2022-01-14,2022-01-14,,"Sophie Thatcher","Companion","18 de octubre de 2000"
+333,nm1555340,2022-01-14,2022-01-14,,"Alison Brie","GLOW","29 de diciembre de 1982"
+334,nm5376319,2022-01-28,2022-01-28,,"Alisa Torres","Please Baby Please",
+335,nm0000193,2022-01-28,2022-01-28,,"Demi Moore","Striptease","11 de noviembre de 1962"
+336,nm0200680,2022-02-07,2022-02-07,,"Lise Danvers","Contes immoraux",
+337,nm0018823,2022-02-07,2022-02-07,,"Charlotte Alexandra","Une vraie jeune fille",
+338,nm0683831,2022-02-10,2022-02-10,,"Silvia Pinal","Viridiana","12 de septiembre de 1931"
+339,nm3907977,2022-02-11,2022-02-11,,"Sophie Kargman","Query",
+340,nm9476408,2022-03-01,2022-03-01,,"Hunter Schafer","Euphoria","31 de diciembre de 1998"
+341,nm0740760,2022-03-06,2022-03-06,,"Mireia Ros","La Moños","3 de diciembre de 1956"
+342,nm0508835,2022-03-06,2022-03-06,,"Eva Lyberten","Samanka","20 de diciembre de 1958"
+343,nm0650449,2022-03-06,2022-03-06,,"Alicia Orozco","Los violadores del amanecer",
+344,nm0493473,2022-03-06,2022-03-06,,"Linda Lay","Los violadores del amanecer",
+345,nm0763768,2022-03-22,2022-03-22,,"Inma de Santis","La duda","24 de febrero de 1959"
+346,nm3920288,2022-03-28,2022-03-28,,"Taissa Farmiga","The Final Girls","17 de agosto de 1994"
+347,nm0438585,2022-03-31,2022-03-31,,"Valérie Kaprisky","Breathless","19 de agosto de 1962"
+348,nm1799971,2022-04-08,2022-04-08,,"Marta Hazas","Amigos hasta la muerte","31 de diciembre de 1977"
+349,nm0729252,2022-04-08,2022-04-08,,"Elena Rivera","Sequía","29 de agosto de 1992"
+350,nm11778190,2022-04-13,2022-04-13,,"Rosalía Mira","Ella solo come carne",
+351,nm4487976,2022-04-17,2022-04-17,,"Maddie Hasson","Elevation","4 de enero de 1995"
+352,nm1132359,2022-04-28,2022-04-28,,"Summer Glau","Serenity","24 de julio de 1981"
+353,nm1083430,2022-04-29,2022-04-29,,"Yoima Valdés","Agua con sal",
+354,nm0785897,2022-04-29,2022-04-29,,"Nathalie Seseña","La Celestina","1967"
+355,nm0000379,2022-05-01,2022-05-01,,"Kirsten Dunst","Spider-Man","30 de abril de 1982"
+356,nm0274216,2022-05-01,2022-05-01,,"Rebecca Ferratti","Ace Ventura: Pet Detective","27 de noviembre de 1964"
+357,nm1373106,2022-05-01,2022-05-01,,"Lali Espósito","Casi ángeles","10 de octubre de 1991"
+358,nm6351089,2022-05-07,2022-05-07,,"Millie Brady","Roadkill","24 de diciembre de 1993"
+359,nm0135037,2022-05-12,2022-05-12,,"Barbara Capell","L'éducation sentimentale","23 de enero de 1950"
+360,nm0546556,2022-05-15,2022-05-15,,"Leticia Marfil","Mil gritos tiene la noche",
+361,nm0303756,2022-05-15,2022-05-15,,"Silvia Gambino","Mil gritos tiene la noche","1 de enero de 1965"
+362,nm0631331,2022-05-15,2022-05-15,,"Roxana Nieto","Mil gritos tiene la noche",
+363,nm2539953,2022-05-19,2022-05-19,,"Alicia Vikander","Ex Machina","3 de octubre de 1988"
+364,nm0616766,2022-05-19,2022-05-19,,"Kim Myers","A Nightmare on Elm Street Part 2: Freddy's Revenge","15 de febrero de 1966"
+365,nm0005060,2022-05-24,2022-05-24,,"Kristen Johnston","Austin Powers: The Spy Who Shagged Me","20 de septiembre de 1967"
+366,nm2028131,2022-06-02,2022-06-02,,"Adriana Torrebejano","La sombra de la ley","3 de noviembre de 1991"
+367,nm0898288,2022-06-06,2022-06-06,,"Denis Villeneuve","Dune: Part One","3 de octubre de 1967"
+368,nm0397171,2022-06-08,2022-06-08,,"Bryce Dallas Howard","Jurassic World: Dominion","2 de marzo de 1981"
+369,nm0893638,2022-06-08,2022-06-08,,"Natalia Verbeke","El otro lado de la cama","23 de febrero de 1975"
+370,nm8402992,2022-06-14,2022-06-14,,"Daisy Edgar-Jones","Normal People","24 de mayo de 1998"
+371,nm10620978,2022-06-18,2022-06-18,,"Sidney Flanigan","Never Rarely Sometimes Always","19 de octubre de 1998"
+372,nm7867621,2022-06-18,2022-06-18,,"Talia Ryder","Never Rarely Sometimes Always","16 de agosto de 2002"
+373,nm0286579,2022-06-22,2022-06-22,,"Verónica Forqué","¿Qué he hecho YO para merecer esto!!","1 de diciembre de 1955"
+374,nm1105980,2022-06-29,2022-06-29,,"Kathryn Newton","Ant-Man and the Wasp: Quantumania","8 de febrero"
+375,nm0092608,2022-07-04,2022-07-04,,"Jenovéfa Boková","Chvilky","16 de mayo de 1992"
+376,nm3987673,2022-07-05,2022-07-05,,"Ariane Labed","Assassin's Creed","8 de mayo de 1984"
+377,nm3272744,2022-07-05,2022-07-05,,"Fatma Mohamed","In Fabric","4 de septiembre de 1975"
+378,nm0219827,2022-07-06,2022-07-06,,"Donna Denton","Outlaw of Gor",
+379,nm2251731,2022-07-09,2022-07-09,,"Aya Cash","The Boys","13 de julio"
+380,nm9306091,2022-07-10,2022-07-10,,"Amaryllis Tremblay","Six Degrés",
+381,nm1361837,2022-07-11,2022-07-11,,"Natalia Sánchez","Sueños de libertad","27 de marzo de 1990"
+382,nm0845189,2022-07-11,2022-07-11,,"Verónica Sánchez","Gordos","1 de julio de 1977"
+383,nm0000043,2022-07-11,2022-07-11,,"Veronica Lake","Sullivan's Travels","14 de noviembre de 1922"
+384,nm2414781,2022-07-16,2022-07-16,,"Laura de la Isla","Barcelona, nit d'hivern","1987"
+385,nm0001159,2022-07-16,2022-07-16,,"Faye Dunaway","Bonnie and Clyde","14 de enero de 1941"
+386,nm0000303,2022-07-18,2022-07-18,,"Honor Blackman","Goldfinger","22 de agosto de 1925"
+387,nm0247881,2022-07-18,2022-07-18,,"Shirley Eaton","Goldfinger","12 de enero de 1937"
+388,nm1690270,2022-08-04,2022-08-04,,"Amber Midthunder","Prey","26 de abril"
+389,nm0000805,2022-08-10,2022-08-10,,"Claudine Auger","Thunderball","26 de abril de 1941"
+390,nm0000079,2022-08-12,2022-08-12,,"Raquel Welch","The Three Musketeers","5 de septiembre de 1940"
+391,nm0284315,2022-08-16,2022-08-16,,"Alison Folland","To Die For","10 de agosto de 1978"
+392,nm5584750,2022-08-16,2022-08-16,,"Sadie Sink","Stranger Things","16 de abril de 2002"
+393,nm7581394,2022-08-16,2022-08-16,,"Audrey Holcomb","Stranger Things",
+394,nm3513533,2022-09-03,2022-09-03,,"Stephanie Hsu","The Marvelous Mrs. Maisel","25 de noviembre de 1990"
+395,nm4561559,2022-09-03,2022-09-03,,"Renate Reinsve","Affeksjonsverdi","24 de noviembre de 1987"
+396,nm0840772,2022-09-19,2022-09-19,,"Emma Suárez","Julieta","25 de junio de 1964"
+397,nm0728484,2022-09-19,2022-09-19,,"Ana Risueño","La herencia Valdemar","22 de junio de 1969"
+398,nm2913275,2022-09-24,2022-09-24,,"Debby Ryan","Insatiable","13 de mayo de 1993"
+399,nm11942181,2022-10-10,2022-10-10,,"Edurne Azkarate","Irati",
+400,nm1189197,2022-10-11,2022-10-11,,"Quentin Dupieux","Rubber","14 de abril de 1974"
+401,nm4205963,2022-10-11,2022-10-11,,"Oulaya Amamra","Divines","12 de noviembre de 1996"
+402,nm1326732,2022-10-11,2022-10-11,,"Anaïs Demoustier","Le Comte de Monte-Cristo","29 de septiembre de 1987"
+403,nm2140860,2022-10-12,2022-10-12,,"Maika Monroe","It Follows","29 de mayo de 1993"
+404,nm1987150,2022-10-22,2022-10-22,,"Esperanza Pedreño","Camera café","20 de diciembre de 1974"
+405,nm0851582,2022-12-09,2022-12-09,,"Audrey Tautou","Le fabuleux destin d'Amélie Poulain","9 de agosto de 1976"
+406,nm5001826,2022-12-09,2022-12-09,,"Zoe Stein","Mantícora","2000"
+407,nm13581656,2022-12-17,2022-12-17,,"Carla Quílez","La maternal","2008"
+408,nm9220161,2022-12-20,2022-12-20,,"Markella Kavenagh","My First Summer","30 de enero de 2000"
+409,nm0428065,2022-12-21,2022-12-21,,"Felicity Jones","Rogue One","17 de octubre de 1983"
+410,nm2033210,2022-12-22,2022-12-22,,"Celia Freijeiro","Vida perfecta","9 de febrero de 1983"
+411,nm0531808,2023-01-06,2023-01-06,,"Kelly Macdonald","No Country for Old Men","23 de febrero de 1976"
+412,nm4911194,2023-01-13,2023-01-13,,"Jenna Ortega","Wednesday","27 de septiembre de 2002"
+413,nm0771268,2023-01-14,2023-01-14,,"Rosanna Schiaffino","La mandragola","25 de noviembre de 1939"
+414,nm0090041,2023-01-24,2023-01-24,,"Janus Blythe","The Hills Have Eyes","29 de enero de 1951"
+415,nm2555462,2023-02-04,2023-02-04,,"Eiza González","Baby Driver","30 de enero"
+416,nm0005412,2023-02-08,2023-02-08,,"Jane Seymour","Somewhere in Time","15 de febrero de 1951"
+417,nm3948952,2023-02-11,2023-02-11,,"Vanessa Kirby","The Crown","18 de abril de 1987"
+418,nm0000099,2023-02-11,2023-02-11,,"Patricia Arquette","True Romance","8 de abril de 1968"
+419,nm0000486,2023-02-11,2023-02-11,,"Heather Langenkamp","A Nightmare on Elm Street","17 de julio de 1964"
+420,nm0748075,2023-02-11,2023-02-11,,"Jennifer Rubin","A Nightmare on Elm Street 3: Dream Warriors","3 de abril de 1962"
+421,nm0000208,2023-02-18,2023-02-18,,"Molly Ringwald","Sixteen Candles","18 de febrero de 1968"
+422,nm6854116,2023-02-18,2023-02-18,,"Milly Alcock","Supergirl","11 de abril de 2000"
+423,nm0006802,2023-03-11,2023-03-11,,"Toy Newkirk","A Nightmare on Elm Street 4: The Dream Master","27 de julio de 1969"
+424,nm4714676,2023-03-31,2023-03-31,,"Luàna Bajrami","Portrait de la jeune fille en feu","14 de marzo de 2001"
+425,nm3964350,2023-03-31,2023-03-31,,"Amandla Stenberg","The Hunger Games","23 de octubre de 1998"
+426,nm0823219,2023-04-03,2023-04-03,,"Koo Stark","Electric Dreams","26 de abril de 1956"
+427,nm0000819,2023-04-05,2023-04-05,,"Barbara Bach","The Spy Who Loved Me","28 de agosto de 1946"
+428,nm0613098,2023-04-05,2023-04-05,,"Caroline Munro","The Spy Who Loved Me","16 de enero de 1949"
+429,nm10847160,2023-04-06,2023-04-06,,"Suzanna Son","Red Rocket","31 de octubre de 1995"
+430,nm3856214,2023-04-20,2023-04-20,,"Mireia Vilapuig","Selftape","2 de septiembre de 1997"
+431,nm4001257,2023-04-20,2023-04-20,,"Joana Vilapuig","Selftape","23 de octubre de 1994"
+432,nm1333962,2023-04-22,2023-04-22,,"Carolina Gaitan","Encanto","4 de abril de 1984"
+433,nm4738005,2023-04-22,2023-04-22,,"Clara Alvarado","La casa de papel",
+434,nm9016307,2023-04-28,2023-04-28,,"Katrin Vankova","The Unbearable Weight of Massive Talent",
+435,nm2091852,2023-04-28,2023-04-28,,"Lily Mo Sheen","The Unbearable Weight of Massive Talent","31 de enero de 1999"
+436,nm3380235,2023-04-29,2023-04-29,,"Ana Morgade","Tu cara me suena","8 de noviembre de 1979"
+437,nm7463803,2023-05-03,2023-05-03,,"Julia Antonelli","Beau Is Afraid","7 de mayo de 2003"
+438,nm0310823,2023-05-05,2023-05-05,,"Françoise Gayat","Moonraker",
+439,nm0508828,2023-05-05,2023-05-05,,"Béatrice Libert","Moonraker",
+440,nm2780716,2023-05-07,2023-05-07,,"Victoria Luengo","The Room Next Door","7 de abril de 1990"
+441,nm3177499,2023-05-17,2023-05-17,,"Numa Paredes","Are You Afraid of the Dark?",
+442,nm1982510,2023-05-20,2023-05-20,,"Jenna Coleman","Victoria","27 de abril de 1986"
+443,nm2725254,2023-05-22,2023-05-22,,"María León","La voz dormida","30 de julio de 1984"
+444,nm6713944,2023-05-28,2023-05-28,,"Laura Weissmahr","Salve Maria","1992"
+445,nm0001349,2023-05-30,2023-05-30,,"Jennifer Love Hewitt","I Know What You Did Last Summer","21 de febrero de 1979"
+446,nm0135666,2023-06-01,2023-06-01,,"Debora Caprioglio","Paprika","3 de mayo de 1968"
+447,nm0342111,2023-06-01,2023-06-01,,"Eva Grimaldi","Intimo","7 de septiembre de 1961"
+448,nm10678598,2023-06-05,2023-06-05,,"Yune Nogueiras","La infiltrada",
+449,nm0073031,2023-06-07,2023-06-07,,"Femi Benussi","Il boia scarlatto","4 de marzo de 1945"
+450,nm0001042,2023-06-09,2023-06-09,,"Lois Chiles","Moonraker","15 de abril de 1947"
+451,nm8567338,2023-06-17,2023-06-17,,"Sasha Calle","The Flash","7 de agosto de 1995"
+452,nm13592008,2023-06-25,2023-06-25,,"Frankie Corio","Aftersun","7 de julio de 2010"
+453,nm0376602,2023-06-26,2023-06-26,,"Shirley Henderson","Star Wars: Episode IX - The Rise of Skywalker","24 de noviembre de 1965"
+454,nm10563281,2023-06-27,2023-06-27,,"Aria Bedmar","Hermana Muerte","1 de diciembre de 1994"
+455,nm0382920,2023-07-07,2023-07-07,,"Michele Hicks","Mr. Robot","4 de junio de 1973"
+456,nm14341886,2023-07-09,2023-07-09,,"Ada Mar",,
+457,nm0273312,2023-07-09,2023-07-09,,"Marta Fernández Muro","Laberinto de pasiones","12 de febrero de 1950"
+458,nm1005787,2023-07-09,2023-07-09,,"Natalie Pinot","Ni una más",
+459,nm11306934,2023-07-16,2023-07-16,,"Lydia Page","Blue Jean","29 de mayo de 2002"
+460,nm2259018,2023-07-16,2023-07-16,,"Kerrie Hayes","Blue Jean","1986"
+461,nm0928244,2023-07-18,2023-07-18,,"Lisa Wilcox","A Nightmare on Elm Street 4: The Dream Master","27 de abril"
+462,nm0005571,2023-07-31,2023-07-31,,"Lisa Zane","Freddy's Dead: The Final Nightmare","5 de abril"
+463,nm6341515,2023-08-02,2023-08-02,,"Hari Nef","Barbie","21 de octubre de 1992"
+464,nm0000324,2023-08-10,2023-08-10,,"Barbara Carrera","Never Say Never Again","31 de diciembre de 1945"
+465,nm4258351,2023-08-21,2023-08-21,,"Irantzu Zugarrondo","El reino",
+466,nm14296240,2023-09-02,2023-09-02,,"Sara Espías","Dos dies i l'eternitat",
+467,nm2863907,2023-09-11,2023-09-11,,"Andrea Duro","Tres metros sobre el cielo","14 de octubre de 1991"
+468,nm7090381,2023-09-17,2023-09-17,,"Jasmine Lemée","Mon cirque à moi",
+469,nm4836100,2023-09-20,2023-09-20,,"Nell Tiger Free","The First Omen","13 de octubre de 1999"
+470,nm0004193,2023-10-06,2023-10-06,,"Debbie Rochon","Flesh of the Unforgiven","3 de noviembre de 1968"
+471,nm11326276,2023-10-06,2023-10-06,,"Gabrielle Echols","Reminiscence",
+472,nm0410622,2023-10-13,2023-10-13,,"Katharine Isabelle","Ginger Snaps","2 de noviembre de 1981"
+473,nm0444621,2023-10-13,2023-10-13,,"Monica Keena","Man of the House","28 de mayo de 1979"
+474,nm0424848,2023-10-15,2023-10-15,,"Dakota Johnson","Fifty Shades of Grey","4 de octubre de 1989"
+475,nm0803938,2023-10-16,2023-10-16,,"Brigitte Skay","Die Tote aus der Themse","18 de julio de 1940"
+476,nm7567645,2023-10-21,2023-10-21,,"Sarah Sherman","Three Busy Debras","7 de marzo de 1993"
+477,nm11109114,2023-10-21,2023-10-21,,"Chloe Troast","Please Don't Destroy: The Treasure of Foggy Mountain","14 de mayo de 1997"
+478,nm8298041,2023-10-21,2023-10-21,,"Laia Manzanares","La Tierra llamando a Ana","30 de marzo de 1994"
+479,nm5184937,2023-10-27,2023-10-27,,"Felicity Anne","Devil in Ohio",
+480,nm3192593,2023-10-29,2023-10-29,,"Lydia Fairén","Rey Gitano","2 de octubre de 1989"
+481,nm3957052,2023-11-08,2023-11-08,,"Jenna Kanell","Terrifier","12 de noviembre"
+482,nm2327927,2023-11-08,2023-11-08,,"Katie Maguire","Billions",
+483,nm13805264,2023-12-01,2023-12-01,,"Ania Guijarro","La Mesías",
+484,nm0414046,2023-12-15,2023-12-15,,"Sherry Jackson","The Miracle of Our Lady of Fatima","15 de febrero de 1942"
+485,nm0000508,2023-12-15,2023-12-15,,"Carey Lowell","Licence to Kill","11 de febrero de 1961"
+486,nm5913850,2023-12-16,2023-12-16,,"Nicole Wallace","Culpa mía","22 de marzo de 2002"
+487,nm9342097,2023-12-31,2023-12-31,,"Ruby Cruz","Mare of Easttown","31 de marzo de 2000"
+488,nm1284201,2024-02-03,2024-02-03,,"Mariona Ribas","Amistades peligrosas","18 de junio de 1984"
+489,nm0447695,2024-02-04,2024-02-04,,"Anna Kendrick","Up in the Air","9 de agosto de 1985"
+490,nm10662997,2024-02-09,2024-02-09,,"Helena Ezquerro","La Moderna",
+491,nm5429286,2024-02-16,2024-02-16,,"Alícia Falcó","Las buenas compañías",
+492,nm7914444,2024-02-20,2024-02-20,,"Karina Fontes","Babylon","15 de noviembre de 1992"
+493,nm2212031,2024-03-01,2024-03-01,,"Abby Elliott","No Strings Attached","16 de junio de 1987"
+494,nm0098710,2024-03-03,2024-03-03,,"María Botto","Hustle","10 de febrero de 1974"
+495,nm3993669,2024-03-03,2024-03-03,,"Eva Ugarte","Mira lo que has hecho","14 de diciembre de 1983"
+496,nm12865529,2024-03-04,2024-03-04,,"Paula Campos","Matar cangrejos",
+497,nm12787121,2024-03-23,2024-03-23,,"Catherine Clinch","An Cailín Ciúin",
+498,nm12704880,2024-04-19,2024-04-19,,"Mirela Balic","Una vocal","27 de agosto de 1999"
+499,nm12130013,2024-05-18,2024-05-18,,"Isa Montalbán","Tótem Loba","1998"
+500,nm15213425,2024-05-18,2024-05-18,,"Laura Wedel","Las largas sombras","7 de junio"
+501,nm6847929,2024-05-18,2024-05-18,,"Amanda Arcuri","Fingernails","21 de octubre"
+502,nm3752864,2024-06-02,2024-06-02,,"Paula Jornet","La banyera",
+503,nm6891947,2024-06-09,2024-06-09,,"Lyna Khoudri","The French Dispatch of the Liberty, Kansas Evening Sun","3 de octubre de 1992"
+504,nm0581953,2024-06-09,2024-06-09,,"Roxane Mesquida","À ma soeur !","1 de octubre"
+505,nm0001560,2024-06-24,2024-06-24,,"Ornella Muti","Flash Gordon","9 de marzo de 1955"
+506,nm9496380,2024-06-29,2024-06-29,,"Ingrid Torelli","Late Night with the Devil",
+507,nm2898911,2024-07-06,2024-07-06,,"Mia McKenna-Bruce","Last Train to Christmas","3 de julio"
+508,nm8954229,2024-07-07,2024-07-07,,"Maria Caballero","Alma",
+509,nm6748436,2024-07-28,2024-07-28,,"Dafne Keen","Logan","4 de enero de 2005"
+510,nm2865013,2024-08-04,2024-08-04,,"Helena Miquel","El idioma imposible",
+511,nm1113550,2024-08-19,2024-08-19,,"Abigail Breslin","Little Miss Sunshine","14 de abril de 1996"
+512,nm5527153,2024-09-01,2024-09-01,,"Rosaline Elbay","The Diplomat",
+513,nm0632655,2024-09-02,2024-09-02,,"Momoko Nishida","Denji sentai Megarenjâ","12 de enero de 1975"
+514,nm6812382,2024-09-08,2024-09-08,,"Aina Picarolo","Nina","8 de mayo de 2003"
+515,nm0332081,2024-09-20,2024-09-20,,"Ellie Cornell","Halloween 4: The Return of Michael Myers","15 de diciembre de 1963"
+516,nm0438388,2024-09-20,2024-09-20,,"Wendy Foxworth","Halloween 5: The Revenge of Michael Myers","19 de febrero de 1966"
+517,nm7060064,2024-09-23,2024-09-23,,"Mia Khalifa","Ho in Headlights","10 de febrero de 1993"
+518,nm2790595,2024-10-05,2024-10-05,,"May Calamawy","Ramy","28 de octubre de 1986"
+519,nm11392028,2024-10-12,2024-10-12,,"Haizea Carneros","Cursed",
+520,nm5931077,2024-10-27,2024-10-27,,"Kimberley Tell","Eva's Comet","10 de marzo"
+521,nm7333021,2024-11-09,2024-11-09,,"Kaia Gerber","Bottoms","3 de septiembre de 2001"
+522,nm9603580,2024-11-16,2024-11-16,,"Begoña Vargas","Las leyes de la frontera","18 de diciembre de 1999"
+523,nm3703506,2024-12-08,2024-12-08,,"Eliya Shenhav","Pídeme lo que quieras",
+524,nm0555331,2024-12-11,2024-12-11,,"Sonia Martínez","Segunda enseñanza","23 de septiembre de 1963"
+525,nm2609571,2024-12-17,2024-12-17,,"Violeta Rodríguez","Violeta no coge el ascensor","3 de febrero de 1997"
+526,nm1216145,2024-12-20,2024-12-20,,"Aina Clotet","Això no és Suècia","23 de septiembre de 1982"
+527,nm0570896,2024-12-23,2024-12-23,,"Ashlyn Gere","Realities 2","14 de septiembre de 1959"
+528,nm1443814,2025-01-12,2025-01-12,,"Clara Segura","Mar adentro","6 de mayo de 1974"
+529,nm0722599,2025-01-17,2025-01-17,,"Madlyn Rhue","It's a Mad, Mad, Mad, Mad World","3 de octubre de 1935"
+530,nm0422998,2025-01-26,2025-01-26,,"Lucía Jiménez","El Trono","21 de noviembre de 1978"
+531,nm15446382,2025-02-01,2025-02-01,,"Camila del Campo","Los amantes astronautas",
+532,nm1007012,2025-02-07,2025-02-07,,"Aida Folch","El artista y la modelo","24 de noviembre de 1986"
+533,nm2168632,2025-02-08,2025-02-08,,"Manuela Vellés","Secuestrados","16 de enero de 1987"
+534,nm3864163,2025-02-13,2025-02-13,,"Raffey Cassidy","The Brutalist","12 de noviembre"
+535,nm0211473,2025-02-16,2025-02-16,,"Orchidea De Santis","Amore e morte nel giardino degli dei","20 de diciembre de 1948"
+536,nm3990647,2025-02-27,2025-02-27,,"Valentina Herszage","Mate-me Por Favor","11 de marzo de 1998"
+537,nm9500800,2025-02-27,2025-02-27,,"Bárbara Luz","Ainda Estou Aqui",
+538,nm1212934,2025-03-16,2025-03-16,,"Elena de Frutos","R.I.S. Científica","23 de diciembre de 1985"
+539,nm0833617,2025-04-01,2025-04-01,,"Dorothy Stratten","Galaxina","28 de febrero de 1960"
+540,nm12149893,2025-04-09,2025-04-09,,"Gabriela Andrada","Trinidad","1999"
+541,nm3871647,2025-04-11,2025-04-11,,"Dylan Gelula","First Girl I Loved","7 de mayo de 1994"
+542,nm15730727,2025-04-21,2025-04-21,,"Lourdes Muñiz","¿Estás en casa?",
+543,nm0526259,2025-05-01,2025-05-01,,"Zoë Lund","Bad Lieutenant","9 de febrero de 1962"
+544,nm16412314,2025-05-02,2025-05-02,,"Maite Aguilar","Alemania",
+545,nm6092492,2025-05-10,2025-05-10,,"Bailey Spry","It Follows",
+546,nm2714273,2025-05-10,2025-05-10,,"Lili Sepe","It Follows","13 de enero"
+547,nm8740834,2025-05-18,2025-05-18,,"Ryan Kiera Armstrong","The Lowdown","10 de marzo de 2010"
+548,nm2204429,2025-05-31,2025-05-31,,"Kim Matula","Fighting with My Family","23 de agosto de 1988"
+549,nm5563492,2025-06-01,2025-06-01,,"Angélique Pleau","20 ans d'écart",
+550,nm11004152,2025-06-18,2025-06-18,,"Elizabeth Dulau","Wicked",
+551,nm9480386,2025-06-23,2025-06-23,,"Dora Dimic Rakar","Crno-bijeli svijet","1996"
+552,nm8349839,2025-07-04,2025-07-04,,"Ever Anderson","Resident Evil: The Final Chapter","3 de noviembre de 2007"
+553,nm4129745,2025-07-07,2025-07-07,,"Allison Williams","Girls","13 de abril de 1988"
+554,nm9209960,2025-07-21,2025-07-21,,"Barbie Ferreira","Bob Trevino Likes It","14 de diciembre de 1996"
+555,nm0674020,2025-07-22,2025-07-22,,"Osgood Perkins","Longlegs","2 de febrero de 1974"
+556,nm1995372,2025-08-18,2025-08-18,,"Asami","Joshû Ayaka: Itaburi mesu chôkyô","19 de agosto de 1985"
+557,nm2011274,2025-08-18,2025-08-18,,"Akiho Yoshizawa","Nôsatsu waka-okami: Iroppoi koshitsuki","3 de marzo de 1984"
+558,nm0646575,2025-09-06,2025-09-06,,"Melani Olivares","Aída","18 de febrero de 1973"
+559,nm9374927,2025-09-06,2025-09-06,,"Kelly Depeault","Noémie dit oui","6 de mayo de 2002"
+560,nm0080524,2025-09-06,2025-09-06,,"Mayim Bialik","Beaches","12 de diciembre de 1975"
+561,nm12526687,2025-09-06,2025-09-06,,"Lorea Intxausti Oregi","The Osha Rule",
+562,nm7165354,2025-09-07,2025-09-07,,"Marta Medina","Despertar",
+563,nm0324409,2025-09-13,2025-09-13,,"Bárbara Goenaga","Los cronocrímenes","20 de julio de 1983"
+564,nm0845209,2025-09-13,2025-09-13,,"Aitana Sánchez-Gijón","The Machinist","5 de noviembre de 1968"
+565,nm0632385,2025-09-13,2025-09-13,,"Najwa Nimri","Abre los ojos","14 de febrero de 1972"
+566,nm5557379,2025-09-27,2025-09-27,,"Chloe East","The Fabelmans","16 de febrero de 2001"
+567,nm1631269,2025-09-30,2025-09-30,,"Chloë Grace Moretz","Kick-Ass","10 de febrero de 1997"
+568,nm8438061,2025-10-04,2025-10-04,,"Simone Bucio","La región salvaje",
+569,nm1910857,2025-10-05,2025-10-05,,"Marta Nieto","La mitad de Ana","31 de enero de 1982"
+570,nm11152317,2025-10-10,2025-10-10,,"Kôki","Tornado","5 de febrero de 2003"
+571,nm9557828,2025-10-13,2025-10-13,,"Alexandra Lacaita","Scenes of a Hidden Self",
+572,nm11820179,2025-10-13,2025-10-13,,"Clara Ingold","Rich Flu",
+573,nm14091414,2025-11-02,2025-11-02,,"Aina Martínez","Com si fos ahir",
+574,nm4417692,2025-11-15,2025-11-15,,"Judith Fernández","Santo","2001"
+575,nm10750726,2025-11-15,2025-11-15,,"Victoria Martín","Se tiene que morir mucha gente",
+576,nm8962949,2025-11-15,2025-11-15,,"Júlia Gibert","Ciencia Forense",
+577,nm7874369,2025-11-15,2025-11-15,,"Yasmina Drissi","La Unidad",
+578,nm10348419,2025-11-15,2025-11-15,,"Natàlia Barrientos","No voy a pedirle a nadie que me crea",
+579,nm0551397,2025-11-17,2025-11-17,,"Silvia Marsó","Un, dos, tres... responda otra vez","8 de marzo de 1964"
+580,nm0038572,2025-11-17,2025-11-17,,"Neus Asensi","Los hombres de Paco","4 de agosto de 1965"
+581,nm0193846,2025-11-18,2025-11-18,,"Elisha Cuthbert","The Girl Next Door","30 de noviembre de 1982"
+582,nm12196562,2025-11-24,2025-11-24,,"Sara Martínez","Todo lo otro",
+583,nm4032297,2025-11-30,2025-11-30,,"Chloe Bennet","Agents of S.H.I.E.L.D.","18 de abril de 1992"
+584,nm4874651,2025-11-30,2025-11-30,,"Dove Cameron","56 Days","15 de enero de 1996"
+585,nm1015269,2025-12-05,2025-12-05,,"Nuria Mencía","Post coitum",
+586,nm6773271,2025-12-06,2025-12-06,,"Lucía Díez","El Cid","17 de junio de 1996"
+587,nm1308063,2025-12-06,2025-12-06,,"Ana Polvorosa","La fortuna","14 de diciembre de 1987"
+588,nm10628313,2025-12-12,2025-12-12,,"Mel Jarnson","Mortal Kombat","1 de febrero de 1998"
+589,nm5570560,2025-12-22,2025-12-22,,"Odessa A'zion","Hellraiser","17 de junio de 2000"
+590,nm1108007,2025-12-26,2025-12-26,,"David Lowery","A Ghost Story","26 de diciembre de 1980"
+591,nm14039339,2026-01-01,2026-01-01,,"Ice Spice","Highest 2 Lowest","1 de enero de 2000"
+592,nm0891895,2026-01-02,2026-01-02,,"Paz Vega","Lucía y el sexo","2 de enero de 1976"
+593,nm1086543,2026-01-02,2026-01-02,,"Amanda Seyfried","Les Misérables","3 de diciembre de 1985"
+594,nm4422007,2026-01-03,2026-01-03,,"Anamaria Vartolomei","L'événement","9 de abril de 1999"
+595,nm2794962,2026-01-10,2026-01-10,,"Hailee Steinfeld","True Grit","11 de diciembre de 1996"
+596,nm9757015,2026-01-12,2026-01-12,,"Claudia Riera","La mesita del comedor","22 de noviembre de 1995"
+597,nm0351228,2026-01-12,2026-01-12,,"Paz Gómez","Intacto","29 de julio de 1974"
+598,nm0167941,2026-01-12,2026-01-12,,"Yohana Cobo","Volver","12 de enero de 1985"
+599,nm0002536,2026-01-14,2026-01-14,,"Emmy Rossum","The Phantom of the Opera","12 de septiembre de 1986"
+600,nm3160752,2026-01-14,2026-01-14,,"Emma Kenney","Shameless","14 de septiembre de 1999"
+601,nm2270016,2026-01-14,2026-01-14,,"Laura Wiggins","Rings","8 de agosto de 1988"
+602,nm16120731,2026-01-16,2026-01-16,,"Elvira Lara","Los Tortuga","23 de diciembre de 2005"
+603,nm2215143,2026-01-17,2026-01-17,,"Kiernan Shipka","Carriers","10 de noviembre de 1999"
+604,nm10348418,2026-01-19,2026-01-19,,"Dèlia Brufau","Els encantats",
+605,nm10741326,2026-01-19,2026-01-19,,"Laia Fontàn","Estación Rocafort",
+606,nm0000464,2026-01-22,2026-01-22,,"Jim Jarmusch","Stranger Than Paradise","22 de enero de 1953"
+607,nm0002002,2026-01-22,2026-01-22,,"Shin'ichi Chiba","Kill Bill: Vol. 1","22 de enero de 1939"
+608,nm3091000,2026-01-24,2026-01-24,,"Ana Mena","La piel que habito","25 de febrero de 1997"
+609,nm0007711,2026-01-25,2026-01-25,,"Silvia Abascal","No digas nada","20 de marzo de 1979"
+610,nm8061858,2026-01-26,2026-01-26,,"María Pedraza","La casa de papel","26 de enero de 1996"
+611,nm0279545,2026-02-03,2026-02-03,,"Isla Fisher","Wedding Crashers","3 de febrero de 1976"
+612,nm3718425,2026-02-05,2026-02-05,,"Carla Díaz","Delicious","19 de julio de 1998"
+613,nm3681769,2026-02-11,2026-02-11,,"Chase Sui Wonders","I Know What You Did Last Summer","21 de mayo de 1996"
+614,nm13605360,2026-02-14,2026-02-14,,"Nora Hernández","La cena","1998"
+615,nm0375609,2026-02-14,2026-02-14,,"Brigitte Helm","Metropolis","17 de marzo de 1908"
+616,nm3835303,2026-02-16,2026-02-16,,"Lizze Broadway","Ghosted","16 de febrero de 1998"
+617,nm8958015,2026-02-19,2026-02-19,,"Chappell Roan","Bugonia","19 de febrero de 1998"
+618,nm3849842,2026-02-21,2026-02-21,,"Sophie Turner","Game of Thrones","21 de febrero de 1996"
+619,nm3084972,2026-02-21,2026-02-21,,"Loreto Mauleón","Los renglones torcidos de Dios","14 de agosto de 1988"
+620,nm2987470,2026-02-21,2026-02-21,,"Ana Rujas","Cardo","14 de mayo de 1989"
+621,nm2645106,2026-02-22,2026-02-22,,"Elena Furiase","Cuéntame cómo pasó","9 de marzo de 1988"
+622,nm1226817,2026-02-23,2026-02-23,,"Devon Aoki","DOA: Dead or Alive","10 de agosto de 1982"
+623,nm0048918,2026-02-26,2026-02-26,,"Sean Baker","Red Rocket","26 de febrero"
+624,nm0544718,2026-02-27,2026-02-27,,"Kate Mara","Fantastic Four","27 de febrero de 1983"
+625,nm0000072,2026-02-27,2026-02-27,,"Elizabeth Taylor","Who's Afraid of Virginia Woolf?","27 de febrero de 1932"
+626,nm16944029,2026-02-28,2026-02-28,,"Blanca Soroa","Los domingos","2008"
+627,nm3480246,2026-02-28,2026-02-28,,"Ella Purnell","Fallout","17 de septiembre de 1996"
+628,nm0000366,2026-03-02,2026-03-02,,"Catherine Deneuve","8 femmes","22 de octubre de 1943"
+629,nm5305981,2026-03-03,2026-03-03,,"Camila Cabello","Cinderella","3 de marzo de 1997"
+630,nm0278979,2026-03-07,2026-03-07,,"Jenna Fischer","The Office","7 de marzo de 1974"
+631,nm2168927,2026-03-08,2026-03-08,,"Milana Vayntrub","Werewolves Within","8 de marzo"
+632,nm4957233,2026-03-08,2026-03-08,,"Aisling Franciosi","Stopmotion","6 de junio"
+633,nm1312575,2026-03-10,2026-03-10,,"Olivia Wilde","Don't Worry Darling","10 de marzo de 1984"
+634,nm0012560,2026-03-12,2026-03-12,,"María Adánez","5ºB Escalera dcha.","12 de marzo de 1976"
+635,nm0000304,2026-03-12,2026-03-12,,"Linda Blair","The Exorcist","22 de enero de 1959"
+636,nm5674649,2026-03-13,2026-03-13,,"London Thor","The Girl on the Train","9 de febrero de 1997"
+637,nm1036659,2026-03-14,2026-03-14,,"Bárbara Lennie","Los renglones torcidos de Dios","20 de abril de 1984"
+638,nm4977202,2026-03-14,2026-03-14,,"Amaia Romero","La Mesías","3 de enero de 1999"
+639,nm0000343,2026-03-14,2026-03-14,,"David Cronenberg","The Fly","15 de marzo de 1943"
+640,nm14551692,2026-03-16,2026-03-16,,"Chase Infiniti","One Battle After Another","1 de mayo de 2000"
+641,nm1231899,2026-03-16,2026-03-16,,"Priyanka Chopra Jonas","Barfi!","18 de julio de 1982"
+642,nm14171402,2026-03-18,2026-03-18,,"Júlia Mascort","Yo no moriré de amor",
+643,nm0000266,2026-03-19,2026-03-19,,"Ursula Andress","Dr. No","19 de marzo de 1936"
+644,nm0301984,2026-03-19,2026-03-19,,"Elia Galera","Hospital Central","19 de marzo de 1973"
+645,nm1085458,2026-03-21,2026-03-21,,"Miriam Giovanelli","Limoncello","28 de abril de 1989"
+646,nm0431372,2026-03-21,2026-03-21,,"Duna Jové","Perfume: The Story of a Murderer","29 de septiembre de 1974"
+647,nm0713389,2026-03-22,2026-03-22,,"Tania Raymonde","Lost","22 de marzo de 1988"
+648,nm3138882,2026-03-23,2026-03-23,,"Britt Lower","High Maintenance","2 de agosto de 1985"
+649,nm7862766,2026-03-23,2026-03-23,,"Sydney Cole Alexander","Severance",
+650,nm0359734,2026-03-23,2026-03-23,,"Michael Haneke","Caché","23 de marzo de 1942"
+651,nm0000041,2026-03-23,2026-03-23,,"Akira Kurosawa","Kagemusha","23 de marzo de 1910"
+652,nm12043107,2026-03-23,2026-03-23,,"Sarah Bock","Severance","15 de agosto de 2006"
+653,nm0001264,2026-03-23,2026-03-23,,"Sarah Michelle Gellar","Buffy the Vampire Slayer","14 de abril de 1977"
+654,nm0004918,2026-03-23,2026-03-23,,"Danielle Fishel","Boy Meets World","5 de mayo de 1981"
+655,nm8292247,2026-03-23,2026-03-23,,"Sandra Escacena","Verónica","30 de marzo de 2001"
+656,nm1567113,2026-03-24,2026-03-24,,"Jessica Chastain","Zero Dark Thirty","24 de marzo de 1977"
+657,nm0004989,2026-03-24,2026-03-24,,"Alyson Hannigan","Buffy the Vampire Slayer","24 de marzo de 1974"
+658,nm1482999,2026-03-24,2026-03-24,,"María Valverde","Exodus: Gods and Kings","24 de marzo de 1987"
+659,nm1128572,2026-03-24,2026-03-24,,"Lake Bell","In a World...","24 de marzo de 1979"
+660,nm5700898,2026-03-25,2026-03-25,,"Mikey Madison","Anora","25 de marzo de 1999"
+661,nm1486317,2026-04-01,2026-04-01,,"Alycia Debnam-Carey","Apple Cider Vinegar","20 de julio de 1993"
+662,nm1659348,2026-04-01,2026-04-01,,"Lauren Cohan","The Boy","7 de enero de 1982"
+663,nm0000338,2026-04-07,2026-04-07,,"Francis Ford Coppola","Apocalypse Now","7 de abril de 1939"
+664,nm0638428,2026-04-07,2026-04-07,,"Ruth Núñez","Yo soy Bea","7 de abril de 1979"
+665,nm0829576,2026-04-08,2026-04-08,,"Kristen Stewart","The Twilight Saga: Eclipse","9 de abril de 1990"
+666,nm0842258,2026-04-10,2026-04-10,,"Dita Von Teese","The Death of Salvador Dali","28 de septiembre de 1972"
+667,nm1933672,2026-04-10,2026-04-10,,"Inma Cuevas","Vis a vis","1978"
+668,nm0273451,2026-04-10,2026-04-10,,"Dafne Fernández","Un paso adelante","31 de marzo de 1985"
+669,nm1238701,2026-04-10,2026-04-10,,"Joaquín Reyes","Muchachada nui","16 de agosto de 1974"
+670,nm4477261,2026-04-12,2026-04-12,,"Ilana Glazer","Broad City","12 de abril de 1987"
+671,nm5085683,2026-04-13,2026-04-13,,"Mckenna Grace","Gifted","25 de junio de 2006"
+672,nm0736622,2026-04-15,2026-04-15,,"Seth Rogen","This Is the End","15 de abril de 1982"
+673,nm0001182,2026-04-20,2026-04-20,,"Carmen Electra","Scary Movie 4","20 de abril de 1972"
+674,nm0930226,2026-04-20,2026-04-20,,"Caroline Williams","Renfield","27 de marzo de 1957"
+675,nm0000691,2026-04-22,2026-04-22,,"John Waters","Hairspray","22 de abril de 1946"
+676,nm0498247,2026-04-22,2026-04-22,,"Sheryl Lee","Twin Peaks: Fire Walk with Me","22 de abril de 1967"
+677,nm2883665,2026-04-24,2026-04-24,,"Mariam Hernández","Juegos de lucha","25 de abril de 1983"
+678,nm2216549,2026-04-25,2026-04-25,,"Úrsula Corberó","La casa de papel","11 de agosto de 1989"
+679,nm17074540,2026-04-26,2026-04-26,,"Ana Boga","Yo siempre a veces","1994"
+680,nm0763832,2026-05-02,2026-05-02,,"Eva Santolaria","Compañeros","2 de mayo de 1975"
+681,nm14184963,2026-05-02,2026-05-02,,"Andrea Reiriz","Rondallas",
+682,nm0376716,2026-05-03,2026-05-03,,"Christina Hendricks","Ginger & Rosa","3 de mayo de 1975"
+683,nm2772584,2026-05-03,2026-05-03,,"Olivia Taylor Dudley","The Magicians","4 de noviembre de 1985"
+684,nm5262775,2026-05-07,2026-05-07,,"Aidy Bryant","Saturday Night Live","7 de mayo"
+685,nm0327273,2026-05-08,2026-05-08,,"Michel Gondry","Eternal Sunshine of the Spotless Mind","8 de mayo de 1963"
+686,nm1476614,2026-05-10,2026-05-10,,"Elena Jimenez","Kimi-tachi wa dô ikiru ka","26 de junio de 1994"
+687,nm1074427,2026-05-10,2026-05-10,,"Alba Alonso","Encontrando el Fin del Mundo","2 de julio de 1980"
+688,nm4248775,2026-05-11,2026-05-11,,"Sabrina Carpenter","Emergency","11 de mayo de 1999"
+689,nm2501633,2026-05-13,2026-05-13,,"Lena Dunham","Tiny Furniture","13 de mayo de 1986"
+690,nm0001068,2026-05-14,2026-05-14,,"Sofia Coppola","The Godfather Part III","14 de mayo de 1971"
+691,nm0000517,2026-05-14,2026-05-14,,"Terrence Malick","Badlands","30 de noviembre de 1943"
+692,nm0004266,2026-05-14,2026-05-14,,"Anne Hathaway","Les Misérables","12 de noviembre de 1982"
+693,nm1289434,2026-05-14,2026-05-14,,"Emily Blunt","Edge of Tomorrow","23 de febrero de 1983"
+694,nm3056937,2026-05-15,2026-05-15,,"Nerea Camacho","Camino","15 de mayo de 1996"
+695,nm17206913,2026-05-15,2026-05-15,,"Tamara Cortes","La misteriosa mirada del flamenco",
+696,nm0304770,2026-05-16,2026-05-16,,"Alaska","Lucía y el sexo","13 de junio de 1963"
+697,nm9380750,2026-05-16,2026-05-16,,"Aitana","Operación triunfo","27 de junio de 1999"
+698,nm0022134,2026-05-16,2026-05-16,,"Anabel Alonso","7 vidas","11 de noviembre de 1964"
+699,nm1125523,2026-05-16,2026-05-16,,"Chenoa","Operación triunfo","25 de junio de 1975"
+700,nm1083271,2026-05-16,2026-05-16,,"Megan Fox","Transformers","16 de mayo de 1986"
+701,nm3152327,2026-05-16,2026-05-16,,"Ryūsuke Hamaguchi","Doraibu mai kâ","16 de diciembre de 1978"
+702,nm0002817,2026-05-16,2026-05-16,,"Soledad Miranda","Vampyros Lesbos","9 de julio de 1943"
+703,nm0141123,2026-05-17,2026-05-17,,"Raffaella Carrà","En tout cas","18 de junio de 1943"
+704,nm0716347,2026-05-18,2026-05-18,,"Nicolas Winding Refn","The Neon Demon","29 de septiembre de 1970"
+705,nm0649638,2026-05-19,2026-05-19,,"Natalia Oreiro","Sos mi vida","19 de mayo de 1977"
+706,nm6031795,2026-05-24,2026-05-24,,"Júlia Molins","Framed","24 de mayo de 1993"
+707,nm5455952,2026-05-27,2026-05-27,,"Ashley Padilla","Saturday Night Live","27 de mayo de 1993"
+708,nm10948522,2026-06-06,2026-06-06,,"Isabel Aimé González-Sola","Las corrientes",
+709,nm9917159,2026-06-07,2026-06-07,,"Lily Collias","Good One",
+710,nm4528537,2026-06-07,2026-06-07,,"Nick Antosca","Channel Zero","23 de enero de 1983"
+711,nm0298188,2026-06-07,2026-06-07,,"Bryan Fuller","Pushing Daisies","27 de julio de 1969"
+712,nm2282610,2026-06-09,2026-06-09,,"Lauren Socha","Misfits","9 de junio de 1990"
+713,nm16117984,2026-06-14,2026-06-14,,"Mahsa Rostami","Dane-ye anjir-e ma'abed",
+714,nm1017221,2026-06-15,2026-06-15,,"Diana Gómez","¡García!","7 de marzo de 1989"
+715,nm5256792,2026-06-15,2026-06-15,,"Paula Malia","Cites",
+716,nm1283047,2026-06-18,2026-06-18,,"Núria Gago","Verónica","10 de marzo de 1980"
+717,nm10977171,2026-06-20,2026-06-20,,"Valèria Sorolla","La consagración de la primavera","13 de mayo de 1997"
+718,nm8410818,2026-06-20,2026-06-20,,"Eden Weiss","Keeper",
+719,nm0000066,2026-06-20,2026-06-20,,"Jane Russell","Gentlemen Prefer Blondes","21 de junio de 1921"
+720,nm4787894,2026-06-21,2026-06-21,,"Lana Del Rey","The Great Gatsby","21 de junio de 1985"
+721,nm3929195,2026-06-24,2026-06-24,,"Erin Moriarty","The Boys","24 de junio de 1994"
+722,nm0001882,2026-06-24,2026-06-24,,"Olivia d'Abo","Conan the Destroyer","22 de enero de 1969"
+723,nm5982255,2026-06-26,2026-06-26,,"Giuditta Niccoli","Great White Waters",
+724,nm9380741,2026-06-27,2026-06-27,,"Lola Índigo","Cupido, Lola Indigo, Alizzz: Autoestima","1 de abril de 1992"
+725,nm2728165,2026-06-27,2026-06-27,,"Jessie Cave","Harry Potter and the Half-Blood Prince","5 de mayo de 1987"
+726,nm0010736,2026-06-29,2026-06-29,,"Amy Adams","Arrival","20 de agosto de 1974"
+727,nm0000194,2026-06-30,2026-06-30,,"Julianne Moore","Far from Heaven","3 de diciembre de 1960"
+728,nm8619739,2026-07-03,2026-07-03,,"Paula Reyes","Casa de fieras",
+729,nm13707936,2026-07-03,2026-07-03,,"Victoria Oliver","Morangos com Açúcar",
+730,nm5229490,2026-07-03,2026-07-03,,"Vito Sanz","Volveréis",
+731,nm9816829,2026-07-03,2026-07-03,,"Isa Calderón","Millennial Mal",
+732,nm18661118,2026-07-03,2026-07-03,,"Paula Gala","Parecido a un asesinato",
+733,nm14123962,2026-07-03,2026-07-03,,"Miriam Rubio","Millennial Mal",
+734,nm4901194,2026-07-04,2026-07-04,,"Rigoberta Bandini","Divergent","1990"
+735,nm4805115,2026-07-04,2026-07-04,,"Elena Martín","Júlia ist","1992"
+736,nm1354244,2026-07-04,2026-07-04,,"Alizée","A Good Year","21 de agosto de 1984"
+737,nm1296554,2026-07-04,2026-07-04,,"Ben Wheatley","Free Fire","mayo de 1972"
+738,nm6584167,2026-07-04,2026-07-04,,"Lena Urzendowsky","Kokon","16 de febrero de 2000"
+739,nm17309058,2026-07-04,2026-07-04,,"Greta Krämer","In die Sonne schauen",
+740,nm4945765,2026-07-09,2026-07-09,,"Belén Barenys","Autodefensa",
+741,nm2247200,2026-07-09,2026-07-09,,"Albert Serra","Pacifiction","1975"
+742,nm0243233,2026-07-09,2026-07-09,,"Mark Duplass","Creep","7 de diciembre de 1976"
+743,nm5313125,2026-07-09,2026-07-09,,"Jane Schoenbrun","Teenage Sex and Death at Camp Miasma","5 de febrero"
+744,nm0307497,2026-07-10,2026-07-10,,"Alex Garland","Ex Machina","26 de mayo de 1970"
+745,nm0706066,2026-07-12,2026-07-12,,"Taija Rae","Raw Talent","29 de enero de 1961"
+746,nm5950715,2026-07-13,2026-07-13,,"Tate McRae","F1","1 de julio de 2003"
+747,nm0000182,2026-07-13,2026-07-13,,"Jennifer Lopez","Hustlers","24 de julio de 1969"
+748,nm8367841,2026-07-14,2026-07-14,,"Lauren LaVera","Terrifier 2","14 de junio de 1994"
+749,nm10080112,2026-07-14,2026-07-14,,"Amelie McLain","Terrifier 2",
+750,nm6637505,2026-07-14,2026-07-14,,"Kailey Hyman","Terrifier 2","15 de febrero de 1996"
+751,nm9985559,2026-07-14,2026-07-14,,"Izaro","IZARO & Baiuca feat. Oreka TX: Xorieri",
+752,nm9984699,2026-07-15,2026-07-15,,"Inde Navarrette","Obsession","3 de marzo de 2001"
+753,nm6102767,2026-07-15,2026-07-15,,"Megan Lawless","Obsession",
+754,nm3364779,2026-07-16,2026-07-16,,"Vanessa Bayer","Trainwreck","14 de noviembre de 1981"
+755,nm3977393,2026-07-16,2026-07-16,,"Tessa Violet","The Matchbreaker",
+756,nm5261051,2026-07-17,2026-07-17,,"Annalisa Scarrone","Annalisa: Bellissima","5 de agosto de 1985"
+757,nm6185683,2026-07-17,2026-07-17,,"Emily Rudd","One Piece","24 de febrero de 1993"
+758,nm10603736,2026-07-17,2026-07-17,,"Lera Abova","Anna","4 de noviembre de 1992"
+759,nm1197737,2026-07-18,2026-07-18,,"Carmen Machi","Aída","7 de enero de 1963"
+760,nm16382228,2026-07-18,2026-07-18,,"Aitana Batres","Élite",
+761,nm18382887,2026-07-20,2026-07-20,,"Vana","VANA: Pray",
+762,nm0172770,2026-07-21,2026-07-21,,"Mary Collinson","Permissive","22 de julio de 1952"
+763,nm1238859,2026-07-23,2026-07-23,,"Ernesto Sevilla","Camera Café, la película","1978"
+764,nm11860692,2026-07-24,2026-07-24,,"Mae Muller","Moonshot","26 de agosto de 1997"
+765,nm0000535,2026-07-26,2026-07-26,,"Rose McGowan","Planet Terror","5 de septiembre de 1973"
+766,nm4555326,2026-07-26,2026-07-26,,"Ivana Staneva","Conan the Barbarian",
+767,nm0629697,2026-07-27,2026-07-27,,"Rachel Nichols","G.I. Joe: The Rise of Cobra","8 de enero de 1980"
+768,nm10656367,2026-08-02,2026-08-02,,"Zoey Luna","Slay","23 de julio de 2001"
+769,nm0000138,2026-08-03,2026-08-03,,"Leonardo DiCaprio","The Departed","11 de noviembre de 1974"
+770,nm3121384,2026-08-04,2026-08-04,,"Becky G","Power Rangers","2 de marzo de 1997"
+771,nm1046264,2026-08-08,2026-08-08,,"Mónica Naranjo","Minions: The Rise of Gru","23 de mayo de 1974"
+772,nm0959515,2026-08-08,2026-08-08,,"Marian Álvarez","Lo mejor de mí","1 de abril de 1978"
+773,nm5362727,2026-08-08,2026-08-08,,"Elena Sanz","Black Mirror",
+774,nm0508249,2026-08-17,2026-08-17,,"Loles León","Átame!","1 de agosto de 1950"
+775,nm1676221,2026-08-20,2026-08-20,,"Andy Samberg","Popstar: Never Stop Never Stopping","18 de agosto de 1978"
+776,nm7436993,2026-08-20,2026-08-20,,"Tramell Tillman","Mission: Impossible - The Final Reckoning","17 de junio de 1985"
+777,nm16659307,2026-08-25,2026-08-25,,"Six Sex","I'm a Star",
+778,nm7945379,2026-08-25,2026-08-25,,"Sarah Sawyer","Tokyo Vice",
+779,nm0000600,2026-08-28,2026-08-28,,"Sam Raimi","Spider-Man","23 de octubre de 1959"
+780,nm2962353,2026-08-28,2026-08-28,,"Pom Klementieff","Guardians of the Galaxy Vol. 3","3 de mayo de 1986"
+781,nm3065809,2026-08-29,2026-08-29,,"Rosabell Laurenti Sellers","Gli equilibristi","27 de marzo de 1996"
+782,nm1693112,2026-08-30,2026-08-30,,"Carlos Areces","Balada triste de trompeta","27 de marzo de 1976"
+783,nm1481149,2026-08-30,2026-08-30,,"Aitziber Garmendia","Ocho apellidos vascos","10 de diciembre de 1982"
+784,nm2255973,2026-08-31,2026-08-31,,"Donald Glover","Solo: A Star Wars Story","25 de septiembre de 1983"
+785,nm3958585,2026-09-03,2026-09-03,,"Rainey Qualley","Delilah","11 de marzo de 1990"
+786,nm3172796,2026-09-03,2026-09-03,,"Melina Matthews","The Room Next Door","21 de noviembre de 1986"
+787,nm0005403,2026-09-04,2026-09-04,,"Jason Schwartzman","Rushmore","26 de junio de 1980"
+788,nm7213994,2026-09-04,2026-09-04,,"Grace Edwards","Asteroid City",
+789,nm0027572,2026-09-04,2026-09-04,,"Wes Anderson","Fantastic Mr. Fox","1 de mayo de 1969"
+790,nm3143851,2026-09-04,2026-09-04,,"Sophia Anne Caruso","The School for Good and Evil","11 de julio de 2001"
+791,nm8325312,2026-09-05,2026-09-05,,"Jazzara Jaslyn","One Piece",
+792,nm1570048,2026-09-05,2026-09-05,,"Lola Créton","Après mai","16 de diciembre de 1993"
+793,nm1252362,2026-09-07,2026-09-07,,"Bertrand Mandico","Les Garçons sauvages","21 de marzo de 1971"
+794,nm10384695,2026-09-08,2026-09-08,,"María Herrera","El cuento de una noche de verano",
+795,nm1913734,2026-09-09,2026-09-09,,"Rooney Mara","The Girl with the Dragon Tattoo","17 de abril de 1985"
+796,nm0085312,2026-09-09,2026-09-09,,"Jack Black","High Fidelity","28 de agosto de 1969"
+797,nm1706767,2026-09-09,2026-09-09,,"Jonah Hill","22 Jump Street","20 de diciembre de 1983"
+798,nm1247855,2026-09-09,2026-09-09,,"Carrie Brownstein","Portlandia","27 de septiembre de 1974"
+799,nm0001814,2026-09-09,2026-09-09,,"Gus Van Sant","Elephant","24 de julio de 1952"
+800,nm2785837,2026-09-18,2026-09-18,,"Young-mi","Sanada kunoichi ninpo-den Kasumi nairan! Yukimura ansatsu!!",
+801,nm2087739,2026-09-19,2026-09-19,,"Jeremy Allen White","Springsteen: Deliver Me from Nowhere","17 de febrero de 1991"
+802,nm3747326,2026-09-19,2026-09-19,,"Nicki Minaj","The Other Woman","8 de diciembre de 1982"
+803,nm12659254,2026-09-19,2026-09-19,,"Paulina Villarreal","The Warning: Qué Más Quieres",
+804,nm4663937,2026-09-26,2026-09-26,,"Laia Costa","Victoria","18 de febrero de 1985"
+805,nm2724795,2026-09-26,2026-09-26,,"Oriol Pla","Yo, adicto","17 de abril de 1993"
+806,nm0617687,2026-09-26,2026-09-26,,"Nicolás Méndez","9'8m/s²",
+807,nm10242824,2026-09-26,2026-09-26,,"Ava Max","Scoob!","16 de febrero de 1994"
+808,nm12749556,2026-09-28,2026-09-28,,"Akari Takaishi","Ghost Killer",
+809,nm2225369,2026-09-28,2026-09-28,,"Jennifer Lawrence","The Hunger Games","15 de agosto de 1990"
+810,nm13511755,2026-09-30,2026-09-30,,"Lizzie Davidson","Death in Paradise",
+811,nm2306701,2026-10-03,2026-10-03,,"Javier Botet","It","30 de julio de 1977"
+812,nm2827488,2026-10-03,2026-10-03,,"Desirée de Fez","A Monster Calls",
+813,nm2015004,2026-10-03,2026-10-03,,"Berto Romero","El otro lado","17 de noviembre de 1974"
+814,nm2357847,2026-10-04,2026-10-04,,"Taylor Swift","Taylor Swift: The Eras Tour","13 de diciembre de 1989"
+815,nm2000954,2026-10-04,2026-10-04,,"Hannah Marks","Turtles All the Way Down","13 de abril"
+816,nm2969728,2026-10-05,2026-10-05,,"Susana Abaitua","Compulsión","5 de octubre de 1990"
