@@ -116,6 +116,24 @@ def main():
         billboard, taste_profile, favorite_actors, watchlist_ids
     )
 
+    # Radar de estrenos (13 oct 2026): segunda vía independiente de la lista
+    # fija de cines, para no perder estrenos que encajan fuerte contigo pero
+    # solo se proyectan en cines que no se siguen (caso real: "Su propio
+    # infierno" / Her Private Hell). Ver cines_madrid.get_radar_candidates.
+    try:
+        from cines_madrid import get_madrid_showtimes_for_film, get_radar_candidates
+        from match_engine import merge_radar_into_cinema_picks, select_radar_picks
+
+        print("→ Radar de estrenos (todos los cines de Madrid)...")
+        radar_picks = select_radar_picks(
+            get_radar_candidates(), taste_profile, favorite_actors, watchlist_ids,
+            get_madrid_showtimes_for_film,
+        )
+        cinema_picks = merge_radar_into_cinema_picks(cinema_picks, radar_picks)
+    except Exception as e:
+        errors.append(f"radar: {e}")
+        traceback.print_exc()
+
     # Títulos que ya se te ofrecieron en streaming en SEMANAS ANTERIORES (no
     # en esta misma) — para no repetir el mismo título semana tras semana
     # mientras haya otro que también encaje. Se pasa `friday` (la semana para
