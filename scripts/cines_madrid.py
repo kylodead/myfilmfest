@@ -8,7 +8,10 @@ Estado real por cine (agosto 2026):
   DIRECTO A LA WEB OFICIAL (funciona con HTML estático, sin agregador):
     - Cineteca (Matadero Madrid)      -> cinetecamadrid.com/programacion
     - Filmoteca - Cine Doré           -> entradasfilmoteca.sacatuentrada.es
-    - Cines Renoir (Plaza de España)  -> cinesrenoir.com
+    - Cines Renoir (Plaza de España, Princesa y Retiro; los 3 de Madrid, todos
+      los días que ofrece la web) -> cinesrenoir.com
+    - Cines Embajadores               -> cinesembajadores.es (7 días; FilmAffinity
+      solo de respaldo -- iba por detrás de la web real)
     - Cines Golem                     -> golem.es
     - Mk2 Cine Paz                    -> cinepazmadrid.es
 
@@ -363,13 +366,189 @@ def scrape_cineteca():
     )
 
 
+_ES_WEEKDAYS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+
+
+def _day_label(d: date) -> str:
+    """'Miércoles 14' -- mismo formato de día que ya usan el resto de cines."""
+    return f"{_ES_WEEKDAYS[d.weekday()]} {d.day}"
+
+
+# Cines Renoir en Madrid: SON TRES (13 oct 2026, David: "Cines Renoir son tres
+# cines en Madrid y me interesan tanto Princesa como Plaza de España"). La app
+# solo seguía Plaza de España -- por eso "Su propio infierno" (que sí echa
+# Renoir Princesa) se escapó. Nombre -> slug de cinesrenoir.com. OJO: el slug
+# de Princesa es "cines-princesa", no "renoir-princesa".
+RENOIR_CINEMAS = [
+    ("Cines Renoir (Plaza de España)", "renoir-plaza-de-espana"),
+    ("Cines Renoir (Princesa)", "cines-princesa"),
+    ("Cines Renoir (Retiro)", "renoir-retiro"),
+]
+_RENOIR_BASE = "https://www.cinesrenoir.com"
+_RENOIR_SLUG_RE = re.compile(r"^/pelicula/([^/]+)/?$")
+_RENOIR_DIRECTOR_RE = re.compile(r"^\s*de\s+(.+?)\s*$", re.IGNORECASE)
+
+
+def parse_renoir_day(html: str):
+    """Una página de cartelera de Renoir (un día) -> {slug: {title, director,
+    times}}. Cada película viene repetida 3 veces (maquetas lg/md/sm de la
+    misma tarjeta, `.my-account-content`): se fusionan por slug. Una misma
+    película con varias versiones/salas suma todas sus horas."""
+    soup = BeautifulSoup(html, "html.parser")
+    out = {}
+    for card in soup.select(".my-account-content"):
+        link = card.find("a", href=_RENOIR_SLUG_RE)
+        if link is None:
+            continue
+        title = link.get_text(strip=True)
+        if not title:
+            continue
+        slug = _RENOIR_SLUG_RE.match(link["href"]).group(1)
+        entry = out.setdefault(slug, {"title": title, "director": None, "times": set()})
+        small_b = card.select_one("small b")
+        if small_b and not entry["director"]:
+            m = _RENOIR_DIRECTOR_RE.match(small_b.get_text(" ", strip=True))
+            if m:
+                # varios directores: "A y B" / "A, B" -> el primero basta como pista
+                entry["director"] = re.split(r"\s+y\s+|,", m.group(1))[0].strip() or None
+        for a in card.select("a.btn"):
+            hhmm = a.get_text(strip=True)
+            if re.fullmatch(r"\d{1,2}:\d{2}", hhmm):
+                entry["times"].add(f"{int(hhmm.split(':')[0]):02d}:{hhmm.split(':')[1]}")
+    return out
+
+
+def _renoir_dates(base_html: str, today: date):
+    """Fechas que ofrece la propia web (selector ?fecha=YYYY-MM-DD, 3 días);
+    si no se encuentra el selector, solo hoy."""
+    soup = BeautifulSoup(base_html, "html.parser")
+    dates = []
+    for el in soup.find_all(["option", "a"]):
+        ref = el.get("value") or el.get("href") or ""
+        m = re.search(r"fecha=(\d{4})-(\d{2})-(\d{2})", ref)
+        if m:
+            d = date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+            if d not in dates:
+                dates.append(d)
+    return sorted(dates) or [today]
+
+
+def scrape_renoir_cinema(cinema_name: str, slug: str):
+    """Un cine Renoir, TODOS los días que ofrece su web (antes solo se leía
+    la página de "hoy": una película que no se echara hoy pero sí mañana no
+    existía para la app)."""
+    base_url = f"{_RENOIR_BASE}/cine/{slug}/cartelera/"
+    base_html = _get(base_url, cinema_name)
+    if not base_html:
+        return []
+    today = madrid_today()
+    dates = _renoir_dates(base_html, today)
+    merged = {}  # slug -> {title, director, showtimes[list], seen set}
+    for d in dates:
+        html = base_html if d == today else _get(f"{base_url}?fecha={d.isoformat()}", cinema_name)
+        if not html:
+            continue
+        for fslug, info in parse_renoir_day(html).items():
+            m = merged.setdefault(
+                fslug,
+                {"title": info["title"], "director": None, "showtimes": [], "seen": set()},
+            )
+            m["director"] = m["director"] or info["director"]
+            for t in sorted(info["times"]):
+                label = f"{_day_label(d)} · {t}"
+                if label not in m["seen"]:
+                    m["seen"].add(label)
+                    m["showtimes"].append(label)
+    return [
+        {
+            "title": _clean_title(m["title"]),
+            "showtimes": m["showtimes"],
+            "listing_url": f"{_RENOIR_BASE}/pelicula/{fslug}/",
+            "director_hint": m["director"],
+        }
+        for fslug, m in merged.items()
+    ]
+
+
 def scrape_renoir():
-    return _generic_direct_scrape(
-        "https://www.cinesrenoir.com/cine/renoir-plaza-de-espana/cartelera/",
-        "Cines Renoir (Plaza de España)",
-        re.compile(r"/pelicula/[^/]+/?$"),
-        "https://www.cinesrenoir.com",
-    )
+    # Compatibilidad: el cine que ya existía.
+    return scrape_renoir_cinema(*RENOIR_CINEMAS[0])
+
+
+# Embajadores (13 oct 2026): la web oficial SÍ se puede leer (HTML estático,
+# 7 días con ?dia=0..6). Antes se usaba FilmAffinity, cuya página de este cine
+# NO incluía "Su propio infierno" aunque Embajadores la echa los días 14 y 15
+# (confirmado por David y en su web) -- FilmAffinity va por detrás de la web
+# real, así que para este cine se lee la propia web y FilmAffinity queda de
+# respaldo si falla.
+_EMBAJADORES_URL = "https://cinesembajadores.es/madrid/cartelera-del-dia/?ciudad=madrid"
+
+
+def parse_embajadores_day(html: str, today: date):
+    """Un día de cartelera de Embajadores -> [{title, director, times:[(date,
+    'HH:MM')]}]. Cada sesión lleva su fecha real en data-dia="DD/MM"."""
+    soup = BeautifulSoup(html, "html.parser")
+    out = []
+    for info in soup.select("div.info"):
+        a = info.select_one("h2 a")
+        if a is None or not a.get_text(strip=True):
+            continue
+        director = None
+        for h5 in info.select("h5"):
+            if "dirección" in h5.get_text(" ", strip=True).lower():
+                txt = h5.get_text(" ", strip=True).split(":", 1)[-1].strip()
+                director = re.split(r"\s+y\s+|,", txt)[0].strip() or None
+                break
+        sessions = []
+        for span in info.select("span[data-dia][data-hora]"):
+            m = re.fullmatch(r"(\d{1,2})/(\d{1,2})", span["data-dia"].strip())
+            hm = re.fullmatch(r"(\d{1,2}):(\d{2})", span["data-hora"].strip())
+            if not (m and hm):
+                continue
+            day, month = int(m.group(1)), int(m.group(2))
+            year = today.year + (1 if month < today.month - 6 else 0)
+            try:
+                d = date(year, month, day)
+            except ValueError:
+                continue
+            sessions.append((d, f"{int(hm.group(1)):02d}:{hm.group(2)}"))
+        out.append({"title": a.get_text(strip=True), "director": director, "sessions": sessions})
+    return out
+
+
+def scrape_embajadores():
+    today = madrid_today()
+    merged = {}  # título limpio (minúsculas) -> entrada
+    for dia in range(7):
+        url = _EMBAJADORES_URL + (f"&dia={dia}" if dia else "")
+        html = _get(url, "Cines Embajadores")
+        if not html:
+            continue
+        for f in parse_embajadores_day(html, today):
+            clean = _clean_title(f["title"])
+            m = merged.setdefault(
+                clean.lower(),
+                {"title": clean, "director": None, "showtimes": [], "seen": set()},
+            )
+            m["director"] = m["director"] or f["director"]
+            for d, hhmm in f["sessions"]:
+                label = f"{_day_label(d)} · {hhmm}"
+                if label not in m["seen"]:
+                    m["seen"].add(label)
+                    m["showtimes"].append(label)
+    if not merged:
+        print("    [Cines Embajadores] su web no devolvió nada -- se usa FilmAffinity de respaldo")
+        return scrape_via_filmaffinity("Cines Embajadores")
+    return [
+        {
+            "title": m["title"],
+            "showtimes": m["showtimes"],
+            "listing_url": CINEMA_OFFICIAL_URLS.get("Cines Embajadores"),
+            "director_hint": m["director"],
+        }
+        for m in merged.values()
+        if m["showtimes"]
+    ]
 
 
 def scrape_golem():
@@ -623,14 +802,16 @@ def scrape_via_filmaffinity(cinema_name: str):
 # usa cada uno.
 CINEMA_SCRAPERS = {
     "Yelmo Cines Ideal": lambda: scrape_via_filmaffinity("Yelmo Cines Ideal"),
-    "Cines Embajadores": lambda: scrape_via_filmaffinity("Cines Embajadores"),
+    "Cines Embajadores": scrape_embajadores,
     "Cineteca (Matadero Madrid)": scrape_cineteca,
     "Filmoteca - Cine Doré": scrape_dore,
     "Sala Equis": lambda: scrape_via_filmaffinity("Sala Equis"),
     "Círculo de Bellas Artes (Cine Estudio)": lambda: scrape_via_filmaffinity(
         "Círculo de Bellas Artes (Cine Estudio)"
     ),
-    "Cines Renoir (Plaza de España)": scrape_renoir,
+    "Cines Renoir (Plaza de España)": lambda: scrape_renoir_cinema(*RENOIR_CINEMAS[0]),
+    "Cines Renoir (Princesa)": lambda: scrape_renoir_cinema(*RENOIR_CINEMAS[1]),
+    "Cines Renoir (Retiro)": lambda: scrape_renoir_cinema(*RENOIR_CINEMAS[2]),
     "Cines Golem": scrape_golem,
     "Mk2 Cine Paz": scrape_mk2paz,
     "Cinesa Proyecciones": lambda: scrape_via_filmaffinity("Cinesa Proyecciones"),
@@ -727,6 +908,198 @@ def get_madrid_billboard():
             )
         billboard[cinema_name] = enriched
     return billboard
+
+
+# ---------------------------------------------------------------------------
+# RADAR DE ESTRENOS (13 oct 2026)
+#
+# Por qué existe: "Su propio infierno" (Her Private Hell, Nicolas Winding
+# Refn, con Sophie Thatcher; en tu watchlist, director y actriz favoritos) se
+# estrenó el 9 oct y NO salió. No fue un fallo de título ni de gustos: nunca
+# llegó a escanearse, porque solo se proyecta en cines que la app no sigue
+# (Cinesa Manoteras, mk2 Palacio de Hielo, Renoir Princesa, Yelmo Plenilunio,
+# Yelmo Rivas H2O, Zoco Majadahonda, Cinesa Las Rozas) -- comprobado en vivo
+# en FilmAffinity. La lista fija de 10 cines es ciega a cualquier película que
+# no pase por ella, por buena que sea para ti.
+#
+# Segunda vía, independiente de esa lista: se leen los estrenos en cines de
+# España (rdcat.php?id=new_th_es, 20 títulos por orden de estreno), se
+# resuelve cada uno a su ficha de IMDb y match_engine.select_radar_picks se
+# queda SOLO con los de coincidencia fuerte (pendientes / actor / director
+# favorito); para esos se piden los cines reales de Madrid
+# (movie-showtimes.php?id=<ficha>&state=ES-M).
+# ---------------------------------------------------------------------------
+RADAR_URL = "https://www.filmaffinity.com/es/rdcat.php?id=new_th_es"
+RADAR_SHOWTIMES_URL = "https://www.filmaffinity.com/es/movie-showtimes.php?id={fa_id}&state=ES-M"
+
+# El enlace visible NUNCA debe ir a FilmAffinity (ver CINEMA_OFFICIAL_URLS):
+# se asigna la web de la cadena según el nombre del cine; si no hay una
+# fiable, None (el frontend ya pone "horario en la web del cine").
+_RADAR_CHAIN_URLS = (
+    ("renoir", "https://www.cinesrenoir.com"),
+    ("cinesa", "https://www.cinesa.es"),
+    ("mk2", "https://www.mk2cines.es"),
+    ("yelmo", "https://yelmocines.es"),
+)
+
+_WEEKDAY_NUM_RE = re.compile(
+    r"(lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bado|domingo)\s*(\d{1,2})?",
+    re.IGNORECASE,
+)
+
+
+def canonical_cinema_name(fa_name: str) -> str:
+    """Nombre FilmAffinity de un cine -> el nombre que usa la lista fija de la
+    app, para que el radar y la lista fija no cuenten dos veces el mismo cine
+    ("Renoir Cines Princesa" en FA == "Cines Renoir (Princesa)" aquí)."""
+    low = fa_name.lower()
+    if "renoir" in low:
+        for key, name in (("princesa", "Cines Renoir (Princesa)"),
+                          ("plaza", "Cines Renoir (Plaza de España)"),
+                          ("retiro", "Cines Renoir (Retiro)")):
+            if key in low:
+                return name
+    if "embajadores" in low:
+        return "Cines Embajadores"
+    if "yelmo" in low and "ideal" in low:
+        return "Yelmo Cines Ideal"
+    if "sala equis" in low:
+        return "Sala Equis"
+    if "proyecciones" in low:
+        return "Cinesa Proyecciones"
+    if "golem" in low:
+        return "Cines Golem"
+    if "mk2" in low and "paz" in low:
+        return "Mk2 Cine Paz"
+    return fa_name
+
+
+def _radar_chain_url(cinema_name: str):
+    low = cinema_name.lower()
+    for key, url in _RADAR_CHAIN_URLS:
+        if key in low:
+            return url
+    return None
+
+
+def parse_radar_candidates(html: str):
+    """Tarjetas de la lista de estrenos -> [{fa_id, title, year, director_hint}].
+    Cada tarjeta repite su data-movie-id en varios contenedores anidados;
+    se queda con la primera por id. El primer enlace de persona de la tarjeta
+    es el director (el reparto va después)."""
+    soup = BeautifulSoup(html, "html.parser")
+    out, seen = [], set()
+    for card in soup.select("div.movie-card[data-movie-id]"):
+        fa_id = card.get("data-movie-id")
+        if not fa_id or fa_id in seen:
+            continue
+        seen.add(fa_id)
+        title_a = card.select_one(".mc-title a")
+        title = title_a.get_text(strip=True) if title_a else ""
+        if not title:
+            continue
+        year = None
+        year_el = card.select_one(".mc-year")
+        for m in _YEAR_NEARBY_RE.finditer(year_el.get_text(" ", strip=True) if year_el else ""):
+            y = int(m.group(1))
+            if 1900 <= y <= date.today().year + 1:
+                year = str(y)
+                break
+        # Solo el bloque de dirección (el reparto va aparte en .mc-cast).
+        dir_a = card.select_one(".mc-director a[href*='name-id']")
+        out.append(
+            {
+                "fa_id": fa_id,
+                "title": _clean_title(title),
+                "year": year,
+                "director_hint": dir_a.get_text(strip=True) if dir_a else None,
+            }
+        )
+    return out
+
+
+def _fa_original_title(fa_id: str):
+    """Título original de la ficha de FilmAffinity (el título en español a
+    veces no existe como AKA en IMDb: 'Su propio infierno' / 'Her Private
+    Hell')."""
+    html = _get(f"https://www.filmaffinity.com/es/film{fa_id}.html", f"FA ficha {fa_id}")
+    if not html:
+        return None
+    soup = BeautifulSoup(html, "html.parser")
+    for dt in soup.find_all("dt"):
+        if "original" in dt.get_text(strip=True).lower():
+            dd = dt.find_next_sibling("dd")
+            if dd:
+                t = dd.get_text(" ", strip=True)
+                return t or None
+    return None
+
+
+def get_radar_candidates():
+    """Estrenos en cines de España resueltos a IMDb (sin filtrar por gustos)."""
+    html = _get(RADAR_URL, "Radar estrenos")
+    if not html:
+        return []
+    cands = parse_radar_candidates(html)
+    print(f"    [Radar estrenos] {len(cands)} estrenos en la lista de FilmAffinity")
+    for c in cands:
+        guess = _resolve_cinema_title(c["title"], c.get("year"), c.get("director_hint"))
+        if not guess:
+            original = _fa_original_title(c["fa_id"])
+            if original and original.lower() != c["title"].lower():
+                guess = _resolve_cinema_title(
+                    _clean_title(original), c.get("year"), c.get("director_hint")
+                )
+                if guess:
+                    print(
+                        f"      [Radar] {c['title']!r} resuelto por su título "
+                        f"original {original!r} -> {guess['imdb_id']}"
+                    )
+        c["imdb_id"] = guess["imdb_id"] if guess else None
+        c["imdb_hint_title"] = guess.get("title") if guess else None
+        c["imdb_hint_poster"] = guess.get("poster") if guess else None
+        if not c["imdb_id"]:
+            print(f"      [Radar] sin imdb_id para: {c['title']!r}")
+    return cands
+
+
+def parse_madrid_showtimes(html: str):
+    """Página movie-showtimes ...&state=ES-M -> [{name, showtimes,
+    listing_url}] (un elemento por cine; varias versiones, p.ej. VOSE y
+    doblada, se fusionan). Los días se etiquetan con el texto VISIBLE
+    ('Martes 13'), no con data-sess-date, que va un día por detrás del texto."""
+    soup = BeautifulSoup(html, "html.parser")
+    cinemas = []
+    for block in soup.select("div.theater"):
+        name_el = block.select_one(".card-header .th-name")
+        if not name_el:
+            continue
+        name = canonical_cinema_name(name_el.get_text(strip=True))
+        times, seen = [], set()
+        for row in block.select("[data-sess-date]"):
+            sess_date = row.select_one(".sess-date")
+            dm = _WEEKDAY_NUM_RE.search(sess_date.get_text(" ", strip=True)) if sess_date else None
+            if not dm:
+                continue
+            day = dm.group(1).capitalize() + (f" {dm.group(2)}" if dm.group(2) else "")
+            for a in row.select(".times-wrap a"):
+                hhmm = a.get_text(strip=True)
+                if not re.fullmatch(r"\d{1,2}:\d{2}", hhmm):
+                    continue
+                label = f"{day} · {int(hhmm.split(':')[0]):02d}:{hhmm.split(':')[1]}"
+                if label not in seen:
+                    seen.add(label)
+                    times.append(label)
+        if times:
+            cinemas.append(
+                {"name": name, "showtimes": times, "listing_url": _radar_chain_url(name)}
+            )
+    return cinemas
+
+
+def get_madrid_showtimes_for_film(fa_id: str):
+    html = _get(RADAR_SHOWTIMES_URL.format(fa_id=fa_id), f"Radar sesiones Madrid {fa_id}")
+    return parse_madrid_showtimes(html) if html else []
 
 
 if __name__ == "__main__":
