@@ -243,6 +243,81 @@ def select_cinema_picks(billboard, taste_profile, favorite_actors, watchlist_ids
     return results
 
 
+# Radar de estrenos (13 oct 2026): solo coincidencias FUERTES -- pendientes
+# (100), actor favorito (85) o director favorito (65). Saga (55) y género (45)
+# quedan fuera a propósito: el radar existe para no perder lo que de verdad
+# esperas, no para inundar la sección con cualquier estreno de un cine que no
+# sigues.
+RADAR_MIN_SCORE = 65
+
+
+def select_radar_picks(candidates, taste_profile, favorite_actors, watchlist_ids,
+                       showtimes_fetcher):
+    """
+    candidates: [{fa_id, title, imdb_id, imdb_hint_title, imdb_hint_poster}]
+    (ver cines_madrid.get_radar_candidates). showtimes_fetcher(fa_id) ->
+    [{name, showtimes, listing_url}] con los cines REALES de Madrid.
+    Devuelve picks con el mismo formato que select_cinema_picks (más
+    "source": "radar"); una peli sin ningún cine/sesión en Madrid se omite.
+    """
+    results = []
+    for c in candidates:
+        imdb_id = c.get("imdb_id")
+        if not imdb_id:
+            continue
+        include, reason, score, info = _score_and_reason(
+            imdb_id, taste_profile, favorite_actors, watchlist_ids
+        )
+        if not include or score < RADAR_MIN_SCORE:
+            continue
+        cinemas = showtimes_fetcher(c["fa_id"])
+        if not cinemas:
+            print(f"    [radar] '{c['title']}' encaja ({reason}) pero no tiene sesiones en Madrid")
+            continue
+        info = info or get_title_metadata(imdb_id=imdb_id)
+        cinemas = sorted(cinemas, key=lambda x: x["name"])
+        print(
+            f"    [radar] '{c['title']}' ({imdb_id}): {reason} -- "
+            f"{len(cinemas)} cine(s) en Madrid: {', '.join(x['name'] for x in cinemas)}"
+        )
+        results.append(
+            {
+                "imdb_id": imdb_id,
+                "title": info.get("title") or c.get("imdb_hint_title") or c["title"],
+                "poster": info.get("poster") or c.get("imdb_hint_poster"),
+                "rating": info.get("rating"),
+                "imdb_url": info.get("url", f"https://www.imdb.com/title/{imdb_id}/"),
+                "reason": reason,
+                "score": score,
+                "release_date": info.get("release_date"),
+                "cinemas": cinemas,
+                "source": "radar",
+            }
+        )
+    return results
+
+
+def merge_radar_into_cinema_picks(cinema_picks, radar_picks):
+    """Fusiona el radar con los picks de la lista fija: si la peli ya estaba,
+    solo se le añaden los cines nuevos (sin duplicar nombres); si no, se
+    añade entera. Se reordena con el mismo criterio de select_cinema_picks
+    (estreno más reciente primero)."""
+    by_id = {p["imdb_id"]: p for p in cinema_picks}
+    for r in radar_picks:
+        existing = by_id.get(r["imdb_id"])
+        if existing is None:
+            cinema_picks.append(r)
+            by_id[r["imdb_id"]] = r
+            continue
+        have = {c["name"] for c in existing["cinemas"]}
+        for c in r["cinemas"]:
+            if c["name"] not in have:
+                existing["cinemas"].append(c)
+        existing["cinemas"].sort(key=lambda c: c["name"])
+    cinema_picks.sort(key=lambda r: (_release_date_sort_key(r["release_date"]), r["title"] or ""))
+    return cinema_picks
+
+
 WEEKEND_DAYS = ["viernes", "sábado", "domingo"]
 
 
