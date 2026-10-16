@@ -156,8 +156,13 @@ html, body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 .cinema-item .card-poster {
-  width: 72px;
-  min-width: 72px;
+  /* Tamaño fijo y anclado arriba: sin align-self el flex lo estiraba a toda
+     la altura de la tarjeta (muchos horarios = póster gigante). */
+  align-self: flex-start;
+  flex: 0 0 auto;
+  width: 84px;
+  min-width: 84px;
+  height: 126px;
   aspect-ratio: 2 / 3;
   border-radius: 8px;
 }
@@ -187,7 +192,7 @@ html, body {
 }
 
 @media (min-width: 560px) {
-  .cinema-item .card-poster { width: 92px; min-width: 92px; }
+  .cinema-item .card-poster { width: 100px; min-width: 100px; height: 150px; }
   .cinema-item-title { font-size: 1.05rem; }
 }
 
