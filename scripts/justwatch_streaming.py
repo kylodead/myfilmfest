@@ -336,8 +336,66 @@ def _scrape_provider_new_movies(category_id: str, label: str, today: date):
 
         title = _SERIES_MARKER_RE.split(raw_title)[0].strip(" -–·(")
         if d and title and not is_series:
-            items.append({"title": title, "date": d})
+            items.append({"title": title, "date": d, "fa_id": col.get("data-movie-id")})
     return items
+
+
+def _fa_film_details(fa_id):
+    """Título original y director(es) de la ficha de FilmAffinity.
+
+    Caso real (16 oct 2026): "En directo" (Netflix, 9 oct) es la película
+    india *Reporting Live*, pero IMDb Suggestion devuelve para "en directo"
+    homónimos (AKA francés "En direct" = *Primetime*, de Lance Oppenheim,
+    que está en tu lista de pendientes y aún no está en Netflix). Sin director
+    ni título original no hay forma de distinguirlas, así que para streaming
+    se lee la ficha de FA y se resuelve con título original + director."""
+    if not fa_id:
+        return {}
+    html = _get_page(f"https://www.filmaffinity.com/es/film{fa_id}.html", f"FA ficha {fa_id}")
+    if not html:
+        return {}
+    soup = BeautifulSoup(html, "html.parser")
+    info = {"original": None, "directors": []}
+    for dt in soup.find_all("dt"):
+        label = dt.get_text(strip=True).lower()
+        dd = dt.find_next_sibling("dd")
+        if dd is None:
+            continue
+        if "original" in label and not info["original"]:
+            info["original"] = dd.get_text(" ", strip=True) or None
+        elif label.startswith("direcci") and not info["directors"]:
+            names = [a.get_text(" ", strip=True) for a in dd.find_all("a")]
+            if not names:
+                names = [n.strip() for n in re.split(r"[,\n]", dd.get_text("\n", strip=True))]
+            info["directors"] = [n for n in names if n]
+    return info
+
+
+def _resolve_streaming_title(it):
+    """imdb guess CONFIRMADO por director. None si no se puede confirmar
+    (mejor no mostrar nada que mostrar un homónimo, ver _fa_film_details)."""
+    details = _fa_film_details(it.get("fa_id"))
+    directors = details.get("directors") or []
+    original = details.get("original")
+    year = str(it["date"].year)
+    names = []
+    for t in (original, it["title"]):
+        if t and t not in names:
+            names.append(t)
+    if directors:
+        for t in names:
+            for d in directors:
+                guess = best_guess_imdb(t, year=year, director_hint=d)
+                if guess:
+                    return guess
+        return None
+    # Sin director en la ficha: solo se acepta si IMDb no tiene ambigüedad
+    # (comportamiento anterior), probando también el título original.
+    for t in names:
+        guess = best_guess_imdb(t, year=year)
+        if guess:
+            return guess
+    return None
 
 
 def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
@@ -375,7 +433,7 @@ def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
         for it in raw:
             if it["date"] < cutoff:
                 continue
-            guess = best_guess_imdb(it["title"], year=str(it["date"].year))
+            guess = _resolve_streaming_title(it)
             imdb_id = guess["imdb_id"] if guess else None
             if not imdb_id:
                 print(f"      sin imdb_id para: {it['title']!r} ({label})")
