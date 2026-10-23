@@ -1,41 +1,41 @@
 {
-  "generated_at": "2026-10-16T08:03",
-  "week_label": "16/10 – 22/10",
+  "generated_at": "2026-10-23T08:02",
+  "week_label": "23/10 – 29/10",
   "weekend": {
-    "range": "16/10 – 18/10",
+    "range": "23/10 – 25/10",
     "picks": [
       {
-        "imdb_id": "tt36120484",
-        "title": "Cada día nace un listo",
-        "poster": "https://image.tmdb.org/t/p/w500/h9MlIuR0HGdmY0T16C9Sy0LJ7l9.jpg",
-        "rating": 8.0,
-        "imdb_url": "https://www.imdb.com/title/tt36120484/",
+        "imdb_id": "tt39387986",
+        "title": "Fading Grandeur",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMDQ2NWFjNWEtMWZjNy00NGJmLWIyNTktZGE3NmRhOWEyZGIxXkEyXkFqcGc@._V1_.jpg",
+        "rating": null,
+        "imdb_url": "https://www.imdb.com/title/tt39387986/",
         "platform": "Netflix",
-        "release_date": "2026-10-14",
-        "reason": "Sale Dafne Fernández, de tus actores favoritos",
-        "score": 85,
+        "release_date": "2026-10-23",
+        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
+        "score": 10,
         "day": "viernes"
       },
       {
-        "imdb_id": "tt31049299",
-        "title": "Animales",
-        "poster": "https://image.tmdb.org/t/p/w500/hhycOr6ji35RMGHnstHN4UKAvR4.jpg",
-        "rating": 7.189,
-        "imdb_url": "https://www.imdb.com/title/tt31049299/",
+        "imdb_id": "tt43756753",
+        "title": "Ang Pinakamasarap na Pares sa Balat ng Lupa",
+        "poster": "https://image.tmdb.org/t/p/w500/gwzMGT9E9eZgNRUlIiP2na9Q9fX.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt43756753/",
         "platform": "Netflix",
-        "release_date": "2026-10-09",
-        "reason": "Sale Gillian Anderson, de tus actores favoritos",
-        "score": 85,
+        "release_date": "2026-10-23",
+        "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
+        "score": 10,
         "day": "sábado"
       },
       {
-        "imdb_id": "tt37027309",
-        "title": "Lo dejamos acá",
-        "poster": "https://image.tmdb.org/t/p/w500/bk8T4enLxtWgHgVS5iX5yksWlMA.jpg",
+        "imdb_id": "tt39162810",
+        "title": "Paralyzed by Hope: The Maria Bamford Story",
+        "poster": "https://image.tmdb.org/t/p/w500/waH2eiMaEW987JUTWyrj4x4d63k.jpg",
         "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt37027309/",
+        "imdb_url": "https://www.imdb.com/title/tt39162810/",
         "platform": "Netflix",
-        "release_date": "2026-10-16",
+        "release_date": "2026-10-23",
         "reason": "Estreno reciente en Netflix — no coincide con tus gustos habituales, es la mejor opción disponible para completar el finde",
         "score": 10,
         "day": "domingo"
@@ -43,8 +43,245 @@
     ]
   },
   "cinema_week": {
-    "range": "19/10 – 22/10",
+    "range": "26/10 – 29/10",
     "picks": [
+      {
+        "imdb_id": "tt34890576",
+        "title": "Clayface",
+        "poster": "https://image.tmdb.org/t/p/w500/6ihSDJlBNcvoTWzSA0jonZyOXTs.jpg",
+        "rating": 8.6,
+        "imdb_url": "https://www.imdb.com/title/tt34890576/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-10-23",
+        "cinemas": [
+          {
+            "name": "Cines Renoir (Princesa)",
+            "showtimes": [
+              "Viernes 23 · 16:00",
+              "Viernes 23 · 18:05",
+              "Viernes 23 · 20:10",
+              "Viernes 23 · 22:15",
+              "Sábado 24 · 16:00",
+              "Sábado 24 · 18:05",
+              "Sábado 24 · 20:10",
+              "Sábado 24 · 22:15",
+              "Domingo 25 · 16:00",
+              "Domingo 25 · 18:05",
+              "Domingo 25 · 20:10",
+              "Domingo 25 · 22:15",
+              "Lunes 26 · 16:00",
+              "Lunes 26 · 18:05",
+              "Lunes 26 · 20:10",
+              "Lunes 26 · 22:15",
+              "Martes 27 · 16:00",
+              "Martes 27 · 18:05",
+              "Martes 27 · 20:10",
+              "Martes 27 · 22:15",
+              "Miércoles 28 · 16:00",
+              "Miércoles 28 · 18:05",
+              "Miércoles 28 · 20:10",
+              "Miércoles 28 · 22:15",
+              "Jueves 29 · 16:00",
+              "Jueves 29 · 18:05",
+              "Jueves 29 · 20:10",
+              "Jueves 29 · 22:15"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/clayface/"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt39583295",
+        "title": "Leones en invierno",
+        "poster": "https://image.tmdb.org/t/p/w500/ozr5OyKt1whnfuLei2viZsS38Kp.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt39583295/",
+        "reason": "Sale Amaia Aberasturi y Inma Cuesta, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-10-23",
+        "cinemas": [
+          {
+            "name": "Cines Renoir (Princesa)",
+            "showtimes": [
+              "Viernes 23 · 15:50",
+              "Viernes 23 · 18:00",
+              "Viernes 23 · 20:10",
+              "Viernes 23 · 22:20",
+              "Sábado 24 · 15:50",
+              "Sábado 24 · 18:00",
+              "Sábado 24 · 20:10",
+              "Sábado 24 · 22:20",
+              "Domingo 25 · 15:50",
+              "Domingo 25 · 18:00",
+              "Domingo 25 · 20:10",
+              "Domingo 25 · 22:20",
+              "Lunes 26 · 15:50",
+              "Lunes 26 · 18:00",
+              "Lunes 26 · 20:10",
+              "Lunes 26 · 22:20",
+              "Martes 27 · 15:50",
+              "Martes 27 · 18:00",
+              "Martes 27 · 20:10",
+              "Martes 27 · 22:20",
+              "Miércoles 28 · 15:50",
+              "Miércoles 28 · 18:00",
+              "Miércoles 28 · 20:10",
+              "Miércoles 28 · 22:20",
+              "Jueves 29 · 15:50",
+              "Jueves 29 · 18:00",
+              "Jueves 29 · 20:10",
+              "Jueves 29 · 22:20"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/leones-en-invierno/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt13609648",
+        "title": "Sentido y sensibilidad",
+        "poster": "https://image.tmdb.org/t/p/w500/9BvQHFAQ3BhKk5NSYxtYSMn5lrb.jpg",
+        "rating": 7.3,
+        "imdb_url": "https://www.imdb.com/title/tt13609648/",
+        "reason": "Sale Daisy Edgar-Jones, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-10-23",
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          },
+          {
+            "name": "Cines Renoir (Princesa)",
+            "showtimes": [
+              "Viernes 23 · 16:00",
+              "Viernes 23 · 18:35",
+              "Viernes 23 · 21:30",
+              "Sábado 24 · 16:00",
+              "Sábado 24 · 18:35",
+              "Sábado 24 · 21:30",
+              "Domingo 25 · 16:00",
+              "Domingo 25 · 18:35",
+              "Domingo 25 · 21:30",
+              "Lunes 26 · 16:00",
+              "Lunes 26 · 18:35",
+              "Lunes 26 · 21:30",
+              "Martes 27 · 16:00",
+              "Martes 27 · 18:35",
+              "Martes 27 · 21:30",
+              "Miércoles 28 · 16:00",
+              "Miércoles 28 · 18:35",
+              "Miércoles 28 · 21:30",
+              "Jueves 29 · 16:00"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/sentido-y-sensibilidad/"
+          },
+          {
+            "name": "Cines Renoir (Retiro)",
+            "showtimes": [
+              "Viernes 23 · 16:15",
+              "Viernes 23 · 19:30",
+              "Viernes 23 · 22:15",
+              "Sábado 24 · 16:15",
+              "Sábado 24 · 19:30",
+              "Sábado 24 · 22:15",
+              "Domingo 25 · 16:15",
+              "Domingo 25 · 19:30",
+              "Domingo 25 · 22:15",
+              "Lunes 26 · 16:15",
+              "Lunes 26 · 19:30",
+              "Lunes 26 · 22:15",
+              "Martes 27 · 16:15",
+              "Martes 27 · 19:30",
+              "Martes 27 · 22:15",
+              "Miércoles 28 · 16:15",
+              "Miércoles 28 · 19:30",
+              "Miércoles 28 · 22:15",
+              "Jueves 29 · 16:15",
+              "Jueves 29 · 22:15"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/sentido-y-sensibilidad/"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "16:00",
+              "18:40"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/111711_1_W_0/sentido-y-sensibilidad"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt2056785",
+        "title": "Wildwood: El Bosque Salvaje",
+        "poster": "https://image.tmdb.org/t/p/w500/sJ1uZ4DKsjs2iqLtCX46TifxqoE.jpg",
+        "rating": 9.05,
+        "imdb_url": "https://www.imdb.com/title/tt2056785/",
+        "reason": "Sale Amandla Stenberg, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-10-23",
+        "cinemas": [
+          {
+            "name": "Cines Renoir (Princesa)",
+            "showtimes": [
+              "Viernes 23 · 16:10",
+              "Viernes 23 · 19:00",
+              "Viernes 23 · 21:35",
+              "Sábado 24 · 16:10",
+              "Sábado 24 · 19:00",
+              "Sábado 24 · 21:35",
+              "Domingo 25 · 16:10",
+              "Domingo 25 · 19:00",
+              "Domingo 25 · 21:35",
+              "Lunes 26 · 16:10",
+              "Lunes 26 · 19:00",
+              "Lunes 26 · 21:35",
+              "Martes 27 · 16:10",
+              "Martes 27 · 19:00",
+              "Martes 27 · 21:35",
+              "Miércoles 28 · 16:10",
+              "Miércoles 28 · 19:00",
+              "Miércoles 28 · 21:35",
+              "Jueves 29 · 16:10",
+              "Jueves 29 · 19:00",
+              "Jueves 29 · 21:35"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/wildwood/"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          }
+        ]
+      },
       {
         "imdb_id": "tt14173636",
         "title": "La invitación",
@@ -63,95 +300,87 @@
           {
             "name": "Cines Renoir (Plaza de España)",
             "showtimes": [
-              "Viernes 16 · 17:50",
-              "Viernes 16 · 19:55",
-              "Viernes 16 · 22:00",
-              "Sábado 17 · 17:50",
-              "Sábado 17 · 19:55",
-              "Sábado 17 · 22:00",
-              "Domingo 18 · 17:50",
-              "Domingo 18 · 19:55",
-              "Domingo 18 · 22:00",
-              "Lunes 19 · 17:50",
-              "Lunes 19 · 19:55",
-              "Lunes 19 · 22:00",
-              "Martes 20 · 17:50",
-              "Martes 20 · 19:55",
-              "Martes 20 · 22:00",
-              "Miércoles 21 · 17:50",
-              "Miércoles 21 · 19:55",
-              "Miércoles 21 · 22:00",
-              "Jueves 22 · 17:50",
-              "Jueves 22 · 19:55",
-              "Jueves 22 · 22:00"
+              "Viernes 23 · 18:10",
+              "Viernes 23 · 20:15",
+              "Viernes 23 · 22:00",
+              "Sábado 24 · 18:10",
+              "Sábado 24 · 20:15",
+              "Sábado 24 · 22:00",
+              "Domingo 25 · 18:10",
+              "Domingo 25 · 20:15",
+              "Domingo 25 · 22:00",
+              "Lunes 26 · 18:10",
+              "Lunes 26 · 20:15",
+              "Lunes 26 · 22:00",
+              "Martes 27 · 18:10",
+              "Martes 27 · 20:15",
+              "Martes 27 · 22:00",
+              "Miércoles 28 · 18:10",
+              "Miércoles 28 · 20:15",
+              "Miércoles 28 · 22:00",
+              "Jueves 29 · 18:10",
+              "Jueves 29 · 20:15",
+              "Jueves 29 · 22:00"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/la-invitacion/"
           },
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 16 · 16:00",
-              "Viernes 16 · 18:20",
-              "Viernes 16 · 20:30",
-              "Viernes 16 · 22:45",
-              "Sábado 17 · 16:00",
-              "Sábado 17 · 18:20",
-              "Sábado 17 · 20:30",
-              "Sábado 17 · 22:45",
-              "Domingo 18 · 16:00",
-              "Domingo 18 · 18:20",
-              "Domingo 18 · 20:30",
-              "Domingo 18 · 22:45",
-              "Lunes 19 · 16:00",
-              "Lunes 19 · 18:20",
-              "Lunes 19 · 20:30",
-              "Lunes 19 · 22:45",
-              "Martes 20 · 16:00",
-              "Martes 20 · 18:20",
-              "Martes 20 · 20:30",
-              "Martes 20 · 22:45",
-              "Miércoles 21 · 16:00",
-              "Miércoles 21 · 18:20",
-              "Miércoles 21 · 20:30",
-              "Miércoles 21 · 22:45",
-              "Jueves 22 · 16:00",
-              "Jueves 22 · 18:20",
-              "Jueves 22 · 20:30",
-              "Jueves 22 · 22:45"
+              "Viernes 23 · 15:50",
+              "Viernes 23 · 18:00",
+              "Viernes 23 · 20:00",
+              "Viernes 23 · 22:00",
+              "Sábado 24 · 15:50",
+              "Sábado 24 · 18:00",
+              "Sábado 24 · 20:00",
+              "Sábado 24 · 22:00",
+              "Domingo 25 · 15:50",
+              "Domingo 25 · 18:00",
+              "Domingo 25 · 20:00",
+              "Domingo 25 · 22:00",
+              "Lunes 26 · 15:50",
+              "Lunes 26 · 18:00",
+              "Lunes 26 · 20:00",
+              "Lunes 26 · 22:00",
+              "Martes 27 · 15:50",
+              "Martes 27 · 18:00",
+              "Martes 27 · 20:00",
+              "Martes 27 · 22:40",
+              "Miércoles 28 · 15:50",
+              "Miércoles 28 · 18:00",
+              "Miércoles 28 · 20:00",
+              "Miércoles 28 · 22:00",
+              "Jueves 29 · 15:50",
+              "Jueves 29 · 18:00",
+              "Jueves 29 · 20:00",
+              "Jueves 29 · 22:00"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/la-invitacion/"
           },
           {
             "name": "Cines Renoir (Retiro)",
             "showtimes": [
-              "Viernes 16 · 15:45",
-              "Viernes 16 · 18:15",
-              "Viernes 16 · 20:15",
-              "Viernes 16 · 22:30",
-              "Sábado 17 · 15:45",
-              "Sábado 17 · 18:15",
-              "Sábado 17 · 20:15",
-              "Sábado 17 · 22:30",
-              "Domingo 18 · 15:45",
-              "Domingo 18 · 18:15",
-              "Domingo 18 · 20:15",
-              "Domingo 18 · 22:30",
-              "Lunes 19 · 15:45",
-              "Lunes 19 · 18:15",
-              "Lunes 19 · 20:15",
-              "Lunes 19 · 22:30",
-              "Martes 20 · 15:45",
-              "Martes 20 · 18:15",
-              "Martes 20 · 20:15",
-              "Martes 20 · 22:30",
-              "Miércoles 21 · 15:45",
-              "Miércoles 21 · 18:15",
-              "Miércoles 21 · 20:15",
-              "Miércoles 21 · 22:30",
-              "Jueves 22 · 15:45",
-              "Jueves 22 · 18:15",
-              "Jueves 22 · 20:15",
-              "Jueves 22 · 22:30"
+              "Viernes 23 · 15:45",
+              "Viernes 23 · 17:45",
+              "Viernes 23 · 19:45",
+              "Sábado 24 · 15:45",
+              "Sábado 24 · 17:45",
+              "Sábado 24 · 19:45",
+              "Domingo 25 · 15:45",
+              "Domingo 25 · 17:45",
+              "Domingo 25 · 19:45",
+              "Lunes 26 · 15:45",
+              "Lunes 26 · 17:45",
+              "Lunes 26 · 19:45",
+              "Martes 27 · 15:45",
+              "Martes 27 · 17:45",
+              "Martes 27 · 19:45",
+              "Miércoles 28 · 15:45",
+              "Miércoles 28 · 17:45",
+              "Miércoles 28 · 19:45",
+              "Jueves 29 · 15:45",
+              "Jueves 29 · 17:45"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/la-invitacion/"
           },
@@ -185,31 +414,6 @@
         "score": 85,
         "release_date": "2026-10-16",
         "cinemas": [
-          {
-            "name": "Cines Embajadores",
-            "showtimes": [],
-            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
-          },
-          {
-            "name": "Cines Renoir (Princesa)",
-            "showtimes": [
-              "Viernes 16 · 15:50",
-              "Viernes 16 · 20:10",
-              "Sábado 17 · 15:50",
-              "Sábado 17 · 20:10",
-              "Domingo 18 · 15:50",
-              "Domingo 18 · 20:10",
-              "Lunes 19 · 15:50",
-              "Lunes 19 · 20:10",
-              "Martes 20 · 15:50",
-              "Martes 20 · 20:10",
-              "Miércoles 21 · 15:50",
-              "Miércoles 21 · 20:10",
-              "Jueves 22 · 15:50",
-              "Jueves 22 · 20:10"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/la-maleta/"
-          },
           {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
@@ -245,8 +449,8 @@
         "poster": "https://image.tmdb.org/t/p/w500/jmGVSLOrH9IxtcffbldrEHX4IfB.jpg",
         "rating": 7.583,
         "imdb_url": "https://www.imdb.com/title/tt28535715/",
-        "reason": "Sale Emily Rudd, de tus actores favoritos",
-        "score": 85,
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "release_date": "2026-10-16",
         "cinemas": [
           {
@@ -267,15 +471,10 @@
         "poster": "https://image.tmdb.org/t/p/w500/mO2OqwqlCcBZ3QYcxIfafW37Uey.jpg",
         "rating": 0.0,
         "imdb_url": "https://www.imdb.com/title/tt35717186/",
-        "reason": "Sale Irene Escolar, de tus actores favoritos",
-        "score": 85,
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
         "release_date": "2026-10-09",
         "cinemas": [
-          {
-            "name": "Cines Embajadores",
-            "showtimes": [],
-            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
-          },
           {
             "name": "Cines Golem",
             "showtimes": [
@@ -287,27 +486,15 @@
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 16 · 15:50",
-              "Viernes 16 · 20:30",
-              "Sábado 17 · 15:50",
-              "Sábado 17 · 20:30",
-              "Domingo 18 · 15:50",
-              "Domingo 18 · 20:30",
-              "Lunes 19 · 15:50",
-              "Lunes 19 · 20:30",
-              "Martes 20 · 15:50",
-              "Martes 20 · 20:30",
-              "Miércoles 21 · 15:50",
-              "Miércoles 21 · 20:30",
-              "Jueves 22 · 15:50",
-              "Jueves 22 · 20:30"
+              "Viernes 23 · 15:50",
+              "Sábado 24 · 15:50",
+              "Domingo 25 · 15:50",
+              "Lunes 26 · 15:50",
+              "Martes 27 · 15:50",
+              "Miércoles 28 · 15:50",
+              "Jueves 29 · 15:50"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/ceniza-en-la-boca/"
-          },
-          {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
@@ -324,33 +511,26 @@
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 16 · 15:50",
-              "Viernes 16 · 18:00",
-              "Viernes 16 · 20:05",
-              "Viernes 16 · 22:10",
-              "Sábado 17 · 15:50",
-              "Sábado 17 · 18:00",
-              "Sábado 17 · 20:05",
-              "Sábado 17 · 22:10",
-              "Domingo 18 · 15:50",
-              "Domingo 18 · 18:00",
-              "Domingo 18 · 20:05",
-              "Domingo 18 · 22:10",
-              "Lunes 19 · 15:50",
-              "Lunes 19 · 18:00",
-              "Lunes 19 · 20:05",
-              "Lunes 19 · 22:10",
-              "Martes 20 · 15:50",
-              "Martes 20 · 18:00",
-              "Martes 20 · 20:05",
-              "Martes 20 · 22:10",
-              "Miércoles 21 · 15:50",
-              "Miércoles 21 · 18:00",
-              "Miércoles 21 · 20:05",
-              "Miércoles 21 · 22:10",
-              "Jueves 22 · 15:50",
-              "Jueves 22 · 18:00",
-              "Jueves 22 · 22:10"
+              "Viernes 23 · 17:45",
+              "Viernes 23 · 19:55",
+              "Viernes 23 · 22:00",
+              "Sábado 24 · 17:45",
+              "Sábado 24 · 19:55",
+              "Sábado 24 · 22:00",
+              "Domingo 25 · 17:45",
+              "Domingo 25 · 19:55",
+              "Domingo 25 · 22:00",
+              "Lunes 26 · 17:45",
+              "Lunes 26 · 19:55",
+              "Lunes 26 · 22:00",
+              "Martes 27 · 17:45",
+              "Martes 27 · 22:00",
+              "Miércoles 28 · 17:45",
+              "Miércoles 28 · 19:55",
+              "Miércoles 28 · 22:00",
+              "Jueves 29 · 17:45",
+              "Jueves 29 · 19:55",
+              "Jueves 29 · 22:00"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/el-precio-de-la-red/"
           },
@@ -389,31 +569,6 @@
         ]
       },
       {
-        "imdb_id": "tt36629665",
-        "title": "Su propio infierno",
-        "poster": "https://image.tmdb.org/t/p/w500/esXMZXygfz2x0rs0TfUak6LEuzD.jpg",
-        "rating": 5.417,
-        "imdb_url": "https://www.imdb.com/title/tt36629665/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "2026-10-09",
-        "cinemas": [
-          {
-            "name": "Cines Renoir (Princesa)",
-            "showtimes": [
-              "Viernes 16 · 15:50",
-              "Sábado 17 · 15:50",
-              "Domingo 18 · 15:50",
-              "Lunes 19 · 15:50",
-              "Martes 20 · 15:50",
-              "Miércoles 21 · 15:50",
-              "Jueves 22 · 15:50"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/su-propio-infierno/"
-          }
-        ]
-      },
-      {
         "imdb_id": "tt44766123",
         "title": "NAZA",
         "poster": "https://image.tmdb.org/t/p/w500/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
@@ -438,47 +593,33 @@
           {
             "name": "Cines Renoir (Plaza de España)",
             "showtimes": [
-              "Viernes 16 · 16:00",
-              "Viernes 16 · 18:10",
-              "Viernes 16 · 20:40",
-              "Viernes 16 · 22:15",
-              "Sábado 17 · 16:00",
-              "Sábado 17 · 18:10",
-              "Sábado 17 · 20:40",
-              "Sábado 17 · 22:15",
-              "Domingo 18 · 16:00",
-              "Domingo 18 · 18:10",
-              "Domingo 18 · 20:40",
-              "Domingo 18 · 22:15",
-              "Lunes 19 · 16:00",
-              "Lunes 19 · 18:10",
-              "Lunes 19 · 20:40",
-              "Lunes 19 · 22:15",
-              "Martes 20 · 16:00",
-              "Martes 20 · 18:10",
-              "Martes 20 · 20:40",
-              "Martes 20 · 22:15",
-              "Miércoles 21 · 16:00",
-              "Miércoles 21 · 18:10",
-              "Miércoles 21 · 20:40",
-              "Miércoles 21 · 22:15",
-              "Jueves 22 · 16:00",
-              "Jueves 22 · 18:10",
-              "Jueves 22 · 20:40",
-              "Jueves 22 · 22:15"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/naza/"
-          },
-          {
-            "name": "Cines Renoir (Retiro)",
-            "showtimes": [
-              "Viernes 16 · 16:00",
-              "Sábado 17 · 16:00",
-              "Domingo 18 · 16:00",
-              "Lunes 19 · 16:00",
-              "Martes 20 · 16:00",
-              "Miércoles 21 · 16:00",
-              "Jueves 22 · 16:00"
+              "Viernes 23 · 16:00",
+              "Viernes 23 · 18:10",
+              "Viernes 23 · 20:40",
+              "Viernes 23 · 22:45",
+              "Sábado 24 · 16:00",
+              "Sábado 24 · 18:10",
+              "Sábado 24 · 20:40",
+              "Sábado 24 · 22:45",
+              "Domingo 25 · 16:00",
+              "Domingo 25 · 18:10",
+              "Domingo 25 · 20:40",
+              "Domingo 25 · 22:45",
+              "Lunes 26 · 16:00",
+              "Lunes 26 · 18:10",
+              "Lunes 26 · 20:40",
+              "Lunes 26 · 22:45",
+              "Martes 27 · 16:00",
+              "Martes 27 · 18:10",
+              "Martes 27 · 20:40",
+              "Martes 27 · 22:45",
+              "Miércoles 28 · 16:00",
+              "Miércoles 28 · 18:10",
+              "Miércoles 28 · 20:40",
+              "Miércoles 28 · 22:45",
+              "Jueves 29 · 16:00",
+              "Jueves 29 · 18:10",
+              "Jueves 29 · 20:40"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/naza/"
           },
@@ -486,31 +627,6 @@
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt13129406",
-        "title": "Narciso",
-        "poster": "https://image.tmdb.org/t/p/w500/myt5b8olQaxNlziYFsF6kVMvO2A.jpg",
-        "rating": 10.0,
-        "imdb_url": "https://www.imdb.com/title/tt13129406/",
-        "reason": "Sale Mona Martínez, de tus actores favoritos",
-        "score": 85,
-        "release_date": "2026-10-02",
-        "cinemas": [
-          {
-            "name": "Cines Renoir (Plaza de España)",
-            "showtimes": [
-              "Viernes 16 · 21:30",
-              "Sábado 17 · 21:30",
-              "Domingo 18 · 21:30",
-              "Lunes 19 · 21:30",
-              "Martes 20 · 21:30",
-              "Miércoles 21 · 21:30",
-              "Jueves 22 · 21:30"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/narciso/"
           }
         ]
       },
@@ -527,20 +643,18 @@
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 16 · 18:00",
-              "Viernes 16 · 22:15",
-              "Sábado 17 · 18:00",
-              "Sábado 17 · 22:15",
-              "Domingo 18 · 18:00",
-              "Domingo 18 · 22:15",
-              "Lunes 19 · 18:00",
-              "Lunes 19 · 22:15",
-              "Martes 20 · 18:00",
-              "Martes 20 · 22:15",
-              "Miércoles 21 · 18:00",
-              "Miércoles 21 · 22:15",
-              "Jueves 22 · 18:00",
-              "Jueves 22 · 22:15"
+              "Viernes 23 · 15:50",
+              "Viernes 23 · 20:00",
+              "Sábado 24 · 15:50",
+              "Sábado 24 · 20:00",
+              "Domingo 25 · 15:50",
+              "Domingo 25 · 20:00",
+              "Lunes 26 · 15:50",
+              "Lunes 26 · 20:00",
+              "Martes 27 · 15:50",
+              "Miércoles 28 · 15:50",
+              "Miércoles 28 · 20:00",
+              "Jueves 29 · 15:50"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/verity-la-sombra-de-un-engano/"
           },
@@ -569,27 +683,15 @@
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 16 · 19:45",
-              "Viernes 16 · 22:30",
-              "Sábado 17 · 19:45",
-              "Sábado 17 · 22:30",
-              "Domingo 18 · 19:45",
-              "Domingo 18 · 22:30",
-              "Lunes 19 · 19:45",
-              "Lunes 19 · 22:30",
-              "Martes 20 · 19:45",
-              "Martes 20 · 22:30",
-              "Miércoles 21 · 19:45",
-              "Miércoles 21 · 22:30",
-              "Jueves 22 · 19:45",
-              "Jueves 22 · 22:30"
+              "Viernes 23 · 22:40",
+              "Sábado 24 · 22:40",
+              "Domingo 25 · 22:40",
+              "Lunes 26 · 22:40",
+              "Martes 27 · 22:40",
+              "Miércoles 28 · 22:40",
+              "Jueves 29 · 22:40"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/resident-evil/"
-          },
-          {
-            "name": "Cinesa Proyecciones",
-            "showtimes": [],
-            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
             "name": "Yelmo Cines Ideal",
@@ -611,16 +713,33 @@
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 16 · 20:15",
-              "Sábado 17 · 20:15",
-              "Domingo 18 · 20:15",
-              "Lunes 19 · 20:15",
-              "Martes 20 · 20:15",
-              "Miércoles 21 · 20:15",
-              "Jueves 22 · 20:15"
+              "Viernes 23 · 22:40",
+              "Sábado 24 · 22:40",
+              "Domingo 25 · 22:40",
+              "Lunes 26 · 22:40",
+              "Martes 27 · 22:40",
+              "Miércoles 28 · 22:40",
+              "Jueves 29 · 22:40"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/bad-apples/"
           },
+          {
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt32126595",
+        "title": "Forastera",
+        "poster": "https://image.tmdb.org/t/p/w500/fl7Bl7KSHjN5IzzhGrvWJBsJ3SS.jpg",
+        "rating": 2.0,
+        "imdb_url": "https://www.imdb.com/title/tt32126595/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-09-11",
+        "cinemas": [
           {
             "name": "Sala Equis",
             "showtimes": [],
@@ -639,48 +758,45 @@
         "release_date": "2026-07-17",
         "cinemas": [
           {
-            "name": "Cines Renoir (Princesa)",
-            "showtimes": [
-              "Viernes 16 · 21:30",
-              "Sábado 17 · 21:30",
-              "Domingo 18 · 21:30",
-              "Lunes 19 · 21:30",
-              "Martes 20 · 21:30",
-              "Miércoles 21 · 21:30",
-              "Jueves 22 · 21:30"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/la-odisea/"
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "17:00"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/102239_1_W_0/la-odisea"
-          },
-          {
-            "name": "Yelmo Cines Ideal",
+            "name": "Cinesa Proyecciones",
             "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           }
         ]
       },
       {
-        "imdb_id": "tt0058329",
-        "title": "Marnie la ladrona",
-        "poster": "https://image.tmdb.org/t/p/w500/zeT1khBPdXrLhBktqH4wfNzQsQs.jpg",
-        "rating": 7.1,
-        "imdb_url": "https://www.imdb.com/title/tt0058329/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "1964-09-28",
+        "imdb_id": "tt35943915",
+        "title": "A nadie le importas",
+        "poster": "https://image.tmdb.org/t/p/w500/yL6Q5tpi1QyQl2pvltdaxwVvAk8.jpg",
+        "rating": 10.0,
+        "imdb_url": "https://www.imdb.com/title/tt35943915/",
+        "reason": "Sale Carlos Areces y Ernesto Sevilla, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2025-03-15",
         "cinemas": [
           {
-            "name": "Cineteca (Matadero Madrid)",
+            "name": "Sala Equis",
+            "showtimes": [],
+            "listing_url": "https://salaequis.es"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt0058450",
+        "title": "Los paraguas de Cherburgo",
+        "poster": "https://image.tmdb.org/t/p/w500/q29ZeN0RGtY5PWQPK37exqdGUvI.jpg",
+        "rating": 7.4,
+        "imdb_url": "https://www.imdb.com/title/tt0058450/",
+        "reason": "Sale Catherine Deneuve, de tus actores favoritos",
+        "score": 85,
+        "release_date": "1964-02-19",
+        "cinemas": [
+          {
+            "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "18:00"
+              "Martes 27 · 20:30"
             ],
-            "listing_url": "https://www.cinetecamadrid.com/programacion/marnie-la-ladrona"
+            "listing_url": "https://www.cinesrenoir.com/pelicula/los-paraguas-de-cherburgo-wilder-cinema/"
           }
         ]
       }
