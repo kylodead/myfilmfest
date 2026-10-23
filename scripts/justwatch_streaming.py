@@ -255,16 +255,29 @@ def _parse_date_heading(text: str, today: date):
 
 
 def _get_page(url: str, label: str) -> str:
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=15)
-        time.sleep(REQUEST_DELAY)
-        print(f"    [{label}] GET {url} -> HTTP {r.status_code}, {len(r.text)} bytes")
-        if r.status_code != 200:
+    """GET con reintentos ante 429 (FilmAffinity limita el ritmo: 23 oct 2026
+    una racha de peticiones dejó vacías 4 de las 5 plataformas)."""
+    for attempt in range(1, 4):
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=15)
+            time.sleep(REQUEST_DELAY)
+            print(f"    [{label}] GET {url} -> HTTP {r.status_code}, {len(r.text)} bytes")
+            if r.status_code == 429 and attempt < 3:
+                try:
+                    wait = int(r.headers.get("Retry-After", ""))
+                except ValueError:
+                    wait = 0
+                wait = min(max(wait, 20 * attempt), 90)
+                print(f"    [{label}] 429 (límite de ritmo) — espero {wait}s y reintento ({attempt}/3)")
+                time.sleep(wait)
+                continue
+            if r.status_code != 200:
+                return ""
+            return r.text
+        except Exception as e:
+            print(f"    [{label}] ERROR al pedir {url}: {e!r}")
             return ""
-        return r.text
-    except Exception as e:
-        print(f"    [{label}] ERROR al pedir {url}: {e!r}")
-        return ""
+    return ""
 
 
 def _scrape_provider_new_movies(category_id: str, label: str, today: date):
@@ -371,31 +384,44 @@ def _fa_film_details(fa_id):
     return info
 
 
-def _resolve_streaming_title(it):
-    """imdb guess CONFIRMADO por director. None si no se puede confirmar
-    (mejor no mostrar nada que mostrar un homónimo, ver _fa_film_details)."""
-    details = _fa_film_details(it.get("fa_id"))
-    directors = details.get("directors") or []
+_FA_DETAILS_CACHE = {}
+
+
+def verify_streaming_item(item) -> bool:
+    """Confirma, SOLO para películas que ya van a mostrarse, que el imdb_id
+    resuelto es la misma película que la de FilmAffinity (director o título
+    original). Caso real (16 oct 2026): "En directo" (*Reporting Live*, India)
+    se resolvió a *Primetime* (Oppenheim). Se hace perezoso (unas pocas fichas
+    por ejecución, no una por cada estreno): hacerlo para todos (~60-100
+    fichas) provocó 429 de FilmAffinity el 23 oct y dejó vacías 4 plataformas.
+    Solo rechaza ante una discrepancia POSITIVA; si no se puede comprobar
+    (sin ficha, sin director en IMDb) se acepta."""
+    from utils import _director_hint_matches, _title_similarity
+
+    fa_id = item.get("fa_id")
+    if not fa_id:
+        return True
+    if fa_id not in _FA_DETAILS_CACHE:
+        _FA_DETAILS_CACHE[fa_id] = _fa_film_details(fa_id)
+    details = _FA_DETAILS_CACHE[fa_id]
+    fa_dirs = details.get("directors") or []
+    if not fa_dirs:
+        return True
+    meta = get_title_metadata(imdb_id=item.get("imdb_id"), tmdb_id=item.get("tmdb_id")) or {}
+    imdb_dirs = meta.get("directors") or []
+    if not imdb_dirs:
+        return True
+    if any(_director_hint_matches(imdb_dirs, d) for d in fa_dirs):
+        return True
     original = details.get("original")
-    year = str(it["date"].year)
-    names = []
-    for t in (original, it["title"]):
-        if t and t not in names:
-            names.append(t)
-    if directors:
-        for t in names:
-            for d in directors:
-                guess = best_guess_imdb(t, year=year, director_hint=d)
-                if guess:
-                    return guess
-        return None
-    # Sin director en la ficha: solo se acepta si IMDb no tiene ambigüedad
-    # (comportamiento anterior), probando también el título original.
-    for t in names:
-        guess = best_guess_imdb(t, year=year)
-        if guess:
-            return guess
-    return None
+    if original and meta.get("title") and _title_similarity(original, meta["title"]) >= 0.9:
+        return True
+    print(
+        f"      [verificación] descartada {item.get('title')!r} ({item.get('imdb_id')}): "
+        f"en FilmAffinity la dirige {fa_dirs} (original {original!r}) pero ese imdb_id "
+        f"es de {imdb_dirs} — homónimo, no es la misma película"
+    )
+    return False
 
 
 def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
@@ -428,12 +454,22 @@ def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
             print(f"    [{label} ({category_id})] ERROR inesperado: {e!r}")
             raw = []
         print(f"    [{label} ({category_id})] {len(raw)} películas con fecha detectada en la página")
+        if not raw:
+            print(f"    [{label}] 0 películas — espero 30s y reintento una vez")
+            time.sleep(30)
+            try:
+                raw = _scrape_provider_new_movies(category_id, label, today)
+            except Exception as e:
+                print(f"    [{label} ({category_id})] ERROR inesperado en el reintento: {e!r}")
+                raw = []
+        if not raw:
+            print(f"    [{label}] AVISO: 0 películas — plataforma SIN datos esta semana (¿429 o cambio de plantilla?)")
 
         kept = 0
         for it in raw:
             if it["date"] < cutoff:
                 continue
-            guess = _resolve_streaming_title(it)
+            guess = best_guess_imdb(it["title"], year=str(it["date"].year))
             imdb_id = guess["imdb_id"] if guess else None
             if not imdb_id:
                 print(f"      sin imdb_id para: {it['title']!r} ({label})")
@@ -516,6 +552,7 @@ def get_weekly_streaming_releases(window_days: int = MAX_RECENCY_WINDOW_DAYS):
                     "poster": metadata.get("poster") or guess.get("poster"),
                     "release_date": it["date"].isoformat(),
                     "release_year": guess.get("year"),
+                    "fa_id": it.get("fa_id"),
                 }
             )
         print(
