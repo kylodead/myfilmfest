@@ -149,17 +149,93 @@ def _clean_dore_title(title: str) -> str:
     return t or _clean_title(title)
 
 
-def _get(url: str, label: str) -> str:
+_AIA_BUNDLES = {}
+
+
+def _verify_bundle_for(url: str):
+    """Ruta a un PEM (certifi + intermedio) con el que SÍ se verifica el
+    certificado de `url`, o None.
+
+    23 oct 2026: cinesembajadores.es sirve su certificado SIN el intermedio
+    ("unable to get local issuer certificate") y falla en GitHub Actions
+    aunque el navegador lo abre bien (los navegadores descargan el intermedio
+    por AIA; Python no). Se hace lo mismo que el navegador: se lee de la hoja
+    la URL del emisor (AIA), se descarga el intermedio y se verifica con
+    certifi + ese intermedio. NO se desactiva la verificación TLS."""
+    from urllib.parse import urlparse
+
+    host = urlparse(url).hostname
+    if host in _AIA_BUNDLES:
+        return _AIA_BUNDLES[host]
+    path = None
     try:
-        r = requests.get(url, headers=HEADERS, timeout=15)
-        time.sleep(REQUEST_DELAY)
-        print(f"    [{label}] GET {url} -> HTTP {r.status_code}, {len(r.text)} bytes")
-        if r.status_code != 200:
-            return ""
-        return r.text
+        import ssl
+        import tempfile
+
+        import certifi
+        from cryptography import x509
+        from cryptography.hazmat.primitives import serialization
+        from cryptography.x509.oid import AuthorityInformationAccessOID, ExtensionOID
+
+        leaf_pem = ssl.get_server_certificate((host, urlparse(url).port or 443))  # solo para LEER la hoja
+        leaf = x509.load_pem_x509_certificate(leaf_pem.encode())
+        aia = leaf.extensions.get_extension_for_oid(ExtensionOID.AUTHORITY_INFORMATION_ACCESS).value
+        issuer_urls = [
+            d.access_location.value
+            for d in aia
+            if d.access_method == AuthorityInformationAccessOID.CA_ISSUERS
+        ]
+        extra = b""
+        for u in issuer_urls[:2]:
+            r = requests.get(u, headers=HEADERS, timeout=15)
+            if r.status_code != 200:
+                continue
+            data = r.content
+            try:
+                cert = x509.load_der_x509_certificate(data)
+            except ValueError:
+                cert = x509.load_pem_x509_certificate(data)
+            extra += cert.public_bytes(serialization.Encoding.PEM)
+        if extra:
+            with open(certifi.where(), "rb") as f:
+                base = f.read()
+            tmp = tempfile.NamedTemporaryFile("wb", suffix=".pem", delete=False)
+            tmp.write(base + b"\n" + extra)
+            tmp.close()
+            path = tmp.name
+            print(f"    [TLS] {host}: certificado intermedio descargado por AIA ({len(issuer_urls)} URL)")
     except Exception as e:
-        print(f"    [{label}] ERROR al pedir {url}: {e!r}")
-        return ""
+        print(f"    [TLS] {host}: no se pudo completar la cadena por AIA: {e!r}")
+    _AIA_BUNDLES[host] = path
+    return path
+
+
+def _get(url: str, label: str) -> str:
+    verify = True
+    for attempt in range(1, 4):
+        try:
+            try:
+                r = requests.get(url, headers=HEADERS, timeout=15, verify=verify)
+            except requests.exceptions.SSLError:
+                bundle = _verify_bundle_for(url) if verify is True else None
+                if not bundle:
+                    raise
+                verify = bundle
+                r = requests.get(url, headers=HEADERS, timeout=15, verify=verify)
+            time.sleep(REQUEST_DELAY)
+            print(f"    [{label}] GET {url} -> HTTP {r.status_code}, {len(r.text)} bytes")
+            if r.status_code == 429 and attempt < 3:
+                wait = 20 * attempt
+                print(f"    [{label}] 429 (límite de ritmo) — espero {wait}s y reintento ({attempt}/3)")
+                time.sleep(wait)
+                continue
+            if r.status_code != 200:
+                return ""
+            return r.text
+        except Exception as e:
+            print(f"    [{label}] ERROR al pedir {url}: {e!r}")
+            return ""
+    return ""
 
 
 def _find_showtimes_nearby(link_tag, max_levels: int = 6):
