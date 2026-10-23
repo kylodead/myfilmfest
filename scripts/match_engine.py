@@ -335,6 +335,7 @@ def select_streaming_picks(
     watchlist_ids,
     allow_fallback_fill=True,
     excluded_repeat_ids=None,
+    verifier=None,
 ):
     """
     streaming_items: lista de {title, release_year, release_date, platform,
@@ -394,6 +395,9 @@ def select_streaming_picks(
         if not include:
             continue
         if imdb_id in excluded_repeat_ids:
+            print(f"      [streaming] {item.get('title')!r} ({item.get('platform')}) encajaba ({reason}) pero ya se ofreció — se salta")
+            continue
+        if verifier is not None and not verifier(item):
             continue
         seen_ids.add(imdb_id)
         if not info:
@@ -447,6 +451,8 @@ def select_streaming_picks(
             # un título ya ofrecido como relleno recientemente no vuelve a
             # colarse aquí mientras haya otro estreno reciente sin ofrecer.
             if imdb_id in excluded_repeat_ids:
+                continue
+            if verifier is not None and not verifier(item):
                 continue
             seen_ids.add(imdb_id)
             info = get_title_metadata(imdb_id=imdb_id, tmdb_id=item.get("tmdb_id"))
