@@ -87,6 +87,7 @@ def main():
             RECENCY_WINDOW_DAYS,
             filter_by_window,
             get_weekly_streaming_releases,
+            verify_streaming_item,
         )
 
         # Trae de golpe todo lo publicado hasta MAX_RECENCY_WINDOW_DAYS atrás
@@ -99,6 +100,7 @@ def main():
         streaming_items_all = []
         RECENCY_WINDOW_DAYS = 7
         MAX_RECENCY_WINDOW_DAYS = 7
+        verify_streaming_item = None
 
         def filter_by_window(items, window_days):
             return items
@@ -168,7 +170,7 @@ def main():
     streaming_window_items = filter_by_window(streaming_items_all, window)
     streaming_picks = select_streaming_picks(
         streaming_window_items, taste_profile, favorite_actors, watchlist_ids,
-        allow_fallback_fill=False, excluded_repeat_ids=excluded_repeat_ids,
+        allow_fallback_fill=False, excluded_repeat_ids=excluded_repeat_ids, verifier=verify_streaming_item,
     )
     while len(streaming_picks) < 3 and window < MAX_RECENCY_WINDOW_DAYS:
         window += 7
@@ -176,13 +178,13 @@ def main():
         streaming_window_items = filter_by_window(streaming_items_all, window)
         streaming_picks = select_streaming_picks(
             streaming_window_items, taste_profile, favorite_actors, watchlist_ids,
-            allow_fallback_fill=False, excluded_repeat_ids=excluded_repeat_ids,
+            allow_fallback_fill=False, excluded_repeat_ids=excluded_repeat_ids, verifier=verify_streaming_item,
         )
     if len(streaming_picks) < 3:
         print(f"    sigue sin haber 3 matches tras ampliar hasta {window} días — se rellena con lo más reciente disponible")
         streaming_picks = select_streaming_picks(
             streaming_window_items, taste_profile, favorite_actors, watchlist_ids,
-            allow_fallback_fill=True, excluded_repeat_ids=excluded_repeat_ids,
+            allow_fallback_fill=True, excluded_repeat_ids=excluded_repeat_ids, verifier=verify_streaming_item,
         )
 
     # Se guardan en el historial TODOS los picks de streaming de esta semana,
