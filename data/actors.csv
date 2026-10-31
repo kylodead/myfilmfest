@@ -10,7 +10,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 9,nm2251846,2019-07-29,2019-07-29,,"Joanna Kulig","Zimna wojna","24 de junio de 1982"
 10,nm0271763,2019-08-01,2019-08-01,,"Edwige Fenech","Hostel: Part II","24 de diciembre de 1948"
 11,nm5584702,2019-08-02,2019-08-02,,"Michalina Olszańska","Já, Olga Hepnarová","29 de junio de 1992"
-12,nm1206844,2019-08-03,2019-08-03,,"Drew Goddard","The Cabin in the Woods","26 de febrero de 1975"
+12,nm1206844,2019-08-03,2019-08-03,,"Drew Goddard","The Martian","26 de febrero de 1975"
 13,nm0435299,2019-08-04,2019-08-04,,"Meiko Kaji","Shurayuki-hime","24 de marzo de 1947"
 14,nm2292661,2019-08-08,2019-08-08,,"Zoe Colletti","Scary Stories to Tell in the Dark","27 de noviembre de 2001"
 15,nm0840754,2019-08-10,2019-08-10,,"Blanca Suárez","El bar","21 de octubre de 1988"
@@ -122,7 +122,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 121,nm6848259,2020-06-13,2020-06-13,,"Olivia Delcán","Isla Bonita","29 de mayo de 1992"
 122,nm2442289,2020-06-13,2020-06-13,,"Gina Carano","The Mandalorian","16 de abril"
 123,nm1235867,2020-06-20,2020-06-20,,"Nadia de Santiago","El tiempo que te doy","3 de enero de 1990"
-124,nm4170579,2020-06-20,2020-06-20,,"Iria del Río","Los años nuevos","13 de enero de 1987"
+124,nm4170579,2020-06-20,2020-06-20,,"Iria del Río","Visitante","13 de enero de 1987"
 125,nm10061586,2020-06-20,2020-06-20,,"Carmen Arrufat","La innocència","11 de octubre de 2002"
 126,nm3419668,2020-06-29,2020-06-29,,"Aisha Dee","Safe Home","13 de septiembre de 1993"
 127,nm3126686,2020-07-04,2020-07-04,,"Julia Stockler","A Vida Invisível de Eurídice Gusmão",
@@ -185,7 +185,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 184,nm2572554,2020-10-26,2020-10-26,,"Peyton List","Diary of a Wimpy Kid: Dog Days","6 de abril de 1998"
 185,nm0240318,2020-10-26,2020-10-26,,"Lola Dueñas","Mar adentro","6 de octubre de 1971"
 186,nm7527792,2020-10-26,2020-10-26,,"Ester Expósito","Venus","26 de enero de 2000"
-187,nm6077431,2020-11-04,2020-11-04,,"Mathilde Warnier","Wildcat","2 de octubre de 1991"
+187,nm6077431,2020-11-04,2020-11-04,,"Mathilde Warnier","The Widow","2 de octubre de 1991"
 188,nm0000383,2020-11-07,2020-11-07,,"Jennifer Ehle","Zero Dark Thirty","29 de diciembre de 1969"
 189,nm6077056,2020-11-07,2020-11-07,,"Morfydd Clark","Saint Maud","17 de marzo de 1989"
 190,nm9299588,2020-11-08,2020-11-08,,"Catalina Sopelana","Videoclub 2001",
@@ -392,7 +392,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 391,nm5584750,2022-08-16,2022-08-16,,"Sadie Sink","Stranger Things","16 de abril de 2002"
 392,nm7581394,2022-08-16,2022-08-16,,"Audrey Holcomb","Stranger Things",
 393,nm3513533,2022-09-03,2022-09-03,,"Stephanie Hsu","The Marvelous Mrs. Maisel","25 de noviembre de 1990"
-394,nm4561559,2022-09-03,2022-09-03,,"Renate Reinsve","Affeksjonsverdi","24 de noviembre de 1987"
+394,nm4561559,2022-09-03,2022-09-03,,"Renate Reinsve","Verdens verste menneske","24 de noviembre de 1987"
 395,nm0840772,2022-09-19,2022-09-19,,"Emma Suárez","Julieta","25 de junio de 1964"
 396,nm0728484,2022-09-19,2022-09-19,,"Ana Risueño","La herencia Valdemar","22 de junio de 1969"
 397,nm2913275,2022-09-24,2022-09-24,,"Debby Ryan","Insatiable","13 de mayo de 1993"
@@ -532,7 +532,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 531,nm1007012,2025-02-07,2025-02-07,,"Aida Folch","El artista y la modelo","24 de noviembre de 1986"
 532,nm2168632,2025-02-08,2025-02-08,,"Manuela Vellés","Secuestrados","16 de enero de 1987"
 533,nm3864163,2025-02-13,2025-02-13,,"Raffey Cassidy","The Brutalist","12 de noviembre"
-534,nm0211473,2025-02-16,2025-02-16,,"Orchidea De Santis","Amore e morte nel giardino degli dei","20 de diciembre de 1948"
+534,nm0211473,2025-02-16,2025-02-16,,"Orchidea De Santis","Colpo di stato","20 de diciembre de 1948"
 535,nm3990647,2025-02-27,2025-02-27,,"Valentina Herszage","Mate-me Por Favor","11 de marzo de 1998"
 536,nm9500800,2025-02-27,2025-02-27,,"Bárbara Luz","Ainda Estou Aqui",
 537,nm1212934,2025-03-16,2025-03-16,,"Elena de Frutos","R.I.S. Científica","23 de diciembre de 1985"
@@ -558,7 +558,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 557,nm0646575,2025-09-06,2025-09-06,,"Melani Olivares","Aída","18 de febrero de 1973"
 558,nm9374927,2025-09-06,2025-09-06,,"Kelly Depeault","Noémie dit oui","6 de mayo de 2002"
 559,nm0080524,2025-09-06,2025-09-06,,"Mayim Bialik","Beaches","12 de diciembre de 1975"
-560,nm12526687,2025-09-06,2025-09-06,,"Lorea Intxausti Oregi","Todo lo que nunca fuimos",
+560,nm12526687,2025-09-06,2025-09-06,,"Lorea Intxausti Oregi","The Osha Rule",
 561,nm7165354,2025-09-07,2025-09-07,,"Marta Medina","Despertar",
 562,nm0324409,2025-09-13,2025-09-13,,"Bárbara Goenaga","Los cronocrímenes","20 de julio de 1983"
 563,nm0845209,2025-09-13,2025-09-13,,"Aitana Sánchez-Gijón","The Machinist","5 de noviembre de 1968"
@@ -582,7 +582,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 581,nm12196562,2025-11-24,2025-11-24,,"Sara Martínez","Todo lo otro",
 582,nm4032297,2025-11-30,2025-11-30,,"Chloe Bennet","Agents of S.H.I.E.L.D.","18 de abril de 1992"
 583,nm4874651,2025-11-30,2025-11-30,,"Dove Cameron","56 Days","15 de enero de 1996"
-584,nm1015269,2025-12-05,2025-12-05,,"Nuria Mencía","Post coitum",
+584,nm1015269,2025-12-05,2025-12-05,,"Nuria Mencía","Post coitum","1972"
 585,nm6773271,2025-12-06,2025-12-06,,"Lucía Díez","El Cid","17 de junio de 1996"
 586,nm1308063,2025-12-06,2025-12-06,,"Ana Polvorosa","La fortuna","14 de diciembre de 1987"
 587,nm10628313,2025-12-12,2025-12-12,,"Mel Jarnson","Mortal Kombat","1 de febrero de 1998"
@@ -648,7 +648,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 647,nm3138882,2026-03-23,2026-03-23,,"Britt Lower","High Maintenance","2 de agosto de 1985"
 648,nm7862766,2026-03-23,2026-03-23,,"Sydney Cole Alexander","Severance",
 649,nm0359734,2026-03-23,2026-03-23,,"Michael Haneke","Caché","23 de marzo de 1942"
-650,nm0000041,2026-03-23,2026-03-23,,"Akira Kurosawa","Kakushi-toride no san-akunin","23 de marzo de 1910"
+650,nm0000041,2026-03-23,2026-03-23,,"Akira Kurosawa","Ran","23 de marzo de 1910"
 651,nm12043107,2026-03-23,2026-03-23,,"Sarah Bock","Severance","15 de agosto de 2006"
 652,nm0001264,2026-03-23,2026-03-23,,"Sarah Michelle Gellar","Buffy the Vampire Slayer","14 de abril de 1977"
 653,nm0004918,2026-03-23,2026-03-23,,"Danielle Fishel","Boy Meets World","5 de mayo de 1981"
@@ -781,7 +781,7 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 780,nm3065809,2026-08-29,2026-08-29,,"Rosabell Laurenti Sellers","Gli equilibristi","27 de marzo de 1996"
 781,nm1693112,2026-08-30,2026-08-30,,"Carlos Areces","Balada triste de trompeta","27 de marzo de 1976"
 782,nm1481149,2026-08-30,2026-08-30,,"Aitziber Garmendia","Ocho apellidos vascos","10 de diciembre de 1982"
-783,nm2255973,2026-08-31,2026-08-31,,"Donald Glover","Community","25 de septiembre de 1983"
+783,nm2255973,2026-08-31,2026-08-31,,"Donald Glover","Solo: A Star Wars Story","25 de septiembre de 1983"
 784,nm3958585,2026-09-03,2026-09-03,,"Rainey Qualley","Delilah","11 de marzo de 1990"
 785,nm3172796,2026-09-03,2026-09-03,,"Melina Matthews","The Room Next Door","21 de noviembre de 1986"
 786,nm0005403,2026-09-04,2026-09-04,,"Jason Schwartzman","Rushmore","26 de junio de 1980"
@@ -821,3 +821,6 @@ Position,Const,Created,Modified,Description,Name,Known For,Birth Date
 820,nm4707590,2026-10-12,2026-10-12,,"Sara Jiménez","Julieta","6 de abril de 2001"
 821,nm1852538,2026-10-12,2026-10-12,,"Carla Nieto","Siempre es invierno","30 de noviembre de 1983"
 822,nm1884975,2026-10-12,2026-10-12,,"Maggie Civantos","Vis a vis","28 de diciembre de 1984"
+823,nm0246224,2026-10-23,2026-10-23,,"Anulka Dziubinska","Vampyres","14 de diciembre de 1950"
+824,nm0606766,2026-10-23,2026-10-23,,"Marianne Morris","Vampyres","1950"
+825,nm0269113,2026-10-23,2026-10-23,,"Sally Faulkner","Doctor Who","14 de agosto de 1946"
