@@ -1,50 +1,1094 @@
 {
-  "generated_at": "2026-10-30T07:56",
-  "week_label": "30/10 – 05/11",
+  "generated_at": "2026-11-06T17:53",
+  "week_label": "06/11 – 12/11",
   "weekend": {
-    "range": "30/10 – 01/11",
+    "range": "06/11 – 08/11",
     "picks": [
       {
-        "imdb_id": "tt29550683",
-        "title": "Whistle: El silbido del mal",
-        "poster": "https://image.tmdb.org/t/p/w500/1gafvXyeC3vB7CatUo1IIx8a421.jpg",
-        "rating": 6.292,
-        "imdb_url": "https://www.imdb.com/title/tt29550683/",
+        "imdb_id": "tt32897959",
+        "title": "“Cumbres Borrascosas”",
+        "poster": "https://image.tmdb.org/t/p/w500/afGUJcMBJloAUp9uC27MQiqkD7X.jpg",
+        "rating": 6.642,
+        "imdb_url": "https://www.imdb.com/title/tt32897959/",
         "platform": "Movistar Plus+",
-        "release_date": "2026-10-21",
+        "release_date": "2026-11-06",
         "reason": "Está en tu lista de pendientes",
         "score": 100,
         "day": "viernes"
       },
       {
-        "imdb_id": "tt36151377",
-        "title": "Morir no siempre sale bien",
-        "poster": "https://image.tmdb.org/t/p/w500/vKIi2b3YHdqYw6Sv4McybisYKpg.jpg",
-        "rating": 5.6,
-        "imdb_url": "https://www.imdb.com/title/tt36151377/",
-        "platform": "Movistar Plus+",
-        "release_date": "2026-10-20",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
+        "imdb_id": "tt31415482",
+        "title": "Eleonora Duse, La Divina",
+        "poster": "https://image.tmdb.org/t/p/w500/hA5apg2ezZiUzgEFhP0Opab4i8i.jpg",
+        "rating": 6.7,
+        "imdb_url": "https://www.imdb.com/title/tt31415482/",
+        "platform": "Filmin",
+        "release_date": "2026-11-06",
+        "reason": "Sale Noémie Merlant, de tus actores favoritos",
+        "score": 85,
         "day": "sábado"
       },
       {
-        "imdb_id": "tt43344353",
-        "title": "Los ilusos 13 + 13",
-        "poster": "https://image.tmdb.org/t/p/w500/35rUzvNL6SnMhIbQ3O15WKHOlUR.jpg",
+        "imdb_id": "tt38793125",
+        "title": "Colisión",
+        "poster": "https://image.tmdb.org/t/p/w500/L2SDL6pi8jyvMRmh1vWbqfwHtf.jpg",
         "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt43344353/",
-        "platform": "Filmin",
-        "release_date": "2026-10-16",
-        "reason": "Sale Aura Garrido y Vito Sanz, de tus actores favoritos",
+        "imdb_url": "https://www.imdb.com/title/tt38793125/",
+        "platform": "Netflix",
+        "release_date": "2026-10-30",
+        "reason": "Sale Laia Costa, de tus actores favoritos",
         "score": 85,
         "day": "domingo"
       }
     ]
   },
   "cinema_week": {
-    "range": "02/11 – 05/11",
+    "range": "09/11 – 12/11",
     "picks": [
+      {
+        "imdb_id": "tt34384661",
+        "title": "Godzilla Minus Zero",
+        "poster": "https://image.tmdb.org/t/p/w500/taoPyKQTXh0FSwO5rin8Djrt20C.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt34384661/",
+        "reason": "Está en tu lista de pendientes",
+        "score": 100,
+        "release_date": "2026-11-06",
+        "cinemas": [
+          {
+            "name": "Cinesa  Xanadú",
+            "showtimes": [
+              "Viernes 6 · 19:15",
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 12:30",
+              "Sábado 7 · 19:15",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 12:30",
+              "Domingo 8 · 19:15",
+              "Domingo 8 · 22:15"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Equinoccio",
+            "showtimes": [
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 22:15"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa LUXE Oasiz",
+            "showtimes": [
+              "Viernes 6 · 17:00",
+              "Viernes 6 · 19:35",
+              "Viernes 6 · 22:10",
+              "Sábado 7 · 12:15",
+              "Sábado 7 · 19:20",
+              "Sábado 7 · 22:10",
+              "Domingo 8 · 12:30",
+              "Domingo 8 · 19:40",
+              "Domingo 8 · 22:10",
+              "Lunes 9 · 21:45",
+              "Martes 10 · 21:45",
+              "Miércoles 11 · 16:00"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa La Gavia",
+            "showtimes": [
+              "Viernes 6 · 21:45",
+              "Sábado 7 · 21:45",
+              "Domingo 8 · 21:45"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Las Rosas",
+            "showtimes": [
+              "Viernes 6 · 21:45",
+              "Sábado 7 · 22:00",
+              "Domingo 8 · 21:45"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Las Rozas - Heron City",
+            "showtimes": [
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 19:25",
+              "Domingo 8 · 18:40"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Loranca",
+            "showtimes": [
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 22:15"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Manoteras",
+            "showtimes": [
+              "Viernes 6 · 16:15",
+              "Viernes 6 · 19:15",
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 12:40",
+              "Sábado 7 · 16:15",
+              "Sábado 7 · 19:15",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 12:40",
+              "Domingo 8 · 16:15",
+              "Domingo 8 · 19:15",
+              "Domingo 8 · 22:15"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Méndez Álvaro",
+            "showtimes": [
+              "Viernes 6 · 19:15",
+              "Viernes 6 · 22:20",
+              "Sábado 7 · 12:25",
+              "Sábado 7 · 19:15",
+              "Sábado 7 · 22:20",
+              "Domingo 8 · 12:05",
+              "Domingo 8 · 19:15",
+              "Domingo 8 · 22:20"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Nassica-Getafe",
+            "showtimes": [
+              "Viernes 6 · 19:10",
+              "Viernes 6 · 22:15",
+              "Viernes 6 · 23:20",
+              "Sábado 7 · 12:20",
+              "Sábado 7 · 15:40",
+              "Sábado 7 · 19:10",
+              "Sábado 7 · 22:15",
+              "Sábado 7 · 23:20",
+              "Domingo 8 · 12:20",
+              "Domingo 8 · 15:40",
+              "Domingo 8 · 19:00",
+              "Domingo 8 · 22:10"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Parquesur",
+            "showtimes": [
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 19:30",
+              "Domingo 8 · 12:15",
+              "Domingo 8 · 18:45"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Cinesa Príncipe Pío",
+            "showtimes": [
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 22:15"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Kinépolis Madrid Ciudad de la Imagen",
+            "showtimes": [
+              "Viernes 6 · 19:30",
+              "Sábado 7 · 19:30",
+              "Domingo 8 · 19:30",
+              "Viernes 6 · 18:45",
+              "Sábado 7 · 18:45",
+              "Domingo 8 · 18:45"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Reston Cinema",
+            "showtimes": [
+              "Viernes 6 · 18:00",
+              "Sábado 7 · 18:00",
+              "Domingo 8 · 18:00"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          },
+          {
+            "name": "Yelmo Cines Islazul",
+            "showtimes": [
+              "Viernes 6 · 20:00",
+              "Sábado 7 · 20:00",
+              "Domingo 8 · 20:00"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines La Vaguada",
+            "showtimes": [
+              "Lunes 9 · 20:00",
+              "Martes 10 · 20:00",
+              "Miércoles 11 · 20:45",
+              "Viernes 6 · 20:00",
+              "Sábado 7 · 20:00",
+              "Domingo 8 · 20:00"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Planetocio",
+            "showtimes": [
+              "Viernes 6 · 20:00",
+              "Sábado 7 · 20:00",
+              "Domingo 8 · 20:00"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Plaza Norte 2",
+            "showtimes": [
+              "Viernes 6 · 20:00",
+              "Sábado 7 · 20:00",
+              "Domingo 8 · 20:00"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Plenilunio",
+            "showtimes": [
+              "Viernes 6 · 20:00",
+              "Sábado 7 · 20:00",
+              "Domingo 8 · 20:00",
+              "Miércoles 11 · 20:00"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Rivas H2O",
+            "showtimes": [
+              "Lunes 9 · 20:00",
+              "Martes 10 · 20:00",
+              "Miércoles 11 · 20:00",
+              "Viernes 6 · 20:00",
+              "Sábado 7 · 20:10",
+              "Domingo 8 · 20:00"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Tresaguas",
+            "showtimes": [
+              "Viernes 6 · 19:45",
+              "Sábado 7 · 20:00",
+              "Domingo 8 · 19:45"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Parque Corredor",
+            "showtimes": [
+              "Viernes 6 · 20:00",
+              "Sábado 7 · 20:00",
+              "Domingo 8 · 20:00",
+              "Lunes 9 · 20:00",
+              "Martes 10 · 20:00",
+              "Miércoles 11 · 20:00"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "mk2 Palacio de Hielo",
+            "showtimes": [
+              "Sábado 7 · 22:00",
+              "Viernes 6 · 22:00",
+              "Domingo 8 · 22:00"
+            ],
+            "listing_url": "https://www.mk2cines.es"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt35518109",
+        "title": "Los miserables",
+        "poster": "https://image.tmdb.org/t/p/w500/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
+        "rating": 7.205,
+        "imdb_url": "https://www.imdb.com/title/tt35518109/",
+        "reason": "Sale Noémie Merlant, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-11-06",
+        "cinemas": [
+          {
+            "name": "Cines La Rambla",
+            "showtimes": [
+              "Viernes 6 · 18:00",
+              "Sábado 7 · 18:05",
+              "Domingo 8 · 17:10"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Cines Renoir (Princesa)",
+            "showtimes": [
+              "Viernes 6 · 15:50",
+              "Viernes 6 · 19:00",
+              "Sábado 7 · 15:50",
+              "Sábado 7 · 19:00",
+              "Domingo 8 · 15:50",
+              "Domingo 8 · 19:00",
+              "Lunes 9 · 15:50",
+              "Lunes 9 · 19:00",
+              "Martes 10 · 15:50",
+              "Martes 10 · 19:00",
+              "Miércoles 11 · 15:50",
+              "Miércoles 11 · 19:00",
+              "Jueves 12 · 15:50",
+              "Jueves 12 · 19:00"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/20261106050502-los-miserables/"
+          },
+          {
+            "name": "Cinesa  Xanadú",
+            "showtimes": [
+              "Viernes 6 · 17:30",
+              "Viernes 6 · 21:10",
+              "Sábado 7 · 17:30",
+              "Sábado 7 · 21:10",
+              "Domingo 8 · 12:00",
+              "Domingo 8 · 17:30",
+              "Domingo 8 · 21:10"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Equinoccio",
+            "showtimes": [
+              "Viernes 6 · 16:15",
+              "Viernes 6 · 21:25",
+              "Sábado 7 · 12:00",
+              "Sábado 7 · 16:15",
+              "Sábado 7 · 21:25",
+              "Domingo 8 · 12:00",
+              "Domingo 8 · 16:15",
+              "Domingo 8 · 21:25"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa LUXE Oasiz",
+            "showtimes": [
+              "Viernes 6 · 17:30",
+              "Viernes 6 · 21:15",
+              "Sábado 7 · 12:20",
+              "Sábado 7 · 17:30",
+              "Sábado 7 · 21:15",
+              "Domingo 8 · 12:15",
+              "Domingo 8 · 17:30",
+              "Domingo 8 · 21:15"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa La Gavia",
+            "showtimes": [
+              "Viernes 6 · 21:00",
+              "Sábado 7 · 21:20",
+              "Domingo 8 · 21:00"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa La Moraleja",
+            "showtimes": [
+              "Viernes 6 · 17:40",
+              "Viernes 6 · 21:20",
+              "Sábado 7 · 12:00",
+              "Sábado 7 · 17:40",
+              "Sábado 7 · 21:20",
+              "Domingo 8 · 12:00",
+              "Domingo 8 · 17:40",
+              "Domingo 8 · 21:20"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Las Rosas",
+            "showtimes": [
+              "Viernes 6 · 17:20",
+              "Viernes 6 · 21:00",
+              "Sábado 7 · 17:00",
+              "Sábado 7 · 21:00",
+              "Domingo 8 · 17:20",
+              "Domingo 8 · 21:00"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Las Rozas - Heron City",
+            "showtimes": [
+              "Viernes 6 · 17:20",
+              "Viernes 6 · 21:15",
+              "Sábado 7 · 17:20",
+              "Sábado 7 · 20:20",
+              "Domingo 8 · 17:20",
+              "Domingo 8 · 21:15",
+              "Viernes 6 · 20:20",
+              "Sábado 7 · 21:25",
+              "Domingo 8 · 11:55",
+              "Domingo 8 · 20:20"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Loranca",
+            "showtimes": [
+              "Viernes 6 · 17:25",
+              "Viernes 6 · 21:05",
+              "Sábado 7 · 17:25",
+              "Sábado 7 · 21:05",
+              "Domingo 8 · 12:00",
+              "Domingo 8 · 17:25",
+              "Domingo 8 · 21:05"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Manoteras",
+            "showtimes": [
+              "Viernes 6 · 17:50",
+              "Viernes 6 · 21:25",
+              "Sábado 7 · 11:50",
+              "Sábado 7 · 17:50",
+              "Sábado 7 · 21:25",
+              "Domingo 8 · 11:50",
+              "Domingo 8 · 17:50",
+              "Domingo 8 · 21:25",
+              "Viernes 6 · 19:35",
+              "Sábado 7 · 19:35",
+              "Domingo 8 · 19:35"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Méndez Álvaro",
+            "showtimes": [
+              "Viernes 6 · 20:25",
+              "Sábado 7 · 16:15",
+              "Sábado 7 · 20:25",
+              "Domingo 8 · 16:15",
+              "Viernes 6 · 16:15",
+              "Domingo 8 · 20:25"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Nassica-Getafe",
+            "showtimes": [
+              "Viernes 6 · 17:15",
+              "Viernes 6 · 21:00",
+              "Sábado 7 · 12:05",
+              "Sábado 7 · 17:15",
+              "Sábado 7 · 21:00",
+              "Domingo 8 · 12:05",
+              "Domingo 8 · 17:15",
+              "Domingo 8 · 21:00"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Parquesur",
+            "showtimes": [
+              "Viernes 6 · 21:45",
+              "Sábado 7 · 21:45",
+              "Domingo 8 · 21:45"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Proyecciones",
+            "showtimes": [],
+            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
+          },
+          {
+            "name": "Cinesa Príncipe Pío",
+            "showtimes": [
+              "Viernes 6 · 20:25",
+              "Sábado 7 · 20:25",
+              "Sábado 7 · 12:05",
+              "Domingo 8 · 20:25",
+              "Sábado 7 · 15:45",
+              "Domingo 8 · 15:45",
+              "Viernes 6 · 15:45"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Kinépolis Madrid Ciudad de la Imagen",
+            "showtimes": [
+              "Viernes 6 · 20:15",
+              "Viernes 6 · 21:30",
+              "Sábado 7 · 20:15",
+              "Sábado 7 · 21:30",
+              "Domingo 8 · 20:15",
+              "Domingo 8 · 21:30",
+              "Viernes 6 · 16:15",
+              "Sábado 7 · 16:15",
+              "Domingo 8 · 16:15"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "19:15"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/113315_1_W_0/los-miserables"
+          },
+          {
+            "name": "Ocine Quadernillos",
+            "showtimes": [
+              "Viernes 6 · 19:20",
+              "Viernes 6 · 22:30",
+              "Sábado 7 · 19:20",
+              "Sábado 7 · 22:30",
+              "Domingo 8 · 19:20",
+              "Domingo 8 · 22:30",
+              "Martes 10 · 19:20",
+              "Jueves 12 · 19:20"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Ocine Urban Caleido",
+            "showtimes": [
+              "Viernes 6 · 15:50",
+              "Viernes 6 · 19:15",
+              "Sábado 7 · 15:50",
+              "Sábado 7 · 19:15",
+              "Domingo 8 · 15:50",
+              "Domingo 8 · 19:15"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Ocine Urban X-Madrid",
+            "showtimes": [
+              "Viernes 6 · 18:45",
+              "Viernes 6 · 22:00",
+              "Sábado 7 · 18:45",
+              "Sábado 7 · 22:00",
+              "Domingo 8 · 18:45",
+              "Domingo 8 · 22:00"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Reston Cinema",
+            "showtimes": [
+              "Viernes 6 · 19:35",
+              "Sábado 7 · 19:35",
+              "Domingo 8 · 19:36"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          },
+          {
+            "name": "Yelmo Cines Islazul",
+            "showtimes": [
+              "Viernes 6 · 17:30",
+              "Sábado 7 · 17:15",
+              "Domingo 8 · 17:15"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Planetocio",
+            "showtimes": [
+              "Viernes 6 · 17:35",
+              "Sábado 7 · 17:35",
+              "Domingo 8 · 17:35"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Plaza Norte 2",
+            "showtimes": [
+              "Viernes 6 · 17:15",
+              "Sábado 7 · 17:15",
+              "Domingo 8 · 17:15"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Plenilunio",
+            "showtimes": [
+              "Viernes 6 · 17:15",
+              "Viernes 6 · 20:45",
+              "Sábado 7 · 13:30",
+              "Sábado 7 · 17:15",
+              "Sábado 7 · 20:45",
+              "Domingo 8 · 13:30",
+              "Domingo 8 · 17:15",
+              "Domingo 8 · 20:45",
+              "Martes 10 · 20:45"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Rivas H2O",
+            "showtimes": [
+              "Viernes 6 · 17:15",
+              "Sábado 7 · 17:15",
+              "Domingo 8 · 17:15"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Tresaguas",
+            "showtimes": [
+              "Viernes 6 · 17:45",
+              "Sábado 7 · 17:30",
+              "Domingo 8 · 17:30"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "mk2 Palacio de Hielo",
+            "showtimes": [
+              "Viernes 6 · 19:15",
+              "Viernes 6 · 22:30",
+              "Sábado 7 · 19:15",
+              "Sábado 7 · 22:30",
+              "Domingo 8 · 19:15",
+              "Domingo 8 · 22:30",
+              "Viernes 6 · 16:00",
+              "Sábado 7 · 11:40",
+              "Sábado 7 · 16:00",
+              "Domingo 8 · 16:00"
+            ],
+            "listing_url": "https://www.mk2cines.es"
+          }
+        ]
+      },
+      {
+        "imdb_id": "tt33296229",
+        "title": "Sacamantecas",
+        "poster": "https://image.tmdb.org/t/p/w500/7338FnwdzX9oNpODZIJH1OliUGV.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt33296229/",
+        "reason": "Sale Haizea Carneros, de tus actores favoritos",
+        "score": 85,
+        "release_date": "2026-11-06",
+        "cinemas": [
+          {
+            "name": "Cines Embajadores",
+            "showtimes": [],
+            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
+          },
+          {
+            "name": "Cines Golem",
+            "showtimes": [
+              "16:10",
+              "18:15",
+              "20:15",
+              "22:15"
+            ],
+            "listing_url": "https://www.golem.es/golem/pelicula/Sacamantecas-(V.O.S.E.)"
+          },
+          {
+            "name": "Cines Renoir (Princesa)",
+            "showtimes": [
+              "Viernes 6 · 15:50",
+              "Viernes 6 · 18:20",
+              "Viernes 6 · 20:00",
+              "Viernes 6 · 22:20",
+              "Sábado 7 · 15:50",
+              "Sábado 7 · 18:20",
+              "Sábado 7 · 20:00",
+              "Sábado 7 · 22:20",
+              "Domingo 8 · 15:50",
+              "Domingo 8 · 18:20",
+              "Domingo 8 · 20:00",
+              "Domingo 8 · 22:20",
+              "Lunes 9 · 15:50",
+              "Lunes 9 · 18:20",
+              "Lunes 9 · 20:00",
+              "Lunes 9 · 22:20",
+              "Martes 10 · 15:50",
+              "Martes 10 · 18:20",
+              "Martes 10 · 20:00",
+              "Martes 10 · 22:20",
+              "Miércoles 11 · 15:50",
+              "Miércoles 11 · 18:20",
+              "Miércoles 11 · 20:00",
+              "Miércoles 11 · 22:20",
+              "Jueves 12 · 15:50",
+              "Jueves 12 · 18:20",
+              "Jueves 12 · 20:00",
+              "Jueves 12 · 22:20"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/sacamantecas/"
+          },
+          {
+            "name": "Cines Villa",
+            "showtimes": [
+              "Viernes 6 · 19:15",
+              "Viernes 6 · 21:15",
+              "Sábado 7 · 19:15",
+              "Sábado 7 · 21:15",
+              "Domingo 8 · 19:30"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Cinesa  Xanadú",
+            "showtimes": [
+              "Viernes 6 · 16:20",
+              "Viernes 6 · 18:40",
+              "Viernes 6 · 22:05",
+              "Sábado 7 · 12:20",
+              "Sábado 7 · 16:15",
+              "Sábado 7 · 19:25",
+              "Sábado 7 · 21:35",
+              "Domingo 8 · 12:20",
+              "Domingo 8 · 16:20",
+              "Domingo 8 · 18:40",
+              "Domingo 8 · 22:05"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Equinoccio",
+            "showtimes": [
+              "Viernes 6 · 16:10",
+              "Viernes 6 · 18:50",
+              "Viernes 6 · 21:30",
+              "Sábado 7 · 12:30",
+              "Sábado 7 · 16:10",
+              "Sábado 7 · 18:50",
+              "Sábado 7 · 21:30",
+              "Domingo 8 · 12:30",
+              "Domingo 8 · 16:10",
+              "Domingo 8 · 18:50",
+              "Domingo 8 · 21:30"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa La Moraleja",
+            "showtimes": [
+              "Viernes 6 · 15:45",
+              "Viernes 6 · 18:45",
+              "Viernes 6 · 22:30",
+              "Sábado 7 · 12:30",
+              "Sábado 7 · 15:45",
+              "Sábado 7 · 19:50",
+              "Sábado 7 · 22:30",
+              "Domingo 8 · 12:30",
+              "Domingo 8 · 15:45",
+              "Domingo 8 · 18:45",
+              "Domingo 8 · 22:30"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Las Rozas - Heron City",
+            "showtimes": [
+              "Viernes 6 · 16:25",
+              "Viernes 6 · 19:05",
+              "Viernes 6 · 21:40",
+              "Sábado 7 · 16:25",
+              "Sábado 7 · 19:05",
+              "Sábado 7 · 21:40",
+              "Domingo 8 · 12:20",
+              "Domingo 8 · 16:25",
+              "Domingo 8 · 19:05",
+              "Domingo 8 · 21:40"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Manoteras",
+            "showtimes": [
+              "Viernes 6 · 15:50",
+              "Viernes 6 · 18:20",
+              "Viernes 6 · 22:10",
+              "Sábado 7 · 12:45",
+              "Sábado 7 · 16:20",
+              "Sábado 7 · 18:20",
+              "Sábado 7 · 22:10",
+              "Domingo 8 · 12:05",
+              "Domingo 8 · 16:25",
+              "Domingo 8 · 18:20",
+              "Domingo 8 · 22:10"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Méndez Álvaro",
+            "showtimes": [
+              "Viernes 6 · 16:10",
+              "Viernes 6 · 18:45",
+              "Viernes 6 · 21:25",
+              "Sábado 7 · 12:25",
+              "Sábado 7 · 16:10",
+              "Sábado 7 · 18:45",
+              "Sábado 7 · 21:25",
+              "Domingo 8 · 12:25",
+              "Domingo 8 · 16:10",
+              "Domingo 8 · 18:45",
+              "Domingo 8 · 21:25"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Nassica-Getafe",
+            "showtimes": [
+              "Viernes 6 · 16:10",
+              "Viernes 6 · 18:45",
+              "Viernes 6 · 21:25",
+              "Sábado 7 · 12:35",
+              "Sábado 7 · 16:10",
+              "Sábado 7 · 18:45",
+              "Sábado 7 · 21:25",
+              "Domingo 8 · 12:35",
+              "Domingo 8 · 16:10",
+              "Domingo 8 · 18:45",
+              "Domingo 8 · 21:25"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Cinesa Príncipe Pío",
+            "showtimes": [
+              "Viernes 6 · 16:30",
+              "Viernes 6 · 19:10",
+              "Viernes 6 · 21:45",
+              "Sábado 7 · 12:00",
+              "Sábado 7 · 16:30",
+              "Sábado 7 · 19:10",
+              "Sábado 7 · 22:05",
+              "Domingo 8 · 16:30",
+              "Domingo 8 · 19:10",
+              "Domingo 8 · 21:45"
+            ],
+            "listing_url": "https://www.cinesa.es"
+          },
+          {
+            "name": "Conde Duque Auditorio Morasol",
+            "showtimes": [
+              "Viernes 6 · 17:00",
+              "Viernes 6 · 19:30",
+              "Viernes 6 · 21:30"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Kinépolis Madrid Ciudad de la Imagen",
+            "showtimes": [
+              "Viernes 6 · 16:30",
+              "Viernes 6 · 19:00",
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 16:30",
+              "Sábado 7 · 19:00",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 16:30",
+              "Domingo 8 · 19:00",
+              "Domingo 8 · 22:15"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Kinépolis Madrid Diversia",
+            "showtimes": [
+              "Viernes 6 · 17:00",
+              "Viernes 6 · 19:45",
+              "Viernes 6 · 22:30",
+              "Sábado 7 · 19:20",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 16:30",
+              "Domingo 8 · 19:20",
+              "Domingo 8 · 22:15"
+            ],
+            "listing_url": null
+          },
+          {
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "16:00",
+              "18:15"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/113285_1_W_0/sacamantecas"
+          },
+          {
+            "name": "Yelmo Cines Ideal",
+            "showtimes": [],
+            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+          },
+          {
+            "name": "Yelmo Cines Islazul",
+            "showtimes": [
+              "Viernes 6 · 18:40",
+              "Viernes 6 · 21:15",
+              "Viernes 6 · 23:25",
+              "Sábado 7 · 16:20",
+              "Sábado 7 · 18:40",
+              "Sábado 7 · 21:15",
+              "Sábado 7 · 23:25",
+              "Domingo 8 · 13:00",
+              "Domingo 8 · 16:20",
+              "Domingo 8 · 18:40",
+              "Domingo 8 · 21:15",
+              "Domingo 8 · 23:25"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Planetocio",
+            "showtimes": [
+              "Viernes 6 · 18:15",
+              "Viernes 6 · 20:30",
+              "Viernes 6 · 22:45",
+              "Sábado 7 · 16:00",
+              "Sábado 7 · 18:15",
+              "Sábado 7 · 20:30",
+              "Sábado 7 · 22:45",
+              "Domingo 8 · 16:00",
+              "Domingo 8 · 18:15",
+              "Domingo 8 · 20:30",
+              "Domingo 8 · 22:45"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Plaza Norte 2",
+            "showtimes": [
+              "Viernes 6 · 17:15",
+              "Viernes 6 · 19:35",
+              "Viernes 6 · 22:00",
+              "Sábado 7 · 12:20",
+              "Sábado 7 · 15:40",
+              "Sábado 7 · 18:00",
+              "Sábado 7 · 20:25",
+              "Sábado 7 · 22:45",
+              "Domingo 8 · 12:20",
+              "Domingo 8 · 14:10",
+              "Domingo 8 · 15:40",
+              "Domingo 8 · 18:00",
+              "Domingo 8 · 20:25",
+              "Domingo 8 · 22:45"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Plenilunio",
+            "showtimes": [
+              "Viernes 6 · 18:05",
+              "Viernes 6 · 20:15",
+              "Viernes 6 · 22:30",
+              "Sábado 7 · 15:55",
+              "Sábado 7 · 18:05",
+              "Sábado 7 · 20:15",
+              "Sábado 7 · 22:30",
+              "Domingo 8 · 15:55",
+              "Domingo 8 · 18:05",
+              "Domingo 8 · 20:15",
+              "Domingo 8 · 22:30"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Rivas H2O",
+            "showtimes": [
+              "Viernes 6 · 17:15",
+              "Viernes 6 · 19:45",
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 15:55",
+              "Sábado 7 · 18:10",
+              "Sábado 7 · 20:25",
+              "Sábado 7 · 22:45",
+              "Domingo 8 · 17:15",
+              "Domingo 8 · 19:45",
+              "Domingo 8 · 22:15"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Cines Tresaguas",
+            "showtimes": [
+              "Viernes 6 · 17:00",
+              "Viernes 6 · 19:15",
+              "Viernes 6 · 21:30",
+              "Viernes 6 · 23:30",
+              "Sábado 7 · 15:40",
+              "Sábado 7 · 17:55",
+              "Sábado 7 · 20:10",
+              "Sábado 7 · 22:30",
+              "Domingo 8 · 15:40",
+              "Domingo 8 · 17:55",
+              "Domingo 8 · 20:10",
+              "Domingo 8 · 22:30"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "Yelmo Parque Corredor",
+            "showtimes": [
+              "Viernes 6 · 17:00",
+              "Viernes 6 · 19:15",
+              "Viernes 6 · 21:30",
+              "Sábado 7 · 17:00",
+              "Sábado 7 · 19:15",
+              "Sábado 7 · 21:30",
+              "Domingo 8 · 13:40",
+              "Domingo 8 · 17:00",
+              "Domingo 8 · 19:15",
+              "Domingo 8 · 21:30"
+            ],
+            "listing_url": "https://yelmocines.es"
+          },
+          {
+            "name": "mk2 Palacio de Hielo",
+            "showtimes": [
+              "Viernes 6 · 16:00",
+              "Viernes 6 · 18:15",
+              "Viernes 6 · 20:25",
+              "Viernes 6 · 22:35",
+              "Sábado 7 · 12:00",
+              "Sábado 7 · 16:00",
+              "Sábado 7 · 18:15",
+              "Sábado 7 · 20:25",
+              "Sábado 7 · 22:35",
+              "Domingo 8 · 12:00",
+              "Domingo 8 · 16:00",
+              "Domingo 8 · 18:15",
+              "Domingo 8 · 20:25",
+              "Domingo 8 · 22:35"
+            ],
+            "listing_url": "https://www.mk2cines.es"
+          }
+        ]
+      },
       {
         "imdb_id": "tt38349235",
         "title": "Esta soledad",
@@ -56,82 +1100,22 @@
         "release_date": "2026-10-30",
         "cinemas": [
           {
-            "name": "Cines Embajadores",
-            "showtimes": [
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 22:30"
-            ],
-            "listing_url": null
-          },
-          {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 15:50",
-              "Viernes 30 · 20:00",
-              "Viernes 30 · 22:25",
-              "Sábado 31 · 15:50",
-              "Sábado 31 · 20:00",
-              "Sábado 31 · 22:25",
-              "Domingo 1 · 15:50",
-              "Domingo 1 · 20:00",
-              "Domingo 1 · 22:25",
-              "Lunes 2 · 15:50",
-              "Lunes 2 · 20:00",
-              "Lunes 2 · 22:25",
-              "Martes 3 · 15:50",
-              "Martes 3 · 22:25",
-              "Miércoles 4 · 15:50",
-              "Miércoles 4 · 20:00",
-              "Miércoles 4 · 22:25",
-              "Jueves 5 · 15:50",
-              "Jueves 5 · 22:25"
+              "Viernes 6 · 20:00",
+              "Viernes 6 · 22:25",
+              "Sábado 7 · 20:00",
+              "Sábado 7 · 22:25",
+              "Domingo 8 · 20:00",
+              "Domingo 8 · 22:25",
+              "Lunes 9 · 20:00",
+              "Lunes 9 · 22:25",
+              "Martes 10 · 22:25",
+              "Miércoles 11 · 20:00",
+              "Miércoles 11 · 22:25",
+              "Jueves 12 · 22:25"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/esta-soledad/"
-          },
-          {
-            "name": "Cinesa Las Rozas - Heron City",
-            "showtimes": [
-              "Viernes 30 · 17:45",
-              "Viernes 30 · 20:15",
-              "Sábado 31 · 17:45",
-              "Sábado 31 · 20:15",
-              "Domingo 1 · 12:25",
-              "Domingo 1 · 17:45",
-              "Domingo 1 · 20:15",
-              "Domingo 1 · 22:25"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Manoteras",
-            "showtimes": [
-              "Viernes 30 · 19:35",
-              "Viernes 30 · 22:10",
-              "Sábado 31 · 12:25",
-              "Sábado 31 · 19:35",
-              "Sábado 31 · 22:20",
-              "Domingo 1 · 12:25",
-              "Domingo 1 · 19:35",
-              "Domingo 1 · 22:10"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Sala Equis",
-            "showtimes": [
-              "Viernes 13 · 22:00",
-              "Sábado 14 · 19:30"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Zoco Majadahonda",
-            "showtimes": [
-              "Viernes 30 · 16:00",
-              "Sábado 31 · 16:00",
-              "Domingo 1 · 16:00"
-            ],
-            "listing_url": null
           }
         ]
       },
@@ -148,171 +1132,152 @@
           {
             "name": "Cines Golem",
             "showtimes": [
-              "17:00",
-              "20:30"
+              "21:00"
             ],
             "listing_url": "https://www.golem.es/golem/pelicula/Hope-(V.O.S.E.)"
           },
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 15:50",
-              "Viernes 30 · 18:45",
-              "Viernes 30 · 21:40",
-              "Sábado 31 · 15:50",
-              "Sábado 31 · 18:45",
-              "Sábado 31 · 21:40",
-              "Domingo 1 · 15:50",
-              "Domingo 1 · 18:45",
-              "Domingo 1 · 21:40",
-              "Lunes 2 · 15:50",
-              "Lunes 2 · 18:45",
-              "Lunes 2 · 21:40",
-              "Martes 3 · 15:50",
-              "Martes 3 · 18:45",
-              "Martes 3 · 21:40",
-              "Miércoles 4 · 15:50",
-              "Miércoles 4 · 18:45",
-              "Miércoles 4 · 21:40",
-              "Jueves 5 · 15:50",
-              "Jueves 5 · 18:45",
-              "Jueves 5 · 21:40"
+              "Viernes 6 · 18:35",
+              "Viernes 6 · 21:30",
+              "Sábado 7 · 18:35",
+              "Sábado 7 · 21:30",
+              "Domingo 8 · 18:35",
+              "Domingo 8 · 21:30",
+              "Lunes 9 · 18:35",
+              "Lunes 9 · 21:30",
+              "Martes 10 · 18:35",
+              "Martes 10 · 21:30",
+              "Miércoles 11 · 18:35",
+              "Miércoles 11 · 21:30",
+              "Jueves 12 · 18:35",
+              "Jueves 12 · 21:30"
             ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/20261030050503-hope/"
+            "listing_url": "https://www.cinesrenoir.com/pelicula/20261106050503-hope/"
           },
           {
             "name": "Cinesa  Xanadú",
             "showtimes": [
-              "Viernes 30 · 18:50",
-              "Viernes 30 · 21:45",
-              "Sábado 31 · 12:20",
-              "Sábado 31 · 18:50",
-              "Sábado 31 · 21:45",
-              "Domingo 1 · 12:20",
-              "Domingo 1 · 18:50",
-              "Domingo 1 · 21:45"
+              "Viernes 6 · 18:45",
+              "Viernes 6 · 21:05",
+              "Sábado 7 · 12:00",
+              "Sábado 7 · 21:05",
+              "Domingo 8 · 12:30",
+              "Domingo 8 · 18:45",
+              "Domingo 8 · 21:05"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Equinoccio",
             "showtimes": [
-              "Sábado 31 · 12:10",
-              "Sábado 31 · 18:20",
-              "Sábado 31 · 21:45",
-              "Domingo 1 · 12:10",
-              "Domingo 1 · 18:20",
-              "Domingo 1 · 21:45"
+              "Viernes 6 · 18:20",
+              "Sábado 7 · 12:05",
+              "Sábado 7 · 18:20",
+              "Domingo 8 · 12:05",
+              "Domingo 8 · 18:20"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa LUXE Oasiz",
             "showtimes": [
-              "Viernes 30 · 18:45",
-              "Sábado 31 · 12:00",
-              "Sábado 31 · 18:45",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 18:45",
-              "Viernes 30 · 21:45",
-              "Sábado 31 · 21:45",
-              "Domingo 1 · 21:45"
+              "Sábado 7 · 21:30",
+              "Domingo 8 · 16:20",
+              "Viernes 6 · 21:40",
+              "Domingo 8 · 21:40"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa La Gavia",
             "showtimes": [
-              "Viernes 30 · 21:40",
-              "Sábado 31 · 21:40",
-              "Domingo 1 · 21:40"
+              "Viernes 6 · 22:00",
+              "Sábado 7 · 22:00",
+              "Domingo 8 · 22:00"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Las Rosas",
             "showtimes": [
-              "Viernes 30 · 21:25",
-              "Sábado 31 · 21:25",
-              "Domingo 1 · 21:25"
+              "Viernes 6 · 22:00",
+              "Domingo 8 · 22:00"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Las Rozas - Heron City",
             "showtimes": [
-              "Viernes 30 · 18:20",
-              "Sábado 31 · 15:50",
-              "Domingo 1 · 15:55",
-              "Domingo 1 · 21:20",
-              "Viernes 30 · 20:40",
-              "Sábado 31 · 18:25",
-              "Domingo 1 · 12:00",
-              "Viernes 30 · 21:50",
-              "Sábado 31 · 21:20",
-              "Domingo 1 · 12:15"
+              "Viernes 6 · 21:20",
+              "Sábado 7 · 17:50",
+              "Sábado 7 · 21:20",
+              "Domingo 8 · 12:00",
+              "Domingo 8 · 17:50",
+              "Viernes 6 · 17:50",
+              "Domingo 8 · 21:20"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Loranca",
             "showtimes": [
-              "Viernes 30 · 21:15",
-              "Sábado 31 · 21:15",
-              "Domingo 1 · 12:25",
-              "Domingo 1 · 21:15"
+              "Viernes 6 · 21:25",
+              "Sábado 7 · 21:45",
+              "Domingo 8 · 12:15",
+              "Domingo 8 · 21:20"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Manoteras",
             "showtimes": [
-              "Viernes 30 · 18:10",
-              "Sábado 31 · 11:50",
-              "Sábado 31 · 18:10",
-              "Domingo 1 · 11:50",
-              "Domingo 1 · 18:10",
-              "Viernes 30 · 21:15",
-              "Sábado 31 · 21:30",
-              "Domingo 1 · 21:15"
+              "Viernes 6 · 18:25",
+              "Viernes 6 · 21:45",
+              "Sábado 7 · 12:05",
+              "Sábado 7 · 18:25",
+              "Sábado 7 · 21:45",
+              "Domingo 8 · 12:05",
+              "Domingo 8 · 18:25",
+              "Domingo 8 · 21:45"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Méndez Álvaro",
             "showtimes": [
-              "Viernes 30 · 17:10",
-              "Domingo 1 · 12:10",
-              "Domingo 1 · 21:10",
-              "Viernes 30 · 20:00",
-              "Domingo 1 · 17:00"
+              "Viernes 6 · 21:30",
+              "Sábado 7 · 12:00",
+              "Domingo 8 · 21:30",
+              "Sábado 7 · 21:30"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Nassica-Getafe",
             "showtimes": [
-              "Viernes 30 · 18:30",
-              "Viernes 30 · 21:50",
-              "Sábado 31 · 12:00",
-              "Sábado 31 · 18:30",
-              "Sábado 31 · 21:50",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 18:30",
-              "Domingo 1 · 21:50"
+              "Viernes 6 · 18:30",
+              "Viernes 6 · 21:50",
+              "Sábado 7 · 12:10",
+              "Sábado 7 · 18:30",
+              "Sábado 7 · 21:50",
+              "Domingo 8 · 12:10",
+              "Domingo 8 · 18:30",
+              "Domingo 8 · 21:50",
+              "Martes 10 · 16:40"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Parquesur",
             "showtimes": [
-              "Viernes 30 · 15:40",
-              "Viernes 30 · 18:50",
-              "Sábado 31 · 18:50",
-              "Sábado 31 · 22:00",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 15:40",
-              "Domingo 1 · 22:00"
+              "Viernes 6 · 19:15",
+              "Viernes 6 · 22:35",
+              "Sábado 7 · 19:15",
+              "Sábado 7 · 22:35",
+              "Domingo 8 · 11:55",
+              "Domingo 8 · 19:15"
             ],
             "listing_url": "https://www.cinesa.es"
           },
@@ -324,104 +1289,72 @@
           {
             "name": "Cinesa Príncipe Pío",
             "showtimes": [
-              "Viernes 30 · 21:00",
-              "Sábado 31 · 12:15",
-              "Domingo 1 · 21:00",
-              "Sábado 31 · 21:00"
+              "Viernes 6 · 22:05",
+              "Sábado 7 · 14:05",
+              "Domingo 8 · 22:05"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Kinépolis Madrid Ciudad de la Imagen",
             "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 22:00",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 22:00",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 22:00",
-              "Viernes 30 · 20:15",
-              "Sábado 31 · 20:15",
-              "Domingo 1 · 20:15",
-              "Viernes 30 · 16:50",
-              "Sábado 31 · 16:50",
-              "Domingo 1 · 16:50"
+              "Viernes 6 · 18:00",
+              "Viernes 6 · 22:00",
+              "Sábado 7 · 18:00",
+              "Sábado 7 · 22:00",
+              "Domingo 8 · 18:00",
+              "Domingo 8 · 22:00",
+              "Sábado 7 · 16:00",
+              "Domingo 8 · 16:00"
             ],
             "listing_url": null
           },
           {
             "name": "Kinépolis Madrid Diversia",
             "showtimes": [
-              "Viernes 30 · 22:15",
-              "Sábado 31 · 16:15",
-              "Sábado 31 · 22:00",
-              "Domingo 1 · 16:15",
-              "Domingo 1 · 22:00",
-              "Viernes 30 · 21:30",
-              "Sábado 31 · 20:30",
-              "Domingo 1 · 20:30"
+              "Viernes 6 · 22:30",
+              "Sábado 7 · 20:40",
+              "Domingo 8 · 20:40"
             ],
             "listing_url": null
           },
           {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "Viernes 30 · 21:30",
-              "Sábado 31 · 21:30",
-              "Domingo 1 · 21:30"
-            ],
-            "listing_url": "https://www.mk2cines.es"
-          },
-          {
             "name": "Ocine Quadernillos",
             "showtimes": [
-              "Viernes 30 · 16:15",
-              "Viernes 30 · 21:30",
-              "Sábado 31 · 16:15",
-              "Sábado 31 · 21:30",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 16:15",
-              "Domingo 1 · 21:30",
-              "Viernes 30 · 19:30",
-              "Viernes 30 · 23:00",
-              "Sábado 31 · 19:30",
-              "Sábado 31 · 23:00",
-              "Domingo 1 · 19:30",
-              "Domingo 1 · 23:00"
+              "Viernes 6 · 19:10",
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 19:10",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 19:10",
+              "Domingo 8 · 22:15"
             ],
             "listing_url": null
           },
           {
             "name": "Ocine Urban Caleido",
             "showtimes": [
-              "Viernes 30 · 18:30",
-              "Viernes 30 · 20:45",
-              "Viernes 30 · 21:45",
-              "Sábado 31 · 12:10",
-              "Sábado 31 · 18:30",
-              "Sábado 31 · 20:45",
-              "Sábado 31 · 21:45",
-              "Domingo 1 · 12:10",
-              "Domingo 1 · 18:30",
-              "Domingo 1 · 20:45",
-              "Domingo 1 · 21:45"
+              "Viernes 6 · 16:00",
+              "Sábado 7 · 12:00",
+              "Sábado 7 · 16:00",
+              "Domingo 8 · 12:00",
+              "Domingo 8 · 16:00",
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 22:15"
             ],
             "listing_url": null
           },
           {
             "name": "Ocine Urban X-Madrid",
             "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 19:00",
-              "Sábado 31 · 11:30",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 19:00",
-              "Domingo 1 · 11:30",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 19:00",
-              "Viernes 30 · 19:45",
-              "Sábado 31 · 19:45",
-              "Domingo 1 · 19:45"
+              "Viernes 6 · 19:15",
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 11:50",
+              "Sábado 7 · 19:15",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 11:50",
+              "Domingo 8 · 19:15",
+              "Domingo 8 · 22:15"
             ],
             "listing_url": null
           },
@@ -433,148 +1366,103 @@
           {
             "name": "Yelmo Cines Islazul",
             "showtimes": [
-              "Viernes 30 · 18:50",
-              "Viernes 30 · 21:55",
-              "Sábado 31 · 15:45",
-              "Sábado 31 · 18:50",
-              "Sábado 31 · 21:55",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 15:45",
-              "Domingo 1 · 18:50",
-              "Domingo 1 · 21:55"
+              "Viernes 6 · 18:55",
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 22:35",
+              "Domingo 8 · 18:25",
+              "Domingo 8 · 21:35"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
             "name": "Yelmo Cines La Vaguada",
             "showtimes": [
-              "Viernes 30 · 19:25",
-              "Viernes 30 · 22:10",
-              "Sábado 31 · 19:25",
-              "Sábado 31 · 22:15",
-              "Domingo 1 · 19:25",
-              "Domingo 1 · 22:10",
-              "Martes 3 · 12:45",
-              "Martes 3 · 21:40",
-              "Miércoles 4 · 12:45",
-              "Jueves 5 · 12:45",
-              "Viernes 30 · 12:45",
-              "Sábado 31 · 12:45",
-              "Domingo 1 · 12:45"
+              "Viernes 6 · 17:40",
+              "Viernes 6 · 22:45",
+              "Sábado 7 · 17:40",
+              "Sábado 7 · 22:45",
+              "Domingo 8 · 17:40",
+              "Domingo 8 · 22:45"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
             "name": "Yelmo Cines Palafox",
             "showtimes": [
-              "Viernes 30 · 19:20",
-              "Viernes 30 · 21:55",
-              "Sábado 31 · 19:30",
-              "Sábado 31 · 21:30",
-              "Domingo 1 · 19:20",
-              "Domingo 1 · 21:55"
+              "Viernes 6 · 18:50",
+              "Sábado 7 · 18:50",
+              "Domingo 8 · 18:50"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
             "name": "Yelmo Cines Planetocio",
             "showtimes": [
-              "Viernes 30 · 18:50",
-              "Viernes 30 · 21:55",
-              "Sábado 31 · 18:50",
-              "Sábado 31 · 21:55",
-              "Domingo 1 · 15:45",
-              "Domingo 1 · 18:50",
-              "Domingo 1 · 21:55",
-              "Martes 3 · 21:55"
+              "Viernes 6 · 17:10",
+              "Viernes 6 · 21:55",
+              "Sábado 7 · 21:55",
+              "Domingo 8 · 21:55",
+              "Martes 10 · 21:55"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
             "name": "Yelmo Cines Plaza Norte 2",
             "showtimes": [
-              "Viernes 30 · 19:10",
-              "Viernes 30 · 22:00",
-              "Sábado 31 · 16:30",
-              "Sábado 31 · 19:20",
-              "Sábado 31 · 22:00",
-              "Domingo 1 · 16:30",
-              "Domingo 1 · 19:20",
-              "Domingo 1 · 22:00",
-              "Martes 3 · 19:10"
+              "Viernes 6 · 17:00",
+              "Viernes 6 · 23:00",
+              "Sábado 7 · 14:10",
+              "Sábado 7 · 22:00",
+              "Domingo 8 · 16:30",
+              "Domingo 8 · 22:00"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
             "name": "Yelmo Cines Plenilunio",
             "showtimes": [
-              "Viernes 30 · 19:00",
-              "Viernes 30 · 22:00",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 19:00",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 13:00",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 19:00",
-              "Domingo 1 · 22:00",
-              "Martes 3 · 22:00"
+              "Viernes 6 · 19:00",
+              "Viernes 6 · 22:00",
+              "Sábado 7 · 13:00",
+              "Sábado 7 · 19:00",
+              "Sábado 7 · 22:00",
+              "Domingo 8 · 13:00",
+              "Domingo 8 · 19:00",
+              "Domingo 8 · 22:00",
+              "Martes 10 · 19:00"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
             "name": "Yelmo Cines Rivas H2O",
             "showtimes": [
-              "Viernes 30 · 19:05",
-              "Viernes 30 · 22:10",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 19:05",
-              "Sábado 31 · 22:10",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 19:05",
-              "Domingo 1 · 22:10",
-              "Martes 3 · 18:55"
+              "Viernes 6 · 20:20",
+              "Sábado 7 · 20:20",
+              "Domingo 8 · 20:50"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
             "name": "Yelmo Parque Corredor",
             "showtimes": [
-              "Viernes 30 · 19:35",
-              "Viernes 30 · 23:00",
-              "Sábado 31 · 19:40",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 19:35",
-              "Domingo 1 · 21:40",
-              "Martes 3 · 22:00"
+              "Viernes 6 · 17:30",
+              "Viernes 6 · 23:00",
+              "Sábado 7 · 17:30",
+              "Sábado 7 · 23:00",
+              "Domingo 8 · 13:45",
+              "Domingo 8 · 17:30"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
-            "name": "Zoco Majadahonda",
-            "showtimes": [
-              "Viernes 30 · 20:00",
-              "Sábado 31 · 20:00",
-              "Domingo 1 · 20:00",
-              "Viernes 30 · 22:10",
-              "Sábado 31 · 22:10",
-              "Domingo 1 · 22:10"
-            ],
-            "listing_url": null
-          },
-          {
             "name": "mk2 Palacio de Hielo",
             "showtimes": [
-              "Viernes 30 · 16:30",
-              "Viernes 30 · 19:30",
-              "Sábado 31 · 11:45",
-              "Sábado 31 · 16:30",
-              "Sábado 31 · 19:30",
-              "Domingo 1 · 11:45",
-              "Domingo 1 · 16:30",
-              "Domingo 1 · 19:30",
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 22:30"
+              "Viernes 6 · 19:30",
+              "Viernes 6 · 22:30",
+              "Sábado 7 · 19:30",
+              "Sábado 7 · 22:30",
+              "Domingo 8 · 19:30",
+              "Domingo 8 · 22:30"
             ],
             "listing_url": "https://www.mk2cines.es"
           }
@@ -593,117 +1481,67 @@
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 18:05",
-              "Viernes 30 · 22:35",
-              "Sábado 31 · 18:05",
-              "Sábado 31 · 22:35",
-              "Domingo 1 · 18:05",
-              "Domingo 1 · 22:35",
-              "Lunes 2 · 18:05",
-              "Lunes 2 · 22:35",
-              "Martes 3 · 18:05",
-              "Martes 3 · 22:35",
-              "Miércoles 4 · 18:05",
-              "Miércoles 4 · 22:35",
-              "Jueves 5 · 18:05",
-              "Jueves 5 · 22:35"
+              "Viernes 6 · 20:10",
+              "Sábado 7 · 20:10",
+              "Domingo 8 · 20:10",
+              "Lunes 9 · 20:10",
+              "Martes 10 · 20:10",
+              "Miércoles 11 · 20:10",
+              "Jueves 12 · 20:10"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/leviticus/"
           },
           {
-            "name": "Cinesa  Xanadú",
-            "showtimes": [
-              "Viernes 30 · 22:20",
-              "Sábado 31 · 22:20",
-              "Domingo 1 · 22:20",
-              "Martes 3 · 22:25"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
             "name": "Cinesa Las Rozas - Heron City",
             "showtimes": [
-              "Viernes 30 · 20:05",
-              "Viernes 30 · 22:15",
-              "Sábado 31 · 20:05",
-              "Sábado 31 · 22:15",
-              "Domingo 1 · 20:05",
-              "Domingo 1 · 22:15"
+              "Viernes 6 · 22:40",
+              "Sábado 7 · 22:40",
+              "Domingo 8 · 22:40"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Manoteras",
             "showtimes": [
-              "Viernes 30 · 20:10",
-              "Sábado 31 · 12:40",
-              "Sábado 31 · 20:10",
-              "Domingo 1 · 12:35",
-              "Domingo 1 · 20:10",
-              "Viernes 30 · 22:20",
-              "Sábado 31 · 22:25",
-              "Domingo 1 · 22:20"
+              "Domingo 8 · 12:45"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Nassica-Getafe",
             "showtimes": [
-              "Viernes 30 · 23:00",
-              "Sábado 31 · 12:20",
-              "Sábado 31 · 20:40",
-              "Sábado 31 · 22:35",
-              "Domingo 1 · 12:20",
-              "Domingo 1 · 20:35",
-              "Domingo 1 · 22:45",
-              "Viernes 30 · 20:15"
+              "Viernes 6 · 23:30",
+              "Sábado 7 · 14:50",
+              "Sábado 7 · 23:30",
+              "Domingo 8 · 14:50",
+              "Domingo 8 · 22:45"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Kinépolis Madrid Ciudad de la Imagen",
             "showtimes": [
-              "Viernes 30 · 16:30",
-              "Viernes 30 · 20:00",
-              "Viernes 30 · 22:10",
-              "Sábado 31 · 19:15",
-              "Sábado 31 · 20:05",
-              "Sábado 31 · 22:15",
-              "Domingo 1 · 16:30",
-              "Domingo 1 · 20:00",
-              "Domingo 1 · 22:10",
-              "Martes 3 · 22:15",
-              "Miércoles 4 · 22:15",
-              "Jueves 5 · 22:15"
+              "Lunes 9 · 22:30",
+              "Martes 10 · 17:00",
+              "Miércoles 11 · 22:30"
             ],
             "listing_url": null
           },
           {
             "name": "Ocine Plaza Éboli",
             "showtimes": [
-              "Viernes 30 · 16:15",
-              "Viernes 30 · 20:20",
-              "Viernes 30 · 22:10",
-              "Sábado 31 · 16:15",
-              "Sábado 31 · 20:20",
-              "Sábado 31 · 22:10",
-              "Domingo 1 · 16:15",
-              "Domingo 1 · 20:20",
-              "Domingo 1 · 22:10"
+              "Viernes 6 · 22:50",
+              "Sábado 7 · 22:50",
+              "Domingo 8 · 20:30"
             ],
             "listing_url": null
           },
           {
             "name": "Ocine Urban X-Madrid",
             "showtimes": [
-              "Viernes 30 · 20:45",
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 11:40",
-              "Sábado 31 · 20:45",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 11:40",
-              "Domingo 1 · 20:45",
-              "Domingo 1 · 22:30"
+              "Viernes 6 · 22:40",
+              "Sábado 7 · 22:40",
+              "Domingo 8 · 22:40"
             ],
             "listing_url": null
           },
@@ -715,46 +1553,17 @@
           {
             "name": "Yelmo Cines Plenilunio",
             "showtimes": [
-              "Viernes 30 · 20:40",
-              "Viernes 30 · 22:35",
-              "Sábado 31 · 20:40",
-              "Sábado 31 · 22:35",
-              "Domingo 1 · 20:40",
-              "Domingo 1 · 22:35",
-              "Martes 3 · 20:40"
+              "Domingo 8 · 22:40"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
             "name": "Yelmo Cines Rivas H2O",
             "showtimes": [
-              "Viernes 30 · 20:45",
-              "Viernes 30 · 22:40",
-              "Sábado 31 · 20:45",
-              "Sábado 31 · 22:40",
-              "Domingo 1 · 21:05",
-              "Domingo 1 · 23:00",
-              "Martes 3 · 22:45"
+              "Viernes 6 · 23:30",
+              "Sábado 7 · 23:30"
             ],
             "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "mk2 Palacio de Hielo",
-            "showtimes": [
-              "Viernes 30 · 16:30",
-              "Viernes 30 · 18:30",
-              "Viernes 30 · 20:30",
-              "Sábado 31 · 16:30",
-              "Sábado 31 · 18:30",
-              "Sábado 31 · 20:30",
-              "Domingo 1 · 16:30",
-              "Domingo 1 · 18:30",
-              "Domingo 1 · 20:30",
-              "Viernes 30 · 22:25",
-              "Sábado 31 · 22:25",
-              "Domingo 1 · 22:25"
-            ],
-            "listing_url": "https://www.mk2cines.es"
           }
         ]
       },
@@ -776,161 +1585,83 @@
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 19:50",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 19:50",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 19:50",
-              "Lunes 2 · 16:00",
-              "Lunes 2 · 19:50",
-              "Martes 3 · 16:00",
-              "Martes 3 · 19:50",
-              "Miércoles 4 · 16:00",
-              "Miércoles 4 · 19:50",
-              "Jueves 5 · 16:00",
-              "Jueves 5 · 19:50"
+              "Viernes 6 · 18:00",
+              "Sábado 7 · 18:00",
+              "Domingo 8 · 18:00",
+              "Lunes 9 · 18:00",
+              "Martes 10 · 18:00",
+              "Miércoles 11 · 18:00",
+              "Jueves 12 · 18:00"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/wicker/"
           },
           {
-            "name": "Cinesa  Xanadú",
-            "showtimes": [
-              "Viernes 30 · 20:00",
-              "Sábado 31 · 12:30",
-              "Sábado 31 · 20:00",
-              "Domingo 1 · 12:30",
-              "Domingo 1 · 20:00"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
             "name": "Cinesa Equinoccio",
             "showtimes": [
-              "Viernes 30 · 21:40",
-              "Sábado 31 · 12:40",
-              "Sábado 31 · 21:40",
-              "Domingo 1 · 12:40",
-              "Domingo 1 · 21:40",
-              "Miércoles 4 · 21:40"
+              "Sábado 7 · 11:55",
+              "Domingo 8 · 11:55"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Las Rozas - Heron City",
             "showtimes": [
-              "Viernes 30 · 16:40",
-              "Viernes 30 · 19:10",
-              "Viernes 30 · 21:45",
-              "Sábado 31 · 16:40",
-              "Sábado 31 · 19:10",
-              "Sábado 31 · 21:45",
-              "Domingo 1 · 16:40",
-              "Domingo 1 · 19:10",
-              "Domingo 1 · 21:45",
-              "Lunes 2 · 16:40"
+              "Viernes 6 · 17:05",
+              "Sábado 7 · 16:50",
+              "Domingo 8 · 17:05"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Manoteras",
             "showtimes": [
-              "Viernes 30 · 19:05",
-              "Viernes 30 · 21:40",
-              "Sábado 31 · 12:35",
-              "Sábado 31 · 19:05",
-              "Sábado 31 · 21:40",
-              "Domingo 1 · 12:35",
-              "Domingo 1 · 19:05",
-              "Domingo 1 · 21:40",
-              "Viernes 30 · 16:15",
-              "Sábado 31 · 16:15",
-              "Domingo 1 · 16:15"
+              "Viernes 6 · 16:25",
+              "Domingo 8 · 16:30",
+              "Sábado 7 · 12:35"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Méndez Álvaro",
             "showtimes": [
-              "Viernes 30 · 19:15",
-              "Viernes 30 · 21:50",
-              "Domingo 1 · 19:15",
-              "Domingo 1 · 21:50",
-              "Lunes 2 · 12:25",
-              "Lunes 2 · 21:50"
+              "Viernes 6 · 16:50",
+              "Sábado 7 · 16:50",
+              "Domingo 8 · 16:50"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Nassica-Getafe",
             "showtimes": [
-              "Viernes 30 · 20:30",
-              "Sábado 31 · 17:10",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 22:35",
-              "Viernes 30 · 18:00",
-              "Sábado 31 · 12:35",
-              "Domingo 1 · 12:35",
-              "Domingo 1 · 17:10"
+              "Viernes 6 · 16:50",
+              "Sábado 7 · 15:00",
+              "Domingo 8 · 15:00"
             ],
             "listing_url": "https://www.cinesa.es"
           },
           {
-            "name": "Kinépolis Madrid Ciudad de la Imagen",
-            "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 19:05",
-              "Viernes 30 · 21:30",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 19:05",
-              "Sábado 31 · 21:30",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 19:00",
-              "Domingo 1 · 21:30"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Mk2 Cine Paz",
-            "showtimes": [
-              "17:20"
-            ],
-            "listing_url": "https://www.cinepazmadrid.es/es/detalles/112425_1_W_0/wicker"
-          },
-          {
             "name": "Ocine Quadernillos",
             "showtimes": [
-              "Viernes 30 · 18:30",
-              "Viernes 30 · 20:40",
-              "Viernes 30 · 22:50",
-              "Sábado 31 · 18:30",
-              "Sábado 31 · 20:40",
-              "Sábado 31 · 22:50",
-              "Domingo 1 · 18:30",
-              "Domingo 1 · 20:40",
-              "Domingo 1 · 22:50",
-              "Martes 3 · 20:40"
+              "Viernes 6 · 16:30",
+              "Sábado 7 · 16:30",
+              "Domingo 8 · 16:30"
             ],
             "listing_url": null
           },
           {
             "name": "Ocine Urban X-Madrid",
             "showtimes": [
-              "Viernes 30 · 16:15",
-              "Viernes 30 · 22:45",
-              "Sábado 31 · 12:00",
-              "Sábado 31 · 16:15",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 16:15",
-              "Domingo 1 · 22:45"
+              "Viernes 6 · 15:45",
+              "Sábado 7 · 15:45",
+              "Domingo 8 · 15:45"
             ],
             "listing_url": null
           },
           {
             "name": "Reston Cinema",
             "showtimes": [
-              "Jueves 5 · 20:00"
+              "Jueves 12 · 20:00",
+              "Jueves 12 · 22:00"
             ],
             "listing_url": null
           },
@@ -940,78 +1671,22 @@
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           },
           {
-            "name": "Yelmo Cines Planetocio",
-            "showtimes": [
-              "Viernes 30 · 20:25",
-              "Viernes 30 · 22:40",
-              "Sábado 31 · 20:25",
-              "Sábado 31 · 22:40",
-              "Domingo 1 · 20:25",
-              "Domingo 1 · 22:40",
-              "Martes 3 · 20:25"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Plaza Norte 2",
-            "showtimes": [
-              "Viernes 30 · 17:25",
-              "Viernes 30 · 21:15",
-              "Sábado 31 · 13:30",
-              "Sábado 31 · 17:00",
-              "Sábado 31 · 21:00",
-              "Domingo 1 · 13:30",
-              "Domingo 1 · 17:40",
-              "Domingo 1 · 22:45",
-              "Martes 3 · 22:20"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
             "name": "Yelmo Cines Plenilunio",
             "showtimes": [
-              "Viernes 30 · 19:50",
-              "Viernes 30 · 22:20",
-              "Sábado 31 · 19:50",
-              "Sábado 31 · 22:20",
-              "Domingo 1 · 13:10",
-              "Domingo 1 · 19:50",
-              "Domingo 1 · 22:20",
-              "Martes 3 · 22:20"
+              "Lunes 9 · 16:50",
+              "Martes 10 · 16:55",
+              "Miércoles 11 · 16:55"
             ],
             "listing_url": "https://yelmocines.es"
           },
           {
             "name": "Yelmo Cines Rivas H2O",
             "showtimes": [
-              "Viernes 30 · 20:10",
-              "Viernes 30 · 22:25",
-              "Sábado 31 · 20:10",
-              "Sábado 31 · 22:25",
-              "Domingo 1 · 20:10",
-              "Domingo 1 · 22:25",
-              "Martes 3 · 22:25"
+              "Lunes 9 · 21:30",
+              "Martes 10 · 21:30",
+              "Miércoles 11 · 21:30"
             ],
             "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "mk2 Palacio de Hielo",
-            "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 18:10",
-              "Viernes 30 · 20:20",
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 18:10",
-              "Sábado 31 · 20:20",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 12:15",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 18:10",
-              "Domingo 1 · 20:20",
-              "Domingo 1 · 22:30"
-            ],
-            "listing_url": "https://www.mk2cines.es"
           }
         ]
       },
@@ -1026,232 +1701,17 @@
         "release_date": "2026-10-23",
         "cinemas": [
           {
-            "name": "Cines La Rambla",
-            "showtimes": [
-              "Viernes 30 · 18:00",
-              "Viernes 30 · 22:05",
-              "Sábado 31 · 18:05",
-              "Sábado 31 · 22:05",
-              "Domingo 1 · 20:05"
-            ],
-            "listing_url": null
-          },
-          {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 15:50",
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 15:50",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 15:50",
-              "Domingo 1 · 22:30",
-              "Lunes 2 · 15:50",
-              "Lunes 2 · 22:30",
-              "Martes 3 · 15:50",
-              "Martes 3 · 22:30",
-              "Miércoles 4 · 15:50",
-              "Miércoles 4 · 22:30",
-              "Jueves 5 · 15:50",
-              "Jueves 5 · 22:30"
+              "Viernes 6 · 15:50",
+              "Sábado 7 · 15:50",
+              "Domingo 8 · 15:50",
+              "Lunes 9 · 15:50",
+              "Martes 10 · 15:50",
+              "Miércoles 11 · 15:50",
+              "Jueves 12 · 15:50"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/clayface/"
-          },
-          {
-            "name": "Cinesa  Xanadú",
-            "showtimes": [
-              "Viernes 30 · 16:25",
-              "Viernes 30 · 18:55",
-              "Viernes 30 · 21:40",
-              "Sábado 31 · 16:25",
-              "Sábado 31 · 18:55",
-              "Sábado 31 · 21:40",
-              "Domingo 1 · 16:25",
-              "Domingo 1 · 18:55",
-              "Domingo 1 · 21:40",
-              "Martes 3 · 16:30"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Equinoccio",
-            "showtimes": [
-              "Viernes 30 · 19:10",
-              "Viernes 30 · 22:35",
-              "Sábado 31 · 19:10",
-              "Sábado 31 · 22:35",
-              "Domingo 1 · 19:10",
-              "Viernes 30 · 15:50",
-              "Sábado 31 · 15:50",
-              "Domingo 1 · 15:50",
-              "Domingo 1 · 22:35"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa LUXE Oasiz",
-            "showtimes": [
-              "Viernes 30 · 19:40",
-              "Viernes 30 · 22:20",
-              "Sábado 31 · 19:40",
-              "Sábado 31 · 21:20",
-              "Domingo 1 · 19:45",
-              "Domingo 1 · 21:15",
-              "Viernes 30 · 16:45",
-              "Sábado 31 · 16:45",
-              "Domingo 1 · 16:45",
-              "Sábado 31 · 12:00",
-              "Domingo 1 · 12:00",
-              "Lunes 2 · 22:10",
-              "Miércoles 4 · 22:10"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa La Gavia",
-            "showtimes": [
-              "Viernes 30 · 19:30",
-              "Viernes 30 · 22:10",
-              "Sábado 31 · 19:30",
-              "Sábado 31 · 22:00",
-              "Domingo 1 · 12:30",
-              "Domingo 1 · 17:00",
-              "Domingo 1 · 19:30",
-              "Viernes 30 · 17:00",
-              "Sábado 31 · 17:00",
-              "Domingo 1 · 22:00"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa La Moraleja",
-            "showtimes": [
-              "Viernes 30 · 19:30",
-              "Viernes 30 · 22:05",
-              "Sábado 31 · 19:30",
-              "Sábado 31 · 22:05",
-              "Domingo 1 · 12:15",
-              "Domingo 1 · 19:30",
-              "Domingo 1 · 22:05"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Las Rosas",
-            "showtimes": [
-              "Viernes 30 · 17:00",
-              "Viernes 30 · 19:45",
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 17:00",
-              "Sábado 31 · 19:45",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 17:00",
-              "Domingo 1 · 19:45",
-              "Domingo 1 · 22:30",
-              "Lunes 2 · 21:30",
-              "Martes 3 · 22:30",
-              "Miércoles 4 · 21:30"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Las Rozas - Heron City",
-            "showtimes": [
-              "Viernes 30 · 16:45",
-              "Viernes 30 · 22:15",
-              "Sábado 31 · 16:45",
-              "Sábado 31 · 19:30",
-              "Domingo 1 · 12:25",
-              "Domingo 1 · 16:45",
-              "Domingo 1 · 19:30",
-              "Domingo 1 · 22:15",
-              "Viernes 30 · 19:30",
-              "Sábado 31 · 22:15"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Loranca",
-            "showtimes": [
-              "Viernes 30 · 16:05",
-              "Viernes 30 · 19:35",
-              "Viernes 30 · 22:05",
-              "Sábado 31 · 16:05",
-              "Sábado 31 · 18:45",
-              "Sábado 31 · 22:05",
-              "Domingo 1 · 16:05",
-              "Domingo 1 · 19:55",
-              "Domingo 1 · 22:05"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Manoteras",
-            "showtimes": [
-              "Viernes 30 · 19:15",
-              "Viernes 30 · 21:55",
-              "Sábado 31 · 12:40",
-              "Sábado 31 · 19:15",
-              "Sábado 31 · 21:55",
-              "Domingo 1 · 12:40",
-              "Domingo 1 · 19:15",
-              "Domingo 1 · 21:55",
-              "Viernes 30 · 16:45",
-              "Sábado 31 · 16:45",
-              "Domingo 1 · 16:45"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Méndez Álvaro",
-            "showtimes": [
-              "Viernes 30 · 16:45",
-              "Viernes 30 · 19:30",
-              "Domingo 1 · 16:55",
-              "Domingo 1 · 19:30",
-              "Viernes 30 · 22:10",
-              "Domingo 1 · 22:10"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Nassica-Getafe",
-            "showtimes": [
-              "Viernes 30 · 17:00",
-              "Viernes 30 · 19:35",
-              "Viernes 30 · 22:15",
-              "Viernes 30 · 23:30",
-              "Sábado 31 · 12:30",
-              "Sábado 31 · 17:00",
-              "Sábado 31 · 19:35",
-              "Sábado 31 · 22:15",
-              "Sábado 31 · 23:30",
-              "Domingo 1 · 12:30",
-              "Domingo 1 · 17:00",
-              "Domingo 1 · 19:35",
-              "Domingo 1 · 22:15",
-              "Viernes 30 · 16:00",
-              "Sábado 31 · 16:00",
-              "Domingo 1 · 16:00"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Parquesur",
-            "showtimes": [
-              "Viernes 30 · 17:15",
-              "Viernes 30 · 19:45",
-              "Viernes 30 · 22:15",
-              "Viernes 30 · 23:30",
-              "Sábado 31 · 17:15",
-              "Sábado 31 · 19:45",
-              "Sábado 31 · 22:15",
-              "Sábado 31 · 23:30",
-              "Domingo 1 · 12:20",
-              "Domingo 1 · 17:15",
-              "Domingo 1 · 19:45",
-              "Domingo 1 · 22:15"
-            ],
-            "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Proyecciones",
@@ -1259,306 +1719,9 @@
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
-            "name": "Cinesa Príncipe Pío",
-            "showtimes": [
-              "Viernes 30 · 16:45",
-              "Viernes 30 · 22:10",
-              "Sábado 31 · 16:45",
-              "Sábado 31 · 19:30",
-              "Sábado 31 · 22:20",
-              "Domingo 1 · 16:45",
-              "Domingo 1 · 19:30",
-              "Domingo 1 · 22:10",
-              "Viernes 30 · 19:30",
-              "Sábado 31 · 12:05",
-              "Lunes 2 · 12:05"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Kinépolis Madrid Ciudad de la Imagen",
-            "showtimes": [
-              "Viernes 30 · 16:45",
-              "Viernes 30 · 19:15",
-              "Viernes 30 · 21:45",
-              "Sábado 31 · 16:45",
-              "Sábado 31 · 19:15",
-              "Sábado 31 · 21:45",
-              "Domingo 1 · 16:45",
-              "Domingo 1 · 19:15",
-              "Domingo 1 · 21:45",
-              "Viernes 30 · 19:30",
-              "Sábado 31 · 19:30",
-              "Domingo 1 · 19:30",
-              "Viernes 30 · 17:00",
-              "Sábado 31 · 17:00",
-              "Domingo 1 · 17:00",
-              "Viernes 30 · 19:20",
-              "Sábado 31 · 19:20",
-              "Domingo 1 · 19:20"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Kinépolis Madrid Diversia",
-            "showtimes": [
-              "Viernes 30 · 20:15",
-              "Viernes 30 · 22:40",
-              "Sábado 31 · 20:00",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 20:00",
-              "Domingo 1 · 22:30",
-              "Viernes 30 · 17:00",
-              "Viernes 30 · 19:30",
-              "Sábado 31 · 19:30",
-              "Domingo 1 · 19:30"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Plaza Éboli",
-            "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 18:15",
-              "Viernes 30 · 20:30",
-              "Sábado 31 · 20:00",
-              "Sábado 31 · 22:10",
-              "Domingo 1 · 20:00",
-              "Domingo 1 · 22:10"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Quadernillos",
-            "showtimes": [
-              "Viernes 30 · 16:30",
-              "Viernes 30 · 23:00",
-              "Sábado 31 · 16:30",
-              "Sábado 31 · 23:00",
-              "Domingo 1 · 16:30",
-              "Domingo 1 · 23:00",
-              "Viernes 30 · 19:15",
-              "Sábado 31 · 19:15",
-              "Domingo 1 · 19:15"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Urban Caleido",
-            "showtimes": [
-              "Viernes 30 · 16:20",
-              "Viernes 30 · 22:50",
-              "Sábado 31 · 12:15",
-              "Sábado 31 · 16:20",
-              "Sábado 31 · 22:50",
-              "Domingo 1 · 12:15",
-              "Domingo 1 · 16:20",
-              "Domingo 1 · 22:50"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Urban X-Madrid",
-            "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 18:10",
-              "Viernes 30 · 20:20",
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 18:15",
-              "Sábado 31 · 20:20",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 11:45",
-              "Domingo 1 · 18:15",
-              "Domingo 1 · 20:20",
-              "Domingo 1 · 22:30"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Reston Cinema",
-            "showtimes": [
-              "Domingo 1 · 20:00"
-            ],
-            "listing_url": null
-          },
-          {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          },
-          {
-            "name": "Yelmo Cines Islazul",
-            "showtimes": [
-              "Viernes 30 · 17:00",
-              "Viernes 30 · 17:50",
-              "Viernes 30 · 20:20",
-              "Viernes 30 · 23:00",
-              "Sábado 31 · 16:45",
-              "Sábado 31 · 19:50",
-              "Sábado 31 · 22:10",
-              "Domingo 1 · 12:05",
-              "Domingo 1 · 16:45",
-              "Domingo 1 · 19:50",
-              "Domingo 1 · 22:10"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines La Vaguada",
-            "showtimes": [
-              "Viernes 30 · 13:00",
-              "Viernes 30 · 15:25",
-              "Viernes 30 · 18:25",
-              "Viernes 30 · 20:45",
-              "Viernes 30 · 23:00",
-              "Sábado 31 · 15:25",
-              "Sábado 31 · 18:25",
-              "Sábado 31 · 20:45",
-              "Sábado 31 · 23:00",
-              "Domingo 1 · 15:25",
-              "Domingo 1 · 18:25",
-              "Domingo 1 · 20:45",
-              "Domingo 1 · 23:00",
-              "Martes 3 · 22:20"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Palafox",
-            "showtimes": [
-              "Viernes 30 · 15:40",
-              "Viernes 30 · 18:30",
-              "Viernes 30 · 22:35",
-              "Sábado 31 · 15:00",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 13:30",
-              "Domingo 1 · 18:30",
-              "Domingo 1 · 22:35"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Planetocio",
-            "showtimes": [
-              "Viernes 30 · 18:10",
-              "Viernes 30 · 20:30",
-              "Viernes 30 · 22:45",
-              "Sábado 31 · 15:55",
-              "Sábado 31 · 18:05",
-              "Sábado 31 · 20:30",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 15:55",
-              "Domingo 1 · 18:05",
-              "Domingo 1 · 20:30",
-              "Domingo 1 · 22:45",
-              "Martes 3 · 22:45"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Plaza Norte 2",
-            "showtimes": [
-              "Viernes 30 · 17:15",
-              "Viernes 30 · 19:35",
-              "Viernes 30 · 20:45",
-              "Viernes 30 · 22:00",
-              "Viernes 30 · 23:15",
-              "Sábado 31 · 12:45",
-              "Sábado 31 · 15:40",
-              "Sábado 31 · 17:00",
-              "Sábado 31 · 20:25",
-              "Sábado 31 · 22:00",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 12:45",
-              "Domingo 1 · 15:40",
-              "Domingo 1 · 17:00",
-              "Domingo 1 · 20:25",
-              "Domingo 1 · 22:00",
-              "Domingo 1 · 22:45",
-              "Martes 3 · 22:40"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Plenilunio",
-            "showtimes": [
-              "Viernes 30 · 18:15",
-              "Viernes 30 · 20:30",
-              "Viernes 30 · 22:45",
-              "Sábado 31 · 15:55",
-              "Sábado 31 · 18:15",
-              "Sábado 31 · 20:30",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 12:45",
-              "Domingo 1 · 15:55",
-              "Domingo 1 · 18:15",
-              "Domingo 1 · 20:30",
-              "Domingo 1 · 22:45",
-              "Martes 3 · 22:45"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Rivas H2O",
-            "showtimes": [
-              "Viernes 30 · 18:00",
-              "Viernes 30 · 20:30",
-              "Viernes 30 · 22:45",
-              "Sábado 31 · 15:55",
-              "Sábado 31 · 18:00",
-              "Sábado 31 · 20:30",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 16:05",
-              "Domingo 1 · 18:05",
-              "Domingo 1 · 20:45",
-              "Domingo 1 · 23:05",
-              "Martes 3 · 22:45"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Tresaguas",
-            "showtimes": [
-              "Viernes 30 · 20:15",
-              "Viernes 30 · 22:45",
-              "Sábado 31 · 20:15",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 14:40",
-              "Domingo 1 · 20:30",
-              "Domingo 1 · 22:45",
-              "Martes 3 · 22:45"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Parque Corredor",
-            "showtimes": [
-              "Viernes 30 · 17:40",
-              "Viernes 30 · 20:45",
-              "Viernes 30 · 22:50",
-              "Sábado 31 · 15:55",
-              "Sábado 31 · 18:10",
-              "Sábado 31 · 20:30",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 15:40",
-              "Domingo 1 · 18:00",
-              "Domingo 1 · 19:25",
-              "Domingo 1 · 22:45",
-              "Martes 3 · 22:35"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "mk2 Palacio de Hielo",
-            "showtimes": [
-              "Viernes 30 · 20:20",
-              "Viernes 30 · 22:35",
-              "Sábado 31 · 20:20",
-              "Sábado 31 · 22:35",
-              "Domingo 1 · 20:20",
-              "Domingo 1 · 22:35"
-            ],
-            "listing_url": "https://www.mk2cines.es"
           }
         ]
       },
@@ -1573,357 +1736,17 @@
         "release_date": "2026-10-23",
         "cinemas": [
           {
-            "name": "Cines La Rambla",
-            "showtimes": [
-              "Viernes 30 · 20:00",
-              "Viernes 30 · 22:00",
-              "Sábado 31 · 20:00",
-              "Sábado 31 · 22:00",
-              "Domingo 1 · 20:05"
-            ],
-            "listing_url": null
-          },
-          {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 15:50",
-              "Viernes 30 · 20:25",
-              "Sábado 31 · 15:50",
-              "Sábado 31 · 20:25",
-              "Domingo 1 · 15:50",
-              "Domingo 1 · 20:25",
-              "Lunes 2 · 15:50",
-              "Lunes 2 · 20:25",
-              "Martes 3 · 15:50",
-              "Martes 3 · 20:25",
-              "Miércoles 4 · 15:50",
-              "Miércoles 4 · 20:25",
-              "Jueves 5 · 15:50",
-              "Jueves 5 · 20:25"
+              "Viernes 6 · 22:00",
+              "Sábado 7 · 22:00",
+              "Domingo 8 · 22:00",
+              "Lunes 9 · 22:00",
+              "Martes 10 · 22:00",
+              "Miércoles 11 · 22:00",
+              "Jueves 12 · 22:00"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/leones-en-invierno/"
-          },
-          {
-            "name": "Cines Villa",
-            "showtimes": [
-              "Viernes 30 · 20:00",
-              "Sábado 31 · 20:00",
-              "Domingo 1 · 20:00"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Cinesa  Xanadú",
-            "showtimes": [
-              "Viernes 30 · 16:25",
-              "Viernes 30 · 19:05",
-              "Viernes 30 · 22:10",
-              "Sábado 31 · 12:30",
-              "Sábado 31 · 15:40",
-              "Sábado 31 · 19:05",
-              "Sábado 31 · 22:10",
-              "Domingo 1 · 12:30",
-              "Domingo 1 · 16:45",
-              "Domingo 1 · 19:05",
-              "Domingo 1 · 22:10"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Equinoccio",
-            "showtimes": [
-              "Viernes 30 · 15:55",
-              "Viernes 30 · 20:00",
-              "Sábado 31 · 20:05",
-              "Domingo 1 · 20:05"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa LUXE Oasiz",
-            "showtimes": [
-              "Viernes 30 · 16:20",
-              "Viernes 30 · 19:50",
-              "Viernes 30 · 21:45",
-              "Sábado 31 · 12:20",
-              "Sábado 31 · 16:30",
-              "Sábado 31 · 19:50",
-              "Sábado 31 · 22:20",
-              "Domingo 1 · 12:20",
-              "Domingo 1 · 16:15",
-              "Domingo 1 · 19:45",
-              "Domingo 1 · 22:20"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Las Rozas - Heron City",
-            "showtimes": [
-              "Viernes 30 · 19:55",
-              "Viernes 30 · 22:35",
-              "Sábado 31 · 19:55",
-              "Sábado 31 · 22:35",
-              "Domingo 1 · 19:25",
-              "Domingo 1 · 22:05"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Loranca",
-            "showtimes": [
-              "Viernes 30 · 16:15",
-              "Viernes 30 · 18:55",
-              "Viernes 30 · 21:35",
-              "Sábado 31 · 15:45",
-              "Sábado 31 · 19:35",
-              "Sábado 31 · 21:05",
-              "Domingo 1 · 12:30",
-              "Domingo 1 · 16:15",
-              "Domingo 1 · 19:35",
-              "Domingo 1 · 21:05"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Manoteras",
-            "showtimes": [
-              "Viernes 30 · 17:00",
-              "Viernes 30 · 18:50",
-              "Viernes 30 · 22:05",
-              "Sábado 31 · 12:15",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 21:25",
-              "Domingo 1 · 12:15",
-              "Domingo 1 · 16:10",
-              "Domingo 1 · 18:50",
-              "Domingo 1 · 22:05"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Méndez Álvaro",
-            "showtimes": [
-              "Viernes 30 · 16:35",
-              "Viernes 30 · 19:25",
-              "Viernes 30 · 22:15",
-              "Domingo 1 · 16:35",
-              "Domingo 1 · 20:05",
-              "Domingo 1 · 22:45"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Nassica-Getafe",
-            "showtimes": [
-              "Viernes 30 · 17:00",
-              "Viernes 30 · 19:40",
-              "Viernes 30 · 22:25",
-              "Sábado 31 · 12:05",
-              "Sábado 31 · 16:45",
-              "Sábado 31 · 19:20",
-              "Sábado 31 · 21:15",
-              "Domingo 1 · 12:05",
-              "Domingo 1 · 16:45",
-              "Domingo 1 · 19:20",
-              "Domingo 1 · 21:15"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Parquesur",
-            "showtimes": [
-              "Viernes 30 · 16:35",
-              "Viernes 30 · 19:15",
-              "Viernes 30 · 21:55",
-              "Sábado 31 · 16:35",
-              "Sábado 31 · 19:15",
-              "Domingo 1 · 11:50",
-              "Domingo 1 · 16:35",
-              "Domingo 1 · 19:15"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Príncipe Pío",
-            "showtimes": [
-              "Viernes 30 · 21:40",
-              "Sábado 31 · 21:25",
-              "Domingo 1 · 18:00"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Kinépolis Madrid Ciudad de la Imagen",
-            "showtimes": [
-              "Viernes 30 · 16:45",
-              "Viernes 30 · 19:15",
-              "Viernes 30 · 21:50",
-              "Sábado 31 · 16:45",
-              "Sábado 31 · 19:15",
-              "Sábado 31 · 21:50",
-              "Domingo 1 · 16:45",
-              "Domingo 1 · 19:15",
-              "Domingo 1 · 21:50"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Kinépolis Madrid Diversia",
-            "showtimes": [
-              "Viernes 30 · 19:40",
-              "Viernes 30 · 22:20",
-              "Sábado 31 · 19:40",
-              "Sábado 31 · 22:25",
-              "Domingo 1 · 19:40",
-              "Domingo 1 · 22:25"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Plaza Éboli",
-            "showtimes": [
-              "Viernes 30 · 16:10",
-              "Viernes 30 · 20:20",
-              "Sábado 31 · 18:10",
-              "Sábado 31 · 20:30",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 18:10",
-              "Domingo 1 · 20:30",
-              "Domingo 1 · 22:45"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Quadernillos",
-            "showtimes": [
-              "Viernes 30 · 20:20",
-              "Viernes 30 · 22:45",
-              "Sábado 31 · 20:20",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 20:20",
-              "Domingo 1 · 22:45"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Urban Caleido",
-            "showtimes": [
-              "Viernes 30 · 20:15",
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 20:15",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 20:15",
-              "Domingo 1 · 22:30"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Urban X-Madrid",
-            "showtimes": [
-              "Viernes 30 · 15:45",
-              "Viernes 30 · 18:00",
-              "Viernes 30 · 20:15",
-              "Sábado 31 · 15:45",
-              "Sábado 31 · 18:00",
-              "Sábado 31 · 20:15",
-              "Domingo 1 · 15:45",
-              "Domingo 1 · 18:00",
-              "Domingo 1 · 20:15",
-              "Viernes 30 · 18:20",
-              "Viernes 30 · 20:30",
-              "Viernes 30 · 22:45"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Reston Cinema",
-            "showtimes": [
-              "Domingo 1 · 18:00"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Yelmo Cines Islazul",
-            "showtimes": [
-              "Viernes 30 · 17:20",
-              "Viernes 30 · 19:50",
-              "Viernes 30 · 22:15",
-              "Sábado 31 · 22:35",
-              "Domingo 1 · 12:45",
-              "Domingo 1 · 17:20",
-              "Domingo 1 · 19:55",
-              "Domingo 1 · 22:20"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Planetocio",
-            "showtimes": [
-              "Viernes 30 · 19:55",
-              "Viernes 30 · 22:25",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 19:55"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Plaza Norte 2",
-            "showtimes": [
-              "Viernes 30 · 19:45",
-              "Viernes 30 · 22:15",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 20:00",
-              "Domingo 1 · 22:30"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Plenilunio",
-            "showtimes": [
-              "Viernes 30 · 17:35",
-              "Viernes 30 · 21:45",
-              "Sábado 31 · 22:25",
-              "Domingo 1 · 13:15",
-              "Domingo 1 · 15:40",
-              "Domingo 1 · 22:25"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Rivas H2O",
-            "showtimes": [
-              "Viernes 30 · 17:45",
-              "Viernes 30 · 20:15",
-              "Viernes 30 · 22:40",
-              "Sábado 31 · 20:15",
-              "Sábado 31 · 22:40",
-              "Domingo 1 · 20:25",
-              "Domingo 1 · 22:50"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Parque Corredor",
-            "showtimes": [
-              "Viernes 30 · 20:40",
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 22:25",
-              "Domingo 1 · 15:35",
-              "Domingo 1 · 20:05"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "mk2 Palacio de Hielo",
-            "showtimes": [
-              "Viernes 30 · 20:00",
-              "Viernes 30 · 22:25",
-              "Sábado 31 · 20:00",
-              "Sábado 31 · 22:25",
-              "Domingo 1 · 20:00",
-              "Domingo 1 · 22:25"
-            ],
-            "listing_url": "https://www.mk2cines.es"
           }
         ]
       },
@@ -1938,214 +1761,43 @@
         "release_date": "2026-10-23",
         "cinemas": [
           {
-            "name": "Cines Embajadores",
-            "showtimes": [],
-            "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
-          },
-          {
-            "name": "Cines La Rambla",
-            "showtimes": [
-              "Viernes 30 · 19:00",
-              "Sábado 31 · 17:30",
-              "Domingo 1 · 17:45"
-            ],
-            "listing_url": null
-          },
-          {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 18:35",
-              "Viernes 30 · 21:30",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 18:35",
-              "Sábado 31 · 21:30",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 18:35",
-              "Domingo 1 · 21:30",
-              "Lunes 2 · 16:00",
-              "Lunes 2 · 18:35",
-              "Lunes 2 · 21:30",
-              "Martes 3 · 16:00",
-              "Martes 3 · 18:35",
-              "Martes 3 · 21:30",
-              "Miércoles 4 · 16:00",
-              "Miércoles 4 · 18:35",
-              "Miércoles 4 · 21:30",
-              "Jueves 5 · 16:00",
-              "Jueves 5 · 21:30"
+              "Viernes 6 · 16:00",
+              "Viernes 6 · 18:15",
+              "Sábado 7 · 16:00",
+              "Sábado 7 · 18:15",
+              "Domingo 8 · 16:00",
+              "Domingo 8 · 18:15",
+              "Lunes 9 · 16:00",
+              "Lunes 9 · 18:15",
+              "Martes 10 · 16:00",
+              "Martes 10 · 18:15",
+              "Miércoles 11 · 16:00",
+              "Miércoles 11 · 18:15",
+              "Jueves 12 · 16:00",
+              "Jueves 12 · 18:15"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/sentido-y-sensibilidad/"
           },
           {
             "name": "Cines Renoir (Retiro)",
             "showtimes": [
-              "Viernes 30 · 17:45",
-              "Viernes 30 · 20:15",
-              "Viernes 30 · 22:45",
-              "Sábado 31 · 17:45",
-              "Sábado 31 · 20:15",
-              "Sábado 31 · 22:45",
-              "Domingo 1 · 17:45",
-              "Domingo 1 · 20:15",
-              "Domingo 1 · 22:45",
-              "Lunes 2 · 17:45",
-              "Lunes 2 · 20:15",
-              "Lunes 2 · 22:45",
-              "Martes 3 · 17:45",
-              "Martes 3 · 20:15",
-              "Martes 3 · 22:45",
-              "Miércoles 4 · 17:45",
-              "Miércoles 4 · 20:15",
-              "Miércoles 4 · 22:45"
+              "Viernes 6 · 15:45",
+              "Viernes 6 · 20:30",
+              "Sábado 7 · 15:45",
+              "Sábado 7 · 20:30",
+              "Domingo 8 · 15:45",
+              "Domingo 8 · 20:30",
+              "Lunes 9 · 15:45",
+              "Lunes 9 · 20:30",
+              "Martes 10 · 15:45",
+              "Martes 10 · 20:30",
+              "Miércoles 11 · 15:45",
+              "Miércoles 11 · 20:30",
+              "Jueves 12 · 15:45"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/sentido-y-sensibilidad/"
-          },
-          {
-            "name": "Cinesa  Xanadú",
-            "showtimes": [
-              "Viernes 30 · 21:00",
-              "Sábado 31 · 12:25",
-              "Sábado 31 · 21:05",
-              "Domingo 1 · 12:25",
-              "Domingo 1 · 21:05"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Equinoccio",
-            "showtimes": [
-              "Viernes 30 · 15:45",
-              "Sábado 31 · 15:20",
-              "Sábado 31 · 18:50",
-              "Domingo 1 · 15:20",
-              "Domingo 1 · 18:50",
-              "Viernes 30 · 18:45",
-              "Sábado 31 · 12:20",
-              "Domingo 1 · 12:20"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa LUXE Oasiz",
-            "showtimes": [
-              "Viernes 30 · 17:15",
-              "Sábado 31 · 17:15",
-              "Domingo 1 · 17:15"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa La Gavia",
-            "showtimes": [
-              "Viernes 30 · 18:20",
-              "Sábado 31 · 21:00",
-              "Domingo 1 · 21:00"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa La Moraleja",
-            "showtimes": [
-              "Viernes 30 · 18:15",
-              "Viernes 30 · 21:10",
-              "Sábado 31 · 20:00",
-              "Sábado 31 · 21:10",
-              "Domingo 1 · 12:05",
-              "Domingo 1 · 20:00",
-              "Domingo 1 · 21:10",
-              "Jueves 5 · 21:10"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Las Rosas",
-            "showtimes": [
-              "Viernes 30 · 19:00",
-              "Viernes 30 · 22:00",
-              "Sábado 31 · 19:00",
-              "Sábado 31 · 22:00",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 19:00",
-              "Viernes 30 · 16:00",
-              "Domingo 1 · 22:00"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Las Rozas - Heron City",
-            "showtimes": [
-              "Viernes 30 · 18:45",
-              "Viernes 30 · 21:45",
-              "Sábado 31 · 18:45",
-              "Sábado 31 · 21:45",
-              "Domingo 1 · 18:45",
-              "Domingo 1 · 21:45",
-              "Viernes 30 · 15:50",
-              "Sábado 31 · 15:50",
-              "Domingo 1 · 12:10",
-              "Domingo 1 · 15:50"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Loranca",
-            "showtimes": [
-              "Viernes 30 · 21:40",
-              "Sábado 31 · 21:40",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 21:40"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Manoteras",
-            "showtimes": [
-              "Viernes 30 · 18:40",
-              "Viernes 30 · 21:35",
-              "Sábado 31 · 12:05",
-              "Sábado 31 · 18:40",
-              "Sábado 31 · 20:55",
-              "Domingo 1 · 12:05",
-              "Domingo 1 · 18:40",
-              "Domingo 1 · 20:55",
-              "Viernes 30 · 15:45",
-              "Sábado 31 · 15:45",
-              "Domingo 1 · 15:45"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Méndez Álvaro",
-            "showtimes": [
-              "Viernes 30 · 18:35",
-              "Domingo 1 · 18:35",
-              "Viernes 30 · 16:20",
-              "Domingo 1 · 12:15",
-              "Domingo 1 · 16:00"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Nassica-Getafe",
-            "showtimes": [
-              "Viernes 30 · 18:45",
-              "Viernes 30 · 21:40",
-              "Sábado 31 · 17:55",
-              "Sábado 31 · 21:50",
-              "Domingo 1 · 19:30",
-              "Domingo 1 · 21:50"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Parquesur",
-            "showtimes": [
-              "Viernes 30 · 21:15",
-              "Sábado 31 · 21:15",
-              "Domingo 1 · 21:15"
-            ],
-            "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Proyecciones",
@@ -2153,206 +1805,16 @@
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
-            "name": "Cinesa Príncipe Pío",
-            "showtimes": [
-              "Viernes 30 · 18:45",
-              "Sábado 31 · 19:50",
-              "Domingo 1 · 18:45",
-              "Miércoles 4 · 18:45"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Kinépolis Madrid Ciudad de la Imagen",
-            "showtimes": [
-              "Viernes 30 · 19:20",
-              "Viernes 30 · 22:15",
-              "Sábado 31 · 19:20",
-              "Sábado 31 · 22:15",
-              "Domingo 1 · 19:20",
-              "Domingo 1 · 22:15",
-              "Viernes 30 · 16:30",
-              "Sábado 31 · 16:30",
-              "Domingo 1 · 16:30"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Kinépolis Madrid Diversia",
-            "showtimes": [
-              "Viernes 30 · 17:00",
-              "Sábado 31 · 16:00",
-              "Domingo 1 · 16:00"
-            ],
-            "listing_url": null
-          },
-          {
             "name": "Mk2 Cine Paz",
             "showtimes": [
-              "16:20",
-              "19:25"
+              "15:50"
             ],
             "listing_url": "https://www.cinepazmadrid.es/es/detalles/111711_1_W_0/sentido-y-sensibilidad"
-          },
-          {
-            "name": "Ocine Quadernillos",
-            "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 22:30",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 22:30"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Urban Caleido",
-            "showtimes": [
-              "Viernes 30 · 17:50",
-              "Viernes 30 · 20:20",
-              "Sábado 31 · 12:20",
-              "Sábado 31 · 17:50",
-              "Sábado 31 · 20:20",
-              "Domingo 1 · 12:20",
-              "Domingo 1 · 17:50",
-              "Domingo 1 · 20:20"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Urban X-Madrid",
-            "showtimes": [
-              "Viernes 30 · 22:00",
-              "Sábado 31 · 16:00",
-              "Domingo 1 · 16:00",
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 19:30"
-            ],
-            "listing_url": null
           },
           {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          },
-          {
-            "name": "Yelmo Cines Islazul",
-            "showtimes": [
-              "Viernes 30 · 19:10",
-              "Sábado 31 · 16:25",
-              "Domingo 1 · 16:25"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines La Vaguada",
-            "showtimes": [
-              "Viernes 30 · 19:45",
-              "Sábado 31 · 22:40",
-              "Domingo 1 · 19:45"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Palafox",
-            "showtimes": [
-              "Viernes 30 · 16:20",
-              "Viernes 30 · 21:00",
-              "Sábado 31 · 12:05",
-              "Sábado 31 · 20:30",
-              "Domingo 1 · 12:30",
-              "Domingo 1 · 15:45",
-              "Domingo 1 · 21:00",
-              "Martes 3 · 17:10"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Planetocio",
-            "showtimes": [
-              "Viernes 30 · 17:20",
-              "Sábado 31 · 22:25",
-              "Domingo 1 · 22:25"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Plaza Norte 2",
-            "showtimes": [
-              "Viernes 30 · 17:00",
-              "Viernes 30 · 19:30",
-              "Sábado 31 · 12:15",
-              "Sábado 31 · 20:00",
-              "Domingo 1 · 12:15",
-              "Domingo 1 · 20:00",
-              "Martes 3 · 19:30"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Plenilunio",
-            "showtimes": [
-              "Viernes 30 · 19:30",
-              "Sábado 31 · 16:50",
-              "Domingo 1 · 14:25",
-              "Domingo 1 · 19:30"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Rivas H2O",
-            "showtimes": [
-              "Viernes 30 · 19:05",
-              "Sábado 31 · 19:05",
-              "Domingo 1 · 19:05"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Tresaguas",
-            "showtimes": [
-              "Viernes 30 · 17:00",
-              "Sábado 31 · 22:30",
-              "Domingo 1 · 17:00"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Parque Corredor",
-            "showtimes": [
-              "Viernes 30 · 17:20",
-              "Sábado 31 · 22:40",
-              "Domingo 1 · 13:05",
-              "Domingo 1 · 22:25"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Zoco Majadahonda",
-            "showtimes": [
-              "Viernes 30 · 18:00",
-              "Sábado 31 · 18:00",
-              "Domingo 1 · 18:00",
-              "Martes 3 · 18:00"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "mk2 Palacio de Hielo",
-            "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 18:45",
-              "Viernes 30 · 21:30",
-              "Sábado 31 · 11:45",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 18:45",
-              "Sábado 31 · 21:30",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 18:45",
-              "Domingo 1 · 21:30"
-            ],
-            "listing_url": "https://www.mk2cines.es"
           }
         ]
       },
@@ -2367,184 +1829,24 @@
         "release_date": "2026-10-23",
         "cinemas": [
           {
-            "name": "Cines La Rambla",
-            "showtimes": [
-              "Viernes 30 · 17:45",
-              "Sábado 31 · 15:45",
-              "Sábado 31 · 19:50",
-              "Domingo 1 · 11:45",
-              "Domingo 1 · 17:45"
-            ],
-            "listing_url": null
-          },
-          {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 18:00",
-              "Viernes 30 · 21:50",
-              "Sábado 31 · 18:00",
-              "Sábado 31 · 21:50",
-              "Domingo 1 · 18:00",
-              "Domingo 1 · 21:50",
-              "Lunes 2 · 18:00",
-              "Lunes 2 · 21:50",
-              "Martes 3 · 18:00",
-              "Martes 3 · 21:50",
-              "Miércoles 4 · 18:00",
-              "Miércoles 4 · 21:50",
-              "Jueves 5 · 18:00",
-              "Jueves 5 · 21:50"
+              "Viernes 6 · 15:50",
+              "Viernes 6 · 20:45",
+              "Sábado 7 · 15:50",
+              "Sábado 7 · 20:45",
+              "Domingo 8 · 15:50",
+              "Domingo 8 · 20:45",
+              "Lunes 9 · 15:50",
+              "Lunes 9 · 20:45",
+              "Martes 10 · 15:50",
+              "Martes 10 · 20:45",
+              "Miércoles 11 · 15:50",
+              "Miércoles 11 · 20:45",
+              "Jueves 12 · 15:50",
+              "Jueves 12 · 20:45"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/wildwood/"
-          },
-          {
-            "name": "Cinesa  Xanadú",
-            "showtimes": [
-              "Viernes 30 · 15:55",
-              "Sábado 31 · 12:15",
-              "Sábado 31 · 15:55",
-              "Domingo 1 · 12:15",
-              "Domingo 1 · 15:55"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Equinoccio",
-            "showtimes": [
-              "Viernes 30 · 18:50",
-              "Viernes 30 · 21:50",
-              "Sábado 31 · 16:20",
-              "Sábado 31 · 21:50",
-              "Domingo 1 · 16:20",
-              "Domingo 1 · 21:50",
-              "Sábado 31 · 12:40",
-              "Domingo 1 · 12:40"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa LUXE Oasiz",
-            "showtimes": [
-              "Viernes 30 · 15:45",
-              "Sábado 31 · 12:40",
-              "Sábado 31 · 15:40",
-              "Domingo 1 · 12:40",
-              "Domingo 1 · 15:30",
-              "Viernes 30 · 18:30",
-              "Sábado 31 · 18:15",
-              "Domingo 1 · 18:15"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa La Gavia",
-            "showtimes": [
-              "Viernes 30 · 18:30",
-              "Sábado 31 · 18:45",
-              "Domingo 1 · 18:45"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa La Moraleja",
-            "showtimes": [
-              "Viernes 30 · 18:50",
-              "Sábado 31 · 18:50",
-              "Domingo 1 · 18:50",
-              "Domingo 1 · 12:30"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Las Rosas",
-            "showtimes": [
-              "Viernes 30 · 16:20",
-              "Viernes 30 · 18:40",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 18:40",
-              "Domingo 1 · 16:20",
-              "Domingo 1 · 19:20"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Las Rozas - Heron City",
-            "showtimes": [
-              "Viernes 30 · 16:10",
-              "Viernes 30 · 18:15",
-              "Sábado 31 · 16:10",
-              "Sábado 31 · 18:15",
-              "Domingo 1 · 16:10",
-              "Domingo 1 · 18:15",
-              "Viernes 30 · 21:15",
-              "Sábado 31 · 21:15",
-              "Domingo 1 · 21:15"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Loranca",
-            "showtimes": [
-              "Viernes 30 · 16:10",
-              "Viernes 30 · 18:45",
-              "Sábado 31 · 16:10",
-              "Sábado 31 · 18:45",
-              "Domingo 1 · 12:20",
-              "Domingo 1 · 16:10",
-              "Domingo 1 · 18:45"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Manoteras",
-            "showtimes": [
-              "Viernes 30 · 18:50",
-              "Viernes 30 · 21:30",
-              "Sábado 31 · 12:30",
-              "Sábado 31 · 18:50",
-              "Domingo 1 · 12:30",
-              "Domingo 1 · 18:50",
-              "Domingo 1 · 21:30",
-              "Viernes 30 · 15:55",
-              "Sábado 31 · 15:55",
-              "Domingo 1 · 15:55"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Méndez Álvaro",
-            "showtimes": [
-              "Viernes 30 · 21:15",
-              "Domingo 1 · 18:15",
-              "Viernes 30 · 18:15",
-              "Domingo 1 · 12:05",
-              "Domingo 1 · 21:15"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Nassica-Getafe",
-            "showtimes": [
-              "Viernes 30 · 17:50",
-              "Sábado 31 · 12:00",
-              "Sábado 31 · 17:50",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 17:50",
-              "Viernes 30 · 20:45",
-              "Sábado 31 · 20:45",
-              "Domingo 1 · 20:45"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Cinesa Parquesur",
-            "showtimes": [
-              "Viernes 30 · 15:55",
-              "Sábado 31 · 15:55",
-              "Domingo 1 · 12:10",
-              "Domingo 1 · 15:55"
-            ],
-            "listing_url": "https://www.cinesa.es"
           },
           {
             "name": "Cinesa Proyecciones",
@@ -2552,173 +1854,9 @@
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
           },
           {
-            "name": "Cinesa Príncipe Pío",
-            "showtimes": [
-              "Viernes 30 · 21:15",
-              "Sábado 31 · 12:20",
-              "Domingo 1 · 21:15",
-              "Viernes 30 · 18:15",
-              "Sábado 31 · 17:05",
-              "Domingo 1 · 17:45"
-            ],
-            "listing_url": "https://www.cinesa.es"
-          },
-          {
-            "name": "Kinépolis Madrid Ciudad de la Imagen",
-            "showtimes": [
-              "Viernes 30 · 18:20",
-              "Viernes 30 · 21:15",
-              "Sábado 31 · 18:20",
-              "Sábado 31 · 21:15",
-              "Domingo 1 · 18:20",
-              "Domingo 1 · 21:15",
-              "Viernes 30 · 16:45",
-              "Sábado 31 · 20:30",
-              "Domingo 1 · 16:45"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Quadernillos",
-            "showtimes": [
-              "Viernes 30 · 18:30",
-              "Viernes 30 · 20:00",
-              "Sábado 31 · 18:30",
-              "Sábado 31 · 20:00",
-              "Domingo 1 · 18:30",
-              "Domingo 1 · 20:00",
-              "Jueves 5 · 18:00"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Urban Caleido",
-            "showtimes": [
-              "Viernes 30 · 18:15",
-              "Sábado 31 · 18:15",
-              "Domingo 1 · 18:15"
-            ],
-            "listing_url": null
-          },
-          {
-            "name": "Ocine Urban X-Madrid",
-            "showtimes": [
-              "Viernes 30 · 15:50",
-              "Viernes 30 · 18:00",
-              "Sábado 31 · 18:00",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 18:00"
-            ],
-            "listing_url": null
-          },
-          {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
             "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          },
-          {
-            "name": "Yelmo Cines Islazul",
-            "showtimes": [
-              "Viernes 30 · 19:40",
-              "Sábado 31 · 20:10",
-              "Domingo 1 · 19:30"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines La Vaguada",
-            "showtimes": [
-              "Viernes 30 · 13:20",
-              "Viernes 30 · 19:05",
-              "Sábado 31 · 12:40",
-              "Sábado 31 · 19:45",
-              "Domingo 1 · 13:20",
-              "Domingo 1 · 19:05"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Palafox",
-            "showtimes": [
-              "Viernes 30 · 17:30",
-              "Sábado 31 · 13:00",
-              "Sábado 31 · 16:35",
-              "Domingo 1 · 11:55",
-              "Domingo 1 · 17:00"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Planetocio",
-            "showtimes": [
-              "Viernes 30 · 17:15",
-              "Sábado 31 · 17:15",
-              "Domingo 1 · 17:15"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Plaza Norte 2",
-            "showtimes": [
-              "Viernes 30 · 19:45",
-              "Sábado 31 · 12:00",
-              "Sábado 31 · 19:45",
-              "Domingo 1 · 12:00",
-              "Domingo 1 · 16:40",
-              "Domingo 1 · 19:45"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Plenilunio",
-            "showtimes": [
-              "Viernes 30 · 17:55",
-              "Sábado 31 · 17:25",
-              "Sábado 31 · 20:05",
-              "Domingo 1 · 13:30",
-              "Domingo 1 · 14:15",
-              "Domingo 1 · 16:55",
-              "Domingo 1 · 19:35"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Rivas H2O",
-            "showtimes": [
-              "Viernes 30 · 19:45",
-              "Sábado 31 · 19:45",
-              "Domingo 1 · 19:45"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Cines Tresaguas",
-            "showtimes": [
-              "Viernes 30 · 17:20",
-              "Sábado 31 · 15:30",
-              "Domingo 1 · 13:00",
-              "Domingo 1 · 15:30"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "Yelmo Parque Corredor",
-            "showtimes": [
-              "Viernes 30 · 18:00",
-              "Sábado 31 · 15:45",
-              "Domingo 1 · 14:45",
-              "Domingo 1 · 17:25"
-            ],
-            "listing_url": "https://yelmocines.es"
-          },
-          {
-            "name": "mk2 Palacio de Hielo",
-            "showtimes": [
-              "Viernes 30 · 19:50",
-              "Sábado 31 · 19:50",
-              "Domingo 1 · 19:50"
-            ],
-            "listing_url": "https://www.mk2cines.es"
           }
         ]
       },
@@ -2740,120 +1878,90 @@
           {
             "name": "Cines Renoir (Plaza de España)",
             "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 20:00",
-              "Viernes 30 · 22:20",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 20:00",
-              "Sábado 31 · 22:20",
-              "Domingo 1 · 15:50",
-              "Domingo 1 · 20:20",
-              "Domingo 1 · 22:20",
-              "Lunes 2 · 16:00",
-              "Lunes 2 · 20:00",
-              "Lunes 2 · 22:20",
-              "Martes 3 · 16:00",
-              "Martes 3 · 20:00",
-              "Martes 3 · 22:20",
-              "Miércoles 4 · 16:00",
-              "Miércoles 4 · 20:00",
-              "Miércoles 4 · 22:20",
-              "Jueves 5 · 16:00",
-              "Jueves 5 · 20:00",
-              "Jueves 5 · 22:20"
+              "Viernes 6 · 20:10",
+              "Viernes 6 · 22:15",
+              "Sábado 7 · 20:10",
+              "Sábado 7 · 22:15",
+              "Domingo 8 · 20:10",
+              "Domingo 8 · 22:15",
+              "Lunes 9 · 20:10",
+              "Lunes 9 · 22:15",
+              "Martes 10 · 20:10",
+              "Martes 10 · 22:15",
+              "Miércoles 11 · 20:10",
+              "Miércoles 11 · 22:15",
+              "Jueves 12 · 22:15"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/la-invitacion/"
           },
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 15:50",
-              "Viernes 30 · 18:00",
-              "Viernes 30 · 20:00",
-              "Sábado 31 · 15:50",
-              "Sábado 31 · 18:00",
-              "Sábado 31 · 20:00",
-              "Domingo 1 · 15:50",
-              "Domingo 1 · 18:00",
-              "Domingo 1 · 20:00",
-              "Lunes 2 · 15:50",
-              "Lunes 2 · 18:00",
-              "Lunes 2 · 20:00",
-              "Martes 3 · 15:50",
-              "Martes 3 · 18:00",
-              "Martes 3 · 20:00",
-              "Miércoles 4 · 15:50",
-              "Miércoles 4 · 18:00",
-              "Miércoles 4 · 20:00",
-              "Jueves 5 · 15:50",
-              "Jueves 5 · 18:00",
-              "Jueves 5 · 20:00"
+              "Viernes 6 · 16:00",
+              "Viernes 6 · 18:00",
+              "Viernes 6 · 20:20",
+              "Sábado 7 · 16:00",
+              "Sábado 7 · 18:00",
+              "Sábado 7 · 20:20",
+              "Domingo 8 · 16:00",
+              "Domingo 8 · 18:00",
+              "Domingo 8 · 20:20",
+              "Lunes 9 · 16:00",
+              "Lunes 9 · 18:00",
+              "Lunes 9 · 20:20",
+              "Martes 10 · 16:00",
+              "Martes 10 · 18:00",
+              "Martes 10 · 20:20",
+              "Miércoles 11 · 16:00",
+              "Miércoles 11 · 18:00",
+              "Miércoles 11 · 20:20",
+              "Jueves 12 · 16:00",
+              "Jueves 12 · 18:00",
+              "Jueves 12 · 20:20"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/la-invitacion/"
           },
           {
             "name": "Cines Renoir (Retiro)",
             "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 18:00",
-              "Viernes 30 · 20:00",
-              "Viernes 30 · 22:15",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 18:00",
-              "Sábado 31 · 20:00",
-              "Sábado 31 · 22:15",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 18:00",
-              "Domingo 1 · 20:00",
-              "Domingo 1 · 22:15",
-              "Lunes 2 · 16:00",
-              "Lunes 2 · 18:00",
-              "Lunes 2 · 20:00",
-              "Lunes 2 · 22:15",
-              "Martes 3 · 16:00",
-              "Martes 3 · 18:00",
-              "Martes 3 · 20:00",
-              "Martes 3 · 22:15",
-              "Miércoles 4 · 16:00",
-              "Miércoles 4 · 18:00",
-              "Miércoles 4 · 20:00",
-              "Miércoles 4 · 22:15",
-              "Jueves 5 · 16:00",
-              "Jueves 5 · 18:00",
-              "Jueves 5 · 20:00",
-              "Jueves 5 · 22:15"
+              "Viernes 6 · 15:45",
+              "Viernes 6 · 18:00",
+              "Viernes 6 · 20:15",
+              "Sábado 7 · 15:45",
+              "Sábado 7 · 18:00",
+              "Sábado 7 · 20:15",
+              "Domingo 8 · 15:45",
+              "Domingo 8 · 18:00",
+              "Domingo 8 · 20:15",
+              "Lunes 9 · 15:45",
+              "Lunes 9 · 18:00",
+              "Lunes 9 · 20:15",
+              "Martes 10 · 15:45",
+              "Martes 10 · 18:00",
+              "Martes 10 · 20:15",
+              "Miércoles 11 · 15:45",
+              "Miércoles 11 · 18:00",
+              "Miércoles 11 · 20:15",
+              "Jueves 12 · 15:45",
+              "Jueves 12 · 18:00",
+              "Jueves 12 · 20:15"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/la-invitacion/"
           },
           {
-            "name": "Cinesa Proyecciones",
-            "showtimes": [],
-            "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
             "name": "Mk2 Cine Paz",
             "showtimes": [
-              "19:00"
+              "18:20"
             ],
             "listing_url": "https://www.cinepazmadrid.es/es/detalles/111285_1_W_0/la-invitacion"
           },
           {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt27419420",
-        "title": "Street Fighter",
-        "poster": "https://image.tmdb.org/t/p/w500/2kdEEUkbkJe08kTDMCUbBrZ71Aw.jpg",
-        "rating": 0.0,
-        "imdb_url": "https://www.imdb.com/title/tt27419420/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "2026-10-16",
-        "cinemas": [
+            "name": "Mk2 Cine Paz",
+            "showtimes": [
+              "18:30"
+            ],
+            "listing_url": "https://www.cinepazmadrid.es/es/detalles/111285_1_X_0/la-invitacion"
+          },
           {
             "name": "Yelmo Cines Ideal",
             "showtimes": [],
@@ -2874,8 +1982,8 @@
           {
             "name": "Cines Golem",
             "showtimes": [
-              "16:10",
-              "20:15"
+              "19:00",
+              "22:15"
             ],
             "listing_url": "https://www.golem.es/golem/pelicula/Ceniza-en-la-boca"
           }
@@ -2894,19 +2002,33 @@
           {
             "name": "Cines Renoir (Princesa)",
             "showtimes": [
-              "Viernes 30 · 17:55",
-              "Viernes 30 · 20:00",
-              "Sábado 31 · 17:55",
-              "Sábado 31 · 20:00",
-              "Domingo 1 · 17:55",
-              "Domingo 1 · 20:00",
-              "Lunes 2 · 17:55",
-              "Lunes 2 · 20:00",
-              "Martes 3 · 17:55",
-              "Martes 3 · 20:00",
-              "Miércoles 4 · 17:55",
-              "Miércoles 4 · 20:00",
-              "Jueves 5 · 17:55"
+              "Viernes 6 · 15:50",
+              "Viernes 6 · 18:00",
+              "Viernes 6 · 20:10",
+              "Viernes 6 · 22:20",
+              "Sábado 7 · 15:50",
+              "Sábado 7 · 18:00",
+              "Sábado 7 · 20:10",
+              "Sábado 7 · 22:20",
+              "Domingo 8 · 15:50",
+              "Domingo 8 · 18:00",
+              "Domingo 8 · 20:10",
+              "Domingo 8 · 22:20",
+              "Lunes 9 · 15:50",
+              "Lunes 9 · 18:00",
+              "Lunes 9 · 20:10",
+              "Lunes 9 · 22:20",
+              "Martes 10 · 15:50",
+              "Martes 10 · 18:00",
+              "Martes 10 · 20:10",
+              "Martes 10 · 22:20",
+              "Miércoles 11 · 15:50",
+              "Miércoles 11 · 18:00",
+              "Miércoles 11 · 20:10",
+              "Miércoles 11 · 22:20",
+              "Jueves 12 · 15:50",
+              "Jueves 12 · 18:00",
+              "Jueves 12 · 22:20"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/el-precio-de-la-red/"
           }
@@ -2945,49 +2067,38 @@
             "listing_url": "https://cinesembajadores.es/madrid/cartelera-del-dia/"
           },
           {
-            "name": "Cines Golem",
-            "showtimes": [
-              "22:00"
-            ],
-            "listing_url": "https://www.golem.es/golem/pelicula/nazavo"
-          },
-          {
             "name": "Cines Renoir (Plaza de España)",
             "showtimes": [
-              "Viernes 30 · 16:00",
-              "Viernes 30 · 17:50",
-              "Viernes 30 · 20:35",
-              "Viernes 30 · 22:35",
-              "Sábado 31 · 16:00",
-              "Sábado 31 · 17:50",
-              "Sábado 31 · 20:35",
-              "Sábado 31 · 22:35",
-              "Domingo 1 · 16:00",
-              "Domingo 1 · 17:50",
-              "Domingo 1 · 20:35",
-              "Domingo 1 · 22:35",
-              "Lunes 2 · 16:00",
-              "Lunes 2 · 17:50",
-              "Lunes 2 · 20:35",
-              "Lunes 2 · 22:35",
-              "Martes 3 · 16:00",
-              "Martes 3 · 17:50",
-              "Martes 3 · 20:35",
-              "Martes 3 · 22:35",
-              "Miércoles 4 · 16:00",
-              "Miércoles 4 · 17:50",
-              "Miércoles 4 · 20:35",
-              "Miércoles 4 · 22:35",
-              "Jueves 5 · 16:00",
-              "Jueves 5 · 17:50",
-              "Jueves 5 · 22:35"
+              "Viernes 6 · 16:10",
+              "Viernes 6 · 18:25",
+              "Viernes 6 · 20:25",
+              "Viernes 6 · 22:40",
+              "Sábado 7 · 16:10",
+              "Sábado 7 · 18:25",
+              "Sábado 7 · 20:25",
+              "Sábado 7 · 22:40",
+              "Domingo 8 · 16:10",
+              "Domingo 8 · 18:25",
+              "Domingo 8 · 20:25",
+              "Domingo 8 · 22:40",
+              "Lunes 9 · 16:10",
+              "Lunes 9 · 18:25",
+              "Lunes 9 · 20:25",
+              "Lunes 9 · 22:40",
+              "Martes 10 · 16:10",
+              "Martes 10 · 18:25",
+              "Martes 10 · 20:25",
+              "Martes 10 · 22:40",
+              "Miércoles 11 · 16:10",
+              "Miércoles 11 · 18:25",
+              "Miércoles 11 · 20:25",
+              "Miércoles 11 · 22:40",
+              "Jueves 12 · 16:10",
+              "Jueves 12 · 18:25",
+              "Jueves 12 · 20:25",
+              "Jueves 12 · 22:40"
             ],
             "listing_url": "https://www.cinesrenoir.com/pelicula/naza/"
-          },
-          {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
@@ -3002,27 +2113,9 @@
         "release_date": "2026-10-02",
         "cinemas": [
           {
-            "name": "Cines Renoir (Princesa)",
-            "showtimes": [
-              "Viernes 30 · 15:50",
-              "Sábado 31 · 15:50",
-              "Domingo 1 · 15:50",
-              "Lunes 2 · 15:50",
-              "Martes 3 · 15:50",
-              "Miércoles 4 · 15:50",
-              "Jueves 5 · 15:50"
-            ],
-            "listing_url": "https://www.cinesrenoir.com/pelicula/verity-la-sombra-de-un-engano/"
-          },
-          {
             "name": "Cinesa Proyecciones",
             "showtimes": [],
             "listing_url": "https://www.cinesa.es/cines/proyecciones/"
-          },
-          {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
           }
         ]
       },
@@ -3044,42 +2137,6 @@
         ]
       },
       {
-        "imdb_id": "tt29714073",
-        "title": "Bad Apples",
-        "poster": "https://image.tmdb.org/t/p/w500/sDgb5jVuZ6ZOh4YjtSMMnbovkCi.jpg",
-        "rating": 6.963,
-        "imdb_url": "https://www.imdb.com/title/tt29714073/",
-        "reason": "Sale Saoirse Ronan, de tus actores favoritos",
-        "score": 85,
-        "release_date": "2026-09-11",
-        "cinemas": [
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt39571626",
-        "title": "El deshielo",
-        "poster": "https://image.tmdb.org/t/p/w500/7wREwMWtKOy6TF7NS9RWchJoKQC.jpg",
-        "rating": 6.0,
-        "imdb_url": "https://www.imdb.com/title/tt39571626/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "2026-08-26",
-        "cinemas": [
-          {
-            "name": "Cineteca (Matadero Madrid)",
-            "showtimes": [
-              "18:30"
-            ],
-            "listing_url": "https://www.cinetecamadrid.com/programacion/el-deshielo"
-          }
-        ]
-      },
-      {
         "imdb_id": "tt33764258",
         "title": "La Odisea",
         "poster": "https://image.tmdb.org/t/p/w500/9aeb5U0saB7Tuu0QITaoENZBxFF.jpg",
@@ -3097,55 +2154,40 @@
         ]
       },
       {
-        "imdb_id": "tt14755038",
-        "title": "Cinco lobitos",
-        "poster": "https://image.tmdb.org/t/p/w500/2VJcaYzD1gdNPpb4DaXDgmQ9VmK.jpg",
-        "rating": 7.2,
-        "imdb_url": "https://www.imdb.com/title/tt14755038/",
-        "reason": "Sale Laia Costa, de tus actores favoritos",
+        "imdb_id": "tt30645201",
+        "title": "Honey Don't!",
+        "poster": "https://image.tmdb.org/t/p/w500/fJm3kmd9NLZWypMas7g34oNFgbk.jpg",
+        "rating": 5.549,
+        "imdb_url": "https://www.imdb.com/title/tt30645201/",
+        "reason": "Sale Aubrey Plaza y Lera Abova, de tus actores favoritos",
         "score": 85,
-        "release_date": "2022-05-17",
-        "cinemas": [
-          {
-            "name": "Sala Equis",
-            "showtimes": [],
-            "listing_url": "https://salaequis.es"
-          }
-        ]
-      },
-      {
-        "imdb_id": "tt0121164",
-        "title": "La novia cadáver",
-        "poster": "https://image.tmdb.org/t/p/w500/3ALM0VeZjGUryAqWo6pqohzbLDh.jpg",
-        "rating": 7.597,
-        "imdb_url": "https://www.imdb.com/title/tt0121164/",
-        "reason": "Sale Helena Bonham Carter, de tus actores favoritos",
-        "score": 85,
-        "release_date": "2005-10-28",
+        "release_date": "2025-10-03",
         "cinemas": [
           {
             "name": "Filmoteca - Cine Doré",
             "showtimes": [
-              "31/10 17:30"
+              "08/11 17:30"
             ],
-            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/la-novia-cadaver-4/2026-10-31\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
+            "listing_url": "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thttps://entradasfilmoteca.sacatuentrada.es/es/entradas/honey-08-nov/2026-11-08\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
           }
         ]
       },
       {
-        "imdb_id": "tt0087332",
-        "title": "Los Cazafantasmas",
-        "poster": "https://image.tmdb.org/t/p/w500/7eZUL4fvjVkmNPbD8IxQT4X9emt.jpg",
-        "rating": 7.5,
-        "imdb_url": "https://www.imdb.com/title/tt0087332/",
-        "reason": "Está en tu lista de pendientes",
-        "score": 100,
-        "release_date": "1984-12-05",
+        "imdb_id": "tt43621154",
+        "title": "Jaleos",
+        "poster": "https://image.tmdb.org/t/p/w500/eVpzT8pLVO6DYpxSU7N5Z3xXLXe.jpg",
+        "rating": 0.0,
+        "imdb_url": "https://www.imdb.com/title/tt43621154/",
+        "reason": "Dirigida por Isaki Lacuesta, a quien sueles puntuar alto (2 pelis con nota ≥8)",
+        "score": 65,
+        "release_date": null,
         "cinemas": [
           {
-            "name": "Yelmo Cines Ideal",
-            "showtimes": [],
-            "listing_url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-ideal/"
+            "name": "Cines Renoir (Plaza de España)",
+            "showtimes": [
+              "Martes 10 · 20:30"
+            ],
+            "listing_url": "https://www.cinesrenoir.com/pelicula/jaleos/"
           }
         ]
       }
